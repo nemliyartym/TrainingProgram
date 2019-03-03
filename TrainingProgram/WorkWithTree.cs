@@ -36,7 +36,7 @@ namespace TrainingProgram
                 while (sqlDataReader.Read())
                 {
                     idList.Add(Int32.Parse(sqlDataReader[0].ToString()));
-                    treeView.Nodes.Add(sqlDataReader[1].ToString());
+                    treeView.Nodes.Add(sqlDataReader[1].ToString()).Tag = sqlDataReader[0];
                 }
                 sqlDataReader.Close();
                 sqlConnection.Close();
@@ -45,13 +45,13 @@ namespace TrainingProgram
             }
         }
 
-        int numberRooot = 0;
+        public int numbersRoot = 0;
         /// <summary>
-        /// Наикдываем упраженния на каждую группы мышц
+        /// Наикдываем упраженния на каждую группы мышц используются в FillTree()
         /// </summary>
         private void selected(int id)
         {
-            string sqlSelect = @"select e.exercises from Exercises e join MusclesAndExercises me on e.idExercises = me.idExercises join Muscles m on m.idMuscles = me.idMuscles where m.idMuscles = " + id;
+            string sqlSelect = @"select e.idExercises, e.exercises from Exercises e join MusclesAndExercises me on e.idExercises = me.idExercises join Muscles m on m.idMuscles = me.idMuscles where m.idMuscles = " + id;
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 sqlConnection.Open();
@@ -60,14 +60,16 @@ namespace TrainingProgram
 
                 while (sqlDataReader.Read())
                 {
-                    treeView.Nodes[numberRooot].Nodes.Add(sqlDataReader[0].ToString());
+                    treeView.Nodes[numbersRoot].Nodes.Add(sqlDataReader[1].ToString()).Tag = sqlDataReader[0];
                 }
                 sqlDataReader.Close();
                 sqlConnection.Close();
             }
-            numberRooot++;
+            numbersRoot++;
 
         }
+
+
 
     }
 }

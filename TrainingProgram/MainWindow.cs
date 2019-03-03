@@ -17,11 +17,25 @@ namespace TrainingProgram
         public MainWindow()
         {
             InitializeComponent();
+            Win32.AllocConsole();
+
 
             WorkWithTree workWithTree = new WorkWithTree(treeViewMusclesAndExercises);
             workWithTree.FillTree();
 
-            pictureBoxFromImages.Image = Image.FromFile(@"C:\Users\79374\Desktop\foto\1.jpg");
+            treeViewMusclesAndExercises.AfterSelect += TreeViewMusclesAndExercises_AfterSelect;
+
+
+
+        }
+
+        private void TreeViewMusclesAndExercises_AfterSelect(object sender, TreeViewEventArgs e)
+        { 
+            if(e.Node.Parent != null)
+            {
+                WorkWithImages workWithImages = new WorkWithImages();
+                workWithImages.RedFileFromDataBase(pictureBoxFromImages,Convert.ToInt32(e.Node.Tag));
+            }
 
         }
 
@@ -42,5 +56,8 @@ namespace TrainingProgram
             buttonBack.Visible = false;
             pictureBoxFromImages.Visible = false;
         }
+
+
+
     }
 }

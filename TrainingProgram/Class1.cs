@@ -8,6 +8,10 @@ namespace TrainingProgram
 {
     class Class1
     {
+        public void artem()
+        {
+
+        }
        
     }
 }

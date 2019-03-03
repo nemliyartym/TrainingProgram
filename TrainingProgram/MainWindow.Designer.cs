@@ -28,45 +28,84 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonSearchMusclesAndExercises = new System.Windows.Forms.Button();
+            this.buttonAddTrainingProgram = new System.Windows.Forms.Button();
+            this.treeViewMusclesAndExercises = new System.Windows.Forms.TreeView();
+            this.buttonBack = new System.Windows.Forms.Button();
+            this.pictureBoxFromImages = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
             this.SuspendLayout();
             // 
-            // button1
+            // buttonSearchMusclesAndExercises
             // 
-            this.button1.Location = new System.Drawing.Point(59, 59);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonSearchMusclesAndExercises.Location = new System.Drawing.Point(131, 93);
+            this.buttonSearchMusclesAndExercises.Name = "buttonSearchMusclesAndExercises";
+            this.buttonSearchMusclesAndExercises.Size = new System.Drawing.Size(161, 231);
+            this.buttonSearchMusclesAndExercises.TabIndex = 0;
+            this.buttonSearchMusclesAndExercises.Text = "buttonSearchExercises";
+            this.buttonSearchMusclesAndExercises.UseVisualStyleBackColor = true;
+            this.buttonSearchMusclesAndExercises.Click += new System.EventHandler(this.buttonSearchExercises_Click);
             // 
-            // button2
+            // buttonAddTrainingProgram
             // 
-            this.button2.Location = new System.Drawing.Point(59, 89);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonAddTrainingProgram.Location = new System.Drawing.Point(391, 93);
+            this.buttonAddTrainingProgram.Name = "buttonAddTrainingProgram";
+            this.buttonAddTrainingProgram.Size = new System.Drawing.Size(156, 231);
+            this.buttonAddTrainingProgram.TabIndex = 1;
+            this.buttonAddTrainingProgram.Text = "buttonAddTrainingProgram";
+            this.buttonAddTrainingProgram.UseVisualStyleBackColor = true;
+            // 
+            // treeViewMusclesAndExercises
+            // 
+            this.treeViewMusclesAndExercises.Location = new System.Drawing.Point(64, 62);
+            this.treeViewMusclesAndExercises.Name = "treeViewMusclesAndExercises";
+            this.treeViewMusclesAndExercises.Size = new System.Drawing.Size(245, 314);
+            this.treeViewMusclesAndExercises.TabIndex = 2;
+            this.treeViewMusclesAndExercises.Visible = false;
+            // 
+            // buttonBack
+            // 
+            this.buttonBack.Location = new System.Drawing.Point(25, 13);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(67, 26);
+            this.buttonBack.TabIndex = 3;
+            this.buttonBack.Text = "buttonBack";
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Visible = false;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            // 
+            // pictureBoxFromImages
+            // 
+            this.pictureBoxFromImages.Location = new System.Drawing.Point(349, 62);
+            this.pictureBoxFromImages.Name = "pictureBoxFromImages";
+            this.pictureBoxFromImages.Size = new System.Drawing.Size(325, 203);
+            this.pictureBoxFromImages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxFromImages.TabIndex = 4;
+            this.pictureBoxFromImages.TabStop = false;
+            this.pictureBoxFromImages.Visible = false;
             // 
             // MainWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(703, 456);
+            this.Controls.Add(this.buttonBack);
+            this.Controls.Add(this.buttonAddTrainingProgram);
+            this.Controls.Add(this.buttonSearchMusclesAndExercises);
+            this.Controls.Add(this.treeViewMusclesAndExercises);
+            this.Controls.Add(this.pictureBoxFromImages);
             this.Name = "MainWindow";
-            this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+
+        private System.Windows.Forms.Button buttonSearchMusclesAndExercises;
+        private System.Windows.Forms.Button buttonAddTrainingProgram;
+        private System.Windows.Forms.TreeView treeViewMusclesAndExercises;
+        private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.PictureBox pictureBoxFromImages;
     }
 }
 

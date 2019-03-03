@@ -1,6 +1,6 @@
 ﻿namespace TrainingProgram
 {
-    partial class Form1
+    partial class MainWindow
     {
         /// <summary>
         /// Обязательная переменная конструктора.

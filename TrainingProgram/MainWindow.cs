@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TrainingProgram
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : MetroFramework.Forms.MetroForm
     {
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
         }

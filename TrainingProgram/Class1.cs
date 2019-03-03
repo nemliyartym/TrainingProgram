@@ -8,5 +8,6 @@ namespace TrainingProgram
 {
     class Class1
     {
+       
     }
 }

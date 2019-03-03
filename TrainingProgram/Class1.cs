@@ -10,7 +10,9 @@ namespace TrainingProgram
     {
         public void artem()
         {
-            privet
+            int a = 10;
+            int b = 0;
+            a += b;
         }
        
     }

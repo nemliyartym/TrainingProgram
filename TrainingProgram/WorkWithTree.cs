@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Drawing;
+using System.IO;
 
 namespace TrainingProgram
 {
@@ -20,23 +22,33 @@ namespace TrainingProgram
         } 
 
         /// <summary>
-        /// Заполняет дерево
+        /// Заполняет дерево и рисует картинки
         /// </summary>
         public void FillTree ()
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
-
                 sqlConnection.Open();
-                SqlCommand sqlCommand = new SqlCommand("select * from Muscles", sqlConnection);
+                SqlCommand sqlCommand = new SqlCommand("select m.idMuscles,m.muscles, im.imageData from Muscles m join ImagesFroMuscles im on m.idMuscles = im.idMuscles", sqlConnection);
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
                 List<int> idList = new List<int>();
+                ImageList imageList = new ImageList();
+                WorkWithImages workWithImages = new WorkWithImages();
+
+                treeView.ImageList = imageList;
 
                 while (sqlDataReader.Read())
                 {
                     idList.Add(Int32.Parse(sqlDataReader[0].ToString()));
-                    treeView.Nodes.Add(sqlDataReader[1].ToString()).Tag = sqlDataReader[0];
+
+                    byte[] imageData = (byte[])sqlDataReader.GetValue(2);
+                    if(imageData!= null)
+                        imageList.Images.Add(sqlDataReader[0].ToString(), Image.FromStream(new MemoryStream(imageData)));
+                    else imageList.Images.Add(sqlDataReader[0].ToString(),Image.FromStream(new MemoryStream(null)));
+
+                    treeView.Nodes.Add(sqlDataReader[0].ToString(), sqlDataReader[1].ToString(),sqlDataReader[0].ToString()).Tag = sqlDataReader[0];
+
                 }
                 sqlDataReader.Close();
                 sqlConnection.Close();
@@ -60,7 +72,7 @@ namespace TrainingProgram
 
                 while (sqlDataReader.Read())
                 {
-                    treeView.Nodes[numbersRoot].Nodes.Add(sqlDataReader[1].ToString()).Tag = sqlDataReader[0];
+                    treeView.Nodes[numbersRoot].Nodes.Add(null,sqlDataReader[1].ToString(),null).Tag = sqlDataReader[0];
                 }
                 sqlDataReader.Close();
                 sqlConnection.Close();

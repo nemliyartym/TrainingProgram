@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace TrainingProgram
 {
@@ -22,8 +23,14 @@ namespace TrainingProgram
 
             WorkWithTree workWithTree = new WorkWithTree(treeViewMusclesAndExercises);
             workWithTree.FillTree();
-
             treeViewMusclesAndExercises.AfterSelect += TreeViewMusclesAndExercises_AfterSelect;
+
+
+
+            WorkWithImages workWithImages = new WorkWithImages();
+
+            //workWithImages.SaveImageToDatbase(@"C: \Users\79374\Desktop\imagesFromDB\hot\19Кардио.jpg", "insert into ImagesFroMuscles values (@id, @imageName, @imageData)", 19);
+
 
 
 
@@ -34,7 +41,13 @@ namespace TrainingProgram
             if(e.Node.Parent != null)
             {
                 WorkWithImages workWithImages = new WorkWithImages();
-                workWithImages.RedFileFromDataBase(pictureBoxFromImages,Convert.ToInt32(e.Node.Tag));
+                string sqlSelect = "select i.imageData from ImagesForExercises i join Exercises e on e.idExercises = i.idExercises where e.idExercises = " + Convert.ToInt32(e.Node.Tag);
+
+                byte[] imageData = workWithImages.RedImageFromDataBase(sqlSelect);
+                if (imageData != null)
+                    pictureBoxFromImages.Image = Image.FromStream(new MemoryStream(imageData));
+                else pictureBoxFromImages.Image = null;
+                      
             }
 
         }

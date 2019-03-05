@@ -12,23 +12,6 @@ using System.IO;
 namespace TrainingProgram
 {
 
-    public class ImageStruct
-    {
-        public int id { get; private set; }
-        public string imageName { get; private set; }
-        public byte[] imageData { get; private set; }
-
-        public ImageStruct(int id, string imageName, byte[] imageData)
-        {
-            this.id = id;
-            this.imageName = imageName;
-            this.imageData = imageData;
-        }
-
-    }
-
-
-
     class WorkWithImages
     {
         private string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=Sport;Integrated Security=True";
@@ -36,7 +19,7 @@ namespace TrainingProgram
         /// <summary>
         /// Сохраняет изображение в бд, кодировая в его байты (ПЕРЕПИСАТЬ!!!!!!!!!!!)
         /// </summary>
-        public void SaveImageToDatbase(string pathToImage, string sqlInsertInto)
+        public void SaveImageToDatbase(string pathToImage, string sqlInsertInto, int id)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
@@ -55,7 +38,7 @@ namespace TrainingProgram
                     fileStream.Read(imageData, 0, imageData.Length);
                 }
 
-                sqlCommand.Parameters["@id"].Value = 2;
+                sqlCommand.Parameters["@id"].Value = id;
                 sqlCommand.Parameters["@imageName"].Value = fileName;
                 sqlCommand.Parameters["@imageData"].Value = imageData;
 
@@ -67,26 +50,22 @@ namespace TrainingProgram
         /// <summary>
         /// Загуржает картинку из бд
         /// </summary>
-        public void RedFileFromDataBase(PictureBox pictureBox , int idExercises)
+        public byte[] RedImageFromDataBase(string sqlSelect)
         {
-            List<ImageStruct> images = new List<ImageStruct>();
-
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 sqlConnection.Open();
-                SqlCommand sqlCommand = new SqlCommand("select i.imageData from ImagesForExercises i join Exercises e on e.idExercises = i.idExercises where e.idExercises = " + idExercises, sqlConnection);
+                
+                SqlCommand sqlCommand = new SqlCommand(sqlSelect, sqlConnection);
                 SqlDataReader reader = sqlCommand.ExecuteReader();
-
                 byte[] imageData = null;
                           
                 while (reader.Read())
                 {
-
                      imageData = (byte[])reader.GetValue(0);
                 }
-                if (imageData != null)
-                    pictureBox.Image = Image.FromStream(new MemoryStream(imageData));
-                else pictureBox.Image = null;
+                return imageData;
+                    //pictureBox.Image = Image.FromStream(new MemoryStream(imageData));
 
             }
         }

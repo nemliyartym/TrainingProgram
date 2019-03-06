@@ -29,7 +29,7 @@ namespace TrainingProgram
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 sqlConnection.Open();
-                SqlCommand sqlCommand = new SqlCommand("select m.idMuscles,m.muscles, im.imageData from Muscles m join ImagesFroMuscles im on m.idMuscles = im.idMuscles", sqlConnection);
+                SqlCommand sqlCommand = new SqlCommand("select m.idMuscles,m.muscles, im.imageData,im.imageName from Muscles m join ImagesFroMuscles im on m.idMuscles = im.idMuscles", sqlConnection);
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
                 List<int> idList = new List<int>();
@@ -37,6 +37,7 @@ namespace TrainingProgram
                 WorkWithImages workWithImages = new WorkWithImages();
 
                 treeView.ImageList = imageList;
+                imageList.ImageSize = new Size(30, 30);
 
                 while (sqlDataReader.Read())
                 {
@@ -44,11 +45,11 @@ namespace TrainingProgram
 
                     byte[] imageData = (byte[])sqlDataReader.GetValue(2);
                     if(imageData!= null)
-                        imageList.Images.Add(sqlDataReader[0].ToString(), Image.FromStream(new MemoryStream(imageData)));
-                    else imageList.Images.Add(sqlDataReader[0].ToString(),Image.FromStream(new MemoryStream(null)));
+                        imageList.Images.Add(sqlDataReader[3].ToString(), Image.FromStream(new MemoryStream(imageData)));
+                    else imageList.Images.Add(sqlDataReader[3].ToString(), Image.FromStream(new MemoryStream(null)));
 
-                    treeView.Nodes.Add(sqlDataReader[0].ToString(), sqlDataReader[1].ToString(),sqlDataReader[0].ToString()).Tag = sqlDataReader[0];
-
+                    treeView.Nodes.Add(sqlDataReader[3].ToString(), sqlDataReader[1].ToString(), sqlDataReader[3].ToString()).Tag = sqlDataReader[0];
+               
                 }
                 sqlDataReader.Close();
                 sqlConnection.Close();

@@ -19,7 +19,7 @@ namespace TrainingProgram
         /// <summary>
         /// Сохраняет изображение в бд, кодировая в его байты (ПЕРЕПИСАТЬ!!!!!!!!!!!)
         /// </summary>
-        public void SaveImageToDatbase(string pathToImage, string sqlInsertInto, int id)
+        public void SaveImageToDatbase(string pathToImage, string pathToVideo, string sqlInsertInto, int id)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
@@ -27,10 +27,12 @@ namespace TrainingProgram
                 SqlCommand sqlCommand = new SqlCommand(sqlInsertInto, sqlConnection);
                 sqlCommand.Parameters.Add("@id", SqlDbType.Int);
                 sqlCommand.Parameters.Add("@imageName", SqlDbType.NVarChar, 50);
-                sqlCommand.Parameters.Add("@imageData", SqlDbType.Image, 2000000);
+                sqlCommand.Parameters.Add("@imageData", SqlDbType.Image, 4000000);
+                sqlCommand.Parameters.Add("@videoName", SqlDbType.NVarChar, 50);
+                sqlCommand.Parameters.Add("@videoData", SqlDbType.Image, 1000000000);
 
                 string fileName = pathToImage.Substring(pathToImage.LastIndexOf('\\') + 1); //'имяфайла'.jpg
-
+              
                 byte[] imageData;
                 using (System.IO.FileStream fileStream = new System.IO.FileStream(pathToImage, System.IO.FileMode.Open))
                 {
@@ -38,9 +40,20 @@ namespace TrainingProgram
                     fileStream.Read(imageData, 0, imageData.Length);
                 }
 
+                string videoName = pathToVideo.Substring(pathToVideo.LastIndexOf('\\') + 1); //'имяфайла'.jpg
+
+                byte[] videoData;
+                using (System.IO.FileStream fileStream = new System.IO.FileStream(pathToVideo, System.IO.FileMode.Open))
+                {
+                    videoData = new byte[fileStream.Length];
+                    fileStream.Read(videoData, 0, videoData.Length);
+                }
+
                 sqlCommand.Parameters["@id"].Value = id;
                 sqlCommand.Parameters["@imageName"].Value = fileName;
                 sqlCommand.Parameters["@imageData"].Value = imageData;
+                sqlCommand.Parameters["@videoName"].Value = videoName;
+                sqlCommand.Parameters["@videoData"].Value = videoData;
 
                 sqlCommand.ExecuteNonQuery();
             }

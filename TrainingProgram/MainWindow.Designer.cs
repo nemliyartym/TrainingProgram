@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.buttonSearchMusclesAndExercises = new System.Windows.Forms.Button();
             this.buttonAddTrainingProgram = new System.Windows.Forms.Button();
             this.treeViewMusclesAndExercises = new System.Windows.Forms.TreeView();
             this.buttonBack = new System.Windows.Forms.Button();
             this.pictureBoxFromImages = new System.Windows.Forms.PictureBox();
+            this.axWindowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonSearchMusclesAndExercises
@@ -48,18 +51,19 @@
             // 
             // buttonAddTrainingProgram
             // 
-            this.buttonAddTrainingProgram.Location = new System.Drawing.Point(391, 93);
+            this.buttonAddTrainingProgram.Location = new System.Drawing.Point(411, 316);
             this.buttonAddTrainingProgram.Name = "buttonAddTrainingProgram";
             this.buttonAddTrainingProgram.Size = new System.Drawing.Size(156, 231);
             this.buttonAddTrainingProgram.TabIndex = 1;
             this.buttonAddTrainingProgram.Text = "buttonAddTrainingProgram";
             this.buttonAddTrainingProgram.UseVisualStyleBackColor = true;
+            this.buttonAddTrainingProgram.Click += new System.EventHandler(this.buttonAddTrainingProgram_Click);
             // 
             // treeViewMusclesAndExercises
             // 
-            this.treeViewMusclesAndExercises.Location = new System.Drawing.Point(64, 62);
+            this.treeViewMusclesAndExercises.Location = new System.Drawing.Point(25, 62);
             this.treeViewMusclesAndExercises.Name = "treeViewMusclesAndExercises";
-            this.treeViewMusclesAndExercises.Size = new System.Drawing.Size(245, 314);
+            this.treeViewMusclesAndExercises.Size = new System.Drawing.Size(304, 382);
             this.treeViewMusclesAndExercises.TabIndex = 2;
             this.treeViewMusclesAndExercises.Visible = false;
             // 
@@ -78,22 +82,35 @@
             // 
             this.pictureBoxFromImages.Location = new System.Drawing.Point(349, 62);
             this.pictureBoxFromImages.Name = "pictureBoxFromImages";
-            this.pictureBoxFromImages.Size = new System.Drawing.Size(325, 203);
+            this.pictureBoxFromImages.Size = new System.Drawing.Size(218, 203);
             this.pictureBoxFromImages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxFromImages.TabIndex = 4;
             this.pictureBoxFromImages.TabStop = false;
             this.pictureBoxFromImages.Visible = false;
             // 
+            // axWindowsMediaPlayer
+            // 
+            this.axWindowsMediaPlayer.Enabled = true;
+            this.axWindowsMediaPlayer.Location = new System.Drawing.Point(582, 62);
+            this.axWindowsMediaPlayer.Name = "axWindowsMediaPlayer";
+            this.axWindowsMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer.OcxState")));
+            this.axWindowsMediaPlayer.Size = new System.Drawing.Size(173, 203);
+            this.axWindowsMediaPlayer.TabIndex = 5;
+            this.axWindowsMediaPlayer.Visible = false;
+            // 
             // MainWindow
             // 
-            this.ClientSize = new System.Drawing.Size(703, 456);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(784, 460);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonAddTrainingProgram);
             this.Controls.Add(this.buttonSearchMusclesAndExercises);
             this.Controls.Add(this.treeViewMusclesAndExercises);
             this.Controls.Add(this.pictureBoxFromImages);
+            this.Controls.Add(this.axWindowsMediaPlayer);
             this.Name = "MainWindow";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -106,6 +123,7 @@
         private System.Windows.Forms.TreeView treeViewMusclesAndExercises;
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.PictureBox pictureBoxFromImages;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer;
     }
 }
 

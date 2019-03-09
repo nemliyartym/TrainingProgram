@@ -9,19 +9,22 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
 using System.IO;
+using Microsoft.DirectX.AudioVideoPlayback;
 using AxWMPLib;
+using System.Threading;
 
 namespace TrainingProgram
 {
     public partial class MainWindow : Form
     {
-        public bool boooo = true;
+        public string pathFromDeletFile = null;
         public int id = 0;
         public TreeNode treeNode = new TreeNode();
 
 
-        WorkWithImages workWithImages = new WorkWithImages();
 
+        WorkWithImages workWithImages = new WorkWithImages();
+        WorkWithDataBase workWithDatabas = new WorkWithDataBase();
 
         public MainWindow()
         {
@@ -32,9 +35,10 @@ namespace TrainingProgram
             workWithTree.FillTree();
             treeViewMusclesAndExercises.AfterSelect += TreeViewMusclesAndExercises_AfterSelect;
 
+
             //axWindowsMediaPlayer.URL = @"C:\Users\79374\Desktop\imagesFromDB\video\Lesha Svik - Sterva (Premera treka 2019) (MosCatalogue.net).mkv";
-            axWindowsMediaPlayer.uiMode = "mini";
-            axWindowsMediaPlayer.Ctlcontrols.stop();
+            //axWindowsMediaPlayer.uiMode = "mini";
+            //axWindowsMediaPlayer.Ctlcontrols.stop();
 
 
             //workWithImages.Sa(@"C:\Users\79374\Desktop\imagesFromDB\video\2.jpg", @"C:\Users\79374\Desktop\imagesFromDB\video\22.mkv", "insert into ImagesForExercises values (@id, @imageName, @imageData, @videoName, @videoData)", 2);
@@ -46,17 +50,29 @@ namespace TrainingProgram
         }
 
         private void TreeViewMusclesAndExercises_AfterSelect(object sender, TreeViewEventArgs e)
-        {
+        {       
             if (e.Node.Parent != null)
             {
+                //if(File.Exists(pathFromDeletFile))
+                //    File.Delete(pathFromDeletFile);
+
                 labelHeadExercises.Text = e.Node.Text;
                 buttonAddImage.Visible = true;
+                buttonAddVideo.Visible = true;
                 labelHeadExercises.Visible = true;
                 pictureBoxFromImages.Visible = true;
-                treeNode = e.Node;
-                WorkWithImages workWithImages = new WorkWithImages();
-                string sqlSelect = "select i.imageData from ImagesForExercises i join Exercises e on e.idExercises = i.idExercises where e.idExercises = " + Convert.ToInt32(e.Node.Tag);
+                richTextBoxDescriptionExercises.Visible = true;
+                labelDescription.Visible = true;
+                checkBoxDescription.Visible = true;
 
+                treeNode = e.Node;
+
+                string[] discription = workWithDatabas.SelectFromDataBase("select description from Exercises where idExercises = " + Convert.ToInt32(e.Node.Tag));
+                if (discription[0] == null)
+                    richTextBoxDescriptionExercises.Text = "Информация пока отсуствует в бд";
+                else richTextBoxDescriptionExercises.Text = discription[0].ToString();
+
+                string sqlSelect = "select i.imageData from ImagesForExercises i join Exercises e on e.idExercises = i.idExercises where e.idExercises = " + Convert.ToInt32(e.Node.Tag);
                 byte[] imageData = workWithImages.RedImageFromDataBase(sqlSelect);
                 if (imageData != null)
                 {
@@ -64,41 +80,42 @@ namespace TrainingProgram
                 }
                 else pictureBoxFromImages.Image = null;
 
-                sqlSelect = "select i.videoData from ImagesForExercises i join Exercises e on e.idExercises = i.idExercises where e.idExercises = " + Convert.ToInt32(e.Node.Tag);
-                byte[] videoData = workWithImages.RedImageFromDataBase(sqlSelect);
-                if (videoData != null)
-                {
-                    string pathToFile;
-                    if (boooo)
-                    {
-                        pathToFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Video.avi");
-                        boooo = false;
-                    }
-                    else
-                    {
-                        pathToFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Video1.avi");
-                        boooo = true;
-                    }
 
-                    File.WriteAllBytes(pathToFile, videoData);
 
-                    axWindowsMediaPlayer.Visible = true;
-                    axWindowsMediaPlayer.URL = pathToFile;
-                    axWindowsMediaPlayer.Ctlcontrols.stop();
-                }
-                else
-                {
-                    axWindowsMediaPlayer.Ctlcontrols.stop();
-                    axWindowsMediaPlayer.Visible = false;
-                }
+                //sqlSelect = "select i.videoData from ImagesForExercises i join Exercises e on e.idExercises = i.idExercises where e.idExercises = " + Convert.ToInt32(e.Node.Tag);
+                //byte[] videoData = workWithImages.RedImageFromDataBase(sqlSelect);
+
+                //if (videoData != null)
+                //{
+
+                //    string  pathToFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), workWithImages.GetNameFile("VIDEO", Convert.ToInt32(treeNode.Tag)));
+                    
+                //    File.WriteAllBytes(pathToFile, videoData);
+
+                //    axWindowsMediaPlayer.Visible = true;
+                //    axWindowsMediaPlayer.URL = pathToFile;
+                //    axWindowsMediaPlayer.newMedia(pathToFile);
+                //    pathFromDeletFile = pathToFile;
+                //    axWindowsMediaPlayer.Ctlcontrols.stop();
+                    
+                //}
+                //else
+                //{
+                //    axWindowsMediaPlayer.Ctlcontrols.stop();
+                //    axWindowsMediaPlayer.Visible = false;
+                //}
 
             }
             else
             {
                 buttonAddImage.Visible = false;
+                buttonAddVideo.Visible = false;
                 pictureBoxFromImages.Visible = false;
                 axWindowsMediaPlayer.Visible = false;
                 labelHeadExercises.Visible = false;
+                labelDescription.Visible = false;
+                checkBoxDescription.Visible = false;
+                richTextBoxDescriptionExercises.Visible = false;
             }
 
         }
@@ -115,7 +132,6 @@ namespace TrainingProgram
 
             //элементы для окна просмотра упражнений
             treeViewMusclesAndExercises.Visible = true;
-            pictureBoxFromImages.Visible = true;
         }
 
         private void buttonBack_Click(object sender, EventArgs e)
@@ -123,7 +139,7 @@ namespace TrainingProgram
             //начальный интерфейс
             buttonSearchMusclesAndExercises.Visible = true;
             buttonAddTrainingProgram.Visible = true;
-            buttonBack.Visible = true;
+            buttonBack.Visible = false;
 
             //параметры окна
             //this.AutoScroll = false;
@@ -134,7 +150,9 @@ namespace TrainingProgram
             pictureBoxFromImages.Visible = false;
             labelHeadExercises.Visible = false;       
             axWindowsMediaPlayer.Visible = false;
-            axWindowsMediaPlayer.Ctlcontrols.stop();
+            buttonAddVideo.Visible = false;
+            richTextBoxDescriptionExercises.Visible = false;
+           axWindowsMediaPlayer.Ctlcontrols.stop();            
         }
 
         private void buttonAddTrainingProgram_Click(object sender, EventArgs e)
@@ -145,6 +163,10 @@ namespace TrainingProgram
             buttonBack.Visible = false;
         }
 
+
+
+
+
         private void buttonAddImage_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFilezDialog = new OpenFileDialog();
@@ -152,7 +174,7 @@ namespace TrainingProgram
 
             if (openFilezDialog.ShowDialog() == DialogResult.Cancel)
                 return;
-            workWithImages.SaveImageVideoToDatbase("ImagesForExercises", openFilezDialog.FileName, null, Convert.ToInt32(treeNode.Tag));
+            workWithImages.SaveImageToDatbase(openFilezDialog.FileName, Convert.ToInt32(treeNode.Tag));
             Console.WriteLine(openFilezDialog.FileName + "\n" +treeNode.Tag.ToString());
 
             string sqlSelect = "select i.imageData from ImagesForExercises i join Exercises e on e.idExercises = i.idExercises where e.idExercises = " + Convert.ToInt32(treeNode.Tag);
@@ -167,6 +189,10 @@ namespace TrainingProgram
            
         }
 
+
+
+
+
         private void buttonAddVideo_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFilezDialog = new OpenFileDialog();
@@ -174,35 +200,47 @@ namespace TrainingProgram
 
             if (openFilezDialog.ShowDialog() == DialogResult.Cancel)
                 return;
-            workWithImages.SaveImageVideoToDatbase("ImagesForExercises", null,openFilezDialog.FileName, Convert.ToInt32(treeNode.Tag));
+
+            if (File.Exists(pathFromDeletFile))
+                File.Delete(pathFromDeletFile);
+
+            workWithImages.SaveVideoiToDatbase(openFilezDialog.FileName, Convert.ToInt32(treeNode.Tag));
             Console.WriteLine(openFilezDialog.FileName + "\n" + treeNode.Tag.ToString());
 
             string sqlSelect = "select i.videoData from ImagesForExercises i join Exercises e on e.idExercises = i.idExercises where e.idExercises = " + Convert.ToInt32(treeNode.Tag);
 
             byte[] videoData = workWithImages.RedImageFromDataBase(sqlSelect);
-            if (videoData != null)
+
+            //if (videoData != null)
+            //{
+
+            //    string pathToFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), workWithImages.GetNameFile("VIDEO", Convert.ToInt32(treeNode.Tag)));
+            //    File.WriteAllBytes(pathToFile, videoData);
+
+            //    File.WriteAllBytes(pathToFile, videoData);
+
+            //    axWindowsMediaPlayer.Visible = true;
+            //    axWindowsMediaPlayer.URL = pathToFile;
+            //    pictureBoxFromImages.Visible = true;
+            //    axWindowsMediaPlayer.Ctlcontrols.stop();
+            //}
+
+
+        }
+
+        private void checkBoxDescription_CheckedChanged(object sender, EventArgs e)
+        {
+            if (richTextBoxDescriptionExercises.ReadOnly)
             {
-                string pathToFile;
-                if (boooo)
-                {
-                    pathToFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Video.avi");
-                    boooo = false;
-                }
-                else
-                {
-                    pathToFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Video1.avi");
-                    boooo = true;
-                }
-
-                File.WriteAllBytes(pathToFile, videoData);
-
-                axWindowsMediaPlayer.Visible = true;
-                axWindowsMediaPlayer.URL = pathToFile;
-                pictureBoxFromImages.Visible = true;
-                axWindowsMediaPlayer.Ctlcontrols.stop();
+                richTextBoxDescriptionExercises.ReadOnly = false;
+                richTextBoxDescriptionExercises.BackColor = Color.White;
             }
-
-
+            else
+            {
+                richTextBoxDescriptionExercises.ReadOnly = true;
+                richTextBoxDescriptionExercises.BackColor = Color.FromArgb(240, 240, 240);
+            }
+            
         }
     }
 }

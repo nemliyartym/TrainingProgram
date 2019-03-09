@@ -39,6 +39,9 @@
             this.buttonAddImage = new System.Windows.Forms.Button();
             this.buttonAddVideo = new System.Windows.Forms.Button();
             this.labelHeadExercises = new System.Windows.Forms.Label();
+            this.richTextBoxDescriptionExercises = new System.Windows.Forms.RichTextBox();
+            this.checkBoxDescription = new System.Windows.Forms.CheckBox();
+            this.labelDescription = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.SuspendLayout();
@@ -67,7 +70,7 @@
             // 
             this.treeViewMusclesAndExercises.Location = new System.Drawing.Point(25, 62);
             this.treeViewMusclesAndExercises.Name = "treeViewMusclesAndExercises";
-            this.treeViewMusclesAndExercises.Size = new System.Drawing.Size(304, 382);
+            this.treeViewMusclesAndExercises.Size = new System.Drawing.Size(304, 453);
             this.treeViewMusclesAndExercises.TabIndex = 2;
             this.treeViewMusclesAndExercises.Visible = false;
             // 
@@ -131,6 +134,7 @@
             this.buttonAddVideo.TabIndex = 8;
             this.buttonAddVideo.Text = "buttonAddVideo";
             this.buttonAddVideo.UseVisualStyleBackColor = true;
+            this.buttonAddVideo.Visible = false;
             this.buttonAddVideo.Click += new System.EventHandler(this.buttonAddVideo_Click);
             // 
             // labelHeadExercises
@@ -142,20 +146,56 @@
             this.labelHeadExercises.Size = new System.Drawing.Size(0, 24);
             this.labelHeadExercises.TabIndex = 9;
             // 
+            // richTextBoxDescriptionExercises
+            // 
+            this.richTextBoxDescriptionExercises.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.richTextBoxDescriptionExercises.Location = new System.Drawing.Point(349, 355);
+            this.richTextBoxDescriptionExercises.Name = "richTextBoxDescriptionExercises";
+            this.richTextBoxDescriptionExercises.ReadOnly = true;
+            this.richTextBoxDescriptionExercises.Size = new System.Drawing.Size(477, 137);
+            this.richTextBoxDescriptionExercises.TabIndex = 10;
+            this.richTextBoxDescriptionExercises.Text = "";
+            this.richTextBoxDescriptionExercises.Visible = false;
+            // 
+            // checkBoxDescription
+            // 
+            this.checkBoxDescription.AutoSize = true;
+            this.checkBoxDescription.Location = new System.Drawing.Point(349, 498);
+            this.checkBoxDescription.Name = "checkBoxDescription";
+            this.checkBoxDescription.Size = new System.Drawing.Size(173, 17);
+            this.checkBoxDescription.TabIndex = 11;
+            this.checkBoxDescription.Text = "Хотите изменить описание? ";
+            this.checkBoxDescription.UseVisualStyleBackColor = true;
+            this.checkBoxDescription.Visible = false;
+            this.checkBoxDescription.CheckedChanged += new System.EventHandler(this.checkBoxDescription_CheckedChanged);
+            // 
+            // labelDescription
+            // 
+            this.labelDescription.AutoSize = true;
+            this.labelDescription.Location = new System.Drawing.Point(349, 331);
+            this.labelDescription.Name = "labelDescription";
+            this.labelDescription.Size = new System.Drawing.Size(57, 13);
+            this.labelDescription.TabIndex = 12;
+            this.labelDescription.Text = "Описание";
+            this.labelDescription.Visible = false;
+            // 
             // MainWindow
             // 
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(784, 460);
+            this.ClientSize = new System.Drawing.Size(874, 540);
+            this.Controls.Add(this.labelDescription);
+            this.Controls.Add(this.checkBoxDescription);
             this.Controls.Add(this.labelHeadExercises);
-            this.Controls.Add(this.buttonAddVideo);
-            this.Controls.Add(this.buttonAddImage);
             this.Controls.Add(this.buttonOther);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonAddTrainingProgram);
             this.Controls.Add(this.buttonSearchMusclesAndExercises);
             this.Controls.Add(this.treeViewMusclesAndExercises);
-            this.Controls.Add(this.pictureBoxFromImages);
             this.Controls.Add(this.axWindowsMediaPlayer);
+            this.Controls.Add(this.buttonAddVideo);
+            this.Controls.Add(this.buttonAddImage);
+            this.Controls.Add(this.richTextBoxDescriptionExercises);
+            this.Controls.Add(this.pictureBoxFromImages);
             this.Name = "MainWindow";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).EndInit();
@@ -177,6 +217,9 @@
         private System.Windows.Forms.Button buttonAddImage;
         private System.Windows.Forms.Button buttonAddVideo;
         private System.Windows.Forms.Label labelHeadExercises;
+        private System.Windows.Forms.RichTextBox richTextBoxDescriptionExercises;
+        private System.Windows.Forms.CheckBox checkBoxDescription;
+        private System.Windows.Forms.Label labelDescription;
     }
 }
 

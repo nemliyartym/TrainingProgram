@@ -38,7 +38,7 @@ namespace TrainingProgram
                     fileName = pathToImage.Substring(pathToImage.LastIndexOf('\\') + 1);
                     using (System.IO.FileStream fileStream = new System.IO.FileStream(pathToImage, System.IO.FileMode.Open))
                     {
-                        imageData = new byte[fileStream.Length];
+                        imageData = new byte[fileStream.Length]; 
                         fileStream.Read(imageData, 0, imageData.Length);
                     }
                     sqlCommand.Parameters["@imageName"].Value = fileName;

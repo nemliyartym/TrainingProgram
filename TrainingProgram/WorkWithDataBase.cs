@@ -44,6 +44,20 @@ namespace TrainingProgram
 
                 return result;
         }
+
+
+        public void UpdateDescriptionExercises (string newDescription, int id)
+        {           
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("update Exercises set description = @description where idExercises = " + id, sqlConnection);
+
+                sqlCommand.Parameters.Add("@description", SqlDbType.NVarChar, 2000);
+                sqlCommand.Parameters["@description"].Value = newDescription;
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
   
 
     }

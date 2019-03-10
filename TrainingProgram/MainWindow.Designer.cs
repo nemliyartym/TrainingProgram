@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.buttonSearchMusclesAndExercises = new System.Windows.Forms.Button();
             this.buttonAddTrainingProgram = new System.Windows.Forms.Button();
@@ -42,8 +43,12 @@
             this.richTextBoxDescriptionExercises = new System.Windows.Forms.RichTextBox();
             this.checkBoxDescription = new System.Windows.Forms.CheckBox();
             this.labelDescription = new System.Windows.Forms.Label();
+            this.buttonSaveDescription = new System.Windows.Forms.Button();
+            this.contextMenuStripFromTree = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.переименоватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
+            this.contextMenuStripFromTree.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSearchMusclesAndExercises
@@ -68,11 +73,12 @@
             // 
             // treeViewMusclesAndExercises
             // 
-            this.treeViewMusclesAndExercises.Location = new System.Drawing.Point(25, 62);
+            this.treeViewMusclesAndExercises.Location = new System.Drawing.Point(12, 62);
             this.treeViewMusclesAndExercises.Name = "treeViewMusclesAndExercises";
-            this.treeViewMusclesAndExercises.Size = new System.Drawing.Size(304, 453);
+            this.treeViewMusclesAndExercises.Size = new System.Drawing.Size(403, 453);
             this.treeViewMusclesAndExercises.TabIndex = 2;
             this.treeViewMusclesAndExercises.Visible = false;
+            this.treeViewMusclesAndExercises.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewMusclesAndExercises_NodeMouseClick);
             // 
             // buttonBack
             // 
@@ -87,7 +93,7 @@
             // 
             // pictureBoxFromImages
             // 
-            this.pictureBoxFromImages.Location = new System.Drawing.Point(349, 121);
+            this.pictureBoxFromImages.Location = new System.Drawing.Point(421, 121);
             this.pictureBoxFromImages.Name = "pictureBoxFromImages";
             this.pictureBoxFromImages.Size = new System.Drawing.Size(218, 203);
             this.pictureBoxFromImages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -98,7 +104,7 @@
             // axWindowsMediaPlayer
             // 
             this.axWindowsMediaPlayer.Enabled = true;
-            this.axWindowsMediaPlayer.Location = new System.Drawing.Point(599, 121);
+            this.axWindowsMediaPlayer.Location = new System.Drawing.Point(653, 121);
             this.axWindowsMediaPlayer.Name = "axWindowsMediaPlayer";
             this.axWindowsMediaPlayer.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer.OcxState")));
             this.axWindowsMediaPlayer.Size = new System.Drawing.Size(173, 203);
@@ -117,7 +123,7 @@
             // 
             // buttonAddImage
             // 
-            this.buttonAddImage.Location = new System.Drawing.Point(384, 92);
+            this.buttonAddImage.Location = new System.Drawing.Point(421, 91);
             this.buttonAddImage.Name = "buttonAddImage";
             this.buttonAddImage.Size = new System.Drawing.Size(131, 23);
             this.buttonAddImage.TabIndex = 7;
@@ -128,7 +134,7 @@
             // 
             // buttonAddVideo
             // 
-            this.buttonAddVideo.Location = new System.Drawing.Point(599, 91);
+            this.buttonAddVideo.Location = new System.Drawing.Point(653, 93);
             this.buttonAddVideo.Name = "buttonAddVideo";
             this.buttonAddVideo.Size = new System.Drawing.Size(122, 24);
             this.buttonAddVideo.TabIndex = 8;
@@ -149,18 +155,21 @@
             // richTextBoxDescriptionExercises
             // 
             this.richTextBoxDescriptionExercises.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.richTextBoxDescriptionExercises.Location = new System.Drawing.Point(349, 355);
+            this.richTextBoxDescriptionExercises.Location = new System.Drawing.Point(435, 355);
+            this.richTextBoxDescriptionExercises.MaxLength = 2000;
             this.richTextBoxDescriptionExercises.Name = "richTextBoxDescriptionExercises";
             this.richTextBoxDescriptionExercises.ReadOnly = true;
-            this.richTextBoxDescriptionExercises.Size = new System.Drawing.Size(477, 137);
+            this.richTextBoxDescriptionExercises.Size = new System.Drawing.Size(391, 137);
             this.richTextBoxDescriptionExercises.TabIndex = 10;
             this.richTextBoxDescriptionExercises.Text = "";
             this.richTextBoxDescriptionExercises.Visible = false;
+            this.richTextBoxDescriptionExercises.TextChanged += new System.EventHandler(this.richTextBoxDescriptionExercises_TextChanged);
+            this.richTextBoxDescriptionExercises.Leave += new System.EventHandler(this.richTextBoxDescriptionExercises_Leave);
             // 
             // checkBoxDescription
             // 
             this.checkBoxDescription.AutoSize = true;
-            this.checkBoxDescription.Location = new System.Drawing.Point(349, 498);
+            this.checkBoxDescription.Location = new System.Drawing.Point(435, 498);
             this.checkBoxDescription.Name = "checkBoxDescription";
             this.checkBoxDescription.Size = new System.Drawing.Size(173, 17);
             this.checkBoxDescription.TabIndex = 11;
@@ -172,17 +181,43 @@
             // labelDescription
             // 
             this.labelDescription.AutoSize = true;
-            this.labelDescription.Location = new System.Drawing.Point(349, 331);
+            this.labelDescription.Location = new System.Drawing.Point(432, 339);
             this.labelDescription.Name = "labelDescription";
             this.labelDescription.Size = new System.Drawing.Size(57, 13);
             this.labelDescription.TabIndex = 12;
             this.labelDescription.Text = "Описание";
             this.labelDescription.Visible = false;
             // 
+            // buttonSaveDescription
+            // 
+            this.buttonSaveDescription.Enabled = false;
+            this.buttonSaveDescription.Location = new System.Drawing.Point(751, 329);
+            this.buttonSaveDescription.Name = "buttonSaveDescription";
+            this.buttonSaveDescription.Size = new System.Drawing.Size(75, 23);
+            this.buttonSaveDescription.TabIndex = 13;
+            this.buttonSaveDescription.Text = "buttonSaveDescription";
+            this.buttonSaveDescription.UseVisualStyleBackColor = true;
+            this.buttonSaveDescription.Visible = false;
+            this.buttonSaveDescription.Click += new System.EventHandler(this.buttonSaveDescription_Click);
+            // 
+            // contextMenuStripFromTree
+            // 
+            this.contextMenuStripFromTree.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.переименоватьToolStripMenuItem});
+            this.contextMenuStripFromTree.Name = "contextMenuStripFromTree";
+            this.contextMenuStripFromTree.Size = new System.Drawing.Size(162, 26);
+            // 
+            // переименоватьToolStripMenuItem
+            // 
+            this.переименоватьToolStripMenuItem.Name = "переименоватьToolStripMenuItem";
+            this.переименоватьToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.переименоватьToolStripMenuItem.Text = "Переименовать";
+            // 
             // MainWindow
             // 
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(874, 540);
+            this.Controls.Add(this.buttonSaveDescription);
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.checkBoxDescription);
             this.Controls.Add(this.labelHeadExercises);
@@ -199,6 +234,7 @@
             this.Name = "MainWindow";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).EndInit();
+            this.contextMenuStripFromTree.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -220,6 +256,9 @@
         private System.Windows.Forms.RichTextBox richTextBoxDescriptionExercises;
         private System.Windows.Forms.CheckBox checkBoxDescription;
         private System.Windows.Forms.Label labelDescription;
+        private System.Windows.Forms.Button buttonSaveDescription;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripFromTree;
+        private System.Windows.Forms.ToolStripMenuItem переименоватьToolStripMenuItem;
     }
 }
 

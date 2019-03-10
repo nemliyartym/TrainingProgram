@@ -17,7 +17,7 @@ namespace TrainingProgram
 {
     public partial class MainWindow : Form
     {
-        public string pathFromDeletFile = null;
+        public string currentStrDescriptionExercises;
         public int id = 0;
         public TreeNode treeNode = new TreeNode();
 
@@ -33,8 +33,9 @@ namespace TrainingProgram
 
             WorkWithTree workWithTree = new WorkWithTree(treeViewMusclesAndExercises);
             workWithTree.FillTree();
-            treeViewMusclesAndExercises.AfterSelect += TreeViewMusclesAndExercises_AfterSelect;
 
+            treeViewMusclesAndExercises.AfterSelect += TreeViewMusclesAndExercises_AfterSelect;
+            treeViewMusclesAndExercises.BeforeSelect += TreeViewMusclesAndExercises_BeforeSelect;
 
             //axWindowsMediaPlayer.URL = @"C:\Users\79374\Desktop\imagesFromDB\video\Lesha Svik - Sterva (Premera treka 2019) (MosCatalogue.net).mkv";
             //axWindowsMediaPlayer.uiMode = "mini";
@@ -45,17 +46,31 @@ namespace TrainingProgram
             //workWithImages.SaveImageVideoToDatbase("ImagesForExercises", @"C:\Users\79374\Desktop\imagesFromDB\video\2.jpg", @"C:\Users\79374\Desktop\imagesFromDB\video\22.mkv", 3);
 
            // workWithImages.SaveImageVideoToDatbase("ImagesForExercises", null, @"C:\Users\79374\Desktop\imagesFromDB\video\22.mkv",4);
-
-
         }
 
-        private void TreeViewMusclesAndExercises_AfterSelect(object sender, TreeViewEventArgs e)
-        {       
+
+        private void treeViewMusclesAndExercises_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            if(e.Button == MouseButtons.Right)
+            {
+                treeViewMusclesAndExercises.SelectedNode = e.Node;
+                if (e.Node.Parent != null)
+                {
+                    contextMenuStripFromTree.Show(treeViewMusclesAndExercises, e.Location);
+                }
+            }
+        }
+
+        private void TreeViewMusclesAndExercises_BeforeSelect(object sender, TreeViewCancelEventArgs e)
+        {
+            //treeNode.BackColor = Color.White;
             if (e.Node.Parent != null)
             {
+                //e.Node.BackColor = Color.FromArgb(0, 120, 215);
                 //if(File.Exists(pathFromDeletFile))
                 //    File.Delete(pathFromDeletFile);
 
+                buttonSaveDescription.Enabled = false;
                 labelHeadExercises.Text = e.Node.Text;
                 buttonAddImage.Visible = true;
                 buttonAddVideo.Visible = true;
@@ -64,13 +79,22 @@ namespace TrainingProgram
                 richTextBoxDescriptionExercises.Visible = true;
                 labelDescription.Visible = true;
                 checkBoxDescription.Visible = true;
+                buttonSaveDescription.Visible = true;
 
                 treeNode = e.Node;
+                id = Convert.ToInt32(e.Node.Tag);
 
                 string[] discription = workWithDatabas.SelectFromDataBase("select description from Exercises where idExercises = " + Convert.ToInt32(e.Node.Tag));
-                if (discription[0] == null)
+                if (discription[0] == null || discription[0] == "" || discription[0] == " ")
+                {
                     richTextBoxDescriptionExercises.Text = "Информация пока отсуствует в бд";
-                else richTextBoxDescriptionExercises.Text = discription[0].ToString();
+                    currentStrDescriptionExercises = "Информация пока отсуствует в бд";
+                }
+                else
+                {
+                    richTextBoxDescriptionExercises.Text = discription[0].ToString();
+                    currentStrDescriptionExercises = discription[0].ToString();
+                }
 
                 string sqlSelect = "select i.imageData from ImagesForExercises i join Exercises e on e.idExercises = i.idExercises where e.idExercises = " + Convert.ToInt32(e.Node.Tag);
                 byte[] imageData = workWithImages.RedImageFromDataBase(sqlSelect);
@@ -88,8 +112,8 @@ namespace TrainingProgram
                 //if (videoData != null)
                 //{
 
-                //    string  pathToFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), workWithImages.GetNameFile("VIDEO", Convert.ToInt32(treeNode.Tag)));
-                    
+                //    string pathToFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), workWithImages.GetNameFile("VIDEO", Convert.ToInt32(treeNode.Tag)));
+
                 //    File.WriteAllBytes(pathToFile, videoData);
 
                 //    axWindowsMediaPlayer.Visible = true;
@@ -97,7 +121,7 @@ namespace TrainingProgram
                 //    axWindowsMediaPlayer.newMedia(pathToFile);
                 //    pathFromDeletFile = pathToFile;
                 //    axWindowsMediaPlayer.Ctlcontrols.stop();
-                    
+
                 //}
                 //else
                 //{
@@ -116,9 +140,17 @@ namespace TrainingProgram
                 labelDescription.Visible = false;
                 checkBoxDescription.Visible = false;
                 richTextBoxDescriptionExercises.Visible = false;
+                buttonSaveDescription.Visible = false;
             }
 
         }
+
+        private void TreeViewMusclesAndExercises_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+           
+        }
+
+
 
         private void buttonSearchExercises_Click(object sender, EventArgs e)
         {
@@ -148,11 +180,13 @@ namespace TrainingProgram
             treeViewMusclesAndExercises.Visible = false;
             buttonAddImage.Visible = false;
             pictureBoxFromImages.Visible = false;
-            labelHeadExercises.Visible = false;       
+            labelHeadExercises.Visible = false;
+            labelDescription.Visible = false;
             axWindowsMediaPlayer.Visible = false;
             buttonAddVideo.Visible = false;
+            buttonSaveDescription.Visible = false;
             richTextBoxDescriptionExercises.Visible = false;
-           axWindowsMediaPlayer.Ctlcontrols.stop();            
+            axWindowsMediaPlayer.Ctlcontrols.stop();            
         }
 
         private void buttonAddTrainingProgram_Click(object sender, EventArgs e)
@@ -201,8 +235,8 @@ namespace TrainingProgram
             if (openFilezDialog.ShowDialog() == DialogResult.Cancel)
                 return;
 
-            if (File.Exists(pathFromDeletFile))
-                File.Delete(pathFromDeletFile);
+            //if (File.Exists(pathFromDeletFile))
+            //    File.Delete(pathFromDeletFile);
 
             workWithImages.SaveVideoiToDatbase(openFilezDialog.FileName, Convert.ToInt32(treeNode.Tag));
             Console.WriteLine(openFilezDialog.FileName + "\n" + treeNode.Tag.ToString());
@@ -242,5 +276,56 @@ namespace TrainingProgram
             }
             
         }
+
+        private void richTextBoxDescriptionExercises_Leave(object sender, EventArgs e)
+        {
+            if(currentStrDescriptionExercises != richTextBoxDescriptionExercises.Text)
+            {
+                DialogResult result =  MessageBox.Show("Сохранить результат?", "Сохранение", MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question,MessageBoxDefaultButton.Button1,MessageBoxOptions.DefaultDesktopOnly);
+                if (result == DialogResult.Yes)
+                {
+                    workWithDatabas.UpdateDescriptionExercises(richTextBoxDescriptionExercises.Text, id);
+                    currentStrDescriptionExercises = richTextBoxDescriptionExercises.Text;
+                    this.Focus();
+                    Console.WriteLine("Обновили дискрипт с id =" + id);
+
+                }
+                else if (result == DialogResult.No)
+                    richTextBoxDescriptionExercises.Text = currentStrDescriptionExercises;
+                else if (result == DialogResult.Cancel)
+                    return;
+            }
+        }
+
+        private void buttonSaveDescription_Click(object sender, EventArgs e)
+        {
+            if (currentStrDescriptionExercises != richTextBoxDescriptionExercises.Text)
+            {
+                DialogResult result = MessageBox.Show("Сохранить результат?", "Сохранение", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+                if (result == DialogResult.Yes)
+                {
+                    workWithDatabas.UpdateDescriptionExercises(richTextBoxDescriptionExercises.Text, id);
+                    currentStrDescriptionExercises = richTextBoxDescriptionExercises.Text;
+                    this.Focus();
+                    buttonSaveDescription.Enabled = false;
+                    Console.WriteLine("Обновили дискрипт с id =" + id);
+
+                }
+                else if (result == DialogResult.No)
+                    richTextBoxDescriptionExercises.Text = currentStrDescriptionExercises;
+                else if (result == DialogResult.Cancel)
+                    return;
+            }
+        }
+
+        private void richTextBoxDescriptionExercises_TextChanged(object sender, EventArgs e)
+        {
+            if (currentStrDescriptionExercises != richTextBoxDescriptionExercises.Text)
+            {
+                buttonSaveDescription.Enabled = true;
+            }
+            else buttonSaveDescription.Enabled = false;
+        }
+
     }
 }

@@ -58,7 +58,7 @@ namespace TrainingProgram
             }
         }
 
-        public int numbersRoot = 0;
+        private int numbersRoot = 0;
         /// <summary>
         /// Наикдываем упраженния на каждую группы мышц используются в FillTree()
         /// </summary>
@@ -81,6 +81,9 @@ namespace TrainingProgram
             numbersRoot++;
 
         }
+
+
+
 
 
 

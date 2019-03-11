@@ -73,11 +73,13 @@
             // 
             // treeViewMusclesAndExercises
             // 
+            this.treeViewMusclesAndExercises.LabelEdit = true;
             this.treeViewMusclesAndExercises.Location = new System.Drawing.Point(12, 62);
             this.treeViewMusclesAndExercises.Name = "treeViewMusclesAndExercises";
             this.treeViewMusclesAndExercises.Size = new System.Drawing.Size(403, 453);
             this.treeViewMusclesAndExercises.TabIndex = 2;
             this.treeViewMusclesAndExercises.Visible = false;
+            this.treeViewMusclesAndExercises.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeViewMusclesAndExercises_AfterLabelEdit);
             this.treeViewMusclesAndExercises.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewMusclesAndExercises_NodeMouseClick);
             // 
             // buttonBack
@@ -212,6 +214,7 @@
             this.переименоватьToolStripMenuItem.Name = "переименоватьToolStripMenuItem";
             this.переименоватьToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
             this.переименоватьToolStripMenuItem.Text = "Переименовать";
+            this.переименоватьToolStripMenuItem.Click += new System.EventHandler(this.переименоватьToolStripMenuItem_Click);
             // 
             // MainWindow
             // 

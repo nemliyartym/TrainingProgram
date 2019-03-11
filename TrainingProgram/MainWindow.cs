@@ -327,5 +327,22 @@ namespace TrainingProgram
             else buttonSaveDescription.Enabled = false;
         }
 
+        private void переименоватьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            treeNode.BeginEdit();        
+        }
+
+        private void treeViewMusclesAndExercises_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
+        {
+            //if(treeNode.Text == "" || treeNode.Text == " ")
+            //{
+            //    MessageBox.Show("Поле не может быть пустым");
+            //    переименоватьToolStripMenuItem_Click(sender, null);
+            //}
+            //string str = treeNode.Text;
+            //workWithDatabas.UpdateNameExercises(e.Node.Text, Convert.ToInt32(e.Node.Tag));
+        }
+
+
     }
 }

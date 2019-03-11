@@ -58,7 +58,20 @@ namespace TrainingProgram
                 sqlCommand.ExecuteNonQuery();
             }
         }
-  
+
+
+        public void UpdateNameExercises(string newExercises, int id)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("update Exercises set exercises = @exercises where idExercises = " + id, sqlConnection);
+
+                sqlCommand.Parameters.Add("@exercises", SqlDbType.NVarChar, 2000);
+                sqlCommand.Parameters["@exercises"].Value = newExercises;
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
 
     }
 }

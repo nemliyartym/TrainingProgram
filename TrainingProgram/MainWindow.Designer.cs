@@ -79,6 +79,7 @@
             this.treeViewMusclesAndExercises.Size = new System.Drawing.Size(403, 453);
             this.treeViewMusclesAndExercises.TabIndex = 2;
             this.treeViewMusclesAndExercises.Visible = false;
+            this.treeViewMusclesAndExercises.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeViewMusclesAndExercises_BeforeLabelEdit);
             this.treeViewMusclesAndExercises.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeViewMusclesAndExercises_AfterLabelEdit);
             this.treeViewMusclesAndExercises.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewMusclesAndExercises_NodeMouseClick);
             // 

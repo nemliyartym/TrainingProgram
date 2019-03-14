@@ -36,24 +36,20 @@ namespace TrainingProgram
                 ImageList imageList = new ImageList();
                 WorkWithImages workWithImages = new WorkWithImages();
 
-                treeView.ImageList = imageList;
+                //treeView.ImageList = imageList;
                 imageList.ImageSize = new Size(30, 30);
 
                 while (sqlDataReader.Read())
                 {
                     idList.Add(Int32.Parse(sqlDataReader[0].ToString()));
-
                     byte[] imageData = (byte[])sqlDataReader.GetValue(2);
                     if(imageData!= null)
                         imageList.Images.Add(sqlDataReader[3].ToString(), Image.FromStream(new MemoryStream(imageData)));
                     else imageList.Images.Add(sqlDataReader[3].ToString(), Image.FromStream(new MemoryStream(null)));
-
                     treeView.Nodes.Add(sqlDataReader[3].ToString(), sqlDataReader[1].ToString(), sqlDataReader[3].ToString()).Tag = sqlDataReader[0];
-               
                 }
                 sqlDataReader.Close();
                 sqlConnection.Close();
-
                 idList.ForEach(selected);
             }
         }

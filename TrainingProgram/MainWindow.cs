@@ -329,11 +329,12 @@ namespace TrainingProgram
 
         private void переименоватьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            treeNode.BeginEdit();        
+            treeNode.BeginEdit();       
         }
 
         private void treeViewMusclesAndExercises_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
         {
+            MessageBox.Show(e.Node.Text);
             //if(treeNode.Text == "" || treeNode.Text == " ")
             //{
             //    MessageBox.Show("Поле не может быть пустым");
@@ -343,6 +344,9 @@ namespace TrainingProgram
             //workWithDatabas.UpdateNameExercises(e.Node.Text, Convert.ToInt32(e.Node.Tag));
         }
 
-
+        private void treeViewMusclesAndExercises_BeforeLabelEdit(object sender, NodeLabelEditEventArgs e)
+        {
+            MessageBox.Show(e.Node.Text);
+        }
     }
 }

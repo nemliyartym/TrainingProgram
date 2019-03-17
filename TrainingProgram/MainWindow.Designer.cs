@@ -46,6 +46,17 @@
             this.buttonSaveDescription = new System.Windows.Forms.Button();
             this.contextMenuStripFromTree = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.переименоватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
+            this.buttonBackCalander = new System.Windows.Forms.Button();
+            this.listViewUsers = new System.Windows.Forms.ListView();
+            this.Number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.LastName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.listViewTrainingProgramm = new System.Windows.Forms.ListView();
+            this.Exercises = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.labelDayWeek = new System.Windows.Forms.Label();
+            this.buttonNext = new System.Windows.Forms.Button();
+            this.buttonPrev = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.contextMenuStripFromTree.SuspendLayout();
@@ -217,10 +228,113 @@
             this.переименоватьToolStripMenuItem.Text = "Переименовать";
             this.переименоватьToolStripMenuItem.Click += new System.EventHandler(this.переименоватьToolStripMenuItem_Click);
             // 
+            // monthCalendar
+            // 
+            this.monthCalendar.Location = new System.Drawing.Point(677, 80);
+            this.monthCalendar.Name = "monthCalendar";
+            this.monthCalendar.TabIndex = 14;
+            this.monthCalendar.Visible = false;
+            // 
+            // buttonBackCalander
+            // 
+            this.buttonBackCalander.Location = new System.Drawing.Point(25, 13);
+            this.buttonBackCalander.Name = "buttonBackCalander";
+            this.buttonBackCalander.Size = new System.Drawing.Size(67, 23);
+            this.buttonBackCalander.TabIndex = 15;
+            this.buttonBackCalander.Text = "buttonBackCalander";
+            this.buttonBackCalander.UseVisualStyleBackColor = true;
+            this.buttonBackCalander.Visible = false;
+            this.buttonBackCalander.Click += new System.EventHandler(this.buttonBackCalander_Click);
+            // 
+            // listViewUsers
+            // 
+            this.listViewUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Number,
+            this.FirstName,
+            this.LastName});
+            this.listViewUsers.FullRowSelect = true;
+            this.listViewUsers.GridLines = true;
+            this.listViewUsers.Location = new System.Drawing.Point(104, 101);
+            this.listViewUsers.Name = "listViewUsers";
+            this.listViewUsers.Size = new System.Drawing.Size(263, 190);
+            this.listViewUsers.TabIndex = 19;
+            this.listViewUsers.UseCompatibleStateImageBehavior = false;
+            this.listViewUsers.View = System.Windows.Forms.View.Details;
+            this.listViewUsers.Visible = false;
+            this.listViewUsers.SelectedIndexChanged += new System.EventHandler(this.listViewUsers_SelectedIndexChanged);
+            // 
+            // Number
+            // 
+            this.Number.Text = "";
+            this.Number.Width = 0;
+            // 
+            // FirstName
+            // 
+            this.FirstName.Text = "FirstName";
+            this.FirstName.Width = 100;
+            // 
+            // LastName
+            // 
+            this.LastName.Text = "LastName";
+            this.LastName.Width = 100;
+            // 
+            // listViewTrainingProgramm
+            // 
+            this.listViewTrainingProgramm.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.Exercises});
+            this.listViewTrainingProgramm.Location = new System.Drawing.Point(421, 101);
+            this.listViewTrainingProgramm.Name = "listViewTrainingProgramm";
+            this.listViewTrainingProgramm.Size = new System.Drawing.Size(218, 248);
+            this.listViewTrainingProgramm.TabIndex = 20;
+            this.listViewTrainingProgramm.UseCompatibleStateImageBehavior = false;
+            this.listViewTrainingProgramm.View = System.Windows.Forms.View.Details;
+            this.listViewTrainingProgramm.Visible = false;
+            // 
+            // Exercises
+            // 
+            this.Exercises.Text = "Упражнения";
+            this.Exercises.Width = 160;
+            // 
+            // labelDayWeek
+            // 
+            this.labelDayWeek.AutoSize = true;
+            this.labelDayWeek.Location = new System.Drawing.Point(495, 68);
+            this.labelDayWeek.Name = "labelDayWeek";
+            this.labelDayWeek.Size = new System.Drawing.Size(75, 13);
+            this.labelDayWeek.TabIndex = 21;
+            this.labelDayWeek.Text = "Понедельник";
+            // 
+            // buttonNext
+            // 
+            this.buttonNext.Location = new System.Drawing.Point(576, 64);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(75, 23);
+            this.buttonNext.TabIndex = 22;
+            this.buttonNext.Text = "->";
+            this.buttonNext.UseVisualStyleBackColor = true;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            // 
+            // buttonPrev
+            // 
+            this.buttonPrev.Location = new System.Drawing.Point(414, 63);
+            this.buttonPrev.Name = "buttonPrev";
+            this.buttonPrev.Size = new System.Drawing.Size(75, 23);
+            this.buttonPrev.TabIndex = 23;
+            this.buttonPrev.Text = "<-";
+            this.buttonPrev.UseVisualStyleBackColor = true;
+            this.buttonPrev.Click += new System.EventHandler(this.buttonPrev_Click);
+            // 
             // MainWindow
             // 
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(874, 540);
+            this.Controls.Add(this.buttonPrev);
+            this.Controls.Add(this.buttonNext);
+            this.Controls.Add(this.labelDayWeek);
+            this.Controls.Add(this.listViewTrainingProgramm);
+            this.Controls.Add(this.listViewUsers);
+            this.Controls.Add(this.buttonBackCalander);
+            this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.buttonSaveDescription);
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.checkBoxDescription);
@@ -263,6 +377,17 @@
         private System.Windows.Forms.Button buttonSaveDescription;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripFromTree;
         private System.Windows.Forms.ToolStripMenuItem переименоватьToolStripMenuItem;
+        private System.Windows.Forms.MonthCalendar monthCalendar;
+        private System.Windows.Forms.Button buttonBackCalander;
+        private System.Windows.Forms.ListView listViewUsers;
+        private System.Windows.Forms.ColumnHeader FirstName;
+        private System.Windows.Forms.ColumnHeader LastName;
+        private System.Windows.Forms.ColumnHeader Number;
+        private System.Windows.Forms.ListView listViewTrainingProgramm;
+        private System.Windows.Forms.ColumnHeader Exercises;
+        private System.Windows.Forms.Label labelDayWeek;
+        private System.Windows.Forms.Button buttonNext;
+        private System.Windows.Forms.Button buttonPrev;
     }
 }
 

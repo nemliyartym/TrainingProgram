@@ -10,41 +10,65 @@ namespace TrainingProgram
 {
     class WorkWithDataBase
     {
+
+
         private string connectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=Sport;Integrated Security=True";
 
         /// <summary>
         /// Делает sql запрос
         /// </summary>
         /// <returns>возвращает все значения, которые были указзанны в поле select</returns>
-        public string[] SelectFromDataBase (string sqlSelect)
+        /// 
+        public string[,] SelectFromDataBase (string sqlSelect, int countRows)
         {
-            string[] result = null;
+            string[,] result = null;
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 sqlConnection.Open();
                 SqlCommand sqlCommand = new SqlCommand(sqlSelect, sqlConnection);
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
-                result = new string[sqlDataReader.FieldCount];
+                result = new string[countRows,sqlDataReader.FieldCount];
+                if (sqlDataReader.HasRows)
+                {
+                    int i = 0;
+                    while (sqlDataReader.Read())
+                    {
+                        for (int j = 0; j < sqlDataReader.FieldCount; j++)
+                        {
+                            if (sqlDataReader.GetValue(j) != DBNull.Value)
+                                result[i, j] = sqlDataReader.GetValue(j).ToString();
+                            else result[i, j] = null;
+                        }
+                        i++;
+                    }
+                }
+                
+            }
+            return result;
+        }
+
+
+        public int SelectCountFromDataBase (string sqlSelect)
+        {
+            int result = 0;
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand(sqlSelect, sqlConnection);
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
                 if (sqlDataReader.HasRows)
                 {
                     while (sqlDataReader.Read())
                     {
-                        for (int i = 0; i < sqlDataReader.FieldCount; i++)
-                        {
-                            if (sqlDataReader.GetValue(i) != DBNull.Value)
-                                result[i] = sqlDataReader.GetValue(i).ToString();
-                            else result[i] = null;
-                        }
+                        result = Convert.ToInt32(sqlDataReader.GetValue(0));
                     }
                 }
-                
+
             }
-
-                return result;
+            return result;
         }
-
 
         public void UpdateDescriptionExercises (string newDescription, int id)
         {           

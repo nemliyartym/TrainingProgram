@@ -32,8 +32,10 @@ namespace TrainingProgram
             InitializeComponent();
             Win32.AllocConsole();
 
-
             addTrainingProgram.FillLisViewUsers(listViewUsers);
+            addTrainingProgram.FillComboBoxMuscles(comboBoxMuscles);
+
+
 
             WorkWithTree workWithTree = new WorkWithTree(treeViewMusclesAndExercises);
             workWithTree.FillTree();
@@ -87,18 +89,18 @@ namespace TrainingProgram
 
                 treeNode = e.Node;
                 id = Convert.ToInt32(e.Node.Tag);
-
-                //string[] discription = workWithDatabas.SelectFromDataBase("select description from Exercises where idExercises = " + Convert.ToInt32(e.Node.Tag));
-                //if (discription[0] == null || discription[0] == "" || discription[0] == " ")
-                //{
-                //    richTextBoxDescriptionExercises.Text = "Информация пока отсуствует в бд";
-                //    currentStrDescriptionExercises = "Информация пока отсуствует в бд";
-                //}
-                //else
-                //{
-                //    richTextBoxDescriptionExercises.Text = discription[0].ToString();
-                //    currentStrDescriptionExercises = discription[0].ToString();
-                //}
+                int countRows = workWithDatabas.SelectCountFromDataBase("select count (*) from Exercises where idExercises = " + Convert.ToInt32(e.Node.Tag));
+                string[,] discription = workWithDatabas.SelectFromDataBase("select description from Exercises where idExercises = " + Convert.ToInt32(e.Node.Tag),countRows);
+                if (discription[0,0] == null || discription[0,0] == "" || discription[0,0] == " ")
+                {
+                    richTextBoxDescriptionExercises.Text = "Информация пока отсуствует в бд";
+                    currentStrDescriptionExercises = "Информация пока отсуствует в бд";
+                }
+                else
+                {
+                    richTextBoxDescriptionExercises.Text = discription[0,0].ToString();
+                    currentStrDescriptionExercises = discription[0,0].ToString();
+                }
 
                 string sqlSelect = "select i.imageData from ImagesForExercises i join Exercises e on e.idExercises = i.idExercises where e.idExercises = " + Convert.ToInt32(e.Node.Tag);
                 byte[] imageData = workWithImages.RedImageFromDataBase(sqlSelect);
@@ -190,6 +192,7 @@ namespace TrainingProgram
             buttonAddVideo.Visible = false;
             buttonSaveDescription.Visible = false;
             richTextBoxDescriptionExercises.Visible = false;
+            checkBoxDescription.Visible = false;
             axWindowsMediaPlayer.Ctlcontrols.stop();            
         }
 
@@ -199,11 +202,17 @@ namespace TrainingProgram
             buttonSearchMusclesAndExercises.Visible = false;
             buttonAddTrainingProgram.Visible = false;
             buttonBack.Visible = false;
+
+            listViewExercises.Visible = true;
+            comboBoxMuscles.Visible = true;
             listViewTrainingProgramm.Visible = true;
             listViewUsers.Visible = true;
+            buttonNext.Visible = true;
+            buttonPrev.Visible = true;
+            labelDayWeek.Visible = true;
+            buttonBackTrainingProgramm.Visible = true;
 
-            monthCalendar.Visible = true;
-            buttonBackCalander.Visible = true;
+
         }
 
 
@@ -362,12 +371,18 @@ namespace TrainingProgram
 
         private void buttonBackCalander_Click(object sender, EventArgs e)
         {
-            monthCalendar.Visible = false;
             buttonAddTrainingProgram.Visible = true;
             buttonSearchMusclesAndExercises.Visible = true;
-            buttonBackCalander.Visible = false;
+
+            listViewExercises.Visible = false;
+            buttonBackTrainingProgramm.Visible = false;
             listViewTrainingProgramm.Visible = false;
             listViewUsers.Visible = false;
+            buttonNext.Visible = false;
+            buttonPrev.Visible = false;
+            labelDayWeek.Visible = false;
+            comboBoxMuscles.Visible = false;
+
         }
 
         private void listViewUsers_SelectedIndexChanged(object sender, EventArgs e)
@@ -390,6 +405,12 @@ namespace TrainingProgram
         {
             addTrainingProgram.ButtonPre(labelDayWeek);
             listViewUsers_SelectedIndexChanged(sender, e);
+        }
+
+        private void comboBoxMuscles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //(comboBoxMuscles.SelectedItem as ComboboxItem).Value.ToString()
+            addTrainingProgram.FillListViewExrcises(listViewExercises, Convert.ToInt32((comboBoxMuscles.SelectedItem as ComboboxItem).Tag));
         }
     }
 }

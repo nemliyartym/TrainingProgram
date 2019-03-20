@@ -28,9 +28,9 @@ namespace TrainingProgram
                 SqlCommand sqlCommand = new SqlCommand(sqlSelect, sqlConnection);
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
-                result = new string[countRows,sqlDataReader.FieldCount];
                 if (sqlDataReader.HasRows)
                 {
+                    result = new string[countRows, sqlDataReader.FieldCount];
                     int i = 0;
                     while (sqlDataReader.Read())
                     {
@@ -43,6 +43,7 @@ namespace TrainingProgram
                         i++;
                     }
                 }
+
                 
             }
             return result;

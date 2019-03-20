@@ -46,8 +46,7 @@
             this.buttonSaveDescription = new System.Windows.Forms.Button();
             this.contextMenuStripFromTree = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.переименоватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
-            this.buttonBackCalander = new System.Windows.Forms.Button();
+            this.buttonBackTrainingProgramm = new System.Windows.Forms.Button();
             this.listViewUsers = new System.Windows.Forms.ListView();
             this.Number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -57,6 +56,8 @@
             this.labelDayWeek = new System.Windows.Forms.Label();
             this.buttonNext = new System.Windows.Forms.Button();
             this.buttonPrev = new System.Windows.Forms.Button();
+            this.listViewExercises = new System.Windows.Forms.ListView();
+            this.comboBoxMuscles = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.contextMenuStripFromTree.SuspendLayout();
@@ -96,7 +97,7 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(25, 13);
+            this.buttonBack.Location = new System.Drawing.Point(167, 10);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(67, 26);
             this.buttonBack.TabIndex = 3;
@@ -228,23 +229,16 @@
             this.переименоватьToolStripMenuItem.Text = "Переименовать";
             this.переименоватьToolStripMenuItem.Click += new System.EventHandler(this.переименоватьToolStripMenuItem_Click);
             // 
-            // monthCalendar
+            // buttonBackTrainingProgramm
             // 
-            this.monthCalendar.Location = new System.Drawing.Point(677, 80);
-            this.monthCalendar.Name = "monthCalendar";
-            this.monthCalendar.TabIndex = 14;
-            this.monthCalendar.Visible = false;
-            // 
-            // buttonBackCalander
-            // 
-            this.buttonBackCalander.Location = new System.Drawing.Point(25, 13);
-            this.buttonBackCalander.Name = "buttonBackCalander";
-            this.buttonBackCalander.Size = new System.Drawing.Size(67, 23);
-            this.buttonBackCalander.TabIndex = 15;
-            this.buttonBackCalander.Text = "buttonBackCalander";
-            this.buttonBackCalander.UseVisualStyleBackColor = true;
-            this.buttonBackCalander.Visible = false;
-            this.buttonBackCalander.Click += new System.EventHandler(this.buttonBackCalander_Click);
+            this.buttonBackTrainingProgramm.Location = new System.Drawing.Point(348, 13);
+            this.buttonBackTrainingProgramm.Name = "buttonBackTrainingProgramm";
+            this.buttonBackTrainingProgramm.Size = new System.Drawing.Size(67, 23);
+            this.buttonBackTrainingProgramm.TabIndex = 15;
+            this.buttonBackTrainingProgramm.Text = "buttonBackCalander";
+            this.buttonBackTrainingProgramm.UseVisualStyleBackColor = true;
+            this.buttonBackTrainingProgramm.Visible = false;
+            this.buttonBackTrainingProgramm.Click += new System.EventHandler(this.buttonBackCalander_Click);
             // 
             // listViewUsers
             // 
@@ -303,6 +297,7 @@
             this.labelDayWeek.Size = new System.Drawing.Size(75, 13);
             this.labelDayWeek.TabIndex = 21;
             this.labelDayWeek.Text = "Понедельник";
+            this.labelDayWeek.Visible = false;
             // 
             // buttonNext
             // 
@@ -312,6 +307,7 @@
             this.buttonNext.TabIndex = 22;
             this.buttonNext.Text = "->";
             this.buttonNext.UseVisualStyleBackColor = true;
+            this.buttonNext.Visible = false;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
             // buttonPrev
@@ -322,19 +318,41 @@
             this.buttonPrev.TabIndex = 23;
             this.buttonPrev.Text = "<-";
             this.buttonPrev.UseVisualStyleBackColor = true;
+            this.buttonPrev.Visible = false;
             this.buttonPrev.Click += new System.EventHandler(this.buttonPrev_Click);
+            // 
+            // listViewExercises
+            // 
+            this.listViewExercises.Location = new System.Drawing.Point(646, 128);
+            this.listViewExercises.Name = "listViewExercises";
+            this.listViewExercises.Size = new System.Drawing.Size(216, 224);
+            this.listViewExercises.TabIndex = 24;
+            this.listViewExercises.UseCompatibleStateImageBehavior = false;
+            this.listViewExercises.View = System.Windows.Forms.View.SmallIcon;
+            this.listViewExercises.Visible = false;
+            // 
+            // comboBoxMuscles
+            // 
+            this.comboBoxMuscles.FormattingEnabled = true;
+            this.comboBoxMuscles.Location = new System.Drawing.Point(646, 101);
+            this.comboBoxMuscles.Name = "comboBoxMuscles";
+            this.comboBoxMuscles.Size = new System.Drawing.Size(216, 21);
+            this.comboBoxMuscles.TabIndex = 25;
+            this.comboBoxMuscles.Visible = false;
+            this.comboBoxMuscles.SelectedIndexChanged += new System.EventHandler(this.comboBoxMuscles_SelectedIndexChanged);
             // 
             // MainWindow
             // 
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(874, 540);
+            this.Controls.Add(this.comboBoxMuscles);
+            this.Controls.Add(this.listViewExercises);
             this.Controls.Add(this.buttonPrev);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.labelDayWeek);
             this.Controls.Add(this.listViewTrainingProgramm);
             this.Controls.Add(this.listViewUsers);
-            this.Controls.Add(this.buttonBackCalander);
-            this.Controls.Add(this.monthCalendar);
+            this.Controls.Add(this.buttonBackTrainingProgramm);
             this.Controls.Add(this.buttonSaveDescription);
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.checkBoxDescription);
@@ -377,8 +395,7 @@
         private System.Windows.Forms.Button buttonSaveDescription;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripFromTree;
         private System.Windows.Forms.ToolStripMenuItem переименоватьToolStripMenuItem;
-        private System.Windows.Forms.MonthCalendar monthCalendar;
-        private System.Windows.Forms.Button buttonBackCalander;
+        private System.Windows.Forms.Button buttonBackTrainingProgramm;
         private System.Windows.Forms.ListView listViewUsers;
         private System.Windows.Forms.ColumnHeader FirstName;
         private System.Windows.Forms.ColumnHeader LastName;
@@ -388,6 +405,8 @@
         private System.Windows.Forms.Label labelDayWeek;
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.Button buttonPrev;
+        private System.Windows.Forms.ListView listViewExercises;
+        private System.Windows.Forms.ComboBox comboBoxMuscles;
     }
 }
 

@@ -412,5 +412,18 @@ namespace TrainingProgram
             //(comboBoxMuscles.SelectedItem as ComboboxItem).Value.ToString()
             addTrainingProgram.FillListViewExrcises(listViewExercises, Convert.ToInt32((comboBoxMuscles.SelectedItem as ComboboxItem).Tag));
         }
+
+        private void listViewExercises_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewExercises_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listViewExercises.SelectedItems.Count > 0)
+            {
+                MessageBox.Show(listViewExercises.SelectedItems[0].Tag.ToString());
+            }
+        }
     }
 }

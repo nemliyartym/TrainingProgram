@@ -330,6 +330,8 @@
             this.listViewExercises.UseCompatibleStateImageBehavior = false;
             this.listViewExercises.View = System.Windows.Forms.View.SmallIcon;
             this.listViewExercises.Visible = false;
+            this.listViewExercises.SelectedIndexChanged += new System.EventHandler(this.listViewExercises_SelectedIndexChanged);
+            this.listViewExercises.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewExercises_MouseDoubleClick);
             // 
             // comboBoxMuscles
             // 

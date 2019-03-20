@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using System.Drawing;
+using System.IO;
 
 namespace TrainingProgram
 {
@@ -29,15 +31,21 @@ namespace TrainingProgram
 
         public void FillListViewExrcises(ListView listView,int idMuscles)
         {
+            WorkWithImages workWithImages = new WorkWithImages();
             int countRows = workWithDatabas.SelectCountFromDataBase("select count(e.exercises) from MusclesAndExercises me join Muscles m on me.idMuscles = m.idMuscles join Exercises e on me.idExercises = e.idExercises where me.idMuscles =" + idMuscles);
-            string[,] sqlSelect = workWithDatabas.SelectFromDataBase("select e.exercises from MusclesAndExercises me join Muscles m on me.idMuscles = m.idMuscles join Exercises e on me.idExercises = e.idExercises where me.idMuscles =" + idMuscles, countRows);
-
-
+            string[,] sqlSelect = workWithDatabas.SelectFromDataBase("select e.exercises, e.idExercises from MusclesAndExercises me join Muscles m on me.idMuscles = m.idMuscles join Exercises e on me.idExercises = e.idExercises where me.idMuscles =" + idMuscles, countRows);
             listView.Items.Clear();
+            ImageList imageList = new ImageList();
+            listView.LargeImageList = imageList;
             for(int i=0; i<countRows; i++)
             {
                 ListViewItem lvItem = new ListViewItem();
+                //byte[] imageData = workWithImages.RedImageFromDataBase("select imageData from ImagesForExercises where idExercises =" + sqlSelect[i,1]);
+                //if(imageData != null)
+                //    imageList.Images.Add(sqlSelect[i,1].ToString(),Image.FromStream(new MemoryStream(imageData)));
+                //lvItem.ImageIndex = Convert.ToInt16(sqlSelect[i, 1]);
                 lvItem.Text = sqlSelect[i, 0];
+                lvItem.Tag = sqlSelect[i, 1];
                 listView.Items.Add(lvItem);
             }
         }

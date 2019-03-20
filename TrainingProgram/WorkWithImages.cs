@@ -191,13 +191,16 @@ namespace TrainingProgram
                 sqlConnection.Open();
                 
                 SqlCommand sqlCommand = new SqlCommand(sqlSelect, sqlConnection);
-                SqlDataReader reader = sqlCommand.ExecuteReader();
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
                 byte[] imageData = null;
-                          
-                while (reader.Read())
+
+                if (sqlDataReader.HasRows)
                 {
-                    if(reader.GetValue(0) != DBNull.Value)
-                        imageData = (byte[])reader.GetValue(0);
+                    while (sqlDataReader.Read())
+                    {
+                        if (sqlDataReader.GetValue(0) != DBNull.Value)
+                            imageData = (byte[])sqlDataReader.GetValue(0);
+                    }
                 }
                 return imageData;
                     //pictureBox.Image = Image.FromStream(new MemoryStream(imageData));

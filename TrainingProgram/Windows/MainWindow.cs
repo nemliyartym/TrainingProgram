@@ -12,6 +12,7 @@ using System.IO;
 using Microsoft.DirectX.AudioVideoPlayback;
 using AxWMPLib;
 using System.Threading;
+using TrainingProgram.Class;
 
 namespace TrainingProgram
 {
@@ -22,10 +23,11 @@ namespace TrainingProgram
         public TreeNode treeNode = new TreeNode();
 
 
-
         WorkWithImages workWithImages = new WorkWithImages();
         WorkWithDataBase workWithDatabas = new WorkWithDataBase();
         AddTrainingProgram addTrainingProgram = new AddTrainingProgram();
+        WorkWithTrainigProgram workWithTrainigProgram = new WorkWithTrainigProgram();
+        AddUserWindow addUserWinodw = new AddUserWindow();
 
         public MainWindow()
         {
@@ -51,13 +53,13 @@ namespace TrainingProgram
             //workWithImages.Sa(@"C:\Users\79374\Desktop\imagesFromDB\video\2.jpg", @"C:\Users\79374\Desktop\imagesFromDB\video\22.mkv", "insert into ImagesForExercises values (@id, @imageName, @imageData, @videoName, @videoData)", 2);
             //workWithImages.SaveImageVideoToDatbase("ImagesForExercises", @"C:\Users\79374\Desktop\imagesFromDB\video\2.jpg", @"C:\Users\79374\Desktop\imagesFromDB\video\22.mkv", 3);
 
-           // workWithImages.SaveImageVideoToDatbase("ImagesForExercises", null, @"C:\Users\79374\Desktop\imagesFromDB\video\22.mkv",4);
+            // workWithImages.SaveImageVideoToDatbase("ImagesForExercises", null, @"C:\Users\79374\Desktop\imagesFromDB\video\22.mkv",4);
         }
 
 
         private void treeViewMusclesAndExercises_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if(e.Button == MouseButtons.Right)
+            if (e.Button == MouseButtons.Right)
             {
                 treeViewMusclesAndExercises.SelectedNode = e.Node;
                 if (e.Node.Parent != null)
@@ -90,16 +92,16 @@ namespace TrainingProgram
                 treeNode = e.Node;
                 id = Convert.ToInt32(e.Node.Tag);
                 int countRows = workWithDatabas.SelectCountFromDataBase("select count (*) from Exercises where idExercises = " + Convert.ToInt32(e.Node.Tag));
-                string[,] discription = workWithDatabas.SelectFromDataBase("select description from Exercises where idExercises = " + Convert.ToInt32(e.Node.Tag),countRows);
-                if (discription[0,0] == null || discription[0,0] == "" || discription[0,0] == " ")
+                string[,] discription = workWithDatabas.SelectFromDataBase("select description from Exercises where idExercises = " + Convert.ToInt32(e.Node.Tag), countRows);
+                if (discription[0, 0] == null || discription[0, 0] == "" || discription[0, 0] == " ")
                 {
                     richTextBoxDescriptionExercises.Text = "Информация пока отсуствует в бд";
                     currentStrDescriptionExercises = "Информация пока отсуствует в бд";
                 }
                 else
                 {
-                    richTextBoxDescriptionExercises.Text = discription[0,0].ToString();
-                    currentStrDescriptionExercises = discription[0,0].ToString();
+                    richTextBoxDescriptionExercises.Text = discription[0, 0].ToString();
+                    currentStrDescriptionExercises = discription[0, 0].ToString();
                 }
 
                 string sqlSelect = "select i.imageData from ImagesForExercises i join Exercises e on e.idExercises = i.idExercises where e.idExercises = " + Convert.ToInt32(e.Node.Tag);
@@ -153,7 +155,7 @@ namespace TrainingProgram
 
         private void TreeViewMusclesAndExercises_AfterSelect(object sender, TreeViewEventArgs e)
         {
-           
+
         }
 
 
@@ -193,7 +195,7 @@ namespace TrainingProgram
             buttonSaveDescription.Visible = false;
             richTextBoxDescriptionExercises.Visible = false;
             checkBoxDescription.Visible = false;
-            axWindowsMediaPlayer.Ctlcontrols.stop();            
+            axWindowsMediaPlayer.Ctlcontrols.stop();
         }
 
         private void buttonAddTrainingProgram_Click(object sender, EventArgs e)
@@ -215,10 +217,6 @@ namespace TrainingProgram
 
         }
 
-
-
-
-
         private void buttonAddImage_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFilezDialog = new OpenFileDialog();
@@ -227,7 +225,7 @@ namespace TrainingProgram
             if (openFilezDialog.ShowDialog() == DialogResult.Cancel)
                 return;
             workWithImages.SaveImageToDatbase(openFilezDialog.FileName, Convert.ToInt32(treeNode.Tag));
-            Console.WriteLine(openFilezDialog.FileName + "\n" +treeNode.Tag.ToString());
+            Console.WriteLine(openFilezDialog.FileName + "\n" + treeNode.Tag.ToString());
 
             string sqlSelect = "select i.imageData from ImagesForExercises i join Exercises e on e.idExercises = i.idExercises where e.idExercises = " + Convert.ToInt32(treeNode.Tag);
 
@@ -238,11 +236,8 @@ namespace TrainingProgram
             }
 
             pictureBoxFromImages.Visible = true;
-           
+
         }
-
-
-
 
 
         private void buttonAddVideo_Click(object sender, EventArgs e)
@@ -292,14 +287,14 @@ namespace TrainingProgram
                 richTextBoxDescriptionExercises.ReadOnly = true;
                 richTextBoxDescriptionExercises.BackColor = Color.FromArgb(240, 240, 240);
             }
-            
+
         }
 
         private void richTextBoxDescriptionExercises_Leave(object sender, EventArgs e)
         {
-            if(currentStrDescriptionExercises != richTextBoxDescriptionExercises.Text)
+            if (currentStrDescriptionExercises != richTextBoxDescriptionExercises.Text)
             {
-                DialogResult result =  MessageBox.Show("Сохранить результат?", "Сохранение", MessageBoxButtons.YesNoCancel,MessageBoxIcon.Question,MessageBoxDefaultButton.Button1,MessageBoxOptions.DefaultDesktopOnly);
+                DialogResult result = MessageBox.Show("Сохранить результат?", "Сохранение", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 if (result == DialogResult.Yes)
                 {
                     workWithDatabas.UpdateDescriptionExercises(richTextBoxDescriptionExercises.Text, id);
@@ -347,7 +342,7 @@ namespace TrainingProgram
 
         private void переименоватьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            treeNode.BeginEdit();       
+            treeNode.BeginEdit();
         }
 
         private void treeViewMusclesAndExercises_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
@@ -390,7 +385,7 @@ namespace TrainingProgram
             if (listViewUsers.SelectedItems.Count > 0)
             {
                 addTrainingProgram.FilllistViewTrainingProgramm(listViewTrainingProgramm, Convert.ToInt32(listViewUsers.SelectedItems[0].Text));
-            }          
+            }
         }
 
 
@@ -409,21 +404,49 @@ namespace TrainingProgram
 
         private void comboBoxMuscles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //(comboBoxMuscles.SelectedItem as ComboboxItem).Value.ToString()
             addTrainingProgram.FillListViewExrcises(listViewExercises, Convert.ToInt32((comboBoxMuscles.SelectedItem as ComboboxItem).Tag));
         }
 
-        private void listViewExercises_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void listViewExercises_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (listViewExercises.SelectedItems.Count > 0)
             {
-                MessageBox.Show(listViewExercises.SelectedItems[0].Tag.ToString());
+                workWithTrainigProgram.InsertExercisesInTrainigProgram(addTrainingProgram.currentDaysWeek,
+                    Convert.ToInt32(listViewExercises.SelectedItems[0].Tag),
+                    Convert.ToInt32(listViewUsers.SelectedItems[0].Text));
+                addTrainingProgram.FilllistViewTrainingProgramm(listViewTrainingProgramm, Convert.ToInt32(listViewUsers.SelectedItems[0].Text));
+
             }
+        }
+
+
+        private void listViewTrainingProgramm_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                if (listViewTrainingProgramm.SelectedItems.Count > 0)
+                {
+                    contextMenuStripDelRename.Show(listViewTrainingProgramm,e.Location);
+                }
+            }
+        }
+
+        private void удалитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (listViewTrainingProgramm.SelectedItems.Count > 0)
+            {
+                workWithTrainigProgram.DeleteExercisesFromTrainigProgram(Convert.ToInt32( listViewTrainingProgramm.SelectedItems[0].Tag));
+                addTrainingProgram.FilllistViewTrainingProgramm(listViewTrainingProgramm, Convert.ToInt32(listViewUsers.SelectedItems[0].Text));
+            }
+        }
+
+        private void buttonAddNewUser_Click(object sender, EventArgs e)
+        {
+            addUserWinodw.StartPosition = FormStartPosition.CenterParent;
+            addUserWinodw.ShowDialog();
+
         }
     }
 }

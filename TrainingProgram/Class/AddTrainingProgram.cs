@@ -23,17 +23,19 @@ namespace TrainingProgram
 
     class AddTrainingProgram
     {
-        WorkWithDataBase workWithDatabas = new WorkWithDataBase();
+        WorkWithImages workWithImages = new WorkWithImages();
+        WorkWithDataBase workWithDataBase = new WorkWithDataBase();
+        WorkWithTrainigProgram workWithTrainigProgram = new WorkWithTrainigProgram();
 
         string[] daysWeek = { "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье" };
-        int currentDaysWeek = 0;
+        public int currentDaysWeek = 0;
 
 
         public void FillListViewExrcises(ListView listView,int idMuscles)
         {
-            WorkWithImages workWithImages = new WorkWithImages();
-            int countRows = workWithDatabas.SelectCountFromDataBase("select count(e.exercises) from MusclesAndExercises me join Muscles m on me.idMuscles = m.idMuscles join Exercises e on me.idExercises = e.idExercises where me.idMuscles =" + idMuscles);
-            string[,] sqlSelect = workWithDatabas.SelectFromDataBase("select e.exercises, e.idExercises from MusclesAndExercises me join Muscles m on me.idMuscles = m.idMuscles join Exercises e on me.idExercises = e.idExercises where me.idMuscles =" + idMuscles, countRows);
+
+            int countRows = workWithDataBase.SelectCountFromDataBase("select count(e.exercises) from MusclesAndExercises me join Muscles m on me.idMuscles = m.idMuscles join Exercises e on me.idExercises = e.idExercises where me.idMuscles =" + idMuscles);
+            string[,] sqlSelect = workWithDataBase.SelectFromDataBase("select e.exercises, e.idExercises from MusclesAndExercises me join Muscles m on me.idMuscles = m.idMuscles join Exercises e on me.idExercises = e.idExercises where me.idMuscles =" + idMuscles, countRows);
             listView.Items.Clear();
             ImageList imageList = new ImageList();
             listView.LargeImageList = imageList;
@@ -53,8 +55,8 @@ namespace TrainingProgram
 
         public void FillComboBoxMuscles (ComboBox comboBox)
         {
-            int countRows = workWithDatabas.SelectCountFromDataBase("select count (*) from Muscles");
-            string[,] sqlSelect = workWithDatabas.SelectFromDataBase("select * from Muscles",countRows);
+            int countRows = workWithDataBase.SelectCountFromDataBase("select count (*) from Muscles");
+            string[,] sqlSelect = workWithDataBase.SelectFromDataBase("select * from Muscles",countRows);
             for (int i=0; i< countRows; i++)
             {
                 ComboboxItem cbItem = new ComboboxItem();
@@ -84,19 +86,20 @@ namespace TrainingProgram
 
         public void FilllistViewTrainingProgramm(ListView listViewTrainingProgramm, int id)
         {
-            int count = workWithDatabas.SelectCountFromDataBase("select count (e.exercises) from TrainingProgram tp join Users u on tp.idUsers = u.idUsers join  Exercises e on tp.idExercises = e.idExercises join DaysWeek dw on tp.idDaysWeek = dw.idDaysWeek where u.idUsers =" + id + "and dw.daysWeek = '" + daysWeek[currentDaysWeek] +"'");
-            string[,] selectResult = workWithDatabas.SelectFromDataBase("select e.exercises from TrainingProgram tp join Users u on tp.idUsers = u.idUsers join  Exercises e on tp.idExercises = e.idExercises join DaysWeek dw on tp.idDaysWeek = dw.idDaysWeek where u.idUsers =" + id + "and dw.daysWeek = '" + daysWeek[currentDaysWeek] + "'", count);
+            int count = workWithDataBase.SelectCountFromDataBase("select count (e.exercises) from TrainingProgram tp join Users u on tp.idUsers = u.idUsers join  Exercises e on tp.idExercises = e.idExercises join DaysWeek dw on tp.idDaysWeek = dw.idDaysWeek where u.idUsers =" + id + "and dw.daysWeek = '" + daysWeek[currentDaysWeek] +"'");
+            string[,] selectResult = workWithDataBase.SelectFromDataBase("select tp.idTrainingProgram,e.exercises from TrainingProgram tp join Users u on tp.idUsers = u.idUsers join  Exercises e on tp.idExercises = e.idExercises join DaysWeek dw on tp.idDaysWeek = dw.idDaysWeek where u.idUsers =" + id + "and dw.daysWeek = '" + daysWeek[currentDaysWeek] + "'", count);
             listViewTrainingProgramm.Items.Clear();
             for (int i = 0; i < count; i++)
             {
-                ListViewItem item = new ListViewItem(selectResult[i, 0]);
+                ListViewItem item = new ListViewItem(selectResult[i, 1]);
+                item.SubItems.Add(selectResult[i, 1]);
+                item.Tag = selectResult[i, 0];
                 listViewTrainingProgramm.Items.Add(item);
             }
         }
 
         public void FillLisViewUsers(ListView listView)
         {
-            WorkWithDataBase workWithDataBase = new WorkWithDataBase();
             int counRows = workWithDataBase.SelectCountFromDataBase("select count (*) from Users");
             string[,] sqlSelectResult = workWithDataBase.SelectFromDataBase("select * from Users", counRows);
 
@@ -107,6 +110,7 @@ namespace TrainingProgram
                 item.SubItems.Add(sqlSelectResult[i, 2]).Tag = sqlSelectResult[i,0];
                 listView.Items.Add(item);
             }
+            
         }
 
 

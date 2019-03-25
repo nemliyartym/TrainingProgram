@@ -58,9 +58,14 @@
             this.buttonPrev = new System.Windows.Forms.Button();
             this.listViewExercises = new System.Windows.Forms.ListView();
             this.comboBoxMuscles = new System.Windows.Forms.ComboBox();
+            this.contextMenuStripDelRename = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.переименоватьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonAddNewUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.contextMenuStripFromTree.SuspendLayout();
+            this.contextMenuStripDelRename.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSearchMusclesAndExercises
@@ -283,6 +288,7 @@
             this.listViewTrainingProgramm.UseCompatibleStateImageBehavior = false;
             this.listViewTrainingProgramm.View = System.Windows.Forms.View.Details;
             this.listViewTrainingProgramm.Visible = false;
+            this.listViewTrainingProgramm.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewTrainingProgramm_MouseClick);
             // 
             // Exercises
             // 
@@ -330,7 +336,6 @@
             this.listViewExercises.UseCompatibleStateImageBehavior = false;
             this.listViewExercises.View = System.Windows.Forms.View.SmallIcon;
             this.listViewExercises.Visible = false;
-            this.listViewExercises.SelectedIndexChanged += new System.EventHandler(this.listViewExercises_SelectedIndexChanged);
             this.listViewExercises.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewExercises_MouseDoubleClick);
             // 
             // comboBoxMuscles
@@ -343,10 +348,42 @@
             this.comboBoxMuscles.Visible = false;
             this.comboBoxMuscles.SelectedIndexChanged += new System.EventHandler(this.comboBoxMuscles_SelectedIndexChanged);
             // 
+            // contextMenuStripDelRename
+            // 
+            this.contextMenuStripDelRename.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.переименоватьToolStripMenuItem1,
+            this.удалитьToolStripMenuItem});
+            this.contextMenuStripDelRename.Name = "contextMenuStripAddDelRename";
+            this.contextMenuStripDelRename.Size = new System.Drawing.Size(162, 48);
+            // 
+            // переименоватьToolStripMenuItem1
+            // 
+            this.переименоватьToolStripMenuItem1.Name = "переименоватьToolStripMenuItem1";
+            this.переименоватьToolStripMenuItem1.Size = new System.Drawing.Size(161, 22);
+            this.переименоватьToolStripMenuItem1.Text = "Переименовать";
+            // 
+            // удалитьToolStripMenuItem
+            // 
+            this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
+            this.удалитьToolStripMenuItem.Text = "Удалить";
+            this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.удалитьToolStripMenuItem_Click);
+            // 
+            // buttonAddNewUser
+            // 
+            this.buttonAddNewUser.Location = new System.Drawing.Point(646, 376);
+            this.buttonAddNewUser.Name = "buttonAddNewUser";
+            this.buttonAddNewUser.Size = new System.Drawing.Size(180, 55);
+            this.buttonAddNewUser.TabIndex = 26;
+            this.buttonAddNewUser.Text = "buttonAddNewUser";
+            this.buttonAddNewUser.UseVisualStyleBackColor = true;
+            this.buttonAddNewUser.Click += new System.EventHandler(this.buttonAddNewUser_Click);
+            // 
             // MainWindow
             // 
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(874, 540);
+            this.Controls.Add(this.buttonAddNewUser);
             this.Controls.Add(this.comboBoxMuscles);
             this.Controls.Add(this.listViewExercises);
             this.Controls.Add(this.buttonPrev);
@@ -373,6 +410,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).EndInit();
             this.contextMenuStripFromTree.ResumeLayout(false);
+            this.contextMenuStripDelRename.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -409,6 +447,10 @@
         private System.Windows.Forms.Button buttonPrev;
         private System.Windows.Forms.ListView listViewExercises;
         private System.Windows.Forms.ComboBox comboBoxMuscles;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripDelRename;
+        private System.Windows.Forms.ToolStripMenuItem переименоватьToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
+        private System.Windows.Forms.Button buttonAddNewUser;
     }
 }
 

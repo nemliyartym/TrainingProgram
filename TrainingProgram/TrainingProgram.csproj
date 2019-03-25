@@ -77,20 +77,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddTrainingProgram.cs" />
-    <Compile Include="MainWindow.cs">
+    <Compile Include="Class\AddTrainingProgram.cs" />
+    <Compile Include="Class\Calculation.cs" />
+    <Compile Include="Windows\AddUserWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainWindow.Designer.cs">
+    <Compile Include="Windows\AddUserWindow.Designer.cs">
+      <DependentUpon>AddUserWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Win32.cs" />
-    <Compile Include="WorkWithDataBase.cs" />
-    <Compile Include="WorkWithImages.cs" />
-    <Compile Include="WorkWithTree.cs" />
-    <EmbeddedResource Include="MainWindow.resx">
+    <Compile Include="Class\Win32.cs" />
+    <Compile Include="Class\WorkWithDataBase.cs" />
+    <Compile Include="Class\WorkWithImages.cs" />
+    <Compile Include="Class\WorkWithTree.cs" />
+    <EmbeddedResource Include="Windows\AddUserWindow.resx">
+      <DependentUpon>AddUserWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -13,10 +13,11 @@ namespace TrainingProgram.Class
         {
             double ADsr = pressureDown + ((pressureUp - pressureDown)/3f);
             double CPC = (700 - (3 * puls) - (2.5 * ADsr) - (2.7 * age) + (0.28 * weight))/ (350 - (2.6 * age) + (0.21 * growth));
+            CPC *= 10;
             return CPC;
         }
 
-        public double CalculationPowerCondictopn (int pushUp, int pullUps, int squats, int press, int m100)
+        public double CalculationPowerCondictopn (int pushUp, int pullUps, int squats, int press, double m100)
         {
             double CPC = (pushUp + pullUps + squats + press) / (1.4 * m100);
             return CPC;

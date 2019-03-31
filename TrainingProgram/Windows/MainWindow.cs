@@ -13,21 +13,32 @@ using Microsoft.DirectX.AudioVideoPlayback;
 using AxWMPLib;
 using System.Threading;
 using TrainingProgram.Class;
+using TrainingProgram.Windows;
 
 namespace TrainingProgram
 {
     public partial class MainWindow : Form
     {
-        public string currentStrDescriptionExercises;
-        public int id = 0;
-        public TreeNode treeNode = new TreeNode();
+        private string currentStrDescriptionExercises;
+        private int id = 0;
+        private TreeNode treeNode = new TreeNode();
 
+        private enum CurrentPageMainWindow
+        {
+            pageMainWindow,
+            pageViewingExercises,
+            pageTrainigProgramm,
+            pageAddTpForUser
+        }
+
+        CurrentPageMainWindow currentPageMainWindow;
 
         WorkWithImages workWithImages = new WorkWithImages();
         WorkWithDataBase workWithDatabas = new WorkWithDataBase();
         AddTrainingProgram addTrainingProgram = new AddTrainingProgram();
         WorkWithTrainigProgram workWithTrainigProgram = new WorkWithTrainigProgram();
-        AddUserWindow addUserWinodw = new AddUserWindow();
+        AddTEST1 addUserWinodw = new AddTEST1();
+        AddUserWindow addUserwindow = new AddUserWindow();
 
         public MainWindow()
         {
@@ -42,7 +53,6 @@ namespace TrainingProgram
             WorkWithTree workWithTree = new WorkWithTree(treeViewMusclesAndExercises);
             workWithTree.FillTree();
 
-            treeViewMusclesAndExercises.AfterSelect += TreeViewMusclesAndExercises_AfterSelect;
             treeViewMusclesAndExercises.BeforeSelect += TreeViewMusclesAndExercises_BeforeSelect;
 
             //axWindowsMediaPlayer.URL = @"C:\Users\79374\Desktop\imagesFromDB\video\Lesha Svik - Sterva (Premera treka 2019) (MosCatalogue.net).mkv";
@@ -55,6 +65,73 @@ namespace TrainingProgram
 
             // workWithImages.SaveImageVideoToDatbase("ImagesForExercises", null, @"C:\Users\79374\Desktop\imagesFromDB\video\22.mkv",4);
         }
+
+
+        //---------------INTEFACE-----------------------------
+        private void PageMainWindow (bool isVisible)
+        {
+            buttonSearchMusclesAndExercises.Visible = isVisible;
+            buttonAddTrainingProgram.Visible = isVisible;
+            buttonAddTpForUser.Visible = isVisible;
+            buttonBack.Visible = !isVisible;
+        }
+        private void PageViewingExercises (bool isVisible)
+        {
+            treeViewMusclesAndExercises.Visible = isVisible;
+            buttonBack.Visible = isVisible;
+            currentPageMainWindow = CurrentPageMainWindow.pageViewingExercises;
+        }
+        private void PageViewingExercisesOther (bool isVisible)
+        {
+            buttonAddVideo.Visible = isVisible;
+            buttonSaveDescription.Visible = isVisible;
+            labelDescription.Visible = isVisible;
+            checkBoxDescription.Visible = isVisible;
+            buttonAddImage.Visible = isVisible;
+            richTextBoxDescriptionExercises.Visible = isVisible;
+            pictureBoxFromImages.Visible = isVisible;
+            labelHeadExercises.Visible = isVisible;
+        }
+        private void PageTrainigProgramm (bool isVisible)
+        {
+            listViewExercises.Visible = isVisible;
+            comboBoxMuscles.Visible = isVisible;
+            listViewTrainingProgramm.Visible = isVisible;
+            listViewUsers.Visible = isVisible;
+            buttonNext.Visible = isVisible;
+            buttonPrev.Visible = isVisible;
+            buttonBack.Visible = isVisible;
+            labelDayWeek.Visible = isVisible;
+            currentPageMainWindow = CurrentPageMainWindow.pageTrainigProgramm;
+        }
+        //------------------------INTEFACEMANAGMENT----------------------------------
+        private void buttonSearchExercises_Click(object sender, EventArgs e)
+        {
+            PageMainWindow(false);
+            PageViewingExercises(true);
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            PageMainWindow(true);
+            if (currentPageMainWindow == CurrentPageMainWindow.pageTrainigProgramm)
+            {
+                PageTrainigProgramm(false);
+            }
+            else if (currentPageMainWindow == CurrentPageMainWindow.pageViewingExercises)
+            {
+                PageViewingExercises(false);
+                PageViewingExercisesOther(false);
+            }
+        }
+
+        private void buttonAddTrainingProgram_Click(object sender, EventArgs e)
+        {
+            PageMainWindow(false);
+            PageTrainigProgramm(true);
+        }
+        //---------------------------------------------------------------------------
+
 
 
         private void treeViewMusclesAndExercises_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -153,70 +230,6 @@ namespace TrainingProgram
 
         }
 
-        private void TreeViewMusclesAndExercises_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
-
-
-
-        private void buttonSearchExercises_Click(object sender, EventArgs e)
-        {
-            //начальный интерфейс
-            buttonSearchMusclesAndExercises.Visible = false;
-            buttonAddTrainingProgram.Visible = false;
-            buttonBack.Visible = true;
-
-            //параметры окна
-            //this.AutoScroll = true;
-
-            //элементы для окна просмотра упражнений
-            treeViewMusclesAndExercises.Visible = true;
-        }
-
-        private void buttonBack_Click(object sender, EventArgs e)
-        {
-            //начальный интерфейс
-            buttonSearchMusclesAndExercises.Visible = true;
-            buttonAddTrainingProgram.Visible = true;
-            buttonBack.Visible = false;
-
-            //параметры окна
-            //this.AutoScroll = false;
-
-            //скрываем мусор
-            treeViewMusclesAndExercises.Visible = false;
-            buttonAddImage.Visible = false;
-            pictureBoxFromImages.Visible = false;
-            labelHeadExercises.Visible = false;
-            labelDescription.Visible = false;
-            axWindowsMediaPlayer.Visible = false;
-            buttonAddVideo.Visible = false;
-            buttonSaveDescription.Visible = false;
-            richTextBoxDescriptionExercises.Visible = false;
-            checkBoxDescription.Visible = false;
-            axWindowsMediaPlayer.Ctlcontrols.stop();
-        }
-
-        private void buttonAddTrainingProgram_Click(object sender, EventArgs e)
-        {
-            //начальный интерфейс
-            buttonSearchMusclesAndExercises.Visible = false;
-            buttonAddTrainingProgram.Visible = false;
-            buttonBack.Visible = false;
-
-            listViewExercises.Visible = true;
-            comboBoxMuscles.Visible = true;
-            listViewTrainingProgramm.Visible = true;
-            listViewUsers.Visible = true;
-            buttonNext.Visible = true;
-            buttonPrev.Visible = true;
-            labelDayWeek.Visible = true;
-            buttonBackTrainingProgramm.Visible = true;
-
-
-        }
-
         private void buttonAddImage_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFilezDialog = new OpenFileDialog();
@@ -238,7 +251,6 @@ namespace TrainingProgram
             pictureBoxFromImages.Visible = true;
 
         }
-
 
         private void buttonAddVideo_Click(object sender, EventArgs e)
         {
@@ -370,7 +382,6 @@ namespace TrainingProgram
             buttonSearchMusclesAndExercises.Visible = true;
 
             listViewExercises.Visible = false;
-            buttonBackTrainingProgramm.Visible = false;
             listViewTrainingProgramm.Visible = false;
             listViewUsers.Visible = false;
             buttonNext.Visible = false;
@@ -448,5 +459,14 @@ namespace TrainingProgram
             addUserWinodw.ShowDialog();
 
         }
+
+        private void buttonAddTpForUser_Click(object sender, EventArgs e)
+        {
+            PageMainWindow(false);
+            AddUserWindow addUserWndow = new AddUserWindow();
+            addUserWndow.StartPosition = FormStartPosition.CenterParent;
+            addUserWndow.ShowDialog();
+        }
+
     }
 }

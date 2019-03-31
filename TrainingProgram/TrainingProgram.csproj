@@ -77,6 +77,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class\AddTpForUser.cs" />
     <Compile Include="Class\AddTrainingProgram.cs" />
     <Compile Include="Class\Calculation.cs" />
     <Compile Include="Windows\AddUserWindow.cs">
@@ -84,6 +85,12 @@
     </Compile>
     <Compile Include="Windows\AddUserWindow.Designer.cs">
       <DependentUpon>AddUserWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\AddTEST1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\AddTEST1.Designer.cs">
+      <DependentUpon>AddTEST1.cs</DependentUpon>
     </Compile>
     <Compile Include="Windows\MainWindow.cs">
       <SubType>Form</SubType>
@@ -97,6 +104,9 @@
     <Compile Include="Class\WorkWithDataBase.cs" />
     <Compile Include="Class\WorkWithImages.cs" />
     <Compile Include="Class\WorkWithTree.cs" />
+    <EmbeddedResource Include="Windows\AddTEST1.resx">
+      <DependentUpon>AddTEST1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Windows\AddUserWindow.resx">
       <DependentUpon>AddUserWindow.cs</DependentUpon>
     </EmbeddedResource>

@@ -36,7 +36,7 @@
             this.buttonBack = new System.Windows.Forms.Button();
             this.pictureBoxFromImages = new System.Windows.Forms.PictureBox();
             this.axWindowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
-            this.buttonOther = new System.Windows.Forms.Button();
+            this.buttonAddTpForUser = new System.Windows.Forms.Button();
             this.buttonAddImage = new System.Windows.Forms.Button();
             this.buttonAddVideo = new System.Windows.Forms.Button();
             this.labelHeadExercises = new System.Windows.Forms.Label();
@@ -46,7 +46,6 @@
             this.buttonSaveDescription = new System.Windows.Forms.Button();
             this.contextMenuStripFromTree = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.переименоватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.buttonBackTrainingProgramm = new System.Windows.Forms.Button();
             this.listViewUsers = new System.Windows.Forms.ListView();
             this.Number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -131,15 +130,15 @@
             this.axWindowsMediaPlayer.TabIndex = 5;
             this.axWindowsMediaPlayer.Visible = false;
             // 
-            // buttonOther
+            // buttonAddTpForUser
             // 
-            this.buttonOther.Location = new System.Drawing.Point(491, 93);
-            this.buttonOther.Name = "buttonOther";
-            this.buttonOther.Size = new System.Drawing.Size(160, 231);
-            this.buttonOther.TabIndex = 6;
-            this.buttonOther.Text = "buttonOther";
-            this.buttonOther.UseVisualStyleBackColor = true;
-            this.buttonOther.Visible = false;
+            this.buttonAddTpForUser.Location = new System.Drawing.Point(491, 93);
+            this.buttonAddTpForUser.Name = "buttonAddTpForUser";
+            this.buttonAddTpForUser.Size = new System.Drawing.Size(160, 231);
+            this.buttonAddTpForUser.TabIndex = 6;
+            this.buttonAddTpForUser.Text = "buttonAddTpForUser";
+            this.buttonAddTpForUser.UseVisualStyleBackColor = true;
+            this.buttonAddTpForUser.Click += new System.EventHandler(this.buttonAddTpForUser_Click);
             // 
             // buttonAddImage
             // 
@@ -234,17 +233,6 @@
             this.переименоватьToolStripMenuItem.Text = "Переименовать";
             this.переименоватьToolStripMenuItem.Click += new System.EventHandler(this.переименоватьToolStripMenuItem_Click);
             // 
-            // buttonBackTrainingProgramm
-            // 
-            this.buttonBackTrainingProgramm.Location = new System.Drawing.Point(348, 13);
-            this.buttonBackTrainingProgramm.Name = "buttonBackTrainingProgramm";
-            this.buttonBackTrainingProgramm.Size = new System.Drawing.Size(67, 23);
-            this.buttonBackTrainingProgramm.TabIndex = 15;
-            this.buttonBackTrainingProgramm.Text = "buttonBackCalander";
-            this.buttonBackTrainingProgramm.UseVisualStyleBackColor = true;
-            this.buttonBackTrainingProgramm.Visible = false;
-            this.buttonBackTrainingProgramm.Click += new System.EventHandler(this.buttonBackCalander_Click);
-            // 
             // listViewUsers
             // 
             this.listViewUsers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -253,7 +241,7 @@
             this.LastName});
             this.listViewUsers.FullRowSelect = true;
             this.listViewUsers.GridLines = true;
-            this.listViewUsers.Location = new System.Drawing.Point(104, 101);
+            this.listViewUsers.Location = new System.Drawing.Point(42, 53);
             this.listViewUsers.Name = "listViewUsers";
             this.listViewUsers.Size = new System.Drawing.Size(263, 190);
             this.listViewUsers.TabIndex = 19;
@@ -270,12 +258,12 @@
             // FirstName
             // 
             this.FirstName.Text = "FirstName";
-            this.FirstName.Width = 100;
+            this.FirstName.Width = 93;
             // 
             // LastName
             // 
             this.LastName.Text = "LastName";
-            this.LastName.Width = 100;
+            this.LastName.Width = 113;
             // 
             // listViewTrainingProgramm
             // 
@@ -391,12 +379,11 @@
             this.Controls.Add(this.labelDayWeek);
             this.Controls.Add(this.listViewTrainingProgramm);
             this.Controls.Add(this.listViewUsers);
-            this.Controls.Add(this.buttonBackTrainingProgramm);
             this.Controls.Add(this.buttonSaveDescription);
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.checkBoxDescription);
             this.Controls.Add(this.labelHeadExercises);
-            this.Controls.Add(this.buttonOther);
+            this.Controls.Add(this.buttonAddTpForUser);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonAddTrainingProgram);
             this.Controls.Add(this.buttonSearchMusclesAndExercises);
@@ -425,7 +412,7 @@
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.PictureBox pictureBoxFromImages;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer;
-        private System.Windows.Forms.Button buttonOther;
+        private System.Windows.Forms.Button buttonAddTpForUser;
         private System.Windows.Forms.Button buttonAddImage;
         private System.Windows.Forms.Button buttonAddVideo;
         private System.Windows.Forms.Label labelHeadExercises;
@@ -435,8 +422,6 @@
         private System.Windows.Forms.Button buttonSaveDescription;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripFromTree;
         private System.Windows.Forms.ToolStripMenuItem переименоватьToolStripMenuItem;
-        private System.Windows.Forms.Button buttonBackTrainingProgramm;
-        private System.Windows.Forms.ListView listViewUsers;
         private System.Windows.Forms.ColumnHeader FirstName;
         private System.Windows.Forms.ColumnHeader LastName;
         private System.Windows.Forms.ColumnHeader Number;
@@ -451,6 +436,7 @@
         private System.Windows.Forms.ToolStripMenuItem переименоватьToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
         private System.Windows.Forms.Button buttonAddNewUser;
+        private System.Windows.Forms.ListView listViewUsers;
     }
 }
 

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using System.Windows.Forms;
 
 namespace TrainingProgram
 {
@@ -47,7 +48,6 @@ namespace TrainingProgram
             return result;
         }
 
-
         public int SelectCountFromDataBase (string sqlSelect)
         {
             int result = 0;
@@ -68,6 +68,7 @@ namespace TrainingProgram
             }
             return result;
         }
+
         public void UpdateDescriptionExercises (string newDescription, int id)
         {           
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
@@ -81,6 +82,21 @@ namespace TrainingProgram
             }
         }
 
+        public int SelectExists(string sqlSelect)
+        {
+            int result;
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand(sqlSelect, sqlConnection);
+                SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
+               
+                if (sqlDataReader.HasRows)
+                    result = 1;
+                else result = 0;
+                return result;
+            }
+        }
 
         public void UpdateNameExercises(string newExercises, int id)
         {
@@ -95,6 +111,59 @@ namespace TrainingProgram
             }
         }
 
+    }
+
+    class WorkWithUsers : WorkWithDataBase
+    {
+
+        public void InsertUser (string firstName, string lastName, string gender, DateTime dateOfBirth)
+        {
+            if (SelectExists("select idUsers from Users where exists (select * from Users where  firstName = '" + firstName + "' and lastName = '" + lastName + "' and dateOfBirth = '" + dateOfBirth + "')") == 1)
+            {
+                MessageBox.Show("Пользователь уже есть в БД!");
+                Console.WriteLine("Пользователь уже есть в БД");
+                return;
+            }
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("insert into Users values(@firstName,@lastName,@gender, @dateOfBirth)", sqlConnection);
+
+                sqlCommand.Parameters.Add("@firstName", SqlDbType.VarChar, 50).Value = firstName;
+                sqlCommand.Parameters.Add("@lastName", SqlDbType.VarChar, 50).Value = lastName;
+                sqlCommand.Parameters.Add("@gender", SqlDbType.VarChar, 50).Value = gender;
+                sqlCommand.Parameters.Add("@dateOfBirth", SqlDbType.Date, 50).Value = dateOfBirth;
+                sqlCommand.ExecuteNonQuery();
+
+                Console.WriteLine("insert into Users values("+ firstName + ","+ lastName + ","+gender+","+dateOfBirth+")");
+            }         
+        }
+
+        public void InsertStatisticsUser (int idUsers,int puls, int pressureUp, int pressureDown, int growth, int weigth, int age, int pullUps, int pushUp, float run100m, int squts, int press, float cPhc, float cPwc)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("insert into StatisticsUsers values(@idUsers,@puls,@pressureUp,@pressureDown,@growth,@weigth,@age,@pullUps,@pushUp,@run100m,@squts,@press,@cPhc,@cPwc,@dateTime)", sqlConnection);
+
+                sqlCommand.Parameters.Add("@idUsers", SqlDbType.Int, Int32.MaxValue).Value = idUsers;
+                sqlCommand.Parameters.Add("@puls", SqlDbType.Int, Int32.MaxValue).Value = puls;
+                sqlCommand.Parameters.Add("@pressureUp", SqlDbType.Int, Int32.MaxValue).Value = pressureUp;
+                sqlCommand.Parameters.Add("@pressureDown", SqlDbType.Int, Int32.MaxValue).Value = pressureDown;
+                sqlCommand.Parameters.Add("@growth", SqlDbType.Int, Int32.MaxValue).Value = growth;
+                sqlCommand.Parameters.Add("@weigth", SqlDbType.Int, Int32.MaxValue).Value = weigth;
+                sqlCommand.Parameters.Add("@age", SqlDbType.Int, Int32.MaxValue).Value = age;
+                sqlCommand.Parameters.Add("@pullUps", SqlDbType.Int, Int32.MaxValue).Value = pullUps;
+                sqlCommand.Parameters.Add("@pushUp", SqlDbType.Int, Int32.MaxValue).Value = pushUp;
+                sqlCommand.Parameters.Add("@run100m", SqlDbType.Float).Value = run100m;
+                sqlCommand.Parameters.Add("@squts", SqlDbType.Int, Int32.MaxValue).Value = squts;
+                sqlCommand.Parameters.Add("@press", SqlDbType.Int, Int32.MaxValue).Value = press;
+                sqlCommand.Parameters.Add("@cPhc", SqlDbType.Float).Value = cPhc;
+                sqlCommand.Parameters.Add("@cPwc", SqlDbType.Float).Value = cPwc;
+                sqlCommand.Parameters.Add("@dateTime", SqlDbType.DateTime).Value = DateTime.Now;
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
     }
 
     class WorkWithTrainigProgram : WorkWithDataBase

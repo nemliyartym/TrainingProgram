@@ -61,10 +61,21 @@
             this.переименоватьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonAddNewUser = new System.Windows.Forms.Button();
+            this.label = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
+            this.labelSecondName = new System.Windows.Forms.Label();
+            this.labelGender = new System.Windows.Forms.Label();
+            this.labelDateofBirth = new System.Windows.Forms.Label();
+            this.tableLayoutPanelInfAboutUser = new System.Windows.Forms.TableLayoutPanel();
+            this.labelNameUser = new System.Windows.Forms.Label();
+            this.labelSecondNameUser = new System.Windows.Forms.Label();
+            this.labelGenderUser = new System.Windows.Forms.Label();
+            this.labelDateofBirthUser = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.contextMenuStripFromTree.SuspendLayout();
             this.contextMenuStripDelRename.SuspendLayout();
+            this.tableLayoutPanelInfAboutUser.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSearchMusclesAndExercises
@@ -269,9 +280,9 @@
             // 
             this.listViewTrainingProgramm.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Exercises});
-            this.listViewTrainingProgramm.Location = new System.Drawing.Point(421, 101);
+            this.listViewTrainingProgramm.Location = new System.Drawing.Point(421, 120);
             this.listViewTrainingProgramm.Name = "listViewTrainingProgramm";
-            this.listViewTrainingProgramm.Size = new System.Drawing.Size(218, 248);
+            this.listViewTrainingProgramm.Size = new System.Drawing.Size(218, 229);
             this.listViewTrainingProgramm.TabIndex = 20;
             this.listViewTrainingProgramm.UseCompatibleStateImageBehavior = false;
             this.listViewTrainingProgramm.View = System.Windows.Forms.View.Details;
@@ -317,7 +328,7 @@
             // 
             // listViewExercises
             // 
-            this.listViewExercises.Location = new System.Drawing.Point(646, 128);
+            this.listViewExercises.Location = new System.Drawing.Point(646, 125);
             this.listViewExercises.Name = "listViewExercises";
             this.listViewExercises.Size = new System.Drawing.Size(216, 224);
             this.listViewExercises.TabIndex = 24;
@@ -359,7 +370,7 @@
             // 
             // buttonAddNewUser
             // 
-            this.buttonAddNewUser.Location = new System.Drawing.Point(646, 376);
+            this.buttonAddNewUser.Location = new System.Drawing.Point(698, 426);
             this.buttonAddNewUser.Name = "buttonAddNewUser";
             this.buttonAddNewUser.Size = new System.Drawing.Size(180, 55);
             this.buttonAddNewUser.TabIndex = 26;
@@ -367,10 +378,122 @@
             this.buttonAddNewUser.UseVisualStyleBackColor = true;
             this.buttonAddNewUser.Click += new System.EventHandler(this.buttonAddNewUser_Click);
             // 
+            // label
+            // 
+            this.label.AutoSize = true;
+            this.label.Location = new System.Drawing.Point(383, 22);
+            this.label.Name = "label";
+            this.label.Size = new System.Drawing.Size(0, 13);
+            this.label.TabIndex = 27;
+            // 
+            // labelName
+            // 
+            this.labelName.AutoSize = true;
+            this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelName.Location = new System.Drawing.Point(3, 0);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(44, 20);
+            this.labelName.TabIndex = 29;
+            this.labelName.Text = "Имя:";
+            // 
+            // labelSecondName
+            // 
+            this.labelSecondName.AutoSize = true;
+            this.labelSecondName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSecondName.Location = new System.Drawing.Point(3, 27);
+            this.labelSecondName.Name = "labelSecondName";
+            this.labelSecondName.Size = new System.Drawing.Size(85, 20);
+            this.labelSecondName.TabIndex = 30;
+            this.labelSecondName.Text = "Фамилия:";
+            // 
+            // labelGender
+            // 
+            this.labelGender.AutoSize = true;
+            this.labelGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelGender.Location = new System.Drawing.Point(3, 54);
+            this.labelGender.Name = "labelGender";
+            this.labelGender.Size = new System.Drawing.Size(44, 20);
+            this.labelGender.TabIndex = 31;
+            this.labelGender.Text = "Пол:";
+            // 
+            // labelDateofBirth
+            // 
+            this.labelDateofBirth.AutoSize = true;
+            this.labelDateofBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelDateofBirth.Location = new System.Drawing.Point(3, 81);
+            this.labelDateofBirth.Name = "labelDateofBirth";
+            this.labelDateofBirth.Size = new System.Drawing.Size(89, 30);
+            this.labelDateofBirth.TabIndex = 32;
+            this.labelDateofBirth.Text = "Дата рождения:";
+            // 
+            // tableLayoutPanelInfAboutUser
+            // 
+            this.tableLayoutPanelInfAboutUser.ColumnCount = 2;
+            this.tableLayoutPanelInfAboutUser.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelInfAboutUser.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelName, 0, 0);
+            this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelDateofBirthUser, 1, 3);
+            this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelSecondNameUser, 1, 1);
+            this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelGender, 0, 2);
+            this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelSecondName, 0, 1);
+            this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelNameUser, 1, 0);
+            this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelDateofBirth, 0, 3);
+            this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelGenderUser, 1, 2);
+            this.tableLayoutPanelInfAboutUser.Location = new System.Drawing.Point(184, 53);
+            this.tableLayoutPanelInfAboutUser.Name = "tableLayoutPanelInfAboutUser";
+            this.tableLayoutPanelInfAboutUser.RowCount = 4;
+            this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelInfAboutUser.Size = new System.Drawing.Size(224, 111);
+            this.tableLayoutPanelInfAboutUser.TabIndex = 33;
+            this.tableLayoutPanelInfAboutUser.Visible = false;
+            // 
+            // labelNameUser
+            // 
+            this.labelNameUser.AutoSize = true;
+            this.labelNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelNameUser.Location = new System.Drawing.Point(115, 0);
+            this.labelNameUser.Name = "labelNameUser";
+            this.labelNameUser.Size = new System.Drawing.Size(0, 20);
+            this.labelNameUser.TabIndex = 33;
+            // 
+            // labelSecondNameUser
+            // 
+            this.labelSecondNameUser.AutoSize = true;
+            this.labelSecondNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSecondNameUser.Location = new System.Drawing.Point(115, 27);
+            this.labelSecondNameUser.Name = "labelSecondNameUser";
+            this.labelSecondNameUser.Size = new System.Drawing.Size(0, 20);
+            this.labelSecondNameUser.TabIndex = 34;
+            // 
+            // labelGenderUser
+            // 
+            this.labelGenderUser.AutoSize = true;
+            this.labelGenderUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelGenderUser.Location = new System.Drawing.Point(115, 54);
+            this.labelGenderUser.Name = "labelGenderUser";
+            this.labelGenderUser.Size = new System.Drawing.Size(0, 20);
+            this.labelGenderUser.TabIndex = 35;
+            // 
+            // labelDateofBirthUser
+            // 
+            this.labelDateofBirthUser.AutoSize = true;
+            this.labelDateofBirthUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelDateofBirthUser.Location = new System.Drawing.Point(115, 81);
+            this.labelDateofBirthUser.Name = "labelDateofBirthUser";
+            this.labelDateofBirthUser.Size = new System.Drawing.Size(0, 20);
+            this.labelDateofBirthUser.TabIndex = 36;
+            // 
             // MainWindow
             // 
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(874, 540);
+            this.Controls.Add(this.tableLayoutPanelInfAboutUser);
+            this.Controls.Add(this.label);
+            this.Controls.Add(this.checkBoxDescription);
+            this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonAddNewUser);
             this.Controls.Add(this.comboBoxMuscles);
             this.Controls.Add(this.listViewExercises);
@@ -381,10 +504,8 @@
             this.Controls.Add(this.listViewUsers);
             this.Controls.Add(this.buttonSaveDescription);
             this.Controls.Add(this.labelDescription);
-            this.Controls.Add(this.checkBoxDescription);
             this.Controls.Add(this.labelHeadExercises);
             this.Controls.Add(this.buttonAddTpForUser);
-            this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonAddTrainingProgram);
             this.Controls.Add(this.buttonSearchMusclesAndExercises);
             this.Controls.Add(this.treeViewMusclesAndExercises);
@@ -398,6 +519,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).EndInit();
             this.contextMenuStripFromTree.ResumeLayout(false);
             this.contextMenuStripDelRename.ResumeLayout(false);
+            this.tableLayoutPanelInfAboutUser.ResumeLayout(false);
+            this.tableLayoutPanelInfAboutUser.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -437,6 +560,16 @@
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem;
         private System.Windows.Forms.Button buttonAddNewUser;
         private System.Windows.Forms.ListView listViewUsers;
+        private System.Windows.Forms.Label label;
+        private System.Windows.Forms.Label labelName;
+        private System.Windows.Forms.Label labelSecondName;
+        private System.Windows.Forms.Label labelGender;
+        private System.Windows.Forms.Label labelDateofBirth;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelInfAboutUser;
+        private System.Windows.Forms.Label labelSecondNameUser;
+        private System.Windows.Forms.Label labelNameUser;
+        private System.Windows.Forms.Label labelDateofBirthUser;
+        private System.Windows.Forms.Label labelGenderUser;
     }
 }
 

@@ -107,7 +107,7 @@ namespace TrainingProgram
             {
                 ListViewItem item = new ListViewItem(sqlSelectResult[i, 0]);
                 item.SubItems.Add(sqlSelectResult[i, 1]);
-                item.SubItems.Add(sqlSelectResult[i, 2]).Tag = sqlSelectResult[i,0];
+                item.SubItems.Add(sqlSelectResult[i, 2]);//.Tag = sqlSelectResult[i,0];
                 listView.Items.Add(item);
             }
             

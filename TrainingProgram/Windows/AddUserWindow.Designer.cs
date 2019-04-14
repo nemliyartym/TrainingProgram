@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBoxUsers = new System.Windows.Forms.ListBox();
             this.labelName = new System.Windows.Forms.Label();
             this.labelSecondName = new System.Windows.Forms.Label();
             this.labelGender = new System.Windows.Forms.Label();
@@ -38,16 +37,11 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.comboBoxGender = new System.Windows.Forms.ComboBox();
             this.buttonAddUser = new System.Windows.Forms.Button();
+            this.listViewUser = new System.Windows.Forms.ListView();
+            this.lableListUser = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // listBoxUsers
-            // 
-            this.listBoxUsers.FormattingEnabled = true;
-            this.listBoxUsers.Location = new System.Drawing.Point(12, 46);
-            this.listBoxUsers.Name = "listBoxUsers";
-            this.listBoxUsers.Size = new System.Drawing.Size(153, 173);
-            this.listBoxUsers.TabIndex = 0;
-            this.listBoxUsers.DoubleClick += new System.EventHandler(this.listBoxUsers_DoubleClick);
             // 
             // labelName
             // 
@@ -129,11 +123,43 @@
             this.buttonAddUser.UseVisualStyleBackColor = true;
             this.buttonAddUser.Click += new System.EventHandler(this.buttonAddUser_Click);
             // 
+            // listViewUser
+            // 
+            this.listViewUser.Location = new System.Drawing.Point(12, 49);
+            this.listViewUser.Name = "listViewUser";
+            this.listViewUser.Size = new System.Drawing.Size(153, 178);
+            this.listViewUser.TabIndex = 11;
+            this.listViewUser.UseCompatibleStateImageBehavior = false;
+            this.listViewUser.View = System.Windows.Forms.View.SmallIcon;
+            this.listViewUser.DoubleClick += new System.EventHandler(this.listViewUser_DoubleClick);
+            // 
+            // lableListUser
+            // 
+            this.lableListUser.AutoSize = true;
+            this.lableListUser.Location = new System.Drawing.Point(27, 23);
+            this.lableListUser.Name = "lableListUser";
+            this.lableListUser.Size = new System.Drawing.Size(124, 13);
+            this.lableListUser.TabIndex = 12;
+            this.lableListUser.Text = "Список пользователей";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TrainingProgram.Properties.Resources.pulse;
+            this.pictureBox1.Location = new System.Drawing.Point(48, 122);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(88, 81);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
+            // 
             // AddUserWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(346, 239);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lableListUser);
+            this.Controls.Add(this.listViewUser);
             this.Controls.Add(this.buttonAddUser);
             this.Controls.Add(this.comboBoxGender);
             this.Controls.Add(this.dateTimePicker);
@@ -143,17 +169,15 @@
             this.Controls.Add(this.labelGender);
             this.Controls.Add(this.labelSecondName);
             this.Controls.Add(this.labelName);
-            this.Controls.Add(this.listBoxUsers);
             this.Name = "AddUserWindow";
             this.Text = "AddUserWindow";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox listBoxUsers;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelSecondName;
         private System.Windows.Forms.Label labelGender;
@@ -163,5 +187,8 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker;
         protected System.Windows.Forms.ComboBox comboBoxGender;
         private System.Windows.Forms.Button buttonAddUser;
+        private System.Windows.Forms.ListView listViewUser;
+        private System.Windows.Forms.Label lableListUser;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

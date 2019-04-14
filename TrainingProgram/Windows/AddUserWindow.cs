@@ -15,12 +15,18 @@ namespace TrainingProgram.Windows
     {
         WorkWithUsers workWithUsers = new WorkWithUsers();
         AddTpForUser addTpForUser = new AddTpForUser();
+        MainWindow mainWindow = new MainWindow();
+        /// <summary>
+        /// ид выбранного пользователя в окне AddUserWindow
+        /// </summary>
+        public static int idSelectedUser;
 
-        public AddUserWindow()
+        public AddUserWindow(MainWindow mainWindow)
         {
             InitializeComponent();
 
-            addTpForUser.FilllistBoxUsers(listBoxUsers);
+            this.mainWindow = mainWindow;
+            addTpForUser.FilllistViewUsers(listViewUser);
 
             comboBoxGender.SelectedIndex = 0;
             textBoxName.TextChanged += TextBox_TextChanged;
@@ -44,14 +50,17 @@ namespace TrainingProgram.Windows
             textBoxSecondName.Clear();
             comboBoxGender.SelectedItem = 0;
             dateTimePicker.Value = DateTime.Now;
-            addTpForUser.FilllistBoxUsers(listBoxUsers);
+            addTpForUser.FilllistViewUsers(listViewUser);
         }
 
-        private void listBoxUsers_DoubleClick(object sender, EventArgs e)
+        private void listViewUser_DoubleClick(object sender, EventArgs e)
         {
-            if (listBoxUsers.SelectedItems.Count > 0)
+            if (listViewUser.SelectedItems.Count > 0)
             {
-                MessageBox.Show(listBoxUsers.SelectedItem.ToString());
+                //MessageBox.Show(Convert.ToInt32(listViewUser.SelectedItems[0].Tag).ToString());
+                idSelectedUser = Convert.ToInt32(listViewUser.SelectedItems[0].Tag);
+                mainWindow.FillInfAboutUser();           
+                this.Close();
             }
         }
     }

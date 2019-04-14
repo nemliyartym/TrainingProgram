@@ -23,6 +23,7 @@ namespace TrainingProgram
         private int id = 0;
         private TreeNode treeNode = new TreeNode();
 
+        #region Enum FromsInterface
         private enum CurrentPageMainWindow
         {
             pageMainWindow,
@@ -30,15 +31,16 @@ namespace TrainingProgram
             pageTrainigProgramm,
             pageAddTpForUser
         }
-
         CurrentPageMainWindow currentPageMainWindow;
+        #endregion
+
 
         WorkWithImages workWithImages = new WorkWithImages();
         WorkWithDataBase workWithDatabas = new WorkWithDataBase();
         AddTrainingProgram addTrainingProgram = new AddTrainingProgram();
         WorkWithTrainigProgram workWithTrainigProgram = new WorkWithTrainigProgram();
         AddTEST1 addUserWinodw = new AddTEST1();
-        AddUserWindow addUserwindow = new AddUserWindow();
+        //public AddUserWindow addUserwindow = new AddUserWindow();
 
         public MainWindow()
         {
@@ -104,6 +106,11 @@ namespace TrainingProgram
             labelDayWeek.Visible = isVisible;
             currentPageMainWindow = CurrentPageMainWindow.pageTrainigProgramm;
         }
+        private void PageAddTpForUsers (bool isVisible)
+        {
+            tableLayoutPanelInfAboutUser.Visible = isVisible;
+            currentPageMainWindow = CurrentPageMainWindow.pageAddTpForUser;
+        }
         //------------------------INTEFACEMANAGMENT----------------------------------
         private void buttonSearchExercises_Click(object sender, EventArgs e)
         {
@@ -123,6 +130,19 @@ namespace TrainingProgram
                 PageViewingExercises(false);
                 PageViewingExercisesOther(false);
             }
+            else if(currentPageMainWindow == CurrentPageMainWindow.pageAddTpForUser)
+            {
+                PageAddTpForUsers(false);
+            }
+        }
+        //------------------------------------------------------------------------
+        private void buttonAddTpForUser_Click(object sender, EventArgs e)
+        {
+            PageMainWindow(false);
+
+            AddUserWindow addUserWndow = new AddUserWindow(this);
+            addUserWndow.StartPosition = FormStartPosition.CenterParent;
+            addUserWndow.ShowDialog();
         }
 
         private void buttonAddTrainingProgram_Click(object sender, EventArgs e)
@@ -131,8 +151,6 @@ namespace TrainingProgram
             PageTrainigProgramm(true);
         }
         //---------------------------------------------------------------------------
-
-
 
         private void treeViewMusclesAndExercises_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
@@ -374,8 +392,6 @@ namespace TrainingProgram
             MessageBox.Show(e.Node.Text);
         }
 
-
-
         private void buttonBackCalander_Click(object sender, EventArgs e)
         {
             buttonAddTrainingProgram.Visible = true;
@@ -399,8 +415,6 @@ namespace TrainingProgram
             }
         }
 
-
-
         private void buttonNext_Click(object sender, EventArgs e)
         {
             addTrainingProgram.ButtonNext(labelDayWeek);
@@ -418,8 +432,6 @@ namespace TrainingProgram
             addTrainingProgram.FillListViewExrcises(listViewExercises, Convert.ToInt32((comboBoxMuscles.SelectedItem as ComboboxItem).Tag));
         }
 
-
-
         private void listViewExercises_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (listViewExercises.SelectedItems.Count > 0)
@@ -431,7 +443,6 @@ namespace TrainingProgram
 
             }
         }
-
 
         private void listViewTrainingProgramm_MouseClick(object sender, MouseEventArgs e)
         {
@@ -460,12 +471,26 @@ namespace TrainingProgram
 
         }
 
-        private void buttonAddTpForUser_Click(object sender, EventArgs e)
+       
+
+    ///////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////addUserWindowButtonClikc///////////////////////////
+    ///////////////////////////////////////////////////////////////////////////////////
+
+        public void FillInfAboutUser ()
         {
-            PageMainWindow(false);
-            AddUserWindow addUserWndow = new AddUserWindow();
-            addUserWndow.StartPosition = FormStartPosition.CenterParent;
-            addUserWndow.ShowDialog();
+            int countStatisticUsres = workWithDatabas.SelectCountFromDataBase("select count(*) from StatisticsUsers where idUsers =" + AddUserWindow.idSelectedUser.ToString());
+            if (countStatisticUsres == 0)
+                MessageBox.Show("1");
+
+            addUserWinodw.Close();
+            PageAddTpForUsers(true);
+
+            string[,] sqlResult = workWithDatabas.SelectFromDataBase("select * from Users where idUsers =" + AddUserWindow.idSelectedUser.ToString(), 1);
+            labelNameUser.Text = sqlResult[0,1];
+            labelSecondNameUser.Text = sqlResult[0, 2];
+            labelGenderUser.Text = sqlResult[0, 3];
+            labelDateofBirthUser.Text = sqlResult[0, 4];
         }
 
     }

@@ -115,7 +115,6 @@ namespace TrainingProgram
 
     class WorkWithUsers : WorkWithDataBase
     {
-
         public void InsertUser (string firstName, string lastName, string gender, DateTime dateOfBirth)
         {
             if (SelectExists("select idUsers from Users where exists (select * from Users where  firstName = '" + firstName + "' and lastName = '" + lastName + "' and dateOfBirth = '" + dateOfBirth + "')") == 1)

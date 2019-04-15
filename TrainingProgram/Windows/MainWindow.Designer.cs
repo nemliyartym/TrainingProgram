@@ -67,15 +67,21 @@
             this.labelGender = new System.Windows.Forms.Label();
             this.labelDateofBirth = new System.Windows.Forms.Label();
             this.tableLayoutPanelInfAboutUser = new System.Windows.Forms.TableLayoutPanel();
-            this.labelNameUser = new System.Windows.Forms.Label();
-            this.labelSecondNameUser = new System.Windows.Forms.Label();
-            this.labelGenderUser = new System.Windows.Forms.Label();
             this.labelDateofBirthUser = new System.Windows.Forms.Label();
+            this.labelSecondNameUser = new System.Windows.Forms.Label();
+            this.labelNameUser = new System.Windows.Forms.Label();
+            this.labelGenderUser = new System.Windows.Forms.Label();
+            this.panelAddTpForUser = new System.Windows.Forms.Panel();
+            this.pictureBoxStatistic = new System.Windows.Forms.PictureBox();
+            this.labelStaticName = new System.Windows.Forms.Label();
+            this.comboBoxSelectStatistic = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.contextMenuStripFromTree.SuspendLayout();
             this.contextMenuStripDelRename.SuspendLayout();
             this.tableLayoutPanelInfAboutUser.SuspendLayout();
+            this.panelAddTpForUser.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonSearchMusclesAndExercises
@@ -370,7 +376,7 @@
             // 
             // buttonAddNewUser
             // 
-            this.buttonAddNewUser.Location = new System.Drawing.Point(698, 426);
+            this.buttonAddNewUser.Location = new System.Drawing.Point(682, 397);
             this.buttonAddNewUser.Name = "buttonAddNewUser";
             this.buttonAddNewUser.Size = new System.Drawing.Size(180, 55);
             this.buttonAddNewUser.TabIndex = 26;
@@ -439,7 +445,7 @@
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelNameUser, 1, 0);
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelDateofBirth, 0, 3);
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelGenderUser, 1, 2);
-            this.tableLayoutPanelInfAboutUser.Location = new System.Drawing.Point(184, 53);
+            this.tableLayoutPanelInfAboutUser.Location = new System.Drawing.Point(19, 11);
             this.tableLayoutPanelInfAboutUser.Name = "tableLayoutPanelInfAboutUser";
             this.tableLayoutPanelInfAboutUser.RowCount = 4;
             this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -448,34 +454,6 @@
             this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanelInfAboutUser.Size = new System.Drawing.Size(224, 111);
             this.tableLayoutPanelInfAboutUser.TabIndex = 33;
-            this.tableLayoutPanelInfAboutUser.Visible = false;
-            // 
-            // labelNameUser
-            // 
-            this.labelNameUser.AutoSize = true;
-            this.labelNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelNameUser.Location = new System.Drawing.Point(115, 0);
-            this.labelNameUser.Name = "labelNameUser";
-            this.labelNameUser.Size = new System.Drawing.Size(0, 20);
-            this.labelNameUser.TabIndex = 33;
-            // 
-            // labelSecondNameUser
-            // 
-            this.labelSecondNameUser.AutoSize = true;
-            this.labelSecondNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelSecondNameUser.Location = new System.Drawing.Point(115, 27);
-            this.labelSecondNameUser.Name = "labelSecondNameUser";
-            this.labelSecondNameUser.Size = new System.Drawing.Size(0, 20);
-            this.labelSecondNameUser.TabIndex = 34;
-            // 
-            // labelGenderUser
-            // 
-            this.labelGenderUser.AutoSize = true;
-            this.labelGenderUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelGenderUser.Location = new System.Drawing.Point(115, 54);
-            this.labelGenderUser.Name = "labelGenderUser";
-            this.labelGenderUser.Size = new System.Drawing.Size(0, 20);
-            this.labelGenderUser.TabIndex = 35;
             // 
             // labelDateofBirthUser
             // 
@@ -486,15 +464,81 @@
             this.labelDateofBirthUser.Size = new System.Drawing.Size(0, 20);
             this.labelDateofBirthUser.TabIndex = 36;
             // 
+            // labelSecondNameUser
+            // 
+            this.labelSecondNameUser.AutoSize = true;
+            this.labelSecondNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSecondNameUser.Location = new System.Drawing.Point(115, 27);
+            this.labelSecondNameUser.Name = "labelSecondNameUser";
+            this.labelSecondNameUser.Size = new System.Drawing.Size(0, 20);
+            this.labelSecondNameUser.TabIndex = 34;
+            // 
+            // labelNameUser
+            // 
+            this.labelNameUser.AutoSize = true;
+            this.labelNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelNameUser.Location = new System.Drawing.Point(115, 0);
+            this.labelNameUser.Name = "labelNameUser";
+            this.labelNameUser.Size = new System.Drawing.Size(0, 20);
+            this.labelNameUser.TabIndex = 33;
+            // 
+            // labelGenderUser
+            // 
+            this.labelGenderUser.AutoSize = true;
+            this.labelGenderUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelGenderUser.Location = new System.Drawing.Point(115, 54);
+            this.labelGenderUser.Name = "labelGenderUser";
+            this.labelGenderUser.Size = new System.Drawing.Size(0, 20);
+            this.labelGenderUser.TabIndex = 35;
+            // 
+            // panelAddTpForUser
+            // 
+            this.panelAddTpForUser.Controls.Add(this.comboBoxSelectStatistic);
+            this.panelAddTpForUser.Controls.Add(this.labelStaticName);
+            this.panelAddTpForUser.Controls.Add(this.pictureBoxStatistic);
+            this.panelAddTpForUser.Controls.Add(this.tableLayoutPanelInfAboutUser);
+            this.panelAddTpForUser.Location = new System.Drawing.Point(23, 42);
+            this.panelAddTpForUser.Name = "panelAddTpForUser";
+            this.panelAddTpForUser.Size = new System.Drawing.Size(839, 450);
+            this.panelAddTpForUser.TabIndex = 34;
+            this.panelAddTpForUser.Visible = false;
+            // 
+            // pictureBoxStatistic
+            // 
+            this.pictureBoxStatistic.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureBoxStatistic.Location = new System.Drawing.Point(7, 246);
+            this.pictureBoxStatistic.Name = "pictureBoxStatistic";
+            this.pictureBoxStatistic.Size = new System.Drawing.Size(829, 200);
+            this.pictureBoxStatistic.TabIndex = 34;
+            this.pictureBoxStatistic.TabStop = false;
+            // 
+            // labelStaticName
+            // 
+            this.labelStaticName.AutoSize = true;
+            this.labelStaticName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelStaticName.Location = new System.Drawing.Point(3, 213);
+            this.labelStaticName.Name = "labelStaticName";
+            this.labelStaticName.Size = new System.Drawing.Size(109, 20);
+            this.labelStaticName.TabIndex = 35;
+            this.labelStaticName.Text = "Статистика";
+            // 
+            // comboBoxSelectStatistic
+            // 
+            this.comboBoxSelectStatistic.FormattingEnabled = true;
+            this.comboBoxSelectStatistic.Location = new System.Drawing.Point(119, 211);
+            this.comboBoxSelectStatistic.Name = "comboBoxSelectStatistic";
+            this.comboBoxSelectStatistic.Size = new System.Drawing.Size(150, 21);
+            this.comboBoxSelectStatistic.TabIndex = 36;
+            // 
             // MainWindow
             // 
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(874, 540);
-            this.Controls.Add(this.tableLayoutPanelInfAboutUser);
+            this.Controls.Add(this.panelAddTpForUser);
+            this.Controls.Add(this.buttonAddNewUser);
             this.Controls.Add(this.label);
             this.Controls.Add(this.checkBoxDescription);
             this.Controls.Add(this.buttonBack);
-            this.Controls.Add(this.buttonAddNewUser);
             this.Controls.Add(this.comboBoxMuscles);
             this.Controls.Add(this.listViewExercises);
             this.Controls.Add(this.buttonPrev);
@@ -515,12 +559,16 @@
             this.Controls.Add(this.richTextBoxDescriptionExercises);
             this.Controls.Add(this.pictureBoxFromImages);
             this.Name = "MainWindow";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).EndInit();
             this.contextMenuStripFromTree.ResumeLayout(false);
             this.contextMenuStripDelRename.ResumeLayout(false);
             this.tableLayoutPanelInfAboutUser.ResumeLayout(false);
             this.tableLayoutPanelInfAboutUser.PerformLayout();
+            this.panelAddTpForUser.ResumeLayout(false);
+            this.panelAddTpForUser.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -570,6 +618,10 @@
         private System.Windows.Forms.Label labelNameUser;
         private System.Windows.Forms.Label labelDateofBirthUser;
         private System.Windows.Forms.Label labelGenderUser;
+        private System.Windows.Forms.Panel panelAddTpForUser;
+        private System.Windows.Forms.PictureBox pictureBoxStatistic;
+        private System.Windows.Forms.ComboBox comboBoxSelectStatistic;
+        private System.Windows.Forms.Label labelStaticName;
     }
 }
 

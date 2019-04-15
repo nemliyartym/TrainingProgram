@@ -17,6 +17,7 @@ using TrainingProgram.Windows;
 
 namespace TrainingProgram
 {
+
     public partial class MainWindow : Form
     {
         private string currentStrDescriptionExercises;
@@ -34,12 +35,11 @@ namespace TrainingProgram
         CurrentPageMainWindow currentPageMainWindow;
         #endregion
 
-
         WorkWithImages workWithImages = new WorkWithImages();
-        WorkWithDataBase workWithDatabas = new WorkWithDataBase();
+        WorkWithDataBase workWithDataBase = new WorkWithDataBase();
         AddTrainingProgram addTrainingProgram = new AddTrainingProgram();
         WorkWithTrainigProgram workWithTrainigProgram = new WorkWithTrainigProgram();
-        AddTEST1 addUserWinodw = new AddTEST1();
+        AddTpForUser addTpForUser = new AddTpForUser();
         //public AddUserWindow addUserwindow = new AddUserWindow();
 
         public MainWindow()
@@ -49,8 +49,6 @@ namespace TrainingProgram
 
             addTrainingProgram.FillLisViewUsers(listViewUsers);
             addTrainingProgram.FillComboBoxMuscles(comboBoxMuscles);
-
-
 
             WorkWithTree workWithTree = new WorkWithTree(treeViewMusclesAndExercises);
             workWithTree.FillTree();
@@ -108,7 +106,8 @@ namespace TrainingProgram
         }
         private void PageAddTpForUsers (bool isVisible)
         {
-            tableLayoutPanelInfAboutUser.Visible = isVisible;
+            //tableLayoutPanelInfAboutUser.Visible = isVisible;
+            panelAddTpForUser.Visible = isVisible;
             currentPageMainWindow = CurrentPageMainWindow.pageAddTpForUser;
         }
         //------------------------INTEFACEMANAGMENT----------------------------------
@@ -186,8 +185,8 @@ namespace TrainingProgram
 
                 treeNode = e.Node;
                 id = Convert.ToInt32(e.Node.Tag);
-                int countRows = workWithDatabas.SelectCountFromDataBase("select count (*) from Exercises where idExercises = " + Convert.ToInt32(e.Node.Tag));
-                string[,] discription = workWithDatabas.SelectFromDataBase("select description from Exercises where idExercises = " + Convert.ToInt32(e.Node.Tag), countRows);
+                int countRows = workWithDataBase.SelectCountFromDataBase("select count (*) from Exercises where idExercises = " + Convert.ToInt32(e.Node.Tag));
+                string[,] discription = workWithDataBase.SelectFromDataBase("select description from Exercises where idExercises = " + Convert.ToInt32(e.Node.Tag), countRows);
                 if (discription[0, 0] == null || discription[0, 0] == "" || discription[0, 0] == " ")
                 {
                     richTextBoxDescriptionExercises.Text = "Информация пока отсуствует в бд";
@@ -327,7 +326,7 @@ namespace TrainingProgram
                 DialogResult result = MessageBox.Show("Сохранить результат?", "Сохранение", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 if (result == DialogResult.Yes)
                 {
-                    workWithDatabas.UpdateDescriptionExercises(richTextBoxDescriptionExercises.Text, id);
+                    workWithDataBase.UpdateDescriptionExercises(richTextBoxDescriptionExercises.Text, id);
                     currentStrDescriptionExercises = richTextBoxDescriptionExercises.Text;
                     this.Focus();
                     Console.WriteLine("Обновили дискрипт с id =" + id);
@@ -347,7 +346,7 @@ namespace TrainingProgram
                 DialogResult result = MessageBox.Show("Сохранить результат?", "Сохранение", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
                 if (result == DialogResult.Yes)
                 {
-                    workWithDatabas.UpdateDescriptionExercises(richTextBoxDescriptionExercises.Text, id);
+                    workWithDataBase.UpdateDescriptionExercises(richTextBoxDescriptionExercises.Text, id);
                     currentStrDescriptionExercises = richTextBoxDescriptionExercises.Text;
                     this.Focus();
                     buttonSaveDescription.Enabled = false;
@@ -466,8 +465,8 @@ namespace TrainingProgram
 
         private void buttonAddNewUser_Click(object sender, EventArgs e)
         {
-            addUserWinodw.StartPosition = FormStartPosition.CenterParent;
-            addUserWinodw.ShowDialog();
+            //addUserWinodw.StartPosition = FormStartPosition.CenterParent;
+            //addUserWinodw.ShowDialog();
 
         }
 
@@ -479,19 +478,19 @@ namespace TrainingProgram
 
         public void FillInfAboutUser ()
         {
-            int countStatisticUsres = workWithDatabas.SelectCountFromDataBase("select count(*) from StatisticsUsers where idUsers =" + AddUserWindow.idSelectedUser.ToString());
-            if (countStatisticUsres == 0)
-                MessageBox.Show("1");
-
-            addUserWinodw.Close();
+           
             PageAddTpForUsers(true);
 
-            string[,] sqlResult = workWithDatabas.SelectFromDataBase("select * from Users where idUsers =" + AddUserWindow.idSelectedUser.ToString(), 1);
+            string[,] sqlResult = workWithDataBase.SelectFromDataBase("select * from Users where idUsers =" + AddUserWindow.idSelectedUser.ToString(), 1);
             labelNameUser.Text = sqlResult[0,1];
             labelSecondNameUser.Text = sqlResult[0, 2];
             labelGenderUser.Text = sqlResult[0, 3];
             labelDateofBirthUser.Text = sqlResult[0, 4];
         }
 
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+            addTpForUser.PicterBoxLoad(pictureBoxStatistic);
+        }
     }
 }

@@ -199,6 +199,7 @@ namespace TrainingProgram
                 labelADsr.Text = "АДср = " + (int.Parse(textBoxPressureDown.Text) + ((int.Parse(textBoxPressureUp.Text) - int.Parse(textBoxPressureDown.Text)) / 3));
             }
         }
+
         private void buttonAddUser_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxPushUps.Text) ||

@@ -19,7 +19,7 @@ namespace TrainingProgram.Class
 
         public double CalculationPowerCondictopn (int pushUp, int pullUps, int squats, int press, double m100)
         {
-            double CPC = (pushUp + pullUps + squats + press) / (1.4 * m100);
+            double CPC = (pushUp + pullUps + squats + press) / (1.5 * m100);
             return CPC;
         }
 

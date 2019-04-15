@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
 using System.IO;
-using Microsoft.DirectX.AudioVideoPlayback;
 using AxWMPLib;
 using System.Threading;
 using TrainingProgram.Class;

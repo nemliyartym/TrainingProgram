@@ -12,7 +12,7 @@ namespace TrainingProgram.Class
     class AddTpForUser
     {
         WorkWithDataBase workWithDataBase = new WorkWithDataBase();
-
+         
         public void FilllistViewUsers(ListView listViewUser)
         {
             int countRows = workWithDataBase.SelectCountFromDataBase("select count (idUsers) from Users");

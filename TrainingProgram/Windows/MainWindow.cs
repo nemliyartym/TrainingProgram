@@ -23,6 +23,8 @@ namespace TrainingProgram
         private int id = 0;
         private TreeNode treeNode = new TreeNode();
 
+        public string[] nameColumnFromCoboBox = {"cPhc", "cPwc"};
+
         #region Enum FromsInterface
         private enum CurrentPageMainWindow
         {
@@ -65,6 +67,10 @@ namespace TrainingProgram
             // workWithImages.SaveImageVideoToDatbase("ImagesForExercises", null, @"C:\Users\79374\Desktop\imagesFromDB\video\22.mkv",4);
         }
 
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+                    
+        }
 
         //---------------INTEFACE-----------------------------
         private void PageMainWindow (bool isVisible)
@@ -466,7 +472,7 @@ namespace TrainingProgram
         {
             //addUserWinodw.StartPosition = FormStartPosition.CenterParent;
             //addUserWinodw.ShowDialog();
-
+            
         }
 
        
@@ -480,16 +486,28 @@ namespace TrainingProgram
            
             PageAddTpForUsers(true);
 
-            string[,] sqlResult = workWithDataBase.SelectFromDataBase("select * from Users where idUsers =" + AddUserWindow.idSelectedUser.ToString(), 1);
+            string[,] sqlResult = workWithDataBase.SelectFromDataBase("select * from Users where idUsers =" + AddUserWindow.idSelectedUser, 1);
             labelNameUser.Text = sqlResult[0,1];
             labelSecondNameUser.Text = sqlResult[0, 2];
             labelGenderUser.Text = sqlResult[0, 3];
             labelDateofBirthUser.Text = sqlResult[0, 4];
+
+            addTpForUser.FillComboBoxStatistic(comboBoxSelectStatistic);
+            //addTpForUser.PicterBoxLoad(pictureBoxStatistic,nameColumnFromCoboBox[comboBoxSelectStatistic.SelectedIndex]);        
         }
 
-        private void MainWindow_Load(object sender, EventArgs e)
+        private void comboBoxSelectStatistic_SelectedIndexChanged(object sender, EventArgs e)
         {
-            addTpForUser.PicterBoxLoad(pictureBoxStatistic);
+            addTpForUser.PicterBoxLoad(pictureBoxStatistic, nameColumnFromCoboBox[comboBoxSelectStatistic.SelectedIndex]);
         }
+
+        private void buttonAddControlPoint_Click(object sender, EventArgs e)
+        {
+            AddControlPoint addControlPoint = new AddControlPoint(this);
+            addControlPoint.StartPosition = FormStartPosition.CenterParent;
+            addControlPoint.ShowDialog();
+        }
+
+
     }
 }

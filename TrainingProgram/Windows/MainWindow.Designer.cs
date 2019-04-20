@@ -72,9 +72,10 @@
             this.labelNameUser = new System.Windows.Forms.Label();
             this.labelGenderUser = new System.Windows.Forms.Label();
             this.panelAddTpForUser = new System.Windows.Forms.Panel();
-            this.pictureBoxStatistic = new System.Windows.Forms.PictureBox();
-            this.labelStaticName = new System.Windows.Forms.Label();
+            this.buttonAddControlPoint = new System.Windows.Forms.Button();
             this.comboBoxSelectStatistic = new System.Windows.Forms.ComboBox();
+            this.labelStaticName = new System.Windows.Forms.Label();
+            this.pictureBoxStatistic = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.contextMenuStripFromTree.SuspendLayout();
@@ -445,7 +446,7 @@
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelNameUser, 1, 0);
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelDateofBirth, 0, 3);
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelGenderUser, 1, 2);
-            this.tableLayoutPanelInfAboutUser.Location = new System.Drawing.Point(19, 11);
+            this.tableLayoutPanelInfAboutUser.Location = new System.Drawing.Point(19, 20);
             this.tableLayoutPanelInfAboutUser.Name = "tableLayoutPanelInfAboutUser";
             this.tableLayoutPanelInfAboutUser.RowCount = 4;
             this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -493,6 +494,7 @@
             // 
             // panelAddTpForUser
             // 
+            this.panelAddTpForUser.Controls.Add(this.buttonAddControlPoint);
             this.panelAddTpForUser.Controls.Add(this.comboBoxSelectStatistic);
             this.panelAddTpForUser.Controls.Add(this.labelStaticName);
             this.panelAddTpForUser.Controls.Add(this.pictureBoxStatistic);
@@ -503,14 +505,24 @@
             this.panelAddTpForUser.TabIndex = 34;
             this.panelAddTpForUser.Visible = false;
             // 
-            // pictureBoxStatistic
+            // buttonAddControlPoint
             // 
-            this.pictureBoxStatistic.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBoxStatistic.Location = new System.Drawing.Point(7, 246);
-            this.pictureBoxStatistic.Name = "pictureBoxStatistic";
-            this.pictureBoxStatistic.Size = new System.Drawing.Size(829, 200);
-            this.pictureBoxStatistic.TabIndex = 34;
-            this.pictureBoxStatistic.TabStop = false;
+            this.buttonAddControlPoint.Location = new System.Drawing.Point(607, 213);
+            this.buttonAddControlPoint.Name = "buttonAddControlPoint";
+            this.buttonAddControlPoint.Size = new System.Drawing.Size(196, 23);
+            this.buttonAddControlPoint.TabIndex = 37;
+            this.buttonAddControlPoint.Text = "Добавить контрольную точку";
+            this.buttonAddControlPoint.UseVisualStyleBackColor = true;
+            this.buttonAddControlPoint.Click += new System.EventHandler(this.buttonAddControlPoint_Click);
+            // 
+            // comboBoxSelectStatistic
+            // 
+            this.comboBoxSelectStatistic.FormattingEnabled = true;
+            this.comboBoxSelectStatistic.Location = new System.Drawing.Point(119, 211);
+            this.comboBoxSelectStatistic.Name = "comboBoxSelectStatistic";
+            this.comboBoxSelectStatistic.Size = new System.Drawing.Size(150, 21);
+            this.comboBoxSelectStatistic.TabIndex = 36;
+            this.comboBoxSelectStatistic.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelectStatistic_SelectedIndexChanged);
             // 
             // labelStaticName
             // 
@@ -522,13 +534,14 @@
             this.labelStaticName.TabIndex = 35;
             this.labelStaticName.Text = "Статистика";
             // 
-            // comboBoxSelectStatistic
+            // pictureBoxStatistic
             // 
-            this.comboBoxSelectStatistic.FormattingEnabled = true;
-            this.comboBoxSelectStatistic.Location = new System.Drawing.Point(119, 211);
-            this.comboBoxSelectStatistic.Name = "comboBoxSelectStatistic";
-            this.comboBoxSelectStatistic.Size = new System.Drawing.Size(150, 21);
-            this.comboBoxSelectStatistic.TabIndex = 36;
+            this.pictureBoxStatistic.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureBoxStatistic.Location = new System.Drawing.Point(19, 247);
+            this.pictureBoxStatistic.Name = "pictureBoxStatistic";
+            this.pictureBoxStatistic.Size = new System.Drawing.Size(800, 200);
+            this.pictureBoxStatistic.TabIndex = 34;
+            this.pictureBoxStatistic.TabStop = false;
             // 
             // MainWindow
             // 
@@ -619,9 +632,10 @@
         private System.Windows.Forms.Label labelDateofBirthUser;
         private System.Windows.Forms.Label labelGenderUser;
         private System.Windows.Forms.Panel panelAddTpForUser;
-        private System.Windows.Forms.PictureBox pictureBoxStatistic;
-        private System.Windows.Forms.ComboBox comboBoxSelectStatistic;
+        public System.Windows.Forms.PictureBox pictureBoxStatistic;
+        public System.Windows.Forms.ComboBox comboBoxSelectStatistic;
         private System.Windows.Forms.Label labelStaticName;
+        private System.Windows.Forms.Button buttonAddControlPoint;
     }
 }
 

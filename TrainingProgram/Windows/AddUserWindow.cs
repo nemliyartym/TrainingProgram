@@ -47,6 +47,7 @@ namespace TrainingProgram.Windows
         public static int press;
         public static double run100;
 
+
         public AddUserWindow(MainWindow mainWindow)
         {
             InitializeComponent();
@@ -62,7 +63,6 @@ namespace TrainingProgram.Windows
             addTpForUser.FilllistViewUsers(listViewUser);
 
         }
-
         //---------------------INTERFACE-----------------------------
         #region INTERFACE PRIVATE VOID
         private void PageAddUser (bool isVisible)
@@ -257,6 +257,9 @@ namespace TrainingProgram.Windows
                                             comboBoxGender.Text,
                                             dateTimePicker.Value.Date);
 
+                string[,] sqtResult = workWithDataBase.SelectFromDataBase("select * from Users where firstName = '" + textBoxName.Text + "' and lastName = '" + textBoxSecondName.Text + "' and gender = '" + comboBoxGender.Text + "' and dateOfBirth='" + dateTimePicker.Value.Date + "'", 1);
+                idSelectedUser = Convert.ToInt32(sqtResult[0, 0]);
+
                 double CPwC = calculation.CalculationPowerCondictopn(int.Parse(textBoxPushUps.Text),
                                                           int.Parse(textBoxPullUps.Text),
                                                           int.Parse(textBoxSquts.Text),
@@ -272,8 +275,7 @@ namespace TrainingProgram.Windows
                                                                 int.Parse(textBoxWeight.Text),
                                                                 int.Parse(textBoxPuls.Text));
 
-
-                workWithUsers.InsertStatisticsUser(workWithDataBase.SelectCountFromDataBase("select * from Users where firstName = '" + textBoxName.Text + "' and lastName = '" + textBoxSecondName.Text + "' and gender = '" + comboBoxGender.Text + "'"),
+                workWithUsers.InsertStatisticsUser(idSelectedUser,
                                                            int.Parse(textBoxPuls.Text),
                                                            int.Parse(textBoxPressureUp.Text),
                                                            int.Parse(textBoxPressureDown.Text),
@@ -287,10 +289,12 @@ namespace TrainingProgram.Windows
                                                            int.Parse(textBoxPullUps.Text),
                                                            (float)CPhC,
                                                            (float)CPwC);
+                
                 this.Close();
                 mainWindow.FillInfAboutUser();
             }
         }
+
         private void buttonPrev_Click(object sender, EventArgs e)
         {
             if (currentPageAddUserWindow == CurrentPageAddUserWindow.pageAddUser)
@@ -323,7 +327,6 @@ namespace TrainingProgram.Windows
         }
         #endregion
         //-----------------------------------------------------------
-
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
             if (textBoxName.Text != String.Empty && textBoxSecondName.Text != String.Empty)
@@ -370,21 +373,13 @@ namespace TrainingProgram.Windows
         //    }
                 
         //}
-
+ 
 
         private void listViewUser_DoubleClick(object sender, EventArgs e)
         {
             if (listViewUser.SelectedItems.Count > 0)
             {
-                //MessageBox.Show(Convert.ToInt32(listViewUser.SelectedItems[0].Tag).ToString());
                 idSelectedUser = Convert.ToInt32(listViewUser.SelectedItems[0].Tag);
-
-                //int countStatisticUsres = workWithDataBase.SelectCountFromDataBase("select count(*) from StatisticsUsers where idUsers =" + idSelectedUser);
-                //if (countStatisticUsres == 0)
-                //{
-                //    MessageBox.Show("У пользователя " + listViewUser.SelectedItems[0].Text + ". \n Нужно заполнить п");
-                //    return;
-                //}
 
                 mainWindow.FillInfAboutUser();           
                 this.Close();

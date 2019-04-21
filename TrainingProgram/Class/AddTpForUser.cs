@@ -63,10 +63,8 @@ namespace TrainingProgram.Class
         public void PicterBoxLoad(PictureBox pictureBox, string nameColumn)
         {
             int countRows = workWithDataBase.SelectCountFromDataBase("Select count (idUsers) from StatisticsUsers where idUsers =" + AddUserWindow.idSelectedUser);
-            string[,] sqlSelectData = workWithDataBase.SelectFromDataBase("select dateTime from StatisticsUsers where idUsers = " + AddUserWindow.idSelectedUser + " order by dateTime", countRows);
-            string[,] sqlSelectColumn = workWithDataBase.SelectFromDataBase("select "+ nameColumn +" from StatisticsUsers where idUsers = " + AddUserWindow.idSelectedUser + " order by "+ nameColumn, countRows);
-
-
+            string[,] sqlSelectData = workWithDataBase.SelectFromDataBase("select dateTime," + nameColumn + " from StatisticsUsers where idUsers = " + AddUserWindow.idSelectedUser + " order by dateTime", countRows);
+            //string[,] sqlSelectColumn = workWithDataBase.SelectFromDataBase("select "+ nameColumn +" from StatisticsUsers where idUsers = " + AddUserWindow.idSelectedUser + " order by "+ nameColumn, countRows);
 
             Bitmap bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
             using (Graphics graphics = Graphics.FromImage(bitmap))
@@ -91,56 +89,65 @@ namespace TrainingProgram.Class
                 pen = new Pen(Color.Black, 5);
                 for (int i = 0; i < countRows; i++) 
                 {                  
-
                     int Ox = 0;
-                    int Oy = 0;
-
                     if(countRows  == 1)
-                    {
                         Ox = lenghtOx / 2;
-                        Oy = lenghtOy / 2;
-                    }
                     else if(countRows == 2)
-                    {
                         Ox = (lenghtOx * (i + 1)) / (3);
-                        Oy = (lenghtOy * (i + 1)) / (3);
-                    }
                     else 
                     {
                         if (i == 0)
-                        {
                             Ox = lenghtOx - offsetLenghtOx;
-                            Oy = lenghtOy + 20 - (lenghtOy - offsetLenghtOy);
-                        }
-                        else if (i == countRows - 1)
-                        {
+                        else if (i == countRows - 1) 
                             Ox = offsetLenghtOx;
-                            Oy = lenghtOy - offsetLenghtOy - 20;
-                        }
                         else
                         {
                             int currentDate = (int)(Convert.ToDateTime(sqlSelectData[i, 0]) - Convert.ToDateTime(sqlSelectData[0, 0])).TotalSeconds;
                             int maxDate = (int)(Convert.ToDateTime(sqlSelectData[sqlSelectData.GetLength(0) - 1, 0]) - Convert.ToDateTime(sqlSelectData[0, 0])).TotalSeconds;
                             int procentDate = ((currentDate * 100) / maxDate);
                             Ox = ((lenghtOx * procentDate) / 100);
-
-                            double currentColumn = Convert.ToDouble(sqlSelectColumn[i, 0]) - Convert.ToDouble(sqlSelectColumn[0, 0]);
-                            double maxColum = Convert.ToDouble(sqlSelectColumn[sqlSelectColumn.GetLength(0) - 1, 0]) - Convert.ToDouble(sqlSelectColumn[0, 0]);
-                            int procentColumn = Convert.ToInt32((currentColumn * 100) / maxColum);
-                            Oy = lenghtOy - (((lenghtOy - 18) * procentColumn) / 100);
                         }
                     }
 
 
                     graphics.DrawString(Convert.ToDateTime(sqlSelectData[i, 0]).ToShortDateString(), new Font("Arial", 10), Brushes.Black, Ox - 35, 185);           
                     pen = new Pen(Color.Black, 3);
-                    graphics.DrawRectangle(pen, Ox, Oy, 2, 2);
-                    graphics.DrawString(Convert.ToDouble(sqlSelectColumn[i, 0]).ToString("0.000"), new Font("Arial", 10), Brushes.Black, Ox + 5, Oy);
+                    arrayPoint[i].X = Ox;                
+                }
 
-                    arrayPoint[i] = new Point(Ox,Oy);
+                for (int i = 0; i < countRows; i++)
+                {
+                    int Oy = 0;
+                    if (countRows == 1)
+                        Oy = lenghtOy / 2;
+                    else if (countRows == 2)
+                        Oy = (lenghtOy * (i + 1)) / (3);
+                    else
+                    {
+                        int minColumn = SearchMinColumn(sqlSelectData);
+                        int maxColumn = SearchMaxColumn(sqlSelectData);
+                        if (i == minColumn)
+                           Oy = lenghtOy + 20 - (lenghtOy - offsetLenghtOy);
+                        else if (i == maxColumn)
+                            Oy = lenghtOy - offsetLenghtOy - 20;
+                        else
+                        {
+                            double currentColumn = Convert.ToDouble(sqlSelectData[i, 1]) - Convert.ToDouble(sqlSelectData[minColumn, 1]);
+                            double maxColum = Convert.ToDouble(sqlSelectData[maxColumn, 1]) - Convert.ToDouble(sqlSelectData[minColumn, 1]);
+                            int procentColumn = Convert.ToInt32((currentColumn * 100) / maxColum);
+                            Oy = lenghtOy - (((lenghtOy - 18) * procentColumn) / 100);
+                        }
+                    }
+
+
+                    pen = new Pen(Color.Black, 3);
+                    //graphics.DrawRectangle(pen, Ox, Oy, 2, 2);
+                    
+
+                    arrayPoint[i].Y = Oy;
                     //pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
                     //graphics.DrawLine(pen, new Point(Ox +1,180), new Point(Ox + 1,Oy));
-                    //graphics.DrawLine(pen, new Point(20, Oy), new Point(Ox, Oy));                 
+                    //graphics.DrawLine(pen, new Point(20, Oy), new Point(Ox, Oy));   
                 }
 
                 if (arrayPoint.Length >= 2)
@@ -148,28 +155,54 @@ namespace TrainingProgram.Class
                     graphics.DrawCurve(pen, arrayPoint);
                     for (int i=0; i<arrayPoint.Length;i++)
                     {
-                        if (i != 0) 
-                        {
-                            if(arrayPoint[i].Y > arrayPoint[i-1].Y)
-                            {
-                               // MessageBox.Show("прог");
-                            }
-                            else if(arrayPoint [i].Y < arrayPoint[i-1].Y)
-                            {
-                                ///MessageBox.Show("не прогг");
-                            }
-                        }
+                        graphics.DrawString(Convert.ToDouble(sqlSelectData[i, 1]).ToString("0.000"), new Font("Arial", 10), Brushes.Black, arrayPoint[i].X + 5, arrayPoint[i].Y);
+                        //    if (i != 0) 
+                        //    {
+                        //        if(arrayPoint[i].Y > arrayPoint[i-1].Y)
+                        //        {
+                        //           // MessageBox.Show("прог");
+                        //        }
+                        //        else if(arrayPoint [i].Y < arrayPoint[i-1].Y)
+                        //        {
+                        //            ///MessageBox.Show("не прогг");
+                        //        }
+                        //    }
                     }
                 }
-                
-                
+
+
             }
             pictureBox.Image = bitmap;
         }
 
-        private void SearchMinColumns ()
+        private int SearchMinColumn (string[,] columns)
         {
+            double currentColumn = Convert.ToDouble(columns[0,1]);
+            int _i = -1;
+            for (int i=0; i<columns.GetLength(0);i++)
+            {
+                if (currentColumn > Convert.ToDouble(columns[i, 1]))
+                {
+                    currentColumn = Convert.ToDouble(columns[i, 1]);
+                    _i = i;
+                }
+            }
+            return _i;
+        }
 
+        private int SearchMaxColumn(string[,] columns)
+        {
+            double currentColumn = Convert.ToDouble(columns[0, 1]);
+            int _i = -1;
+            for (int i = 0; i < columns.GetLength(0); i++)
+            {
+                if (currentColumn < Convert.ToDouble(columns[i, 1]))
+                {
+                    currentColumn = Convert.ToDouble(columns[i, 1]);
+                    _i = i;
+                }
+            }
+            return _i;
         }
     }
 

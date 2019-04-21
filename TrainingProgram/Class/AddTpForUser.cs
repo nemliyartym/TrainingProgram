@@ -56,12 +56,15 @@ namespace TrainingProgram.Class
             }
         }
 
+
         /// <summary>
         /// филим кобму со статой
         /// </summary>
         /// <param name="nameColumn">weight pullUps pushUp run100m squts press cPhc(физическое состояние) cPwc(силовые показатели)</param>
         public void PicterBoxLoad(PictureBox pictureBox, string nameColumn)
         {
+            MessageBox.Show("1");
+
             int countRows = workWithDataBase.SelectCountFromDataBase("Select count (idUsers) from StatisticsUsers where idUsers =" + AddUserWindow.idSelectedUser);
             string[,] sqlSelectData = workWithDataBase.SelectFromDataBase("select dateTime," + nameColumn + " from StatisticsUsers where idUsers = " + AddUserWindow.idSelectedUser + " order by dateTime", countRows);
             //string[,] sqlSelectColumn = workWithDataBase.SelectFromDataBase("select "+ nameColumn +" from StatisticsUsers where idUsers = " + AddUserWindow.idSelectedUser + " order by "+ nameColumn, countRows);

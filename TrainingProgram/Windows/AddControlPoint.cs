@@ -32,8 +32,8 @@ namespace TrainingProgram.Windows
 
         private void buttonAddStatisticUser_Click(object sender, EventArgs e)
         {
-            string[,] sqlSelect = workWithDataBase.SelectFromDataBase("select * from Users where idUsers="+ AddUserWindow.idSelectedUser, 1);
-            int age = 0 ;//Convert.ToInt32(DateTime.Now.Year - dateTimePicker.Value.Date.Year);
+            string[,] sqlSelect = workWithDataBase.SelectFromDataBase("select dateOfBirth from Users where idUsers=" + AddUserWindow.idSelectedUser, 1);
+            int age = Convert.ToInt32(DateTime.Now.Year - Convert.ToDateTime(sqlSelect[0,0]).Year);
 
             double CPwC = calculation.CalculationPowerCondictopn(int.Parse(textBoxPushUps.Text),
                                                         int.Parse(textBoxPullUps.Text),
@@ -64,6 +64,7 @@ namespace TrainingProgram.Windows
                                                            (float)CPwC);
             addTpForUser.FillListViewStatisticUser(listViewStatisticUser);
             addTpForUser.PicterBoxLoad(mainWindow.pictureBoxStatistic,mainWindow.nameColumnFromCoboBox[mainWindow.comboBoxSelectStatistic.SelectedIndex]);
+            mainWindow.FillStatisticAboutUser();
         }
 
     }

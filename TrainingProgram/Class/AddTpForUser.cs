@@ -13,7 +13,8 @@ namespace TrainingProgram.Class
     class AddTpForUser
     {
         WorkWithDataBase workWithDataBase = new WorkWithDataBase();
-         
+        DataFromWindows dataFromWindows = new DataFromWindows();
+
         public void FillComboBoxStatistic (ComboBox comboBox)
         {
             string[] nameItemColumn = {"Физические показатели",
@@ -63,11 +64,8 @@ namespace TrainingProgram.Class
         /// <param name="nameColumn">weight pullUps pushUp run100m squts press cPhc(физическое состояние) cPwc(силовые показатели)</param>
         public void PicterBoxLoad(PictureBox pictureBox, string nameColumn)
         {
-            MessageBox.Show("1");
-
             int countRows = workWithDataBase.SelectCountFromDataBase("Select count (idUsers) from StatisticsUsers where idUsers =" + AddUserWindow.idSelectedUser);
             string[,] sqlSelectData = workWithDataBase.SelectFromDataBase("select dateTime," + nameColumn + " from StatisticsUsers where idUsers = " + AddUserWindow.idSelectedUser + " order by dateTime", countRows);
-            //string[,] sqlSelectColumn = workWithDataBase.SelectFromDataBase("select "+ nameColumn +" from StatisticsUsers where idUsers = " + AddUserWindow.idSelectedUser + " order by "+ nameColumn, countRows);
 
             Bitmap bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
             using (Graphics graphics = Graphics.FromImage(bitmap))
@@ -93,23 +91,25 @@ namespace TrainingProgram.Class
                 for (int i = 0; i < countRows; i++) 
                 {                  
                     int Ox = 0;
+                    
                     if(countRows  == 1)
                         Ox = lenghtOx / 2;
                     else if(countRows == 2)
                         Ox = (lenghtOx * (i + 1)) / (3);
                     else 
                     {
-                        if (i == 0)
-                            Ox = lenghtOx - offsetLenghtOx;
-                        else if (i == countRows - 1) 
-                            Ox = offsetLenghtOx;
-                        else
-                        {
-                            int currentDate = (int)(Convert.ToDateTime(sqlSelectData[i, 0]) - Convert.ToDateTime(sqlSelectData[0, 0])).TotalSeconds;
-                            int maxDate = (int)(Convert.ToDateTime(sqlSelectData[sqlSelectData.GetLength(0) - 1, 0]) - Convert.ToDateTime(sqlSelectData[0, 0])).TotalSeconds;
-                            int procentDate = ((currentDate * 100) / maxDate);
-                            Ox = ((lenghtOx * procentDate) / 100);
-                        }
+                        Ox = ((lenghtOx * (i + 1))/(countRows + 1 ));
+                    //    if (i == 0)
+                    //        Ox = lenghtOx - offsetLenghtOx;
+                    //    else if (i == countRows - 1) 
+                    //        Ox = offsetLenghtOx;
+                    //    else
+                    //    {
+                    //        int currentDate = (int)(Convert.ToDateTime(sqlSelectData[i, 0]) - Convert.ToDateTime(sqlSelectData[0, 0])).TotalSeconds;
+                    //        int maxDate = (int)(Convert.ToDateTime(sqlSelectData[sqlSelectData.GetLength(0) - 1, 0]) - Convert.ToDateTime(sqlSelectData[0, 0])).TotalSeconds;
+                    //        int procentDate = ((currentDate * 100) / maxDate);
+                    //        Ox = ((lenghtOx * procentDate) / 100);
+                    //    }
                     }
 
 
@@ -124,64 +124,80 @@ namespace TrainingProgram.Class
                     if (countRows == 1)
                         Oy = lenghtOy / 2;
                     else if (countRows == 2)
-                        Oy = (lenghtOy * (i + 1)) / (3);
+                    {
+                        if (double.Parse(sqlSelectData[0, 1]) == double.Parse(sqlSelectData[1, 1]))
+                            Oy = (lenghtOy) / 2;
+                        else if (i == 0)
+                        {
+                            if (double.Parse(sqlSelectData[0, 1]) > double.Parse(sqlSelectData[1, 1]))
+                                Oy = (lenghtOy * 1) / 3;
+                            else Oy = (lenghtOy * 2) / 3;
+                        }
+                        else if (i == 1)
+                        {
+                            if(double.Parse(sqlSelectData[1, 1]) > double.Parse(sqlSelectData[0, 1]))
+                                Oy = (lenghtOy * 1) / 3;
+                            else Oy = (lenghtOy * 2) / 3;
+                        }
+                    }
                     else
                     {
                         int minColumn = SearchMinColumn(sqlSelectData);
                         int maxColumn = SearchMaxColumn(sqlSelectData);
                         if (i == minColumn)
-                           Oy = lenghtOy + 20 - (lenghtOy - offsetLenghtOy);
+                            Oy = lenghtOy + 20 - (lenghtOy - offsetLenghtOy);
                         else if (i == maxColumn)
                             Oy = lenghtOy - offsetLenghtOy - 20;
                         else
                         {
-                            double currentColumn = Convert.ToDouble(sqlSelectData[i, 1]) - Convert.ToDouble(sqlSelectData[minColumn, 1]);
-                            double maxColum = Convert.ToDouble(sqlSelectData[maxColumn, 1]) - Convert.ToDouble(sqlSelectData[minColumn, 1]);
-                            int procentColumn = Convert.ToInt32((currentColumn * 100) / maxColum);
-                            Oy = lenghtOy - (((lenghtOy - 18) * procentColumn) / 100);
+                            if (Convert.ToDouble(sqlSelectData[i, 1]) == Convert.ToDouble(sqlSelectData[minColumn, 1]))
+                                Oy = lenghtOy + 20 - (lenghtOy - offsetLenghtOy);
+                            else if(Convert.ToDouble(sqlSelectData[i, 1]) == Convert.ToDouble(sqlSelectData[maxColumn, 1]))
+                                Oy = lenghtOy - offsetLenghtOy - 20;
+                            else
+                            {
+                                double currentColumn = Convert.ToDouble(sqlSelectData[i, 1]) - Convert.ToDouble(sqlSelectData[minColumn, 1]);
+                                double maxColum = Convert.ToDouble(sqlSelectData[maxColumn, 1]) - Convert.ToDouble(sqlSelectData[minColumn, 1]);
+                                int procentColumn = Convert.ToInt32((currentColumn * 100) / maxColum);
+                                Oy = lenghtOy - (((lenghtOy - 18) * procentColumn) / 100);
+                            }
                         }
                     }
-
-
                     pen = new Pen(Color.Black, 3);
-                    //graphics.DrawRectangle(pen, Ox, Oy, 2, 2);
-                    
-
+                  
                     arrayPoint[i].Y = Oy;
                     //pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
                     //graphics.DrawLine(pen, new Point(Ox +1,180), new Point(Ox + 1,Oy));
                     //graphics.DrawLine(pen, new Point(20, Oy), new Point(Ox, Oy));   
                 }
 
-                if (arrayPoint.Length >= 2)
+                if(arrayPoint.Length == 1)
                 {
-                    graphics.DrawCurve(pen, arrayPoint);
+                    graphics.Clear(Color.White);
+                    graphics.DrawString("Стаитика появится только полсе внесения первой контрольной точки!", new Font("Arial", 10), Brushes.Black, pictureBox.Width/4,pictureBox.Height/3 );
+                }
+                else if (arrayPoint.Length >= 2)
+                {
+                   // graphics.DrawCurve(pen, arrayPoint);
+
                     for (int i=0; i<arrayPoint.Length;i++)
                     {
+                        graphics.DrawRectangle(pen,arrayPoint[i].X, arrayPoint[i].Y, 3, lenghtOy - arrayPoint[i].Y);
+                        graphics.DrawRectangle(pen, arrayPoint[i].X, arrayPoint[i].Y, 1, 1);
                         graphics.DrawString(Convert.ToDouble(sqlSelectData[i, 1]).ToString("0.000"), new Font("Arial", 10), Brushes.Black, arrayPoint[i].X + 5, arrayPoint[i].Y);
-                        //    if (i != 0) 
-                        //    {
-                        //        if(arrayPoint[i].Y > arrayPoint[i-1].Y)
-                        //        {
-                        //           // MessageBox.Show("прог");
-                        //        }
-                        //        else if(arrayPoint [i].Y < arrayPoint[i-1].Y)
-                        //        {
-                        //            ///MessageBox.Show("не прогг");
-                        //        }
-                        //    }
                     }
                 }
 
 
             }
             pictureBox.Image = bitmap;
+           
         }
 
         private int SearchMinColumn (string[,] columns)
         {
             double currentColumn = Convert.ToDouble(columns[0,1]);
-            int _i = -1;
+            int _i = 0;
             for (int i=0; i<columns.GetLength(0);i++)
             {
                 if (currentColumn > Convert.ToDouble(columns[i, 1]))
@@ -196,7 +212,7 @@ namespace TrainingProgram.Class
         private int SearchMaxColumn(string[,] columns)
         {
             double currentColumn = Convert.ToDouble(columns[0, 1]);
-            int _i = -1;
+            int _i = 0;
             for (int i = 0; i < columns.GetLength(0); i++)
             {
                 if (currentColumn < Convert.ToDouble(columns[i, 1]))

@@ -13,6 +13,7 @@ using AxWMPLib;
 using System.Threading;
 using TrainingProgram.Class;
 using TrainingProgram.Windows;
+using System.Resources;
 
 namespace TrainingProgram
 {
@@ -41,6 +42,7 @@ namespace TrainingProgram
         AddTrainingProgram addTrainingProgram = new AddTrainingProgram();
         WorkWithTrainigProgram workWithTrainigProgram = new WorkWithTrainigProgram();
         AddTpForUser addTpForUser = new AddTpForUser();
+        Condition condition = new Condition();
         //public AddUserWindow addUserwindow = new AddUserWindow();
 
         public MainWindow()
@@ -69,11 +71,11 @@ namespace TrainingProgram
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
-                    
+
         }
 
         //---------------INTEFACE-----------------------------
-        private void PageMainWindow (bool isVisible)
+        public void PageMainWindow (bool isVisible)
         {
             buttonSearchMusclesAndExercises.Visible = isVisible;
             buttonAddTrainingProgram.Visible = isVisible;
@@ -109,7 +111,7 @@ namespace TrainingProgram
             labelDayWeek.Visible = isVisible;
             currentPageMainWindow = CurrentPageMainWindow.pageTrainigProgramm;
         }
-        private void PageAddTpForUsers (bool isVisible)
+        public void PageAddTpForUsers (bool isVisible)
         {
             //tableLayoutPanelInfAboutUser.Visible = isVisible;
             panelAddTpForUser.Visible = isVisible;
@@ -474,26 +476,82 @@ namespace TrainingProgram
             //addUserWinodw.ShowDialog();
             
         }
-
-       
-
+     
     ///////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////addUserWindowButtonClikc///////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////
-
+    ///////////////////////////////////////////////////////////////////////////////////        
         public void FillInfAboutUser ()
         {
-           
+                       addTpForUser.FillComboBoxStatistic(comboBoxSelectStatistic); 
             PageAddTpForUsers(true);
 
-            string[,] sqlResult = workWithDataBase.SelectFromDataBase("select * from Users where idUsers =" + AddUserWindow.idSelectedUser, 1);
-            labelNameUser.Text = sqlResult[0,1];
-            labelSecondNameUser.Text = sqlResult[0, 2];
-            labelGenderUser.Text = sqlResult[0, 3];
-            labelDateofBirthUser.Text = sqlResult[0, 4];
+            string[,] sqlResultUser = workWithDataBase.SelectFromDataBase("select * from Users where idUsers =" + AddUserWindow.idSelectedUser, 1);                     
+            string[,] sqlResultStatisticMax = workWithDataBase.SelectFromDataBase("select * from StatisticsUsers where dateTime = (select max (dateTime) from StatisticsUsers where idUsers =" + +AddUserWindow.idSelectedUser + ") and idUsers =" + AddUserWindow.idSelectedUser, 1);         
 
-            addTpForUser.FillComboBoxStatistic(comboBoxSelectStatistic);
-            //addTpForUser.PicterBoxLoad(pictureBoxStatistic,nameColumnFromCoboBox[comboBoxSelectStatistic.SelectedIndex]);        
+            labelNameUser.Text = sqlResultUser[0,1];
+            labelSecondNameUser.Text = sqlResultUser[0, 2];
+            labelGenderUser.Text = sqlResultUser[0, 3];
+            labelDateofBirthUser.Text = sqlResultUser[0, 4];
+
+            FillStatisticAboutUser();      
+        }
+        public void FillStatisticAboutUser ()
+        {
+            int countRows = workWithDataBase.SelectCountFromDataBase("Select count (idUsers) from StatisticsUsers where idUsers =" + AddUserWindow.idSelectedUser);
+            string[,] sqlSelectData = workWithDataBase.SelectFromDataBase("select * from StatisticsUsers where idUsers = " + AddUserWindow.idSelectedUser + " order by dateTime", countRows);
+
+            if (countRows >= 2)
+            {
+                if (Convert.ToDouble(sqlSelectData[countRows - 1, 12]) == Convert.ToDouble(sqlSelectData[countRows - 2, 12]))
+                {
+                    pictureBoxcPhc.Image = Properties.Resources.middle;
+                    labelcPhc.ForeColor = Color.Blue;
+                }
+                else if (Convert.ToDouble(sqlSelectData[countRows - 1, 12]) > Convert.ToDouble(sqlSelectData[countRows - 2, 12]))
+                {
+                    pictureBoxcPhc.Image = Properties.Resources.up;
+                    labelcPhc.ForeColor = Color.Green;
+                }
+                else if (Convert.ToDouble(sqlSelectData[countRows - 1, 12]) < Convert.ToDouble(sqlSelectData[countRows - 2, 12]))
+                {
+                    pictureBoxcPhc.Image = Properties.Resources.down;
+                    labelcPhc.ForeColor = Color.Red;
+                }
+
+
+                if (Convert.ToDouble(sqlSelectData[countRows - 1, 13]) == Convert.ToDouble(sqlSelectData[countRows - 2, 13]))
+                {
+                    pictureBoxcPwc.Image = Properties.Resources.middle;
+                    labelcPwc.ForeColor = Color.Blue;
+                }
+                else if (Convert.ToDouble(sqlSelectData[countRows - 1, 13]) > Convert.ToDouble(sqlSelectData[countRows - 2, 13]))
+                {
+                    pictureBoxcPwc.Image = Properties.Resources.up;
+                    labelcPwc.ForeColor = Color.Green;
+                }
+                else if (Convert.ToDouble(sqlSelectData[countRows - 1, 13]) < Convert.ToDouble(sqlSelectData[countRows - 2, 13]))
+                {
+                    pictureBoxcPwc.Image = Properties.Resources.down;
+                    labelcPwc.ForeColor = Color.Red;
+                }
+            }
+            else
+            {
+                pictureBoxcPhc.Image = Properties.Resources.middle;
+                pictureBoxcPwc.Image = Properties.Resources.middle;
+                labelcPhc.ForeColor = Color.Blue;
+                labelcPwc.ForeColor = Color.Blue;
+            }
+
+            labelcPhc.Text = condition.GetConditionMan(Convert.ToDouble(sqlSelectData[countRows - 1, 12])) + " " + sqlSelectData[countRows - 1, 12];
+            labelcPwc.Text = condition.GetConditionMan(Convert.ToDouble(sqlSelectData[countRows - 1, 13])) + " " + sqlSelectData[countRows - 1, 13];
+
+            int countDownDyas = 14 - (int)(DateTime.Now - Convert.ToDateTime(sqlSelectData[countRows - 1, 14])).TotalDays;
+            if (countDownDyas >= 1)
+            {
+                labelCountdownDays.Text = "Дата  добавления новой КТ: " + (DateTime.Now.AddDays(countDownDyas)).ToShortDateString();
+            }
+            else labelCountdownDays.Text = "Необходимо добавить новыую КТ!";
         }
 
         private void comboBoxSelectStatistic_SelectedIndexChanged(object sender, EventArgs e)
@@ -508,6 +566,11 @@ namespace TrainingProgram
             addControlPoint.ShowDialog();
         }
 
-
+        private void buttonShowStatistic_Click(object sender, EventArgs e)
+        {
+            if (panelStatistic.Visible == false)
+                panelStatistic.Visible = true;
+            else panelStatistic.Visible = false;
+        }
     }
 }

@@ -76,6 +76,7 @@
     <Compile Include="Class\AddTpForUser.cs" />
     <Compile Include="Class\AddTrainingProgram.cs" />
     <Compile Include="Class\Calculation.cs" />
+    <Compile Include="Class\Condition.cs" />
     <Compile Include="Class\DataFromWindows.cs" />
     <Compile Include="Class\WorkWithWidget.cs" />
     <Compile Include="Windows\AddControlPoint.cs">
@@ -201,6 +202,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\run100.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\middle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\statistic.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

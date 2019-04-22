@@ -34,18 +34,18 @@ namespace TrainingProgram.Windows
         /// ид выбранного пользователя в окне AddUserWindow
         /// </summary>
         public static int idSelectedUser;
-
-        public static int puls;
-        public static int pressureUp;
-        public static int pressureDown;
-        public static int age;
-        public static int growth;
-        public static int weight;
-        public static int pushUp;
-        public static int pullUps;
-        public static int squats;
-        public static int press;
-        public static double run100;
+        private bool isSelected = false;
+        //public static int puls;
+        //public static int pressureUp;
+        //public static int pressureDown;
+        //public static int age;
+        //public static int growth;
+        //public static int weight;
+        //public static int pushUp;
+        //public static int pullUps;
+        //public static int squats;
+        //public static int press;
+        //public static double run100;
 
 
         public AddUserWindow(MainWindow mainWindow)
@@ -59,9 +59,29 @@ namespace TrainingProgram.Windows
             comboBoxGender.SelectedIndex = 0;
             textBoxName.TextChanged += TextBox_TextChanged;
             textBoxSecondName.TextChanged += TextBox_TextChanged;
+
+            textBoxPuls.Enter += TextBox_MouseEnter;
+            textBoxPressureUp.Enter += TextBox_MouseEnter;
+            textBoxPressureDown.Enter += TextBox_MouseEnter;
+            textBoxGrowth.Enter += TextBox_MouseEnter;
+            textBoxWeight.Enter += TextBox_MouseEnter;
+            textBoxPushUps.Enter += TextBox_MouseEnter;
+            textBoxPullUps.Enter += TextBox_MouseEnter;
+            textBoxRun100.Enter += TextBox_MouseEnter;
+            textBoxSquts.Enter += TextBox_MouseEnter;
+            textBoxPress.Enter += TextBox_MouseEnter;
+
+            workWithWidget.SetWatemarkTextBox(textBoxPuls, "Введите пульс");
+
             PageAddUser(true);
             addTpForUser.FilllistViewUsers(listViewUser);
+        }
 
+        private void TextBox_MouseEnter(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            ToolTip tt = new ToolTip();
+            tt.SetToolTip(tb,tb.Tag.ToString());
         }
         //---------------------INTERFACE-----------------------------
         #region INTERFACE PRIVATE VOID
@@ -248,7 +268,6 @@ namespace TrainingProgram.Windows
             else if (currentPageAddUserWindow == CurrentPageAddUserWindow.pageSquatsRun100)
             {
                 PagePress(true);
-                buttonNext.Text = "Добавить пользователя";
             }
             else if (currentPageAddUserWindow == CurrentPageAddUserWindow.pagePress)
             {
@@ -289,7 +308,7 @@ namespace TrainingProgram.Windows
                                                            int.Parse(textBoxPullUps.Text),
                                                            (float)CPhC,
                                                            (float)CPwC);
-                
+                isSelected = true;
                 this.Close();
                 mainWindow.FillInfAboutUser();
             }
@@ -334,57 +353,26 @@ namespace TrainingProgram.Windows
             else buttonNext.Enabled = false;
         }
 
-        //private void TextBox_Enter(object sender, EventArgs e)
-        //{
-        //    workWithWidget.DeleteWotemarktextBox((TextBox)sender);
-        //}
-
-        //private void TextBox_Leave(object sender, EventArgs e)
-        //{
-        //    TextBox textBox = (TextBox)sender;
-        //    if (textBox.Text == string.Empty)
-        //    {
-        //        if (currentPageAddUserWindow == CurrentPageAddUserWindow.pagePulsPressure)
-        //        {
-        //           if(textBox == textBoxFirst) workWithWidget.SetWatemarkTextBox(textBoxFirst, "Введите пульс");
-        //           else if(textBox == textBoxSecond) workWithWidget.SetWatemarkTextBox(textBoxSecond, "Введите давление");
-        //        }
-        //        else if (currentPageAddUserWindow == CurrentPageAddUserWindow.pageGrowthWeight)
-        //        {
-        //            if (textBox == textBoxFirst) workWithWidget.SetWatemarkTextBox(textBoxFirst, "Введите рос");
-        //            else if (textBox == textBoxSecond) workWithWidget.SetWatemarkTextBox(textBoxSecond, "Введите вес");
-        //        }
-        //        else if (currentPageAddUserWindow == CurrentPageAddUserWindow.pagePullupPushUp)
-        //        {                 
-        //            if (textBox == textBoxFirst) workWithWidget.SetWatemarkTextBox(textBoxFirst, "Введите кол-во подтягиваний");
-        //            else if (textBox == textBoxSecond) workWithWidget.SetWatemarkTextBox(textBoxSecond, "Введите кол-во отжиманий");
-
-        //        }
-        //        else if (currentPageAddUserWindow == CurrentPageAddUserWindow.pageSquatsRun100)
-        //        {
-        //            if (textBox == textBoxFirst) workWithWidget.SetWatemarkTextBox(textBoxFirst, "Введите кол-во приседаний");
-        //            else if (textBox == textBoxSecond) workWithWidget.SetWatemarkTextBox(textBoxSecond, "Введите время 100м");
-
-        //        }
-        //        else if (currentPageAddUserWindow == CurrentPageAddUserWindow.pagePress)
-        //        {
-        //            if (textBox == textBoxFirst) workWithWidget.SetWatemarkTextBox(textBoxFirst, "Введите кол-во подъемом туловища");
-        //        }
-        //    }
-                
-        //}
- 
-
+      
         private void listViewUser_DoubleClick(object sender, EventArgs e)
         {
             if (listViewUser.SelectedItems.Count > 0)
             {
                 idSelectedUser = Convert.ToInt32(listViewUser.SelectedItems[0].Tag);
 
-                mainWindow.FillInfAboutUser();           
+                mainWindow.FillInfAboutUser();
+                isSelected = true;     
                 this.Close();
             }
         }
 
+        private void AddUserWindow_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(!isSelected)
+            {                             
+                mainWindow.PageMainWindow(true);
+                mainWindow.PageAddTpForUsers(false);
+            }
+        }
     }
 }

@@ -34,9 +34,7 @@
             this.buttonAddTrainingProgram = new System.Windows.Forms.Button();
             this.treeViewMusclesAndExercises = new System.Windows.Forms.TreeView();
             this.buttonBack = new System.Windows.Forms.Button();
-            this.pictureBoxFromImages = new System.Windows.Forms.PictureBox();
             this.axWindowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
-            this.buttonAddTpForUser = new System.Windows.Forms.Button();
             this.buttonAddImage = new System.Windows.Forms.Button();
             this.buttonAddVideo = new System.Windows.Forms.Button();
             this.labelHeadExercises = new System.Windows.Forms.Label();
@@ -72,17 +70,32 @@
             this.labelNameUser = new System.Windows.Forms.Label();
             this.labelGenderUser = new System.Windows.Forms.Label();
             this.panelAddTpForUser = new System.Windows.Forms.Panel();
-            this.buttonAddControlPoint = new System.Windows.Forms.Button();
-            this.comboBoxSelectStatistic = new System.Windows.Forms.ComboBox();
+            this.panelStatistic = new System.Windows.Forms.Panel();
             this.labelStaticName = new System.Windows.Forms.Label();
+            this.comboBoxSelectStatistic = new System.Windows.Forms.ComboBox();
             this.pictureBoxStatistic = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
+            this.buttonShowStatistic = new System.Windows.Forms.Button();
+            this.labelCountdownDays = new System.Windows.Forms.Label();
+            this.labelcPhc = new System.Windows.Forms.Label();
+            this.labelcPwc = new System.Windows.Forms.Label();
+            this.pictureBoxcPhc = new System.Windows.Forms.PictureBox();
+            this.labelcPhcLabel = new System.Windows.Forms.Label();
+            this.pictureBoxcPwc = new System.Windows.Forms.PictureBox();
+            this.buttonAddControlPoint = new System.Windows.Forms.Button();
+            this.labelcPwcLabel = new System.Windows.Forms.Label();
+            this.buttonAddTpForUser = new System.Windows.Forms.Button();
+            this.pictureBoxFromImages = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.contextMenuStripFromTree.SuspendLayout();
             this.contextMenuStripDelRename.SuspendLayout();
             this.tableLayoutPanelInfAboutUser.SuspendLayout();
             this.panelAddTpForUser.SuspendLayout();
+            this.panelStatistic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonSearchMusclesAndExercises
@@ -119,7 +132,7 @@
             // 
             // buttonBack
             // 
-            this.buttonBack.Location = new System.Drawing.Point(167, 10);
+            this.buttonBack.Location = new System.Drawing.Point(131, 9);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(67, 26);
             this.buttonBack.TabIndex = 3;
@@ -127,16 +140,6 @@
             this.buttonBack.UseVisualStyleBackColor = true;
             this.buttonBack.Visible = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
-            // 
-            // pictureBoxFromImages
-            // 
-            this.pictureBoxFromImages.Location = new System.Drawing.Point(421, 121);
-            this.pictureBoxFromImages.Name = "pictureBoxFromImages";
-            this.pictureBoxFromImages.Size = new System.Drawing.Size(218, 203);
-            this.pictureBoxFromImages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxFromImages.TabIndex = 4;
-            this.pictureBoxFromImages.TabStop = false;
-            this.pictureBoxFromImages.Visible = false;
             // 
             // axWindowsMediaPlayer
             // 
@@ -147,16 +150,6 @@
             this.axWindowsMediaPlayer.Size = new System.Drawing.Size(173, 203);
             this.axWindowsMediaPlayer.TabIndex = 5;
             this.axWindowsMediaPlayer.Visible = false;
-            // 
-            // buttonAddTpForUser
-            // 
-            this.buttonAddTpForUser.Location = new System.Drawing.Point(491, 93);
-            this.buttonAddTpForUser.Name = "buttonAddTpForUser";
-            this.buttonAddTpForUser.Size = new System.Drawing.Size(160, 231);
-            this.buttonAddTpForUser.TabIndex = 6;
-            this.buttonAddTpForUser.Text = "buttonAddTpForUser";
-            this.buttonAddTpForUser.UseVisualStyleBackColor = true;
-            this.buttonAddTpForUser.Click += new System.EventHandler(this.buttonAddTpForUser_Click);
             // 
             // buttonAddImage
             // 
@@ -383,6 +376,7 @@
             this.buttonAddNewUser.TabIndex = 26;
             this.buttonAddNewUser.Text = "buttonAddNewUser";
             this.buttonAddNewUser.UseVisualStyleBackColor = true;
+            this.buttonAddNewUser.Visible = false;
             this.buttonAddNewUser.Click += new System.EventHandler(this.buttonAddNewUser_Click);
             // 
             // label
@@ -407,7 +401,7 @@
             // 
             this.labelSecondName.AutoSize = true;
             this.labelSecondName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelSecondName.Location = new System.Drawing.Point(3, 27);
+            this.labelSecondName.Location = new System.Drawing.Point(3, 30);
             this.labelSecondName.Name = "labelSecondName";
             this.labelSecondName.Size = new System.Drawing.Size(85, 20);
             this.labelSecondName.TabIndex = 30;
@@ -417,7 +411,7 @@
             // 
             this.labelGender.AutoSize = true;
             this.labelGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelGender.Location = new System.Drawing.Point(3, 54);
+            this.labelGender.Location = new System.Drawing.Point(3, 60);
             this.labelGender.Name = "labelGender";
             this.labelGender.Size = new System.Drawing.Size(44, 20);
             this.labelGender.TabIndex = 31;
@@ -427,7 +421,7 @@
             // 
             this.labelDateofBirth.AutoSize = true;
             this.labelDateofBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDateofBirth.Location = new System.Drawing.Point(3, 81);
+            this.labelDateofBirth.Location = new System.Drawing.Point(3, 90);
             this.labelDateofBirth.Name = "labelDateofBirth";
             this.labelDateofBirth.Size = new System.Drawing.Size(89, 30);
             this.labelDateofBirth.TabIndex = 32;
@@ -446,21 +440,21 @@
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelNameUser, 1, 0);
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelDateofBirth, 0, 3);
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelGenderUser, 1, 2);
-            this.tableLayoutPanelInfAboutUser.Location = new System.Drawing.Point(19, 20);
+            this.tableLayoutPanelInfAboutUser.Location = new System.Drawing.Point(19, 11);
             this.tableLayoutPanelInfAboutUser.Name = "tableLayoutPanelInfAboutUser";
             this.tableLayoutPanelInfAboutUser.RowCount = 4;
             this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelInfAboutUser.Size = new System.Drawing.Size(224, 111);
+            this.tableLayoutPanelInfAboutUser.Size = new System.Drawing.Size(224, 120);
             this.tableLayoutPanelInfAboutUser.TabIndex = 33;
             // 
             // labelDateofBirthUser
             // 
             this.labelDateofBirthUser.AutoSize = true;
             this.labelDateofBirthUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDateofBirthUser.Location = new System.Drawing.Point(115, 81);
+            this.labelDateofBirthUser.Location = new System.Drawing.Point(115, 90);
             this.labelDateofBirthUser.Name = "labelDateofBirthUser";
             this.labelDateofBirthUser.Size = new System.Drawing.Size(0, 20);
             this.labelDateofBirthUser.TabIndex = 36;
@@ -469,7 +463,7 @@
             // 
             this.labelSecondNameUser.AutoSize = true;
             this.labelSecondNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelSecondNameUser.Location = new System.Drawing.Point(115, 27);
+            this.labelSecondNameUser.Location = new System.Drawing.Point(115, 30);
             this.labelSecondNameUser.Name = "labelSecondNameUser";
             this.labelSecondNameUser.Size = new System.Drawing.Size(0, 20);
             this.labelSecondNameUser.TabIndex = 34;
@@ -487,27 +481,141 @@
             // 
             this.labelGenderUser.AutoSize = true;
             this.labelGenderUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelGenderUser.Location = new System.Drawing.Point(115, 54);
+            this.labelGenderUser.Location = new System.Drawing.Point(115, 60);
             this.labelGenderUser.Name = "labelGenderUser";
             this.labelGenderUser.Size = new System.Drawing.Size(0, 20);
             this.labelGenderUser.TabIndex = 35;
             // 
             // panelAddTpForUser
             // 
+            this.panelAddTpForUser.Controls.Add(this.groupBox1);
+            this.panelAddTpForUser.Controls.Add(this.panelStatistic);
+            this.panelAddTpForUser.Controls.Add(this.buttonShowStatistic);
+            this.panelAddTpForUser.Controls.Add(this.labelCountdownDays);
+            this.panelAddTpForUser.Controls.Add(this.labelcPhc);
+            this.panelAddTpForUser.Controls.Add(this.labelcPwc);
+            this.panelAddTpForUser.Controls.Add(this.pictureBoxcPhc);
+            this.panelAddTpForUser.Controls.Add(this.labelcPhcLabel);
+            this.panelAddTpForUser.Controls.Add(this.pictureBoxcPwc);
             this.panelAddTpForUser.Controls.Add(this.buttonAddControlPoint);
-            this.panelAddTpForUser.Controls.Add(this.comboBoxSelectStatistic);
-            this.panelAddTpForUser.Controls.Add(this.labelStaticName);
-            this.panelAddTpForUser.Controls.Add(this.pictureBoxStatistic);
+            this.panelAddTpForUser.Controls.Add(this.labelcPwcLabel);
             this.panelAddTpForUser.Controls.Add(this.tableLayoutPanelInfAboutUser);
             this.panelAddTpForUser.Location = new System.Drawing.Point(23, 42);
             this.panelAddTpForUser.Name = "panelAddTpForUser";
-            this.panelAddTpForUser.Size = new System.Drawing.Size(839, 450);
+            this.panelAddTpForUser.Size = new System.Drawing.Size(839, 473);
             this.panelAddTpForUser.TabIndex = 34;
             this.panelAddTpForUser.Visible = false;
             // 
+            // panelStatistic
+            // 
+            this.panelStatistic.Controls.Add(this.labelStaticName);
+            this.panelStatistic.Controls.Add(this.comboBoxSelectStatistic);
+            this.panelStatistic.Controls.Add(this.pictureBoxStatistic);
+            this.panelStatistic.Location = new System.Drawing.Point(0, 222);
+            this.panelStatistic.Name = "panelStatistic";
+            this.panelStatistic.Size = new System.Drawing.Size(839, 248);
+            this.panelStatistic.TabIndex = 50;
+            this.panelStatistic.Visible = false;
+            // 
+            // labelStaticName
+            // 
+            this.labelStaticName.AutoSize = true;
+            this.labelStaticName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelStaticName.Location = new System.Drawing.Point(12, 3);
+            this.labelStaticName.Name = "labelStaticName";
+            this.labelStaticName.Size = new System.Drawing.Size(109, 20);
+            this.labelStaticName.TabIndex = 35;
+            this.labelStaticName.Text = "Статистика";
+            // 
+            // comboBoxSelectStatistic
+            // 
+            this.comboBoxSelectStatistic.FormattingEnabled = true;
+            this.comboBoxSelectStatistic.Location = new System.Drawing.Point(127, 3);
+            this.comboBoxSelectStatistic.Name = "comboBoxSelectStatistic";
+            this.comboBoxSelectStatistic.Size = new System.Drawing.Size(150, 21);
+            this.comboBoxSelectStatistic.TabIndex = 36;
+            this.comboBoxSelectStatistic.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelectStatistic_SelectedIndexChanged);
+            // 
+            // pictureBoxStatistic
+            // 
+            this.pictureBoxStatistic.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureBoxStatistic.Location = new System.Drawing.Point(7, 26);
+            this.pictureBoxStatistic.Name = "pictureBoxStatistic";
+            this.pictureBoxStatistic.Size = new System.Drawing.Size(819, 219);
+            this.pictureBoxStatistic.TabIndex = 34;
+            this.pictureBoxStatistic.TabStop = false;
+            // 
+            // buttonShowStatistic
+            // 
+            this.buttonShowStatistic.Location = new System.Drawing.Point(3, 199);
+            this.buttonShowStatistic.Name = "buttonShowStatistic";
+            this.buttonShowStatistic.Size = new System.Drawing.Size(144, 23);
+            this.buttonShowStatistic.TabIndex = 49;
+            this.buttonShowStatistic.UseVisualStyleBackColor = true;
+            this.buttonShowStatistic.Click += new System.EventHandler(this.buttonShowStatistic_Click);
+            // 
+            // labelCountdownDays
+            // 
+            this.labelCountdownDays.AutoSize = true;
+            this.labelCountdownDays.Location = new System.Drawing.Point(627, 152);
+            this.labelCountdownDays.Name = "labelCountdownDays";
+            this.labelCountdownDays.Size = new System.Drawing.Size(171, 13);
+            this.labelCountdownDays.TabIndex = 48;
+            this.labelCountdownDays.Text = "Дней до добавления новой КТ:  ";
+            // 
+            // labelcPhc
+            // 
+            this.labelcPhc.AutoSize = true;
+            this.labelcPhc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelcPhc.Location = new System.Drawing.Point(490, 28);
+            this.labelcPhc.Name = "labelcPhc";
+            this.labelcPhc.Size = new System.Drawing.Size(122, 17);
+            this.labelcPhc.TabIndex = 47;
+            this.labelcPhc.Text = "реззультат физы";
+            // 
+            // labelcPwc
+            // 
+            this.labelcPwc.AutoSize = true;
+            this.labelcPwc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelcPwc.Location = new System.Drawing.Point(267, 28);
+            this.labelcPwc.Name = "labelcPwc";
+            this.labelcPwc.Size = new System.Drawing.Size(112, 17);
+            this.labelcPwc.TabIndex = 46;
+            this.labelcPwc.Text = "результат силы";
+            // 
+            // pictureBoxcPhc
+            // 
+            this.pictureBoxcPhc.Image = global::TrainingProgram.Properties.Resources.middle;
+            this.pictureBoxcPhc.Location = new System.Drawing.Point(659, 9);
+            this.pictureBoxcPhc.Name = "pictureBoxcPhc";
+            this.pictureBoxcPhc.Size = new System.Drawing.Size(38, 36);
+            this.pictureBoxcPhc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxcPhc.TabIndex = 45;
+            this.pictureBoxcPhc.TabStop = false;
+            // 
+            // labelcPhcLabel
+            // 
+            this.labelcPhcLabel.AutoSize = true;
+            this.labelcPhcLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelcPhcLabel.Location = new System.Drawing.Point(490, 9);
+            this.labelcPhcLabel.Name = "labelcPhcLabel";
+            this.labelcPhcLabel.Size = new System.Drawing.Size(163, 17);
+            this.labelcPhcLabel.TabIndex = 39;
+            this.labelcPhcLabel.Text = "Физическое состояние";
+            // 
+            // pictureBoxcPwc
+            // 
+            this.pictureBoxcPwc.Image = global::TrainingProgram.Properties.Resources.up;
+            this.pictureBoxcPwc.Location = new System.Drawing.Point(420, 11);
+            this.pictureBoxcPwc.Name = "pictureBoxcPwc";
+            this.pictureBoxcPwc.Size = new System.Drawing.Size(41, 36);
+            this.pictureBoxcPwc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxcPwc.TabIndex = 41;
+            this.pictureBoxcPwc.TabStop = false;
+            // 
             // buttonAddControlPoint
             // 
-            this.buttonAddControlPoint.Location = new System.Drawing.Point(607, 213);
+            this.buttonAddControlPoint.Location = new System.Drawing.Point(630, 168);
             this.buttonAddControlPoint.Name = "buttonAddControlPoint";
             this.buttonAddControlPoint.Size = new System.Drawing.Size(196, 23);
             this.buttonAddControlPoint.TabIndex = 37;
@@ -515,38 +623,52 @@
             this.buttonAddControlPoint.UseVisualStyleBackColor = true;
             this.buttonAddControlPoint.Click += new System.EventHandler(this.buttonAddControlPoint_Click);
             // 
-            // comboBoxSelectStatistic
+            // labelcPwcLabel
             // 
-            this.comboBoxSelectStatistic.FormattingEnabled = true;
-            this.comboBoxSelectStatistic.Location = new System.Drawing.Point(119, 211);
-            this.comboBoxSelectStatistic.Name = "comboBoxSelectStatistic";
-            this.comboBoxSelectStatistic.Size = new System.Drawing.Size(150, 21);
-            this.comboBoxSelectStatistic.TabIndex = 36;
-            this.comboBoxSelectStatistic.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelectStatistic_SelectedIndexChanged);
+            this.labelcPwcLabel.AutoSize = true;
+            this.labelcPwcLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelcPwcLabel.Location = new System.Drawing.Point(267, 9);
+            this.labelcPwcLabel.Name = "labelcPwcLabel";
+            this.labelcPwcLabel.Size = new System.Drawing.Size(147, 17);
+            this.labelcPwcLabel.TabIndex = 38;
+            this.labelcPwcLabel.Text = "Силовые показатели";
             // 
-            // labelStaticName
+            // buttonAddTpForUser
             // 
-            this.labelStaticName.AutoSize = true;
-            this.labelStaticName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelStaticName.Location = new System.Drawing.Point(3, 213);
-            this.labelStaticName.Name = "labelStaticName";
-            this.labelStaticName.Size = new System.Drawing.Size(109, 20);
-            this.labelStaticName.TabIndex = 35;
-            this.labelStaticName.Text = "Статистика";
+            this.buttonAddTpForUser.BackgroundImage = global::TrainingProgram.Properties.Resources.statistic;
+            this.buttonAddTpForUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonAddTpForUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonAddTpForUser.Location = new System.Drawing.Point(491, 93);
+            this.buttonAddTpForUser.Name = "buttonAddTpForUser";
+            this.buttonAddTpForUser.Size = new System.Drawing.Size(160, 231);
+            this.buttonAddTpForUser.TabIndex = 6;
+            this.buttonAddTpForUser.UseVisualStyleBackColor = true;
+            this.buttonAddTpForUser.Click += new System.EventHandler(this.buttonAddTpForUser_Click);
             // 
-            // pictureBoxStatistic
+            // pictureBoxFromImages
             // 
-            this.pictureBoxStatistic.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBoxStatistic.Location = new System.Drawing.Point(19, 247);
-            this.pictureBoxStatistic.Name = "pictureBoxStatistic";
-            this.pictureBoxStatistic.Size = new System.Drawing.Size(800, 200);
-            this.pictureBoxStatistic.TabIndex = 34;
-            this.pictureBoxStatistic.TabStop = false;
+            this.pictureBoxFromImages.Location = new System.Drawing.Point(421, 121);
+            this.pictureBoxFromImages.Name = "pictureBoxFromImages";
+            this.pictureBoxFromImages.Size = new System.Drawing.Size(218, 203);
+            this.pictureBoxFromImages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxFromImages.TabIndex = 4;
+            this.pictureBoxFromImages.TabStop = false;
+            this.pictureBoxFromImages.Visible = false;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(308, 83);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 126);
+            this.groupBox1.TabIndex = 37;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
             // 
             // MainWindow
             // 
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(874, 540);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.ClientSize = new System.Drawing.Size(883, 529);
             this.Controls.Add(this.panelAddTpForUser);
             this.Controls.Add(this.buttonAddNewUser);
             this.Controls.Add(this.label);
@@ -562,7 +684,6 @@
             this.Controls.Add(this.buttonSaveDescription);
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.labelHeadExercises);
-            this.Controls.Add(this.buttonAddTpForUser);
             this.Controls.Add(this.buttonAddTrainingProgram);
             this.Controls.Add(this.buttonSearchMusclesAndExercises);
             this.Controls.Add(this.treeViewMusclesAndExercises);
@@ -571,9 +692,10 @@
             this.Controls.Add(this.buttonAddImage);
             this.Controls.Add(this.richTextBoxDescriptionExercises);
             this.Controls.Add(this.pictureBoxFromImages);
+            this.Controls.Add(this.buttonAddTpForUser);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "MainWindow";
             this.Load += new System.EventHandler(this.MainWindow_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).EndInit();
             this.contextMenuStripFromTree.ResumeLayout(false);
             this.contextMenuStripDelRename.ResumeLayout(false);
@@ -581,7 +703,12 @@
             this.tableLayoutPanelInfAboutUser.PerformLayout();
             this.panelAddTpForUser.ResumeLayout(false);
             this.panelAddTpForUser.PerformLayout();
+            this.panelStatistic.ResumeLayout(false);
+            this.panelStatistic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -636,6 +763,16 @@
         public System.Windows.Forms.ComboBox comboBoxSelectStatistic;
         private System.Windows.Forms.Label labelStaticName;
         private System.Windows.Forms.Button buttonAddControlPoint;
+        private System.Windows.Forms.Label labelcPhcLabel;
+        private System.Windows.Forms.Label labelcPwcLabel;
+        private System.Windows.Forms.PictureBox pictureBoxcPwc;
+        private System.Windows.Forms.PictureBox pictureBoxcPhc;
+        private System.Windows.Forms.Label labelcPhc;
+        private System.Windows.Forms.Label labelcPwc;
+        private System.Windows.Forms.Label labelCountdownDays;
+        private System.Windows.Forms.Button buttonShowStatistic;
+        private System.Windows.Forms.Panel panelStatistic;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
 

@@ -135,6 +135,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(100, 20);
             this.textBoxName.TabIndex = 4;
+            this.textBoxName.Tag = "1111111111111";
             // 
             // textBoxSecondName
             // 
@@ -142,6 +143,7 @@
             this.textBoxSecondName.Name = "textBoxSecondName";
             this.textBoxSecondName.Size = new System.Drawing.Size(100, 20);
             this.textBoxSecondName.TabIndex = 5;
+            this.textBoxSecondName.Tag = "222222222";
             // 
             // dateTimePicker
             // 
@@ -202,11 +204,12 @@
             // 
             // buttonNext
             // 
-            this.buttonNext.Location = new System.Drawing.Point(288, 212);
+            this.buttonNext.Enabled = false;
+            this.buttonNext.Location = new System.Drawing.Point(228, 212);
             this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(75, 23);
+            this.buttonNext.Size = new System.Drawing.Size(143, 23);
             this.buttonNext.TabIndex = 17;
-            this.buttonNext.Text = "Дальше";
+            this.buttonNext.Text = "Добавить пользователя";
             this.buttonNext.UseVisualStyleBackColor = true;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
@@ -216,6 +219,7 @@
             this.textBoxPressureUp.Name = "textBoxPressureUp";
             this.textBoxPressureUp.Size = new System.Drawing.Size(64, 20);
             this.textBoxPressureUp.TabIndex = 18;
+            this.textBoxPressureUp.Tag = "pressuredown";
             // 
             // textBoxPuls
             // 
@@ -223,13 +227,15 @@
             this.textBoxPuls.Name = "textBoxPuls";
             this.textBoxPuls.Size = new System.Drawing.Size(140, 20);
             this.textBoxPuls.TabIndex = 19;
+            this.textBoxPuls.Tag = "Puls";
             // 
             // textBoxPressureDown
             // 
             this.textBoxPressureDown.Location = new System.Drawing.Point(296, 38);
             this.textBoxPressureDown.Name = "textBoxPressureDown";
             this.textBoxPressureDown.Size = new System.Drawing.Size(64, 20);
-            this.textBoxPressureDown.TabIndex = 20;
+            this.textBoxPressureDown.TabIndex = 19;
+            this.textBoxPressureDown.Tag = "pressureUp";
             // 
             // textBoxGrowth
             // 
@@ -237,6 +243,7 @@
             this.textBoxGrowth.Name = "textBoxGrowth";
             this.textBoxGrowth.Size = new System.Drawing.Size(140, 20);
             this.textBoxGrowth.TabIndex = 21;
+            this.textBoxGrowth.Tag = "growth";
             // 
             // textBoxWeight
             // 
@@ -244,6 +251,7 @@
             this.textBoxWeight.Name = "textBoxWeight";
             this.textBoxWeight.Size = new System.Drawing.Size(140, 20);
             this.textBoxWeight.TabIndex = 22;
+            this.textBoxWeight.Tag = "weight";
             // 
             // textBoxPullUps
             // 
@@ -251,6 +259,7 @@
             this.textBoxPullUps.Name = "textBoxPullUps";
             this.textBoxPullUps.Size = new System.Drawing.Size(140, 20);
             this.textBoxPullUps.TabIndex = 23;
+            this.textBoxPullUps.Tag = "pullups";
             // 
             // textBoxPushUps
             // 
@@ -258,6 +267,7 @@
             this.textBoxPushUps.Name = "textBoxPushUps";
             this.textBoxPushUps.Size = new System.Drawing.Size(140, 20);
             this.textBoxPushUps.TabIndex = 24;
+            this.textBoxPushUps.Tag = "pushup";
             // 
             // textBoxSquts
             // 
@@ -265,6 +275,7 @@
             this.textBoxSquts.Name = "textBoxSquts";
             this.textBoxSquts.Size = new System.Drawing.Size(140, 20);
             this.textBoxSquts.TabIndex = 25;
+            this.textBoxSquts.Tag = "squts";
             // 
             // textBoxRun100
             // 
@@ -272,13 +283,15 @@
             this.textBoxRun100.Name = "textBoxRun100";
             this.textBoxRun100.Size = new System.Drawing.Size(140, 20);
             this.textBoxRun100.TabIndex = 26;
+            this.textBoxRun100.Tag = "run 100";
             // 
-            // textBoxPres
+            // textBoxPress
             // 
             this.textBoxPress.Location = new System.Drawing.Point(28, 165);
-            this.textBoxPress.Name = "textBoxPres";
+            this.textBoxPress.Name = "textBoxPress";
             this.textBoxPress.Size = new System.Drawing.Size(140, 20);
             this.textBoxPress.TabIndex = 27;
+            this.textBoxPress.Tag = "Press";
             // 
             // AddUserWindow
             // 
@@ -304,6 +317,7 @@
             this.Controls.Add(this.listViewUser);
             this.Name = "AddUserWindow";
             this.Text = "AddUserWindow";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddUserWindow_FormClosing);
             this.Load += new System.EventHandler(this.AddUserWindow_Load);
             this.tableLayoutPanelAddInfUser.ResumeLayout(false);
             this.tableLayoutPanelAddInfUser.PerformLayout();

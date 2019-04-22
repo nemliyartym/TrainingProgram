@@ -70,8 +70,6 @@
             this.labelNameUser = new System.Windows.Forms.Label();
             this.labelGenderUser = new System.Windows.Forms.Label();
             this.panelAddTpForUser = new System.Windows.Forms.Panel();
-            this.panelStatistic = new System.Windows.Forms.Panel();
-            this.labelStaticName = new System.Windows.Forms.Label();
             this.comboBoxSelectStatistic = new System.Windows.Forms.ComboBox();
             this.pictureBoxStatistic = new System.Windows.Forms.PictureBox();
             this.buttonShowStatistic = new System.Windows.Forms.Button();
@@ -85,17 +83,18 @@
             this.labelcPwcLabel = new System.Windows.Forms.Label();
             this.buttonAddTpForUser = new System.Windows.Forms.Button();
             this.pictureBoxFromImages = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.labelStaticName = new System.Windows.Forms.Label();
+            this.panelStatistic = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.contextMenuStripFromTree.SuspendLayout();
             this.contextMenuStripDelRename.SuspendLayout();
             this.tableLayoutPanelInfAboutUser.SuspendLayout();
             this.panelAddTpForUser.SuspendLayout();
-            this.panelStatistic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
+            this.panelStatistic.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSearchMusclesAndExercises
@@ -488,7 +487,6 @@
             // 
             // panelAddTpForUser
             // 
-            this.panelAddTpForUser.Controls.Add(this.groupBox1);
             this.panelAddTpForUser.Controls.Add(this.panelStatistic);
             this.panelAddTpForUser.Controls.Add(this.buttonShowStatistic);
             this.panelAddTpForUser.Controls.Add(this.labelCountdownDays);
@@ -505,27 +503,6 @@
             this.panelAddTpForUser.Size = new System.Drawing.Size(839, 473);
             this.panelAddTpForUser.TabIndex = 34;
             this.panelAddTpForUser.Visible = false;
-            // 
-            // panelStatistic
-            // 
-            this.panelStatistic.Controls.Add(this.labelStaticName);
-            this.panelStatistic.Controls.Add(this.comboBoxSelectStatistic);
-            this.panelStatistic.Controls.Add(this.pictureBoxStatistic);
-            this.panelStatistic.Location = new System.Drawing.Point(0, 222);
-            this.panelStatistic.Name = "panelStatistic";
-            this.panelStatistic.Size = new System.Drawing.Size(839, 248);
-            this.panelStatistic.TabIndex = 50;
-            this.panelStatistic.Visible = false;
-            // 
-            // labelStaticName
-            // 
-            this.labelStaticName.AutoSize = true;
-            this.labelStaticName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelStaticName.Location = new System.Drawing.Point(12, 3);
-            this.labelStaticName.Name = "labelStaticName";
-            this.labelStaticName.Size = new System.Drawing.Size(109, 20);
-            this.labelStaticName.TabIndex = 35;
-            this.labelStaticName.Text = "Статистика";
             // 
             // comboBoxSelectStatistic
             // 
@@ -655,14 +632,26 @@
             this.pictureBoxFromImages.TabStop = false;
             this.pictureBoxFromImages.Visible = false;
             // 
-            // groupBox1
+            // labelStaticName
             // 
-            this.groupBox1.Location = new System.Drawing.Point(308, 83);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 126);
-            this.groupBox1.TabIndex = 37;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
+            this.labelStaticName.AutoSize = true;
+            this.labelStaticName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelStaticName.Location = new System.Drawing.Point(12, 3);
+            this.labelStaticName.Name = "labelStaticName";
+            this.labelStaticName.Size = new System.Drawing.Size(109, 20);
+            this.labelStaticName.TabIndex = 35;
+            this.labelStaticName.Text = "Статистика";
+            // 
+            // panelStatistic
+            // 
+            this.panelStatistic.Controls.Add(this.labelStaticName);
+            this.panelStatistic.Controls.Add(this.comboBoxSelectStatistic);
+            this.panelStatistic.Controls.Add(this.pictureBoxStatistic);
+            this.panelStatistic.Location = new System.Drawing.Point(0, 222);
+            this.panelStatistic.Name = "panelStatistic";
+            this.panelStatistic.Size = new System.Drawing.Size(839, 248);
+            this.panelStatistic.TabIndex = 50;
+            this.panelStatistic.Visible = false;
             // 
             // MainWindow
             // 
@@ -703,12 +692,12 @@
             this.tableLayoutPanelInfAboutUser.PerformLayout();
             this.panelAddTpForUser.ResumeLayout(false);
             this.panelAddTpForUser.PerformLayout();
-            this.panelStatistic.ResumeLayout(false);
-            this.panelStatistic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).EndInit();
+            this.panelStatistic.ResumeLayout(false);
+            this.panelStatistic.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -761,7 +750,6 @@
         private System.Windows.Forms.Panel panelAddTpForUser;
         public System.Windows.Forms.PictureBox pictureBoxStatistic;
         public System.Windows.Forms.ComboBox comboBoxSelectStatistic;
-        private System.Windows.Forms.Label labelStaticName;
         private System.Windows.Forms.Button buttonAddControlPoint;
         private System.Windows.Forms.Label labelcPhcLabel;
         private System.Windows.Forms.Label labelcPwcLabel;
@@ -772,7 +760,7 @@
         private System.Windows.Forms.Label labelCountdownDays;
         private System.Windows.Forms.Button buttonShowStatistic;
         private System.Windows.Forms.Panel panelStatistic;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label labelStaticName;
     }
 }
 

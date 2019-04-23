@@ -24,7 +24,7 @@ namespace TrainingProgram
         private int id = 0;
         private TreeNode treeNode = new TreeNode();
 
-        public string[] nameColumnFromCoboBox = {"cPhc", "cPwc"};
+        public string[] nameColumnFromCoboBox = {"cPhc", "cPwc","weigth","pullUps","pushUp","run100m","squts","press"};
 
         #region Enum FromsInterface
         private enum CurrentPageMainWindow
@@ -482,7 +482,7 @@ namespace TrainingProgram
     ///////////////////////////////////////////////////////////////////////////////////        
         public void FillInfAboutUser ()
         {
-                       addTpForUser.FillComboBoxStatistic(comboBoxSelectStatistic); 
+            addTpForUser.FillComboBoxStatistic(comboBoxSelectStatistic); 
             PageAddTpForUsers(true);
 
             string[,] sqlResultUser = workWithDataBase.SelectFromDataBase("select * from Users where idUsers =" + AddUserWindow.idSelectedUser, 1);                     
@@ -495,6 +495,7 @@ namespace TrainingProgram
 
             FillStatisticAboutUser();      
         }
+
         public void FillStatisticAboutUser ()
         {
             int countRows = workWithDataBase.SelectCountFromDataBase("Select count (idUsers) from StatisticsUsers where idUsers =" + AddUserWindow.idSelectedUser);

@@ -18,7 +18,13 @@ namespace TrainingProgram.Class
         public void FillComboBoxStatistic (ComboBox comboBox)
         {
             string[] nameItemColumn = {"Физические показатели",
-                                       "Силовые показатели"};
+                                       "Силовые показатели",
+                                        "Вес",
+                                        "Подтягивания",
+                                        "Отжимания",
+                                        "Бег",
+                                        "Приседания",
+                                        "Пресс"};
             comboBox.Items.Clear();
             for (int i=0; i < nameItemColumn.Length; i++)
             {
@@ -184,7 +190,17 @@ namespace TrainingProgram.Class
                     {
                         graphics.DrawRectangle(pen,arrayPoint[i].X, arrayPoint[i].Y, 3, lenghtOy - arrayPoint[i].Y);
                         graphics.DrawRectangle(pen, arrayPoint[i].X, arrayPoint[i].Y, 1, 1);
-                        graphics.DrawString(Convert.ToDouble(sqlSelectData[i, 1]).ToString("0.000"), new Font("Arial", 10), Brushes.Black, arrayPoint[i].X + 5, arrayPoint[i].Y);
+
+                        string[] modulo = sqlSelectData[i, 1].Split(',');
+                        string result = sqlSelectData[i, 1];
+
+                        if (modulo.Length >=2)
+                        {
+                            if (Convert.ToDouble(modulo[1]) == 0)
+                                result = modulo[0];
+                        }
+                        graphics.DrawString(result, new Font("Arial", 10), Brushes.Black, arrayPoint[i].X + 5, arrayPoint[i].Y);
+
                     }
                 }
 

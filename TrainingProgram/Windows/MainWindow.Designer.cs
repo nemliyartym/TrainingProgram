@@ -70,6 +70,8 @@
             this.labelNameUser = new System.Windows.Forms.Label();
             this.labelGenderUser = new System.Windows.Forms.Label();
             this.panelAddTpForUser = new System.Windows.Forms.Panel();
+            this.panelStatistic = new System.Windows.Forms.Panel();
+            this.labelStaticName = new System.Windows.Forms.Label();
             this.comboBoxSelectStatistic = new System.Windows.Forms.ComboBox();
             this.pictureBoxStatistic = new System.Windows.Forms.PictureBox();
             this.buttonShowStatistic = new System.Windows.Forms.Button();
@@ -83,18 +85,16 @@
             this.labelcPwcLabel = new System.Windows.Forms.Label();
             this.buttonAddTpForUser = new System.Windows.Forms.Button();
             this.pictureBoxFromImages = new System.Windows.Forms.PictureBox();
-            this.labelStaticName = new System.Windows.Forms.Label();
-            this.panelStatistic = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.contextMenuStripFromTree.SuspendLayout();
             this.contextMenuStripDelRename.SuspendLayout();
             this.tableLayoutPanelInfAboutUser.SuspendLayout();
             this.panelAddTpForUser.SuspendLayout();
+            this.panelStatistic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
-            this.panelStatistic.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSearchMusclesAndExercises
@@ -231,6 +231,7 @@
             // 
             // contextMenuStripFromTree
             // 
+            this.contextMenuStripFromTree.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStripFromTree.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.переименоватьToolStripMenuItem});
             this.contextMenuStripFromTree.Name = "contextMenuStripFromTree";
@@ -348,6 +349,7 @@
             // 
             // contextMenuStripDelRename
             // 
+            this.contextMenuStripDelRename.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStripDelRename.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.переименоватьToolStripMenuItem1,
             this.удалитьToolStripMenuItem});
@@ -504,6 +506,26 @@
             this.panelAddTpForUser.TabIndex = 34;
             this.panelAddTpForUser.Visible = false;
             // 
+            // panelStatistic
+            // 
+            this.panelStatistic.Controls.Add(this.labelStaticName);
+            this.panelStatistic.Controls.Add(this.comboBoxSelectStatistic);
+            this.panelStatistic.Controls.Add(this.pictureBoxStatistic);
+            this.panelStatistic.Location = new System.Drawing.Point(0, 222);
+            this.panelStatistic.Name = "panelStatistic";
+            this.panelStatistic.Size = new System.Drawing.Size(839, 248);
+            this.panelStatistic.TabIndex = 50;
+            // 
+            // labelStaticName
+            // 
+            this.labelStaticName.AutoSize = true;
+            this.labelStaticName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelStaticName.Location = new System.Drawing.Point(12, 3);
+            this.labelStaticName.Name = "labelStaticName";
+            this.labelStaticName.Size = new System.Drawing.Size(109, 20);
+            this.labelStaticName.TabIndex = 35;
+            this.labelStaticName.Text = "Статистика";
+            // 
             // comboBoxSelectStatistic
             // 
             this.comboBoxSelectStatistic.FormattingEnabled = true;
@@ -632,27 +654,6 @@
             this.pictureBoxFromImages.TabStop = false;
             this.pictureBoxFromImages.Visible = false;
             // 
-            // labelStaticName
-            // 
-            this.labelStaticName.AutoSize = true;
-            this.labelStaticName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelStaticName.Location = new System.Drawing.Point(12, 3);
-            this.labelStaticName.Name = "labelStaticName";
-            this.labelStaticName.Size = new System.Drawing.Size(109, 20);
-            this.labelStaticName.TabIndex = 35;
-            this.labelStaticName.Text = "Статистика";
-            // 
-            // panelStatistic
-            // 
-            this.panelStatistic.Controls.Add(this.labelStaticName);
-            this.panelStatistic.Controls.Add(this.comboBoxSelectStatistic);
-            this.panelStatistic.Controls.Add(this.pictureBoxStatistic);
-            this.panelStatistic.Location = new System.Drawing.Point(0, 222);
-            this.panelStatistic.Name = "panelStatistic";
-            this.panelStatistic.Size = new System.Drawing.Size(839, 248);
-            this.panelStatistic.TabIndex = 50;
-            this.panelStatistic.Visible = false;
-            // 
             // MainWindow
             // 
             this.AutoScroll = true;
@@ -692,12 +693,12 @@
             this.tableLayoutPanelInfAboutUser.PerformLayout();
             this.panelAddTpForUser.ResumeLayout(false);
             this.panelAddTpForUser.PerformLayout();
+            this.panelStatistic.ResumeLayout(false);
+            this.panelStatistic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).EndInit();
-            this.panelStatistic.ResumeLayout(false);
-            this.panelStatistic.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

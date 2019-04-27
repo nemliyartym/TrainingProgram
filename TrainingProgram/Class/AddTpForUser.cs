@@ -13,7 +13,7 @@ namespace TrainingProgram.Class
     class AddTpForUser
     {
         WorkWithDataBase workWithDataBase = new WorkWithDataBase();
-        DataFromWindows dataFromWindows = new DataFromWindows();
+        // dataFromWindows = new DataFromWindows();
 
         public void FillComboBoxStatistic (ComboBox comboBox)
         {
@@ -63,15 +63,14 @@ namespace TrainingProgram.Class
             }
         }
 
-
         /// <summary>
         /// филим кобму со статой
         /// </summary>
         /// <param name="nameColumn">weight pullUps pushUp run100m squts press cPhc(физическое состояние) cPwc(силовые показатели)</param>
         public void PicterBoxLoad(PictureBox pictureBox, string nameColumn)
         {
-            int countRows = workWithDataBase.SelectCountFromDataBase("Select count (idUsers) from StatisticsUsers where idUsers =" + AddUserWindow.idSelectedUser);
-            string[,] sqlSelectData = workWithDataBase.SelectFromDataBase("select dateTime," + nameColumn + " from StatisticsUsers where idUsers = " + AddUserWindow.idSelectedUser + " order by dateTime", countRows);
+            int countRows = workWithDataBase.SelectCountFromDataBase("Select count (idUsers) from StatisticsUsers where idUsers =" + SelectUserWindow.idSelectedUser);
+            string[,] sqlSelectData = workWithDataBase.SelectFromDataBase("select dateTime," + nameColumn + " from StatisticsUsers where idUsers = " + SelectUserWindow.idSelectedUser + " order by dateTime", countRows);
 
             Bitmap bitmap = new Bitmap(pictureBox.Width, pictureBox.Height);
             using (Graphics graphics = Graphics.FromImage(bitmap))
@@ -206,8 +205,7 @@ namespace TrainingProgram.Class
 
 
             }
-            pictureBox.Image = bitmap;
-           
+            pictureBox.Image = bitmap;        
         }
 
         private int SearchMinColumn (string[,] columns)

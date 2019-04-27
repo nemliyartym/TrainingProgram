@@ -223,7 +223,7 @@ namespace TrainingProgram
             }
 
 
-            double CPwC = calculation.CalculationPowerCondictopn(int.Parse(textBoxPushUps.Text),
+            double CPwC = calculation.CalculationPowerCondition(int.Parse(textBoxPushUps.Text),
                                                             int.Parse(textBoxPullUps.Text),
                                                             int.Parse(textBoxSquats.Text),
                                                             int.Parse(textBoxPress.Text),

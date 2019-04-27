@@ -77,7 +77,6 @@
     <Compile Include="Class\AddTrainingProgram.cs" />
     <Compile Include="Class\Calculation.cs" />
     <Compile Include="Class\Condition.cs" />
-    <Compile Include="Class\DataFromWindows.cs" />
     <Compile Include="Class\WorkWithWidget.cs" />
     <Compile Include="Windows\AddControlPoint.cs">
       <SubType>Form</SubType>
@@ -109,6 +108,12 @@
     <Compile Include="Class\WorkWithDataBase.cs" />
     <Compile Include="Class\WorkWithImages.cs" />
     <Compile Include="Class\WorkWithTree.cs" />
+    <Compile Include="Windows\SelectUserWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\SelectUserWindow.Designer.cs">
+      <DependentUpon>SelectUserWindow.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Windows\AddControlPoint.resx">
       <DependentUpon>AddControlPoint.cs</DependentUpon>
     </EmbeddedResource>
@@ -131,6 +136,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Windows\SelectUserWindow.resx">
+      <DependentUpon>SelectUserWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -214,6 +223,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\statistic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\muscleMan.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

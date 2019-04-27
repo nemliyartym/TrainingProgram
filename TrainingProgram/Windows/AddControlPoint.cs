@@ -35,7 +35,7 @@ namespace TrainingProgram.Windows
             string[,] sqlSelect = workWithDataBase.SelectFromDataBase("select dateOfBirth from Users where idUsers=" + AddUserWindow.idSelectedUser, 1);
             int age = Convert.ToInt32(DateTime.Now.Year - Convert.ToDateTime(sqlSelect[0,0]).Year);
 
-            double CPwC = calculation.CalculationPowerCondictopn(int.Parse(textBoxPushUps.Text),
+            double CPwC = calculation.CalculationPowerCondition(int.Parse(textBoxPushUps.Text),
                                                         int.Parse(textBoxPullUps.Text),
                                                         int.Parse(textBoxSquts.Text),
                                                         int.Parse(textBoxPress.Text),
@@ -64,7 +64,7 @@ namespace TrainingProgram.Windows
                                                            (float)CPwC);
             addTpForUser.FillListViewStatisticUser(listViewStatisticUser);
             addTpForUser.PicterBoxLoad(mainWindow.pictureBoxStatistic,mainWindow.nameColumnFromCoboBox[mainWindow.comboBoxSelectStatistic.SelectedIndex]);
-            mainWindow.FillStatisticAboutUser();
+            mainWindow.FillUserBar();
         }
 
     }

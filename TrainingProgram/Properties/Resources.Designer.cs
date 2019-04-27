@@ -93,6 +93,16 @@ namespace TrainingProgram.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap muscleMan {
+            get {
+                object obj = ResourceManager.GetObject("muscleMan", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pres {
             get {
                 object obj = ResourceManager.GetObject("pres", resourceCulture);

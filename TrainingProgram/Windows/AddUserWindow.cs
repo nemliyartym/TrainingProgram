@@ -35,17 +35,7 @@ namespace TrainingProgram.Windows
         /// </summary>
         public static int idSelectedUser;
         private bool isSelected = false;
-        //public static int puls;
-        //public static int pressureUp;
-        //public static int pressureDown;
-        //public static int age;
-        //public static int growth;
-        //public static int weight;
-        //public static int pushUp;
-        //public static int pullUps;
-        //public static int squats;
-        //public static int press;
-        //public static double run100;
+
 
 
         public AddUserWindow(MainWindow mainWindow)
@@ -279,7 +269,7 @@ namespace TrainingProgram.Windows
                 string[,] sqtResult = workWithDataBase.SelectFromDataBase("select * from Users where firstName = '" + textBoxName.Text + "' and lastName = '" + textBoxSecondName.Text + "' and gender = '" + comboBoxGender.Text + "' and dateOfBirth='" + dateTimePicker.Value.Date + "'", 1);
                 idSelectedUser = Convert.ToInt32(sqtResult[0, 0]);
 
-                double CPwC = calculation.CalculationPowerCondictopn(int.Parse(textBoxPushUps.Text),
+                double CPwC = calculation.CalculationPowerCondition(int.Parse(textBoxPushUps.Text),
                                                           int.Parse(textBoxPullUps.Text),
                                                           int.Parse(textBoxSquts.Text),
                                                           int.Parse(textBoxPress.Text),
@@ -310,7 +300,7 @@ namespace TrainingProgram.Windows
                                                            (float)CPwC);
                 isSelected = true;
                 this.Close();
-                mainWindow.FillInfAboutUser();
+                mainWindow.FillUserBar();
             }
         }
 
@@ -360,7 +350,7 @@ namespace TrainingProgram.Windows
             {
                 idSelectedUser = Convert.ToInt32(listViewUser.SelectedItems[0].Tag);
 
-                mainWindow.FillInfAboutUser();
+                mainWindow.FillUserBar();
                 isSelected = true;     
                 this.Close();
             }

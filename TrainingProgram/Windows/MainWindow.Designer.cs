@@ -76,15 +76,36 @@
             this.pictureBoxStatistic = new System.Windows.Forms.PictureBox();
             this.buttonShowStatistic = new System.Windows.Forms.Button();
             this.labelCountdownDays = new System.Windows.Forms.Label();
+            this.buttonAddControlPoint = new System.Windows.Forms.Button();
             this.labelcPhc = new System.Windows.Forms.Label();
             this.labelcPwc = new System.Windows.Forms.Label();
             this.pictureBoxcPhc = new System.Windows.Forms.PictureBox();
             this.labelcPhcLabel = new System.Windows.Forms.Label();
             this.pictureBoxcPwc = new System.Windows.Forms.PictureBox();
-            this.buttonAddControlPoint = new System.Windows.Forms.Button();
             this.labelcPwcLabel = new System.Windows.Forms.Label();
             this.buttonAddTpForUser = new System.Windows.Forms.Button();
             this.pictureBoxFromImages = new System.Windows.Forms.PictureBox();
+            this.panelUserBar = new System.Windows.Forms.Panel();
+            this.panelTrainingProgram = new System.Windows.Forms.Panel();
+            this.panelDaysTP = new System.Windows.Forms.Panel();
+            this.panelQuestCreateTP = new System.Windows.Forms.Panel();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.listViewPatternsTP = new System.Windows.Forms.ListView();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.listViewSunday = new System.Windows.Forms.ListView();
+            this.listViewSaturday = new System.Windows.Forms.ListView();
+            this.listViewWednesday = new System.Windows.Forms.ListView();
+            this.listViewFriday = new System.Windows.Forms.ListView();
+            this.listViewTuesday = new System.Windows.Forms.ListView();
+            this.listViewThursday = new System.Windows.Forms.ListView();
+            this.listViewMonday = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.contextMenuStripFromTree.SuspendLayout();
             this.contextMenuStripDelRename.SuspendLayout();
@@ -95,6 +116,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
+            this.panelUserBar.SuspendLayout();
+            this.panelTrainingProgram.SuspendLayout();
+            this.panelDaysTP.SuspendLayout();
+            this.panelQuestCreateTP.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSearchMusclesAndExercises
@@ -328,23 +353,22 @@
             // 
             // listViewExercises
             // 
-            this.listViewExercises.Location = new System.Drawing.Point(646, 125);
+            this.listViewExercises.GridLines = true;
+            this.listViewExercises.Location = new System.Drawing.Point(662, 58);
             this.listViewExercises.Name = "listViewExercises";
-            this.listViewExercises.Size = new System.Drawing.Size(216, 224);
+            this.listViewExercises.Size = new System.Drawing.Size(161, 123);
             this.listViewExercises.TabIndex = 24;
             this.listViewExercises.UseCompatibleStateImageBehavior = false;
-            this.listViewExercises.View = System.Windows.Forms.View.SmallIcon;
-            this.listViewExercises.Visible = false;
+            this.listViewExercises.View = System.Windows.Forms.View.List;
             this.listViewExercises.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewExercises_MouseDoubleClick);
             // 
             // comboBoxMuscles
             // 
             this.comboBoxMuscles.FormattingEnabled = true;
-            this.comboBoxMuscles.Location = new System.Drawing.Point(646, 101);
+            this.comboBoxMuscles.Location = new System.Drawing.Point(659, 31);
             this.comboBoxMuscles.Name = "comboBoxMuscles";
-            this.comboBoxMuscles.Size = new System.Drawing.Size(216, 21);
+            this.comboBoxMuscles.Size = new System.Drawing.Size(164, 21);
             this.comboBoxMuscles.TabIndex = 25;
-            this.comboBoxMuscles.Visible = false;
             this.comboBoxMuscles.SelectedIndexChanged += new System.EventHandler(this.comboBoxMuscles_SelectedIndexChanged);
             // 
             // contextMenuStripDelRename
@@ -441,7 +465,7 @@
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelNameUser, 1, 0);
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelDateofBirth, 0, 3);
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelGenderUser, 1, 2);
-            this.tableLayoutPanelInfAboutUser.Location = new System.Drawing.Point(19, 11);
+            this.tableLayoutPanelInfAboutUser.Location = new System.Drawing.Point(19, 2);
             this.tableLayoutPanelInfAboutUser.Name = "tableLayoutPanelInfAboutUser";
             this.tableLayoutPanelInfAboutUser.RowCount = 4;
             this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
@@ -492,17 +516,10 @@
             this.panelAddTpForUser.Controls.Add(this.panelStatistic);
             this.panelAddTpForUser.Controls.Add(this.buttonShowStatistic);
             this.panelAddTpForUser.Controls.Add(this.labelCountdownDays);
-            this.panelAddTpForUser.Controls.Add(this.labelcPhc);
-            this.panelAddTpForUser.Controls.Add(this.labelcPwc);
-            this.panelAddTpForUser.Controls.Add(this.pictureBoxcPhc);
-            this.panelAddTpForUser.Controls.Add(this.labelcPhcLabel);
-            this.panelAddTpForUser.Controls.Add(this.pictureBoxcPwc);
             this.panelAddTpForUser.Controls.Add(this.buttonAddControlPoint);
-            this.panelAddTpForUser.Controls.Add(this.labelcPwcLabel);
-            this.panelAddTpForUser.Controls.Add(this.tableLayoutPanelInfAboutUser);
-            this.panelAddTpForUser.Location = new System.Drawing.Point(23, 42);
+            this.panelAddTpForUser.Location = new System.Drawing.Point(23, 168);
             this.panelAddTpForUser.Name = "panelAddTpForUser";
-            this.panelAddTpForUser.Size = new System.Drawing.Size(839, 473);
+            this.panelAddTpForUser.Size = new System.Drawing.Size(839, 347);
             this.panelAddTpForUser.TabIndex = 34;
             this.panelAddTpForUser.Visible = false;
             // 
@@ -511,9 +528,9 @@
             this.panelStatistic.Controls.Add(this.labelStaticName);
             this.panelStatistic.Controls.Add(this.comboBoxSelectStatistic);
             this.panelStatistic.Controls.Add(this.pictureBoxStatistic);
-            this.panelStatistic.Location = new System.Drawing.Point(0, 222);
+            this.panelStatistic.Location = new System.Drawing.Point(3, 76);
             this.panelStatistic.Name = "panelStatistic";
-            this.panelStatistic.Size = new System.Drawing.Size(839, 248);
+            this.panelStatistic.Size = new System.Drawing.Size(833, 248);
             this.panelStatistic.TabIndex = 50;
             // 
             // labelStaticName
@@ -546,7 +563,7 @@
             // 
             // buttonShowStatistic
             // 
-            this.buttonShowStatistic.Location = new System.Drawing.Point(3, 199);
+            this.buttonShowStatistic.Location = new System.Drawing.Point(0, 29);
             this.buttonShowStatistic.Name = "buttonShowStatistic";
             this.buttonShowStatistic.Size = new System.Drawing.Size(144, 23);
             this.buttonShowStatistic.TabIndex = 49;
@@ -556,17 +573,27 @@
             // labelCountdownDays
             // 
             this.labelCountdownDays.AutoSize = true;
-            this.labelCountdownDays.Location = new System.Drawing.Point(627, 152);
+            this.labelCountdownDays.Location = new System.Drawing.Point(656, 29);
             this.labelCountdownDays.Name = "labelCountdownDays";
             this.labelCountdownDays.Size = new System.Drawing.Size(171, 13);
             this.labelCountdownDays.TabIndex = 48;
             this.labelCountdownDays.Text = "Дней до добавления новой КТ:  ";
             // 
+            // buttonAddControlPoint
+            // 
+            this.buttonAddControlPoint.Location = new System.Drawing.Point(640, 52);
+            this.buttonAddControlPoint.Name = "buttonAddControlPoint";
+            this.buttonAddControlPoint.Size = new System.Drawing.Size(196, 23);
+            this.buttonAddControlPoint.TabIndex = 37;
+            this.buttonAddControlPoint.Text = "Добавить контрольную точку";
+            this.buttonAddControlPoint.UseVisualStyleBackColor = true;
+            this.buttonAddControlPoint.Click += new System.EventHandler(this.buttonAddControlPoint_Click);
+            // 
             // labelcPhc
             // 
             this.labelcPhc.AutoSize = true;
             this.labelcPhc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelcPhc.Location = new System.Drawing.Point(490, 28);
+            this.labelcPhc.Location = new System.Drawing.Point(503, 30);
             this.labelcPhc.Name = "labelcPhc";
             this.labelcPhc.Size = new System.Drawing.Size(122, 17);
             this.labelcPhc.TabIndex = 47;
@@ -576,7 +603,7 @@
             // 
             this.labelcPwc.AutoSize = true;
             this.labelcPwc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelcPwc.Location = new System.Drawing.Point(267, 28);
+            this.labelcPwc.Location = new System.Drawing.Point(280, 30);
             this.labelcPwc.Name = "labelcPwc";
             this.labelcPwc.Size = new System.Drawing.Size(112, 17);
             this.labelcPwc.TabIndex = 46;
@@ -584,8 +611,8 @@
             // 
             // pictureBoxcPhc
             // 
-            this.pictureBoxcPhc.Image = global::TrainingProgram.Properties.Resources.middle;
-            this.pictureBoxcPhc.Location = new System.Drawing.Point(659, 9);
+            this.pictureBoxcPhc.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxcPhc.Image")));
+            this.pictureBoxcPhc.Location = new System.Drawing.Point(672, 11);
             this.pictureBoxcPhc.Name = "pictureBoxcPhc";
             this.pictureBoxcPhc.Size = new System.Drawing.Size(38, 36);
             this.pictureBoxcPhc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -596,7 +623,7 @@
             // 
             this.labelcPhcLabel.AutoSize = true;
             this.labelcPhcLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelcPhcLabel.Location = new System.Drawing.Point(490, 9);
+            this.labelcPhcLabel.Location = new System.Drawing.Point(503, 11);
             this.labelcPhcLabel.Name = "labelcPhcLabel";
             this.labelcPhcLabel.Size = new System.Drawing.Size(163, 17);
             this.labelcPhcLabel.TabIndex = 39;
@@ -604,29 +631,19 @@
             // 
             // pictureBoxcPwc
             // 
-            this.pictureBoxcPwc.Image = global::TrainingProgram.Properties.Resources.up;
-            this.pictureBoxcPwc.Location = new System.Drawing.Point(420, 11);
+            this.pictureBoxcPwc.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxcPwc.Image")));
+            this.pictureBoxcPwc.Location = new System.Drawing.Point(433, 13);
             this.pictureBoxcPwc.Name = "pictureBoxcPwc";
             this.pictureBoxcPwc.Size = new System.Drawing.Size(41, 36);
             this.pictureBoxcPwc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxcPwc.TabIndex = 41;
             this.pictureBoxcPwc.TabStop = false;
             // 
-            // buttonAddControlPoint
-            // 
-            this.buttonAddControlPoint.Location = new System.Drawing.Point(630, 168);
-            this.buttonAddControlPoint.Name = "buttonAddControlPoint";
-            this.buttonAddControlPoint.Size = new System.Drawing.Size(196, 23);
-            this.buttonAddControlPoint.TabIndex = 37;
-            this.buttonAddControlPoint.Text = "Добавить контрольную точку";
-            this.buttonAddControlPoint.UseVisualStyleBackColor = true;
-            this.buttonAddControlPoint.Click += new System.EventHandler(this.buttonAddControlPoint_Click);
-            // 
             // labelcPwcLabel
             // 
             this.labelcPwcLabel.AutoSize = true;
             this.labelcPwcLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelcPwcLabel.Location = new System.Drawing.Point(267, 9);
+            this.labelcPwcLabel.Location = new System.Drawing.Point(280, 11);
             this.labelcPwcLabel.Name = "labelcPwcLabel";
             this.labelcPwcLabel.Size = new System.Drawing.Size(147, 17);
             this.labelcPwcLabel.TabIndex = 38;
@@ -634,7 +651,7 @@
             // 
             // buttonAddTpForUser
             // 
-            this.buttonAddTpForUser.BackgroundImage = global::TrainingProgram.Properties.Resources.statistic;
+            this.buttonAddTpForUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonAddTpForUser.BackgroundImage")));
             this.buttonAddTpForUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonAddTpForUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonAddTpForUser.Location = new System.Drawing.Point(491, 93);
@@ -654,18 +671,243 @@
             this.pictureBoxFromImages.TabStop = false;
             this.pictureBoxFromImages.Visible = false;
             // 
+            // panelUserBar
+            // 
+            this.panelUserBar.Controls.Add(this.labelcPwc);
+            this.panelUserBar.Controls.Add(this.labelcPwcLabel);
+            this.panelUserBar.Controls.Add(this.pictureBoxcPwc);
+            this.panelUserBar.Controls.Add(this.labelcPhc);
+            this.panelUserBar.Controls.Add(this.tableLayoutPanelInfAboutUser);
+            this.panelUserBar.Controls.Add(this.labelcPhcLabel);
+            this.panelUserBar.Controls.Add(this.pictureBoxcPhc);
+            this.panelUserBar.Location = new System.Drawing.Point(12, 39);
+            this.panelUserBar.Name = "panelUserBar";
+            this.panelUserBar.Size = new System.Drawing.Size(859, 123);
+            this.panelUserBar.TabIndex = 35;
+            this.panelUserBar.Visible = false;
+            // 
+            // panelTrainingProgram
+            // 
+            this.panelTrainingProgram.Controls.Add(this.panelQuestCreateTP);
+            this.panelTrainingProgram.Controls.Add(this.listViewExercises);
+            this.panelTrainingProgram.Controls.Add(this.comboBoxMuscles);
+            this.panelTrainingProgram.Controls.Add(this.panelDaysTP);
+            this.panelTrainingProgram.Location = new System.Drawing.Point(12, 168);
+            this.panelTrainingProgram.Name = "panelTrainingProgram";
+            this.panelTrainingProgram.Size = new System.Drawing.Size(859, 347);
+            this.panelTrainingProgram.TabIndex = 36;
+            this.panelTrainingProgram.Visible = false;
+            // 
+            // panelDaysTP
+            // 
+            this.panelDaysTP.Controls.Add(this.label7);
+            this.panelDaysTP.Controls.Add(this.label6);
+            this.panelDaysTP.Controls.Add(this.label5);
+            this.panelDaysTP.Controls.Add(this.label4);
+            this.panelDaysTP.Controls.Add(this.label3);
+            this.panelDaysTP.Controls.Add(this.label2);
+            this.panelDaysTP.Controls.Add(this.label1);
+            this.panelDaysTP.Controls.Add(this.listViewSunday);
+            this.panelDaysTP.Controls.Add(this.listViewSaturday);
+            this.panelDaysTP.Controls.Add(this.listViewWednesday);
+            this.panelDaysTP.Controls.Add(this.listViewFriday);
+            this.panelDaysTP.Controls.Add(this.listViewTuesday);
+            this.panelDaysTP.Controls.Add(this.listViewThursday);
+            this.panelDaysTP.Controls.Add(this.listViewMonday);
+            this.panelDaysTP.Location = new System.Drawing.Point(30, 18);
+            this.panelDaysTP.Name = "panelDaysTP";
+            this.panelDaysTP.Size = new System.Drawing.Size(582, 306);
+            this.panelDaysTP.TabIndex = 55;
+            this.panelDaysTP.Visible = false;
+            // 
+            // panelQuestCreateTP
+            // 
+            this.panelQuestCreateTP.Controls.Add(this.label8);
+            this.panelQuestCreateTP.Controls.Add(this.button1);
+            this.panelQuestCreateTP.Controls.Add(this.listViewPatternsTP);
+            this.panelQuestCreateTP.Location = new System.Drawing.Point(150, 35);
+            this.panelQuestCreateTP.Name = "panelQuestCreateTP";
+            this.panelQuestCreateTP.Size = new System.Drawing.Size(378, 269);
+            this.panelQuestCreateTP.TabIndex = 69;
+            this.panelQuestCreateTP.Visible = false;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(42, 21);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(290, 64);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Необходимо создать \r\nпрограмму тренировок.\r\nНажмите на кнопку или выберете готову" +
+    "ю \r\nпрограмму из списка\r\n";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(45, 127);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(125, 45);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Создать программу в ручную";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // listViewPatternsTP
+            // 
+            this.listViewPatternsTP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listViewPatternsTP.Location = new System.Drawing.Point(187, 88);
+            this.listViewPatternsTP.Name = "listViewPatternsTP";
+            this.listViewPatternsTP.Size = new System.Drawing.Size(156, 137);
+            this.listViewPatternsTP.TabIndex = 26;
+            this.listViewPatternsTP.UseCompatibleStateImageBehavior = false;
+            this.listViewPatternsTP.View = System.Windows.Forms.View.List;
+            this.listViewPatternsTP.DoubleClick += new System.EventHandler(this.listViewPatternsTP_DoubleClick);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(479, 73);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(74, 13);
+            this.label7.TabIndex = 68;
+            this.label7.Text = "Воскресенье";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(353, 157);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 13);
+            this.label6.TabIndex = 67;
+            this.label6.Text = "Суббота";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(204, 155);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(50, 13);
+            this.label5.TabIndex = 66;
+            this.label5.Text = "Пятница";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(36, 157);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "Четверг";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(343, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 64;
+            this.label3.Text = "Среда";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(204, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(49, 13);
+            this.label2.TabIndex = 63;
+            this.label2.Text = "Вторник";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(36, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 13);
+            this.label1.TabIndex = 62;
+            this.label1.Text = "Понедельник";
+            // 
+            // listViewSunday
+            // 
+            this.listViewSunday.GridLines = true;
+            this.listViewSunday.Location = new System.Drawing.Point(440, 88);
+            this.listViewSunday.Name = "listViewSunday";
+            this.listViewSunday.Size = new System.Drawing.Size(139, 123);
+            this.listViewSunday.TabIndex = 61;
+            this.listViewSunday.UseCompatibleStateImageBehavior = false;
+            this.listViewSunday.View = System.Windows.Forms.View.List;
+            // 
+            // listViewSaturday
+            // 
+            this.listViewSaturday.GridLines = true;
+            this.listViewSaturday.Location = new System.Drawing.Point(295, 173);
+            this.listViewSaturday.Name = "listViewSaturday";
+            this.listViewSaturday.Size = new System.Drawing.Size(139, 123);
+            this.listViewSaturday.TabIndex = 60;
+            this.listViewSaturday.UseCompatibleStateImageBehavior = false;
+            this.listViewSaturday.View = System.Windows.Forms.View.List;
+            // 
+            // listViewWednesday
+            // 
+            this.listViewWednesday.GridLines = true;
+            this.listViewWednesday.Location = new System.Drawing.Point(295, 29);
+            this.listViewWednesday.Name = "listViewWednesday";
+            this.listViewWednesday.Size = new System.Drawing.Size(139, 123);
+            this.listViewWednesday.TabIndex = 59;
+            this.listViewWednesday.UseCompatibleStateImageBehavior = false;
+            this.listViewWednesday.View = System.Windows.Forms.View.List;
+            // 
+            // listViewFriday
+            // 
+            this.listViewFriday.GridLines = true;
+            this.listViewFriday.Location = new System.Drawing.Point(150, 173);
+            this.listViewFriday.Name = "listViewFriday";
+            this.listViewFriday.Size = new System.Drawing.Size(139, 123);
+            this.listViewFriday.TabIndex = 58;
+            this.listViewFriday.UseCompatibleStateImageBehavior = false;
+            this.listViewFriday.View = System.Windows.Forms.View.List;
+            // 
+            // listViewTuesday
+            // 
+            this.listViewTuesday.GridLines = true;
+            this.listViewTuesday.Location = new System.Drawing.Point(150, 29);
+            this.listViewTuesday.Name = "listViewTuesday";
+            this.listViewTuesday.Size = new System.Drawing.Size(139, 123);
+            this.listViewTuesday.TabIndex = 57;
+            this.listViewTuesday.UseCompatibleStateImageBehavior = false;
+            this.listViewTuesday.View = System.Windows.Forms.View.List;
+            // 
+            // listViewThursday
+            // 
+            this.listViewThursday.GridLines = true;
+            this.listViewThursday.Location = new System.Drawing.Point(5, 173);
+            this.listViewThursday.Name = "listViewThursday";
+            this.listViewThursday.Size = new System.Drawing.Size(139, 123);
+            this.listViewThursday.TabIndex = 56;
+            this.listViewThursday.UseCompatibleStateImageBehavior = false;
+            this.listViewThursday.View = System.Windows.Forms.View.List;
+            // 
+            // listViewMonday
+            // 
+            this.listViewMonday.GridLines = true;
+            this.listViewMonday.Location = new System.Drawing.Point(5, 29);
+            this.listViewMonday.Name = "listViewMonday";
+            this.listViewMonday.Size = new System.Drawing.Size(139, 123);
+            this.listViewMonday.TabIndex = 55;
+            this.listViewMonday.UseCompatibleStateImageBehavior = false;
+            this.listViewMonday.View = System.Windows.Forms.View.List;
+            // 
             // MainWindow
             // 
             this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(883, 529);
+            this.Controls.Add(this.panelTrainingProgram);
+            this.Controls.Add(this.panelUserBar);
             this.Controls.Add(this.panelAddTpForUser);
             this.Controls.Add(this.buttonAddNewUser);
             this.Controls.Add(this.label);
             this.Controls.Add(this.checkBoxDescription);
             this.Controls.Add(this.buttonBack);
-            this.Controls.Add(this.comboBoxMuscles);
-            this.Controls.Add(this.listViewExercises);
             this.Controls.Add(this.buttonPrev);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.labelDayWeek);
@@ -674,7 +916,6 @@
             this.Controls.Add(this.buttonSaveDescription);
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.labelHeadExercises);
-            this.Controls.Add(this.buttonAddTrainingProgram);
             this.Controls.Add(this.buttonSearchMusclesAndExercises);
             this.Controls.Add(this.treeViewMusclesAndExercises);
             this.Controls.Add(this.axWindowsMediaPlayer);
@@ -683,6 +924,7 @@
             this.Controls.Add(this.richTextBoxDescriptionExercises);
             this.Controls.Add(this.pictureBoxFromImages);
             this.Controls.Add(this.buttonAddTpForUser);
+            this.Controls.Add(this.buttonAddTrainingProgram);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "MainWindow";
             this.Load += new System.EventHandler(this.MainWindow_Load);
@@ -699,6 +941,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).EndInit();
+            this.panelUserBar.ResumeLayout(false);
+            this.panelUserBar.PerformLayout();
+            this.panelTrainingProgram.ResumeLayout(false);
+            this.panelDaysTP.ResumeLayout(false);
+            this.panelDaysTP.PerformLayout();
+            this.panelQuestCreateTP.ResumeLayout(false);
+            this.panelQuestCreateTP.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -762,6 +1011,27 @@
         private System.Windows.Forms.Button buttonShowStatistic;
         private System.Windows.Forms.Panel panelStatistic;
         private System.Windows.Forms.Label labelStaticName;
+        private System.Windows.Forms.Panel panelUserBar;
+        private System.Windows.Forms.Panel panelTrainingProgram;
+        private System.Windows.Forms.ListView listViewPatternsTP;
+        private System.Windows.Forms.Panel panelDaysTP;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListView listViewSunday;
+        private System.Windows.Forms.ListView listViewSaturday;
+        private System.Windows.Forms.ListView listViewWednesday;
+        private System.Windows.Forms.ListView listViewFriday;
+        private System.Windows.Forms.ListView listViewTuesday;
+        private System.Windows.Forms.ListView listViewThursday;
+        private System.Windows.Forms.ListView listViewMonday;
+        private System.Windows.Forms.Panel panelQuestCreateTP;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button1;
     }
 }
 

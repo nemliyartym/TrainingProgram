@@ -34,6 +34,7 @@ namespace TrainingProgram
                     int i = 0;
                     while (sqlDataReader.Read())
                     {
+                        if (i == countRows) break;
                         for (int j = 0; j < sqlDataReader.FieldCount; j++)
                         {
                             if (sqlDataReader.GetValue(j) != DBNull.Value)

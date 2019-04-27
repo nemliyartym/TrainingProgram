@@ -24,17 +24,20 @@ namespace TrainingProgram
         private int id = 0;
         private TreeNode treeNode = new TreeNode();
 
+        private ListView currentSelectedListView;
+
+
         public string[] nameColumnFromCoboBox = {"cPhc", "cPwc","weigth","pullUps","pushUp","run100m","squts","press"};
 
         #region Enum FromsInterface
-        private enum CurrentPageMainWindow
+        public enum CurrentPageMainWindow
         {
             pageMainWindow,
             pageViewingExercises,
             pageTrainigProgramm,
             pageAddTpForUser
         }
-        CurrentPageMainWindow currentPageMainWindow;
+        public CurrentPageMainWindow currentPageMainWindow;
         #endregion
 
         WorkWithImages workWithImages = new WorkWithImages();
@@ -50,8 +53,8 @@ namespace TrainingProgram
             InitializeComponent();
             Win32.AllocConsole();
 
-            addTrainingProgram.FillLisViewUsers(listViewUsers);
-            addTrainingProgram.FillComboBoxMuscles(comboBoxMuscles);
+            //addTrainingProgram.FillLisViewUsers(listViewUsers);
+
 
             WorkWithTree workWithTree = new WorkWithTree(treeViewMusclesAndExercises);
             workWithTree.FillTree();
@@ -71,6 +74,15 @@ namespace TrainingProgram
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
+            listViewExercises.Cursor = Cursors.Hand;
+
+            listViewMonday.MouseUp += listViewDays_MouseUp;
+            listViewTuesday.MouseUp += listViewDays_MouseUp;
+            listViewWednesday.MouseUp += listViewDays_MouseUp;
+            listViewThursday.MouseUp += listViewDays_MouseUp;
+            listViewFriday.MouseUp += listViewDays_MouseUp;
+            listViewSaturday.MouseUp += listViewDays_MouseUp;
+            listViewSunday.MouseUp += listViewDays_MouseUp;
 
         }
 
@@ -99,22 +111,33 @@ namespace TrainingProgram
             pictureBoxFromImages.Visible = isVisible;
             labelHeadExercises.Visible = isVisible;
         }
-        private void PageTrainigProgramm (bool isVisible)
+
+        public void PageTrainigProgramm (bool isVisible)
         {
-            listViewExercises.Visible = isVisible;
-            comboBoxMuscles.Visible = isVisible;
-            listViewTrainingProgramm.Visible = isVisible;
-            listViewUsers.Visible = isVisible;
-            buttonNext.Visible = isVisible;
-            buttonPrev.Visible = isVisible;
-            buttonBack.Visible = isVisible;
-            labelDayWeek.Visible = isVisible;
+
+            //ОЛДЫ ТУТ 24.04.2019 реФАКторинг дизайна
+            //listViewExercises.Visible = isVisible;
+            //comboBoxMuscles.Visible = isVisible;
+            //listViewTrainingProgramm.Visible = isVisible;
+            //listViewUsers.Visible = isVisible;
+            //buttonNext.Visible = isVisible;
+            //buttonPrev.Visible = isVisible;
+            //buttonBack.Visible = isVisible;
+            //labelDayWeek.Visible = isVisible;
+
+            panelUserBar.Visible = isVisible;
+            panelTrainingProgram.Visible = isVisible;
+            if (panelDaysTP.Visible == true)
+                panelDaysTP.Visible = false;
+            if (panelQuestCreateTP.Visible == true)
+                panelQuestCreateTP.Visible = false;
             currentPageMainWindow = CurrentPageMainWindow.pageTrainigProgramm;
+
         }
         public void PageAddTpForUsers (bool isVisible)
         {
-            //tableLayoutPanelInfAboutUser.Visible = isVisible;
             panelAddTpForUser.Visible = isVisible;
+            panelUserBar.Visible = isVisible;
             currentPageMainWindow = CurrentPageMainWindow.pageAddTpForUser;
         }
         //------------------------INTEFACEMANAGMENT----------------------------------
@@ -145,16 +168,23 @@ namespace TrainingProgram
         private void buttonAddTpForUser_Click(object sender, EventArgs e)
         {
             PageMainWindow(false);
-
-            AddUserWindow addUserWndow = new AddUserWindow(this);
-            addUserWndow.StartPosition = FormStartPosition.CenterParent;
-            addUserWndow.ShowDialog();
+            PageAddTpForUsers(true);
+            currentPageMainWindow = CurrentPageMainWindow.pageAddTpForUser;
+            SelectUserWindow selectUserWindow = new SelectUserWindow(this);
+            selectUserWindow.StartPosition = FormStartPosition.CenterParent;
+            selectUserWindow.ShowDialog();
+            //AddUserWindow addUserWndow = new AddUserWindow(this);
+            //addUserWndow.StartPosition = FormStartPosition.CenterParent;
+            //addUserWndow.ShowDialog();
         }
 
         private void buttonAddTrainingProgram_Click(object sender, EventArgs e)
         {
             PageMainWindow(false);
             PageTrainigProgramm(true);
+            SelectUserWindow selectUserWindow = new SelectUserWindow(this);
+            selectUserWindow.StartPosition = FormStartPosition.CenterParent;
+            selectUserWindow.ShowDialog();          
         }
         //---------------------------------------------------------------------------
 
@@ -435,20 +465,30 @@ namespace TrainingProgram
 
         private void comboBoxMuscles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            addTrainingProgram.FillListViewExrcises(listViewExercises, Convert.ToInt32((comboBoxMuscles.SelectedItem as ComboboxItem).Tag));
+            addTrainingProgram.FillListViewExrcises(listViewExercises, Convert.ToInt32((comboBoxMuscles.SelectedItem as ComboboxItem).Tag),AddTrainingProgram.pwCondition);
         }
 
         private void listViewExercises_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (listViewExercises.SelectedItems.Count > 0)
             {
-                workWithTrainigProgram.InsertExercisesInTrainigProgram(addTrainingProgram.currentDaysWeek,
-                    Convert.ToInt32(listViewExercises.SelectedItems[0].Tag),
-                    Convert.ToInt32(listViewUsers.SelectedItems[0].Text));
-                addTrainingProgram.FilllistViewTrainingProgramm(listViewTrainingProgramm, Convert.ToInt32(listViewUsers.SelectedItems[0].Text));
-
+                //if (listViewExercises.SelectedItems[0].ForeColor == Color.Green)
+                //    MessageBox.Show("Green");
+                //else if (listViewExercises.SelectedItems[0].ForeColor == Color.Orange)
+                //    MessageBox.Show("Orange");
+                //else if (listViewExercises.SelectedItems[0].ForeColor == Color.Red)
+                //    MessageBox.Show("Red");
+                if (currentSelectedListView != null)
+                {
+                    ListViewItem item = new ListViewItem();
+                    item.Text = listViewExercises.SelectedItems[0].Text;
+                    item.ForeColor = listViewExercises.SelectedItems[0].ForeColor;
+                    currentSelectedListView.Items.Add(item);
+                }
             }
-        }
+            //(listViewTrainingProgramm, Convert.ToInt32(listViewUsers.SelectedItems[0].Text));
+
+        }       
 
         private void listViewTrainingProgramm_MouseClick(object sender, MouseEventArgs e)
         {
@@ -476,61 +516,66 @@ namespace TrainingProgram
             //addUserWinodw.ShowDialog();
             
         }
-     
-    ///////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////addUserWindowButtonClikc///////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////        
-        public void FillInfAboutUser ()
-        {
-            addTpForUser.FillComboBoxStatistic(comboBoxSelectStatistic); 
-            PageAddTpForUsers(true);
 
-            string[,] sqlResultUser = workWithDataBase.SelectFromDataBase("select * from Users where idUsers =" + AddUserWindow.idSelectedUser, 1);                     
-            string[,] sqlResultStatisticMax = workWithDataBase.SelectFromDataBase("select * from StatisticsUsers where dateTime = (select max (dateTime) from StatisticsUsers where idUsers =" + +AddUserWindow.idSelectedUser + ") and idUsers =" + AddUserWindow.idSelectedUser, 1);         
+        private void listViewPatternsTP_DoubleClick(object sender, EventArgs e)
+        {
+            if(listViewPatternsTP.SelectedItems.Count > 0)
+            panelQuestCreateTP.Visible = false;
+            panelDaysTP.Visible = true;
+            addTrainingProgram.FillListViewDaysTp(listViewMonday, "Понедельник", listViewPatternsTP.SelectedItems[0].Text, AddTrainingProgram.pwCondition);
+        }
+
+        ///////////////////////////////////////////////////////////////////////////////////
+        ////////////////////////////////addUserWindowButtonClikc///////////////////////////
+        ///////////////////////////////////////////////////////////////////////////////////        
+        public void FillUserBar ()
+        {                          
+            string[,] sqlResultUser = workWithDataBase.SelectFromDataBase("select * from Users where idUsers =" + SelectUserWindow.idSelectedUser, 1);
+            //string[,] sqlResultStatisticMax = workWithDataBase.SelectFromDataBase("select * from StatisticsUsers where dateTime = (select max (dateTime) from StatisticsUsers where idUsers =" + SelectUserWindow.idSelectedUser + ") and idUsers =" + SelectUserWindow.idSelectedUser, 1);         
+            int countRows = workWithDataBase.SelectCountFromDataBase("Select count (idUsers) from StatisticsUsers where idUsers =" + SelectUserWindow.idSelectedUser);
+            string[,] sqlSelectDate = workWithDataBase.SelectFromDataBase("select * from StatisticsUsers where idUsers = " + SelectUserWindow.idSelectedUser + " order by dateTime", countRows);
 
             labelNameUser.Text = sqlResultUser[0,1];
             labelSecondNameUser.Text = sqlResultUser[0, 2];
             labelGenderUser.Text = sqlResultUser[0, 3];
             labelDateofBirthUser.Text = sqlResultUser[0, 4];
 
-            FillStatisticAboutUser();      
-        }
+            AddTrainingProgram.pwCondition = condition.GetConditionMan(Convert.ToDouble(sqlSelectDate[countRows - 1, 13]), sqlResultUser[0, 3]);
 
-        public void FillStatisticAboutUser ()
-        {
-            int countRows = workWithDataBase.SelectCountFromDataBase("Select count (idUsers) from StatisticsUsers where idUsers =" + AddUserWindow.idSelectedUser);
-            string[,] sqlSelectData = workWithDataBase.SelectFromDataBase("select * from StatisticsUsers where idUsers = " + AddUserWindow.idSelectedUser + " order by dateTime", countRows);
+            labelcPhc.Text = condition.GetConditionMan(Convert.ToDouble(sqlSelectDate[countRows - 1, 12]), sqlResultUser[0, 3]) + " " + sqlSelectDate[countRows - 1, 12];
+            labelcPwc.Text = AddTrainingProgram.pwCondition + " " + sqlSelectDate[countRows - 1, 13];
 
+         
             if (countRows >= 2)
             {
-                if (Convert.ToDouble(sqlSelectData[countRows - 1, 12]) == Convert.ToDouble(sqlSelectData[countRows - 2, 12]))
+                if (Convert.ToDouble(sqlSelectDate[countRows - 1, 12]) == Convert.ToDouble(sqlSelectDate[countRows - 2, 12]))
                 {
                     pictureBoxcPhc.Image = Properties.Resources.middle;
                     labelcPhc.ForeColor = Color.Blue;
                 }
-                else if (Convert.ToDouble(sqlSelectData[countRows - 1, 12]) > Convert.ToDouble(sqlSelectData[countRows - 2, 12]))
+                else if (Convert.ToDouble(sqlSelectDate[countRows - 1, 12]) > Convert.ToDouble(sqlSelectDate[countRows - 2, 12]))
                 {
                     pictureBoxcPhc.Image = Properties.Resources.up;
                     labelcPhc.ForeColor = Color.Green;
                 }
-                else if (Convert.ToDouble(sqlSelectData[countRows - 1, 12]) < Convert.ToDouble(sqlSelectData[countRows - 2, 12]))
+                else if (Convert.ToDouble(sqlSelectDate[countRows - 1, 12]) < Convert.ToDouble(sqlSelectDate[countRows - 2, 12]))
                 {
                     pictureBoxcPhc.Image = Properties.Resources.down;
                     labelcPhc.ForeColor = Color.Red;
                 }
 
 
-                if (Convert.ToDouble(sqlSelectData[countRows - 1, 13]) == Convert.ToDouble(sqlSelectData[countRows - 2, 13]))
+                if (Convert.ToDouble(sqlSelectDate[countRows - 1, 13]) == Convert.ToDouble(sqlSelectDate[countRows - 2, 13]))
                 {
                     pictureBoxcPwc.Image = Properties.Resources.middle;
                     labelcPwc.ForeColor = Color.Blue;
                 }
-                else if (Convert.ToDouble(sqlSelectData[countRows - 1, 13]) > Convert.ToDouble(sqlSelectData[countRows - 2, 13]))
+                else if (Convert.ToDouble(sqlSelectDate[countRows - 1, 13]) > Convert.ToDouble(sqlSelectDate[countRows - 2, 13]))
                 {
                     pictureBoxcPwc.Image = Properties.Resources.up;
                     labelcPwc.ForeColor = Color.Green;
                 }
-                else if (Convert.ToDouble(sqlSelectData[countRows - 1, 13]) < Convert.ToDouble(sqlSelectData[countRows - 2, 13]))
+                else if (Convert.ToDouble(sqlSelectDate[countRows - 1, 13]) < Convert.ToDouble(sqlSelectDate[countRows - 2, 13]))
                 {
                     pictureBoxcPwc.Image = Properties.Resources.down;
                     labelcPwc.ForeColor = Color.Red;
@@ -544,15 +589,35 @@ namespace TrainingProgram
                 labelcPwc.ForeColor = Color.Blue;
             }
 
-            labelcPhc.Text = condition.GetConditionMan(Convert.ToDouble(sqlSelectData[countRows - 1, 12])) + " " + sqlSelectData[countRows - 1, 12];
-            labelcPwc.Text = condition.GetConditionMan(Convert.ToDouble(sqlSelectData[countRows - 1, 13])) + " " + sqlSelectData[countRows - 1, 13];
-
-            int countDownDyas = 14 - (int)(DateTime.Now - Convert.ToDateTime(sqlSelectData[countRows - 1, 14])).TotalDays;
-            if (countDownDyas >= 1)
+          
+            if(currentPageMainWindow == CurrentPageMainWindow.pageTrainigProgramm)
             {
-                labelCountdownDays.Text = "Дата  добавления новой КТ: " + (DateTime.Now.AddDays(countDownDyas)).ToShortDateString();
+                addTrainingProgram.FillComboBoxMuscles(comboBoxMuscles);
+
+                if (workWithDataBase.SelectCountFromDataBase("select * from TrainingProgram where idUser =" + SelectUserWindow.idSelectedUser) == 0)
+                {
+                    panelQuestCreateTP.Visible = true;
+                    addTrainingProgram.FillListViewPatternsTP(listViewPatternsTP, AddTrainingProgram.pwCondition);
+
+                }
+                else panelDaysTP.Visible = true;
+
+
+                //addTrainingProgram.FillListViewExrcises(listView1,,3);
             }
-            else labelCountdownDays.Text = "Необходимо добавить новыую КТ!";
+
+            else if(currentPageMainWindow == CurrentPageMainWindow.pageAddTpForUser)
+            {
+                addTpForUser.FillComboBoxStatistic(comboBoxSelectStatistic);
+                addTpForUser.PicterBoxLoad(pictureBoxStatistic, nameColumnFromCoboBox[comboBoxSelectStatistic.SelectedIndex]);
+
+                int countDownDyas = 14 - (int)(DateTime.Now - Convert.ToDateTime(sqlSelectDate[countRows - 1, 14])).TotalDays;
+                if (countDownDyas >= 1)
+                {
+                    labelCountdownDays.Text = "Дата  добавления новой КТ: " + (DateTime.Now.AddDays(countDownDyas)).ToShortDateString();
+                }
+                else labelCountdownDays.Text = "Необходимо добавить новыую КТ!";
+            }
         }
 
         private void comboBoxSelectStatistic_SelectedIndexChanged(object sender, EventArgs e)
@@ -573,5 +638,20 @@ namespace TrainingProgram
                 panelStatistic.Visible = true;
             else panelStatistic.Visible = false;
         }
+
+        private void listViewDays_MouseUp(object sender, MouseEventArgs e)
+        {
+            listViewMonday.BackColor = Color.White;
+            listViewTuesday.BackColor = Color.White;
+            listViewWednesday.BackColor = Color.White;
+            listViewThursday.BackColor = Color.White;
+            listViewFriday.BackColor = Color.White;
+            listViewSaturday.BackColor = Color.White;
+            listViewSunday.BackColor = Color.White;
+
+            currentSelectedListView = (ListView)sender;
+            currentSelectedListView.BackColor = Color.FromArgb(210,210,210);
+        }
+
     }
 }

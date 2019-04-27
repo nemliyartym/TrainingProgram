@@ -8,37 +8,50 @@ namespace TrainingProgram.Class
 {
     class Condition
     {
-        DataFromWindows dataFromWindows = new DataFromWindows();
 
-        public string GetConditionMan(double Phc)
+        private double[] LowMan = new double[] { Double.MinValue, 3.765 };
+        private double[] LowMiddleMan = new double[] { 3.766, 5.265 };
+        private double[] MiddleMan = new double[] { 5.266, 6.765 };
+        private double[] HighMiddleMan = new double[] { 6.766, 8.265 };
+        private double[] HighMan = new double[] { 8.266, Double.MaxValue };
+
+        private double[] LowWoman = new double[] { Double.MinValue, 2.600 };
+        private double[] LowMiddleWoman = new double[] { 2.610, 3.665 };
+        private double[] MiddleWoman = new double[] { 3.666, 4.765 };
+        private double[] HighMiddleWoman = new double[] { 4.766, 5.765 };
+        private double[] HighWoman = new double[] { 5.766, Double.MaxValue };
+
+
+
+        public string GetConditionMan(double ppParam, string gender)
         {
             string isResult = null;
-            if (Phc >= dataFromWindows.LowMan[0] && Phc <= dataFromWindows.LowMan[1])
-                isResult = "Низкий";
-            else if (Phc >= dataFromWindows.LowMiddleMan[0] && Phc <= dataFromWindows.LowMiddleMan[1])
-                isResult = "Ниже среднего";
-            else if (Phc >= dataFromWindows.MiddleMan[0] && Phc <= dataFromWindows.MiddleMan[1])
-                isResult = "Средний";
-            else if (Phc >= dataFromWindows.HighMiddleMan[0] && Phc <= dataFromWindows.HighMiddleMan[1])
-                isResult = "Выше среднего";
-            else if (Phc >= dataFromWindows.HighMan[0] && Phc <= dataFromWindows.HighMan[1])
-                isResult = "Высокий";
-            return isResult;
-        }
-
-        public string GetConditionWoman(double Phc)
-        {
-            string isResult = null;
-            if (Phc >= dataFromWindows.LowWoman[0] && Phc <= dataFromWindows.LowWoman[1])
-                isResult = "Низкий";
-            else if (Phc >= dataFromWindows.LowMiddleWoman[0] && Phc <= dataFromWindows.LowMiddleWoman[1])
-                isResult = "Ниже среднего";
-            else if (Phc >= dataFromWindows.MiddleWoman[0] && Phc <= dataFromWindows.MiddleWoman[1])
-                isResult = "Средний";
-            else if (Phc >= dataFromWindows.HighMiddleWoman[0] && Phc <= dataFromWindows.HighMiddleWoman[1])
-                isResult = "Выше среднего";
-            else if (Phc >= dataFromWindows.HighWoman[0] && Phc <= dataFromWindows.HighWoman[1])
-                isResult = "Высокий";
+            if (gender == "Мужской")
+            {
+                if (ppParam >= LowMan[0] && ppParam <= LowMan[1])
+                    isResult = "Низкий";
+                else if (ppParam >= LowMiddleMan[0] && ppParam <= LowMiddleMan[1])
+                    isResult = "Ниже среднего";
+                else if (ppParam >= MiddleMan[0] && ppParam <= MiddleMan[1])
+                    isResult = "Средний";
+                else if (ppParam >= HighMiddleMan[0] && ppParam <= HighMiddleMan[1])
+                    isResult = "Выше среднего";
+                else if (ppParam >= HighMan[0] && ppParam <= HighMan[1])
+                    isResult = "Высокий";
+            }
+            else if(gender == "Женский")
+            {
+                if (ppParam >= LowWoman[0] && ppParam <= LowWoman[1])
+                    isResult = "Низкий";
+                else if (ppParam >= LowMiddleWoman[0] && ppParam <= LowMiddleWoman[1])
+                    isResult = "Ниже среднего";
+                else if (ppParam >= MiddleWoman[0] && ppParam <= MiddleWoman[1])
+                    isResult = "Средний";
+                else if (ppParam >= HighMiddleWoman[0] && ppParam <= HighMiddleWoman[1])
+                    isResult = "Выше среднего";
+                else if (ppParam >= HighWoman[0] && ppParam <= HighWoman[1])
+                    isResult = "Высокий";
+            }
             return isResult;
         }
     }

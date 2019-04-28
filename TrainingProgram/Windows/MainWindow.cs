@@ -46,6 +46,7 @@ namespace TrainingProgram
         WorkWithTrainigProgram workWithTrainigProgram = new WorkWithTrainigProgram();
         AddTpForUser addTpForUser = new AddTpForUser();
         Condition condition = new Condition();
+        WorkWithWidget workWithWidget = new WorkWithWidget();
         //public AddUserWindow addUserwindow = new AddUserWindow();
 
         public MainWindow()
@@ -74,7 +75,15 @@ namespace TrainingProgram
 
         private void MainWindow_Load(object sender, EventArgs e)
         {
+
             listViewExercises.Cursor = Cursors.Hand;
+            listViewMonday.Cursor = Cursors.Hand;
+            listViewTuesday.Cursor = Cursors.Hand;
+            listViewWednesday.Cursor = Cursors.Hand;
+            listViewThursday.Cursor = Cursors.Hand;
+            listViewFriday.Cursor = Cursors.Hand;
+            listViewSaturday.Cursor = Cursors.Hand;
+            listViewSunday.Cursor = Cursors.Hand;
 
             listViewMonday.MouseUp += listViewDays_MouseUp;
             listViewTuesday.MouseUp += listViewDays_MouseUp;
@@ -84,6 +93,7 @@ namespace TrainingProgram
             listViewSaturday.MouseUp += listViewDays_MouseUp;
             listViewSunday.MouseUp += listViewDays_MouseUp;
 
+            workWithWidget.SetWatemarkTextBox(textBoxNameTp, textBoxNameTp.Tag.ToString());
         }
 
         //---------------INTEFACE-----------------------------
@@ -519,10 +529,20 @@ namespace TrainingProgram
 
         private void listViewPatternsTP_DoubleClick(object sender, EventArgs e)
         {
-            if(listViewPatternsTP.SelectedItems.Count > 0)
-            panelQuestCreateTP.Visible = false;
-            panelDaysTP.Visible = true;
-            addTrainingProgram.FillListViewDaysTp(listViewMonday, "Понедельник", listViewPatternsTP.SelectedItems[0].Text, AddTrainingProgram.pwCondition);
+            if (listViewPatternsTP.SelectedItems.Count > 0)
+            {
+                for (int i = 0; i < listViewPatternsTP.Items.Count; i++)
+                    listViewPatternsTP.Items[i].BackColor = Color.White;
+
+                listViewPatternsTP.SelectedItems[0].BackColor = Color.FromArgb(51,144,255);
+                string[,] sqlSelect = workWithDataBase.SelectFromDataBase("select * from PatternsTP where idpatternsTP = " + listViewPatternsTP.SelectedItems[0].Tag,1);
+
+                workWithWidget.DeleteWotemarktextBox(textBoxNameTp);
+                textBoxNameTp.Text = sqlSelect[0, 1];
+                comboBoxDurationWeek.Text = sqlSelect[0, 2];
+                comboBoxLvlTp.Text = condition.GetCondition(Convert.ToInt32(sqlSelect[0, 3]));
+            }
+
         }
 
         ///////////////////////////////////////////////////////////////////////////////////
@@ -600,7 +620,18 @@ namespace TrainingProgram
                     addTrainingProgram.FillListViewPatternsTP(listViewPatternsTP, AddTrainingProgram.pwCondition);
 
                 }
-                else panelDaysTP.Visible = true;
+                else
+                {
+                    panelDaysTP.Visible = true;
+
+                    addTrainingProgram.FillListViewDaysTp(listViewMonday, AddTrainingProgram.daysWeek[0], AddTrainingProgram.pwCondition,SelectUserWindow.idSelectedUser);
+                    addTrainingProgram.FillListViewDaysTp(listViewTuesday, AddTrainingProgram.daysWeek[1], AddTrainingProgram.pwCondition,SelectUserWindow.idSelectedUser);
+                    addTrainingProgram.FillListViewDaysTp(listViewWednesday, AddTrainingProgram.daysWeek[2], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
+                    addTrainingProgram.FillListViewDaysTp(listViewThursday, AddTrainingProgram.daysWeek[3], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
+                    addTrainingProgram.FillListViewDaysTp(listViewFriday, AddTrainingProgram.daysWeek[4], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
+                    addTrainingProgram.FillListViewDaysTp(listViewSaturday, AddTrainingProgram.daysWeek[5], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
+                    addTrainingProgram.FillListViewDaysTp(listViewSunday, AddTrainingProgram.daysWeek[6], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
+                }
 
 
                 //addTrainingProgram.FillListViewExrcises(listView1,,3);
@@ -651,6 +682,66 @@ namespace TrainingProgram
 
             currentSelectedListView = (ListView)sender;
             currentSelectedListView.BackColor = Color.FromArgb(210,210,210);
+        }
+
+        private void textBoxNameTp_TextChanged(object sender, EventArgs e)
+        {
+            if ((textBoxNameTp.Text == string.Empty || textBoxNameTp.Text == textBoxNameTp.Tag.ToString()) 
+                && comboBoxDurationWeek.SelectedItem == null
+                && comboBoxLvlTp.SelectedItem == null)
+                buttonCreateTp.Enabled = false;
+            else buttonCreateTp.Enabled = true;
+        }
+
+        private void textBoxNameTp_Enter(object sender, EventArgs e)
+        {
+            workWithWidget.DeleteWotemarktextBox((TextBox)sender);
+        }
+
+        private void textBoxNameTp_Leave(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            if(tb.Text == string.Empty)
+            {
+                workWithWidget.SetWatemarkTextBox(tb, tb.Tag.ToString());
+            }
+        }
+
+
+        private void buttonCreateTp_Click(object sender, EventArgs e)
+        {
+            workWithTrainigProgram.InsertTrainigProgram(SelectUserWindow.idSelectedUser, textBoxNameTp.Text, Convert.ToInt32(comboBoxDurationWeek.Text), condition.GetLvl(comboBoxLvlTp.Text));
+            string[,] sqlSelect = workWithDataBase.SelectFromDataBase("select idTrainingProgram from TrainingProgram where idUser = " + SelectUserWindow.idSelectedUser ,1);
+
+            for (int i = 0; i < listViewPatternsTP.Items.Count; i++)
+            {
+                if (listViewPatternsTP.Items[i].BackColor == Color.FromArgb(51, 144, 255))
+                {
+                    int countRowsPatternsTp = workWithDataBase.SelectCountFromDataBase("select count(idpatternsTP) from ExercisesForPatternsTP where idPatternsTP =" + listViewPatternsTP.Items[i].Tag);
+                    string[,] sqlSelectPatternsTp = workWithDataBase.SelectFromDataBase("select * from ExercisesForPatternsTP where idPatternsTP =" + listViewPatternsTP.Items[i].Tag, countRowsPatternsTp);
+
+                    for (int j = 0; j < countRowsPatternsTp; j++)
+                    {
+                        workWithTrainigProgram.InsertExercisesForTrainigProgram(Convert.ToInt32(sqlSelect[0, 0]), Convert.ToInt32(sqlSelectPatternsTp[j, 2]), Convert.ToInt32(sqlSelectPatternsTp[j, 3]));
+                    }
+                    break;
+                }
+            }
+
+
+            addTrainingProgram.FillListViewDaysTp(listViewMonday, AddTrainingProgram.daysWeek[0], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
+            addTrainingProgram.FillListViewDaysTp(listViewTuesday, AddTrainingProgram.daysWeek[1], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
+            addTrainingProgram.FillListViewDaysTp(listViewWednesday, AddTrainingProgram.daysWeek[2], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
+            addTrainingProgram.FillListViewDaysTp(listViewThursday, AddTrainingProgram.daysWeek[3], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
+            addTrainingProgram.FillListViewDaysTp(listViewFriday, AddTrainingProgram.daysWeek[4], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
+            addTrainingProgram.FillListViewDaysTp(listViewSaturday, AddTrainingProgram.daysWeek[5], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
+            addTrainingProgram.FillListViewDaysTp(listViewSunday, AddTrainingProgram.daysWeek[6], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
+
+
+
+
+            panelQuestCreateTP.Visible = false;
+            panelDaysTP.Visible = true;
         }
 
     }

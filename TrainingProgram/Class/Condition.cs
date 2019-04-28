@@ -22,6 +22,37 @@ namespace TrainingProgram.Class
         private double[] HighWoman = new double[] { 5.766, Double.MaxValue };
 
 
+        public string GetCondition (int lvl)
+        {
+            string condition = null;
+            if (lvl == 1)
+                condition = "Низкий";
+            else if (lvl == 2)
+                condition = "Ниже среднего";
+            else if (lvl == 3)
+                condition = "Средний";
+            else if (lvl == 4)
+                condition = "Выше среднего";
+            else if (lvl == 5)
+                condition = "Высокий";
+            return condition;
+        }
+
+        public int GetLvl(string condition)
+        {
+            int lvl = 0;
+            if (condition == "Низкий")
+                lvl = 1;
+            else if (condition == "Ниже среднего")
+                lvl = 2;
+            else if (condition == "Средний")
+                lvl = 3;
+            else if (condition == "Выше среднего")
+                lvl = 4;
+            else if (condition == "Высокий")
+                lvl = 5;
+            return lvl;
+        }
 
         public string GetConditionMan(double ppParam, string gender)
         {

@@ -87,11 +87,14 @@
             this.pictureBoxFromImages = new System.Windows.Forms.PictureBox();
             this.panelUserBar = new System.Windows.Forms.Panel();
             this.panelTrainingProgram = new System.Windows.Forms.Panel();
-            this.panelDaysTP = new System.Windows.Forms.Panel();
             this.panelQuestCreateTP = new System.Windows.Forms.Panel();
+            this.comboBoxLvlTp = new System.Windows.Forms.ComboBox();
+            this.comboBoxDurationWeek = new System.Windows.Forms.ComboBox();
+            this.textBoxNameTp = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonCreateTp = new System.Windows.Forms.Button();
             this.listViewPatternsTP = new System.Windows.Forms.ListView();
+            this.panelDaysTP = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -118,8 +121,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
             this.panelUserBar.SuspendLayout();
             this.panelTrainingProgram.SuspendLayout();
-            this.panelDaysTP.SuspendLayout();
             this.panelQuestCreateTP.SuspendLayout();
+            this.panelDaysTP.SuspendLayout();
             this.SuspendLayout();
             // 
             // buttonSearchMusclesAndExercises
@@ -698,6 +701,95 @@
             this.panelTrainingProgram.TabIndex = 36;
             this.panelTrainingProgram.Visible = false;
             // 
+            // panelQuestCreateTP
+            // 
+            this.panelQuestCreateTP.Controls.Add(this.comboBoxLvlTp);
+            this.panelQuestCreateTP.Controls.Add(this.comboBoxDurationWeek);
+            this.panelQuestCreateTP.Controls.Add(this.textBoxNameTp);
+            this.panelQuestCreateTP.Controls.Add(this.label8);
+            this.panelQuestCreateTP.Controls.Add(this.buttonCreateTp);
+            this.panelQuestCreateTP.Controls.Add(this.listViewPatternsTP);
+            this.panelQuestCreateTP.Location = new System.Drawing.Point(150, 35);
+            this.panelQuestCreateTP.Name = "panelQuestCreateTP";
+            this.panelQuestCreateTP.Size = new System.Drawing.Size(378, 269);
+            this.panelQuestCreateTP.TabIndex = 69;
+            this.panelQuestCreateTP.Visible = false;
+            // 
+            // comboBoxLvlTp
+            // 
+            this.comboBoxLvlTp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLvlTp.FormattingEnabled = true;
+            this.comboBoxLvlTp.Items.AddRange(new object[] {
+            "Низкий",
+            "Ниже среднего",
+            "Средний",
+            "Выше среднего",
+            "Высокий"});
+            this.comboBoxLvlTp.Location = new System.Drawing.Point(87, 128);
+            this.comboBoxLvlTp.Name = "comboBoxLvlTp";
+            this.comboBoxLvlTp.Size = new System.Drawing.Size(82, 21);
+            this.comboBoxLvlTp.TabIndex = 30;
+            // 
+            // comboBoxDurationWeek
+            // 
+            this.comboBoxDurationWeek.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDurationWeek.FormattingEnabled = true;
+            this.comboBoxDurationWeek.Items.AddRange(new object[] {
+            "4",
+            "6",
+            "8",
+            "10",
+            "12"});
+            this.comboBoxDurationWeek.Location = new System.Drawing.Point(21, 129);
+            this.comboBoxDurationWeek.Name = "comboBoxDurationWeek";
+            this.comboBoxDurationWeek.Size = new System.Drawing.Size(57, 21);
+            this.comboBoxDurationWeek.TabIndex = 29;
+            // 
+            // textBoxNameTp
+            // 
+            this.textBoxNameTp.Location = new System.Drawing.Point(21, 100);
+            this.textBoxNameTp.Name = "textBoxNameTp";
+            this.textBoxNameTp.Size = new System.Drawing.Size(148, 20);
+            this.textBoxNameTp.TabIndex = 28;
+            this.textBoxNameTp.Tag = "Введите имя программы...";
+            this.textBoxNameTp.TextChanged += new System.EventHandler(this.textBoxNameTp_TextChanged);
+            this.textBoxNameTp.Enter += new System.EventHandler(this.textBoxNameTp_Enter);
+            this.textBoxNameTp.Leave += new System.EventHandler(this.textBoxNameTp_Leave);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(60, 6);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(245, 80);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Необходимо создать \r\nпрограмму тренировок.\r\nМожно создать новую программу \r\nтрени" +
+    "ровок или выбрать из готовых\r\nшаблонов\r\n";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonCreateTp
+            // 
+            this.buttonCreateTp.Enabled = false;
+            this.buttonCreateTp.Location = new System.Drawing.Point(30, 168);
+            this.buttonCreateTp.Name = "buttonCreateTp";
+            this.buttonCreateTp.Size = new System.Drawing.Size(125, 45);
+            this.buttonCreateTp.TabIndex = 0;
+            this.buttonCreateTp.Text = "Создать программу тренировок";
+            this.buttonCreateTp.UseVisualStyleBackColor = true;
+            this.buttonCreateTp.Click += new System.EventHandler(this.buttonCreateTp_Click);
+            // 
+            // listViewPatternsTP
+            // 
+            this.listViewPatternsTP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listViewPatternsTP.Location = new System.Drawing.Point(187, 88);
+            this.listViewPatternsTP.Name = "listViewPatternsTP";
+            this.listViewPatternsTP.Size = new System.Drawing.Size(156, 137);
+            this.listViewPatternsTP.TabIndex = 26;
+            this.listViewPatternsTP.UseCompatibleStateImageBehavior = false;
+            this.listViewPatternsTP.View = System.Windows.Forms.View.List;
+            this.listViewPatternsTP.DoubleClick += new System.EventHandler(this.listViewPatternsTP_DoubleClick);
+            // 
             // panelDaysTP
             // 
             this.panelDaysTP.Controls.Add(this.label7);
@@ -719,49 +811,6 @@
             this.panelDaysTP.Size = new System.Drawing.Size(582, 306);
             this.panelDaysTP.TabIndex = 55;
             this.panelDaysTP.Visible = false;
-            // 
-            // panelQuestCreateTP
-            // 
-            this.panelQuestCreateTP.Controls.Add(this.label8);
-            this.panelQuestCreateTP.Controls.Add(this.button1);
-            this.panelQuestCreateTP.Controls.Add(this.listViewPatternsTP);
-            this.panelQuestCreateTP.Location = new System.Drawing.Point(150, 35);
-            this.panelQuestCreateTP.Name = "panelQuestCreateTP";
-            this.panelQuestCreateTP.Size = new System.Drawing.Size(378, 269);
-            this.panelQuestCreateTP.TabIndex = 69;
-            this.panelQuestCreateTP.Visible = false;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(42, 21);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(290, 64);
-            this.label8.TabIndex = 27;
-            this.label8.Text = "Необходимо создать \r\nпрограмму тренировок.\r\nНажмите на кнопку или выберете готову" +
-    "ю \r\nпрограмму из списка\r\n";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(45, 127);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(125, 45);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Создать программу в ручную";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // listViewPatternsTP
-            // 
-            this.listViewPatternsTP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listViewPatternsTP.Location = new System.Drawing.Point(187, 88);
-            this.listViewPatternsTP.Name = "listViewPatternsTP";
-            this.listViewPatternsTP.Size = new System.Drawing.Size(156, 137);
-            this.listViewPatternsTP.TabIndex = 26;
-            this.listViewPatternsTP.UseCompatibleStateImageBehavior = false;
-            this.listViewPatternsTP.View = System.Windows.Forms.View.List;
-            this.listViewPatternsTP.DoubleClick += new System.EventHandler(this.listViewPatternsTP_DoubleClick);
             // 
             // label7
             // 
@@ -833,6 +882,7 @@
             this.listViewSunday.Name = "listViewSunday";
             this.listViewSunday.Size = new System.Drawing.Size(139, 123);
             this.listViewSunday.TabIndex = 61;
+            this.listViewSunday.Tag = "Воскресенье";
             this.listViewSunday.UseCompatibleStateImageBehavior = false;
             this.listViewSunday.View = System.Windows.Forms.View.List;
             // 
@@ -843,6 +893,7 @@
             this.listViewSaturday.Name = "listViewSaturday";
             this.listViewSaturday.Size = new System.Drawing.Size(139, 123);
             this.listViewSaturday.TabIndex = 60;
+            this.listViewSaturday.Tag = "Суббота";
             this.listViewSaturday.UseCompatibleStateImageBehavior = false;
             this.listViewSaturday.View = System.Windows.Forms.View.List;
             // 
@@ -853,6 +904,7 @@
             this.listViewWednesday.Name = "listViewWednesday";
             this.listViewWednesday.Size = new System.Drawing.Size(139, 123);
             this.listViewWednesday.TabIndex = 59;
+            this.listViewWednesday.Tag = "Среда";
             this.listViewWednesday.UseCompatibleStateImageBehavior = false;
             this.listViewWednesday.View = System.Windows.Forms.View.List;
             // 
@@ -863,6 +915,7 @@
             this.listViewFriday.Name = "listViewFriday";
             this.listViewFriday.Size = new System.Drawing.Size(139, 123);
             this.listViewFriday.TabIndex = 58;
+            this.listViewFriday.Tag = "Пятница";
             this.listViewFriday.UseCompatibleStateImageBehavior = false;
             this.listViewFriday.View = System.Windows.Forms.View.List;
             // 
@@ -873,6 +926,7 @@
             this.listViewTuesday.Name = "listViewTuesday";
             this.listViewTuesday.Size = new System.Drawing.Size(139, 123);
             this.listViewTuesday.TabIndex = 57;
+            this.listViewTuesday.Tag = "Вторник";
             this.listViewTuesday.UseCompatibleStateImageBehavior = false;
             this.listViewTuesday.View = System.Windows.Forms.View.List;
             // 
@@ -883,6 +937,7 @@
             this.listViewThursday.Name = "listViewThursday";
             this.listViewThursday.Size = new System.Drawing.Size(139, 123);
             this.listViewThursday.TabIndex = 56;
+            this.listViewThursday.Tag = "Четверг";
             this.listViewThursday.UseCompatibleStateImageBehavior = false;
             this.listViewThursday.View = System.Windows.Forms.View.List;
             // 
@@ -893,6 +948,7 @@
             this.listViewMonday.Name = "listViewMonday";
             this.listViewMonday.Size = new System.Drawing.Size(139, 123);
             this.listViewMonday.TabIndex = 55;
+            this.listViewMonday.Tag = "Понедельник";
             this.listViewMonday.UseCompatibleStateImageBehavior = false;
             this.listViewMonday.View = System.Windows.Forms.View.List;
             // 
@@ -944,10 +1000,10 @@
             this.panelUserBar.ResumeLayout(false);
             this.panelUserBar.PerformLayout();
             this.panelTrainingProgram.ResumeLayout(false);
-            this.panelDaysTP.ResumeLayout(false);
-            this.panelDaysTP.PerformLayout();
             this.panelQuestCreateTP.ResumeLayout(false);
             this.panelQuestCreateTP.PerformLayout();
+            this.panelDaysTP.ResumeLayout(false);
+            this.panelDaysTP.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1031,7 +1087,10 @@
         private System.Windows.Forms.ListView listViewMonday;
         private System.Windows.Forms.Panel panelQuestCreateTP;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonCreateTp;
+        private System.Windows.Forms.ComboBox comboBoxDurationWeek;
+        private System.Windows.Forms.TextBox textBoxNameTp;
+        private System.Windows.Forms.ComboBox comboBoxLvlTp;
     }
 }
 

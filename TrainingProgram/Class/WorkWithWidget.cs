@@ -16,11 +16,26 @@ namespace TrainingProgram.Class
             textBox.Text = contains;
             textBox.ForeColor = Color.Gray;
         }
-        public void DeleteWotemarktextBox (TextBox textBox)
+
+        public  void DeleteWotemarktextBox (TextBox textBox)
         {
-            textBox.Text = null;
-            textBox.ForeColor = Color.Black;
+            if (textBox.Text == textBox.Tag.ToString() && textBox.ForeColor == Color.Gray)
+            {
+                textBox.Text = null;
+                textBox.ForeColor = Color.Black;
+            }
         }
 
+        public void SetWatemarkComboBox (ComboBox comboBox, string contains)
+        {
+            comboBox.Text = contains;
+            comboBox.ForeColor = Color.Gray;
+        }
+
+        public void DeleteWatemarkComboBox (ComboBox comboBox)
+        {
+            //comboBox.Items.RemoveAt(0);
+            comboBox.ForeColor = Color.Black;
+        }
     }
 }

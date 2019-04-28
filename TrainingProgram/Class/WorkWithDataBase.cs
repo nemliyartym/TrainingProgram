@@ -168,16 +168,31 @@ namespace TrainingProgram
 
     class WorkWithTrainigProgram : WorkWithDataBase
     {
-        public void InsertExercisesInTrainigProgram(int idDaysWeek, int idExercises, int idUsers)
+        public void InsertTrainigProgram(int idUser, string nameTP, int durationTP, int lvlTP)
         {
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 sqlConnection.Open();
-                SqlCommand sqlCommand = new SqlCommand("insert into TrainingProgram values(@idDaysWeek,@idExercises,@idUsers)",sqlConnection);
+                SqlCommand sqlCommand = new SqlCommand("insert into TrainingProgram values(@idUser,@nameTP,@durationTP, @lvlTP)", sqlConnection);
 
-                sqlCommand.Parameters.Add("@idDaysWeek", SqlDbType.Int, Int32.MaxValue).Value = idDaysWeek + 1;
+                sqlCommand.Parameters.Add("@idUser", SqlDbType.Int, Int32.MaxValue).Value = idUser;
+                sqlCommand.Parameters.Add("@nameTP", SqlDbType.VarChar, 50).Value = nameTP;
+                sqlCommand.Parameters.Add("@durationTP", SqlDbType.Int, Int32.MaxValue).Value = durationTP;
+                sqlCommand.Parameters.Add("@lvlTP", SqlDbType.Int, Int32.MaxValue).Value = lvlTP;
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
+
+        public void InsertExercisesForTrainigProgram(int idTrainingProgram, int idExercises, int idDaysWeek)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("insert into ExercisesForTP values(@idTrainingProgram,@idExercises,@idDaysWeek)", sqlConnection);
+
+                sqlCommand.Parameters.Add("@idTrainingProgram", SqlDbType.Int, Int32.MaxValue).Value = idTrainingProgram;
                 sqlCommand.Parameters.Add("@idExercises", SqlDbType.Int, Int32.MaxValue).Value = idExercises;
-                sqlCommand.Parameters.Add("@idUsers", SqlDbType.Int, Int32.MaxValue).Value = idUsers;
+                sqlCommand.Parameters.Add("@idDaysWeek", SqlDbType.Int, Int32.MaxValue).Value = idDaysWeek;
                 sqlCommand.ExecuteNonQuery();
             }
         }

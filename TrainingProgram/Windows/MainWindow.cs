@@ -21,6 +21,7 @@ namespace TrainingProgram
     public partial class MainWindow : Form
     {
         private string currentStrDescriptionExercises;
+        private int idCurrentDays;
         private int id = 0;
         private TreeNode treeNode = new TreeNode();
 
@@ -478,27 +479,6 @@ namespace TrainingProgram
             addTrainingProgram.FillListViewExrcises(listViewExercises, Convert.ToInt32((comboBoxMuscles.SelectedItem as ComboboxItem).Tag),AddTrainingProgram.pwCondition);
         }
 
-        private void listViewExercises_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (listViewExercises.SelectedItems.Count > 0)
-            {
-                //if (listViewExercises.SelectedItems[0].ForeColor == Color.Green)
-                //    MessageBox.Show("Green");
-                //else if (listViewExercises.SelectedItems[0].ForeColor == Color.Orange)
-                //    MessageBox.Show("Orange");
-                //else if (listViewExercises.SelectedItems[0].ForeColor == Color.Red)
-                //    MessageBox.Show("Red");
-                if (currentSelectedListView != null)
-                {
-                    ListViewItem item = new ListViewItem();
-                    item.Text = listViewExercises.SelectedItems[0].Text;
-                    item.ForeColor = listViewExercises.SelectedItems[0].ForeColor;
-                    currentSelectedListView.Items.Add(item);
-                }
-            }
-            //(listViewTrainingProgramm, Convert.ToInt32(listViewUsers.SelectedItems[0].Text));
-
-        }       
 
         private void listViewTrainingProgramm_MouseClick(object sender, MouseEventArgs e)
         {
@@ -672,6 +652,22 @@ namespace TrainingProgram
 
         private void listViewDays_MouseUp(object sender, MouseEventArgs e)
         {
+            ListView lv = (ListView)sender;
+            if (lv == listViewMonday)
+                idCurrentDays = 1;
+            else if (lv == listViewTuesday)
+                idCurrentDays = 2;
+            else if (lv == listViewWednesday)
+                idCurrentDays = 3;
+            else if (lv == listViewThursday)
+                idCurrentDays = 4;
+            else if (lv == listViewFriday)
+                idCurrentDays = 5;
+            else if (lv == listViewSaturday)
+                idCurrentDays = 6;
+            else if (lv == listViewSunday)
+                idCurrentDays = 7; 
+
             listViewMonday.BackColor = Color.White;
             listViewTuesday.BackColor = Color.White;
             listViewWednesday.BackColor = Color.White;
@@ -706,7 +702,6 @@ namespace TrainingProgram
                 workWithWidget.SetWatemarkTextBox(tb, tb.Tag.ToString());
             }
         }
-
 
         private void buttonCreateTp_Click(object sender, EventArgs e)
         {
@@ -744,5 +739,33 @@ namespace TrainingProgram
             panelDaysTP.Visible = true;
         }
 
+        private void listViewExercises_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listViewExercises.SelectedItems.Count > 0)
+            {
+                if (currentSelectedListView != null)
+                {
+                    if (listViewExercises.SelectedItems[0].ForeColor == Color.Red)
+                    {
+                        DialogResult result =  MessageBox.Show("Данное упражнение не соотвествует уровню подготовки пользователя \n Все равно добавить его?", "Предупреждение", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
+                        if(result == DialogResult.No || result == DialogResult.Cancel)
+                            return;
+                    }
+
+
+
+                    string[,] sqlSelect = workWithDataBase.SelectFromDataBase("select * from TrainingProgram where idUser = " + SelectUserWindow.idSelectedUser, 1);
+                    workWithTrainigProgram.InsertExercisesForTrainigProgram(Convert.ToInt32(sqlSelect[0, 0]), Convert.ToInt32(listViewExercises.SelectedItems[0].Tag), idCurrentDays);
+                    addTrainingProgram.FillListViewDaysTp(currentSelectedListView, AddTrainingProgram.daysWeek[idCurrentDays - 1], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
+                    //ListViewItem item = new ListViewItem();
+                    //item.Text = listViewExercises.SelectedItems[0].Text;
+                    //item.ForeColor = listViewExercises.SelectedItems[0].ForeColor;
+                    //currentSelectedListView.Items.Add(item);
+                }
+            }
+            //(listViewTrainingProgramm, Convert.ToInt32(listViewUsers.SelectedItems[0].Text));
+
+        }
     }
 }

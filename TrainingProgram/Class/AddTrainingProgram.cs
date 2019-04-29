@@ -33,26 +33,6 @@ namespace TrainingProgram
         public int currentDaysWeek = 0;
         public static string pwCondition = null;
         //ОЛДА 24.04.2019 реФАКторигн дизайна
-        //public void FillListViewExrcises(ListView listView, int idMuscles)
-        //{
-
-        //    int countRows = workWithDataBase.SelectCountFromDataBase("select count(e.exercises) from MusclesAndExercises me join Muscles m on me.idMuscles = m.idMuscles join Exercises e on me.idExercises = e.idExercises where me.idMuscles =" + idMuscles);
-        //    string[,] sqlSelect = workWithDataBase.SelectFromDataBase("select e.exercises, e.idExercises from MusclesAndExercises me join Muscles m on me.idMuscles = m.idMuscles join Exercises e on me.idExercises = e.idExercises where me.idMuscles =" + idMuscles, countRows);
-        //    listView.Items.Clear();
-        //    ImageList imageList = new ImageList();
-        //    listView.LargeImageList = imageList;
-        //    for (int i = 0; i < countRows; i++)
-        //    {
-        //        ListViewItem lvItem = new ListViewItem();
-        //        //byte[] imageData = workWithImages.RedImageFromDataBase("select imageData from ImagesForExercises where idExercises =" + sqlSelect[i,1]);
-        //        //if(imageData != null)
-        //        //    imageList.Images.Add(sqlSelect[i,1].ToString(),Image.FromStream(new MemoryStream(imageData)));
-        //        //lvItem.ImageIndex = Convert.ToInt16(sqlSelect[i, 1]);
-        //        lvItem.Text = sqlSelect[i, 0];
-        //        lvItem.Tag = sqlSelect[i, 1];
-        //        listView.Items.Add(lvItem);
-        //    }
-        //}
         public void ButtonNext(Label labelDayWeek)
         {
             //if (++currentDaysWeek >= daysWeek.Length)
@@ -130,7 +110,7 @@ namespace TrainingProgram
             {
                 ListViewItem listViewItem = new ListViewItem();
                 listViewItem.Text = sqlSelect[i, 1];
-                listView.Tag = sqlSelect[i, 0];
+                listViewItem.Tag = sqlSelect[i, 0];
                 if (Convert.ToInt32(sqlSelect[i, 2]) <= lvl)
                     listViewItem.ForeColor = Color.Green;
                 else if (Convert.ToInt32(sqlSelect[i, 2]) == lvl + 1 && lvl + 1 <= 5) 

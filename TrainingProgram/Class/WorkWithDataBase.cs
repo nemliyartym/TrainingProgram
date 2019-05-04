@@ -202,7 +202,7 @@ namespace TrainingProgram
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
             {
                 sqlConnection.Open();
-                SqlCommand sqlCommand = new SqlCommand("delete from TrainingProgram where idTrainingProgram =" + idDelete, sqlConnection);
+                SqlCommand sqlCommand = new SqlCommand("delete from ExercisesForTP where idExercisesFromTP =" + idDelete, sqlConnection);
                 sqlCommand.ExecuteNonQuery();
             }
         }

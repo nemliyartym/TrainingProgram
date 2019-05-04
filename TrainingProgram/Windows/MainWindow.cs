@@ -94,8 +94,17 @@ namespace TrainingProgram
             listViewSaturday.MouseUp += listViewDays_MouseUp;
             listViewSunday.MouseUp += listViewDays_MouseUp;
 
+            listViewMonday.DoubleClick += ListViewDays_DoubleClick;
+            listViewTuesday.DoubleClick += ListViewDays_DoubleClick;
+            listViewWednesday.DoubleClick += ListViewDays_DoubleClick;
+            listViewThursday.DoubleClick += ListViewDays_DoubleClick;
+            listViewFriday.DoubleClick += ListViewDays_DoubleClick;
+            listViewSaturday.DoubleClick += ListViewDays_DoubleClick;
+            listViewSunday.DoubleClick += ListViewDays_DoubleClick;
+
             workWithWidget.SetWatemarkTextBox(textBoxNameTp, textBoxNameTp.Tag.ToString());
         }
+
 
         //---------------INTEFACE-----------------------------
         public void PageMainWindow (bool isVisible)
@@ -479,7 +488,6 @@ namespace TrainingProgram
             addTrainingProgram.FillListViewExrcises(listViewExercises, Convert.ToInt32((comboBoxMuscles.SelectedItem as ComboboxItem).Tag),AddTrainingProgram.pwCondition);
         }
 
-
         private void listViewTrainingProgramm_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)
@@ -648,6 +656,18 @@ namespace TrainingProgram
             if (panelStatistic.Visible == false)
                 panelStatistic.Visible = true;
             else panelStatistic.Visible = false;
+        }
+
+        private void ListViewDays_DoubleClick(object sender, EventArgs e)
+        {
+            ListView listView = (ListView)sender;
+            if(listView.SelectedItems.Count >0)
+            {
+                //MessageBox.Show(listView.SelectedItems[0].Tag.ToString());
+                workWithTrainigProgram.DeleteExercisesFromTrainigProgram(Convert.ToInt32(listView.SelectedItems[0].Tag));
+                addTrainingProgram.FillListViewDaysTp(listView, AddTrainingProgram.daysWeek[idCurrentDays - 1], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
+
+            }
         }
 
         private void listViewDays_MouseUp(object sender, MouseEventArgs e)

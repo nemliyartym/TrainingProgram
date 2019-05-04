@@ -150,7 +150,7 @@ namespace TrainingProgram
             {
                 ListViewItem listViewItem = new ListViewItem();
                 listViewItem.Text = sqlSelect[i, 1];
-                listView.Tag = sqlSelect[i, 0];
+                listViewItem.Tag = sqlSelect[i, 0];
                 if (Convert.ToInt32(sqlSelect[i, 2]) <= lvl)
                     listViewItem.ForeColor = Color.Green;
                 else if (Convert.ToInt32(sqlSelect[i, 2]) == lvl + 1 && lvl + 1 <= 5)

@@ -87,6 +87,10 @@
             this.pictureBoxFromImages = new System.Windows.Forms.PictureBox();
             this.panelUserBar = new System.Windows.Forms.Panel();
             this.panelTrainingProgram = new System.Windows.Forms.Panel();
+            this.labelCurrentnTrainingDays = new System.Windows.Forms.Label();
+            this.labelNameCurrentTrainigDays = new System.Windows.Forms.Label();
+            this.labelNameTrainingDays = new System.Windows.Forms.Label();
+            this.labelCountTrainingDays = new System.Windows.Forms.Label();
             this.panelQuestCreateTP = new System.Windows.Forms.Panel();
             this.comboBoxLvlTp = new System.Windows.Forms.ComboBox();
             this.comboBoxDurationWeek = new System.Windows.Forms.ComboBox();
@@ -357,7 +361,7 @@
             // listViewExercises
             // 
             this.listViewExercises.GridLines = true;
-            this.listViewExercises.Location = new System.Drawing.Point(662, 58);
+            this.listViewExercises.Location = new System.Drawing.Point(662, 147);
             this.listViewExercises.Name = "listViewExercises";
             this.listViewExercises.Size = new System.Drawing.Size(161, 123);
             this.listViewExercises.TabIndex = 24;
@@ -368,9 +372,9 @@
             // comboBoxMuscles
             // 
             this.comboBoxMuscles.FormattingEnabled = true;
-            this.comboBoxMuscles.Location = new System.Drawing.Point(659, 31);
+            this.comboBoxMuscles.Location = new System.Drawing.Point(662, 106);
             this.comboBoxMuscles.Name = "comboBoxMuscles";
-            this.comboBoxMuscles.Size = new System.Drawing.Size(164, 21);
+            this.comboBoxMuscles.Size = new System.Drawing.Size(161, 21);
             this.comboBoxMuscles.TabIndex = 25;
             this.comboBoxMuscles.SelectedIndexChanged += new System.EventHandler(this.comboBoxMuscles_SelectedIndexChanged);
             // 
@@ -691,6 +695,10 @@
             // 
             // panelTrainingProgram
             // 
+            this.panelTrainingProgram.Controls.Add(this.labelCurrentnTrainingDays);
+            this.panelTrainingProgram.Controls.Add(this.labelNameCurrentTrainigDays);
+            this.panelTrainingProgram.Controls.Add(this.labelNameTrainingDays);
+            this.panelTrainingProgram.Controls.Add(this.labelCountTrainingDays);
             this.panelTrainingProgram.Controls.Add(this.panelQuestCreateTP);
             this.panelTrainingProgram.Controls.Add(this.listViewExercises);
             this.panelTrainingProgram.Controls.Add(this.comboBoxMuscles);
@@ -700,6 +708,42 @@
             this.panelTrainingProgram.Size = new System.Drawing.Size(859, 347);
             this.panelTrainingProgram.TabIndex = 36;
             this.panelTrainingProgram.Visible = false;
+            // 
+            // labelCurrentnTrainingDays
+            // 
+            this.labelCurrentnTrainingDays.AutoSize = true;
+            this.labelCurrentnTrainingDays.Location = new System.Drawing.Point(792, 79);
+            this.labelCurrentnTrainingDays.Name = "labelCurrentnTrainingDays";
+            this.labelCurrentnTrainingDays.Size = new System.Drawing.Size(22, 13);
+            this.labelCurrentnTrainingDays.TabIndex = 73;
+            this.labelCurrentnTrainingDays.Text = "0-0";
+            // 
+            // labelNameCurrentTrainigDays
+            // 
+            this.labelNameCurrentTrainigDays.AutoSize = true;
+            this.labelNameCurrentTrainigDays.Location = new System.Drawing.Point(659, 74);
+            this.labelNameCurrentTrainigDays.Name = "labelNameCurrentTrainigDays";
+            this.labelNameCurrentTrainigDays.Size = new System.Drawing.Size(116, 26);
+            this.labelNameCurrentTrainigDays.TabIndex = 72;
+            this.labelNameCurrentTrainigDays.Text = "Текущее кол-во\r\nтренировок в неделю\r\n";
+            // 
+            // labelNameTrainingDays
+            // 
+            this.labelNameTrainingDays.AutoSize = true;
+            this.labelNameTrainingDays.Location = new System.Drawing.Point(659, 42);
+            this.labelNameTrainingDays.Name = "labelNameTrainingDays";
+            this.labelNameTrainingDays.Size = new System.Drawing.Size(125, 26);
+            this.labelNameTrainingDays.TabIndex = 71;
+            this.labelNameTrainingDays.Text = "Рекомендуемое кол-во\r\nтренировок в неделю\r\n";
+            // 
+            // labelCountTrainingDays
+            // 
+            this.labelCountTrainingDays.AutoSize = true;
+            this.labelCountTrainingDays.Location = new System.Drawing.Point(792, 52);
+            this.labelCountTrainingDays.Name = "labelCountTrainingDays";
+            this.labelCountTrainingDays.Size = new System.Drawing.Size(22, 13);
+            this.labelCountTrainingDays.TabIndex = 70;
+            this.labelCountTrainingDays.Text = "0-0";
             // 
             // panelQuestCreateTP
             // 
@@ -1000,6 +1044,7 @@
             this.panelUserBar.ResumeLayout(false);
             this.panelUserBar.PerformLayout();
             this.panelTrainingProgram.ResumeLayout(false);
+            this.panelTrainingProgram.PerformLayout();
             this.panelQuestCreateTP.ResumeLayout(false);
             this.panelQuestCreateTP.PerformLayout();
             this.panelDaysTP.ResumeLayout(false);
@@ -1091,6 +1136,10 @@
         private System.Windows.Forms.ComboBox comboBoxDurationWeek;
         private System.Windows.Forms.TextBox textBoxNameTp;
         private System.Windows.Forms.ComboBox comboBoxLvlTp;
+        private System.Windows.Forms.Label labelCountTrainingDays;
+        private System.Windows.Forms.Label labelCurrentnTrainingDays;
+        private System.Windows.Forms.Label labelNameCurrentTrainigDays;
+        private System.Windows.Forms.Label labelNameTrainingDays;
     }
 }
 

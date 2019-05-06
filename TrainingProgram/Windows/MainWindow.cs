@@ -202,9 +202,11 @@ namespace TrainingProgram
         {
             PageMainWindow(false);
             PageTrainigProgramm(true);
+
             SelectUserWindow selectUserWindow = new SelectUserWindow(this);
             selectUserWindow.StartPosition = FormStartPosition.CenterParent;
-            selectUserWindow.ShowDialog();          
+            selectUserWindow.ShowDialog();
+
         }
         //---------------------------------------------------------------------------
 
@@ -536,6 +538,43 @@ namespace TrainingProgram
         ///////////////////////////////////////////////////////////////////////////////////
         ////////////////////////////////addUserWindowButtonClikc///////////////////////////
         ///////////////////////////////////////////////////////////////////////////////////        
+
+        private void SetCurrentCountTrainingDays ()
+        {
+            int[] trainingDyas = condition.GetCountTrainingDyas(condition.GetLvl(AddTrainingProgram.phCondition));
+            Color color;
+            if (trainingDyas[1] > GetCurretCountDays())
+                color = Color.Green;
+            else if (trainingDyas[1] + 1 == GetCurretCountDays())
+                color = Color.Orange;
+            else
+                color = Color.Black;
+
+            labelCurrentnTrainingDays.ForeColor = color;
+            labelNameCurrentTrainigDays.ForeColor = color;
+            labelCurrentnTrainingDays.Text = GetCurretCountDays().ToString();
+        }
+
+        private int GetCurretCountDays ()
+        {
+            int count = 0;
+            if (listViewMonday.Items.Count != 0)
+                count++;
+            if (listViewTuesday.Items.Count != 0)
+                count++;
+            if (listViewWednesday.Items.Count != 0)
+                count++;
+            if (listViewThursday.Items.Count != 0)
+                count++;
+            if (listViewFriday.Items.Count != 0)
+                count++;
+            if (listViewSaturday.Items.Count != 0)
+                count++;
+            if (listViewSunday.Items.Count != 0)
+                count++;
+            return count;
+        }
+
         public void FillUserBar ()
         {                          
             string[,] sqlResultUser = workWithDataBase.SelectFromDataBase("select * from Users where idUsers =" + SelectUserWindow.idSelectedUser, 1);
@@ -549,11 +588,14 @@ namespace TrainingProgram
             labelDateofBirthUser.Text = sqlResultUser[0, 4];
 
             AddTrainingProgram.pwCondition = condition.GetConditionMan(Convert.ToDouble(sqlSelectDate[countRows - 1, 13]), sqlResultUser[0, 3]);
+            AddTrainingProgram.phCondition = condition.GetConditionMan(Convert.ToDouble(sqlSelectDate[countRows - 1, 12]), sqlResultUser[0, 3]);
 
-            labelcPhc.Text = condition.GetConditionMan(Convert.ToDouble(sqlSelectDate[countRows - 1, 12]), sqlResultUser[0, 3]) + " " + sqlSelectDate[countRows - 1, 12];
+
+            labelcPhc.Text = AddTrainingProgram.phCondition + " " + sqlSelectDate[countRows - 1, 12];
             labelcPwc.Text = AddTrainingProgram.pwCondition + " " + sqlSelectDate[countRows - 1, 13];
 
-         
+
+
             if (countRows >= 2)
             {
                 if (Convert.ToDouble(sqlSelectDate[countRows - 1, 12]) == Convert.ToDouble(sqlSelectDate[countRows - 2, 12]))
@@ -619,6 +661,10 @@ namespace TrainingProgram
                     addTrainingProgram.FillListViewDaysTp(listViewFriday, AddTrainingProgram.daysWeek[4], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
                     addTrainingProgram.FillListViewDaysTp(listViewSaturday, AddTrainingProgram.daysWeek[5], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
                     addTrainingProgram.FillListViewDaysTp(listViewSunday, AddTrainingProgram.daysWeek[6], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
+
+                    int[] trainingDyas = condition.GetCountTrainingDyas(condition.GetLvl(AddTrainingProgram.phCondition));
+                    labelCountTrainingDays.Text = trainingDyas[0] + "-" + trainingDyas[1];
+                    SetCurrentCountTrainingDays();
                 }
 
 
@@ -667,6 +713,8 @@ namespace TrainingProgram
                 workWithTrainigProgram.DeleteExercisesFromTrainigProgram(Convert.ToInt32(listView.SelectedItems[0].Tag));
                 addTrainingProgram.FillListViewDaysTp(listView, AddTrainingProgram.daysWeek[idCurrentDays - 1], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
 
+                if (listView.Items.Count == 0)
+                    SetCurrentCountTrainingDays();
             }
         }
 
@@ -688,6 +736,7 @@ namespace TrainingProgram
             else if (lv == listViewSunday)
                 idCurrentDays = 7; 
 
+
             listViewMonday.BackColor = Color.White;
             listViewTuesday.BackColor = Color.White;
             listViewWednesday.BackColor = Color.White;
@@ -698,6 +747,8 @@ namespace TrainingProgram
 
             currentSelectedListView = (ListView)sender;
             currentSelectedListView.BackColor = Color.FromArgb(210,210,210);
+   
+            
         }
 
         private void textBoxNameTp_TextChanged(object sender, EventArgs e)
@@ -778,14 +829,13 @@ namespace TrainingProgram
                     string[,] sqlSelect = workWithDataBase.SelectFromDataBase("select * from TrainingProgram where idUser = " + SelectUserWindow.idSelectedUser, 1);
                     workWithTrainigProgram.InsertExercisesForTrainigProgram(Convert.ToInt32(sqlSelect[0, 0]), Convert.ToInt32(listViewExercises.SelectedItems[0].Tag), idCurrentDays);
                     addTrainingProgram.FillListViewDaysTp(currentSelectedListView, AddTrainingProgram.daysWeek[idCurrentDays - 1], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
-                    //ListViewItem item = new ListViewItem();
-                    //item.Text = listViewExercises.SelectedItems[0].Text;
-                    //item.ForeColor = listViewExercises.SelectedItems[0].ForeColor;
-                    //currentSelectedListView.Items.Add(item);
+
+                    SetCurrentCountTrainingDays();
                 }
             }
-            //(listViewTrainingProgramm, Convert.ToInt32(listViewUsers.SelectedItems[0].Text));
+            
 
         }
+
     }
 }

@@ -32,6 +32,7 @@ namespace TrainingProgram
         public static string[] daysWeek = { "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье" };
         public int currentDaysWeek = 0;
         public static string pwCondition = null;
+        public static string phCondition = null;
         //ОЛДА 24.04.2019 реФАКторигн дизайна
         public void ButtonNext(Label labelDayWeek)
         {
@@ -161,5 +162,8 @@ namespace TrainingProgram
 
 
         }
+
+
+
     }
 }

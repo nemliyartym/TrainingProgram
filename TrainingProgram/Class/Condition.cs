@@ -21,6 +21,38 @@ namespace TrainingProgram.Class
         private double[] HighMiddleWoman = new double[] { 4.766, 5.765 };
         private double[] HighWoman = new double[] { 5.766, Double.MaxValue };
 
+        public int[] GetCountTrainingDyas (int lvl)
+        {
+            int[] countTrainingDyas = new int[2];
+            if (lvl == 1)
+            {
+                countTrainingDyas[0] = 1;
+                countTrainingDyas[1] = 2;
+            }
+            else if (lvl == 2)
+            {
+                countTrainingDyas[0] = 1;
+                countTrainingDyas[1] = 2;
+            }
+            else if (lvl == 3)
+            {
+                countTrainingDyas[0] = 2;
+                countTrainingDyas[1] = 3;
+            }
+            else if (lvl == 4)
+            {
+                countTrainingDyas[0] = 3;
+                countTrainingDyas[1] = 4;
+            }
+            else if (lvl == 5)
+            {
+                countTrainingDyas[0] = 4;
+                countTrainingDyas[1] = 5;
+            }
+
+
+            return countTrainingDyas;
+        }
 
         public string GetCondition (int lvl)
         {

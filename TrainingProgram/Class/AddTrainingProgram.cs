@@ -159,8 +159,6 @@ namespace TrainingProgram
                 else listViewItem.ForeColor = Color.Red;
                 listView.Items.Add(listViewItem);
             }
-
-
         }
 
 

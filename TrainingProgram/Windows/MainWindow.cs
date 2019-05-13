@@ -113,6 +113,7 @@ namespace TrainingProgram
             buttonAddTrainingProgram.Visible = isVisible;
             buttonAddTpForUser.Visible = isVisible;
             buttonBack.Visible = !isVisible;
+            buttonAddUser.Visible = isVisible;
         }
         private void PageViewingExercises (bool isVisible)
         {
@@ -193,9 +194,6 @@ namespace TrainingProgram
             SelectUserWindow selectUserWindow = new SelectUserWindow(this);
             selectUserWindow.StartPosition = FormStartPosition.CenterParent;
             selectUserWindow.ShowDialog();
-            //AddUserWindow addUserWndow = new AddUserWindow(this);
-            //addUserWndow.StartPosition = FormStartPosition.CenterParent;
-            //addUserWndow.ShowDialog();
         }
 
         private void buttonAddTrainingProgram_Click(object sender, EventArgs e)
@@ -543,12 +541,12 @@ namespace TrainingProgram
         {
             int[] trainingDyas = condition.GetCountTrainingDyas(condition.GetLvl(AddTrainingProgram.phCondition));
             Color color;
-            if (trainingDyas[1] > GetCurretCountDays())
+            if (trainingDyas[1] >= GetCurretCountDays())
                 color = Color.Green;
             else if (trainingDyas[1] + 1 == GetCurretCountDays())
                 color = Color.Orange;
             else
-                color = Color.Black;
+                color = Color.Red;
 
             labelCurrentnTrainingDays.ForeColor = color;
             labelNameCurrentTrainigDays.ForeColor = color;
@@ -837,5 +835,11 @@ namespace TrainingProgram
 
         }
 
+        private void buttonAddUser_Click(object sender, EventArgs e)
+        {
+            AddUserWindow addUserWindow = new AddUserWindow(this);
+            addUserWindow.StartPosition = FormStartPosition.CenterParent;
+            addUserWindow.ShowDialog();
+        }
     }
 }

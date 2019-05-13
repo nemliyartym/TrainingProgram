@@ -30,10 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.buttonSearchMusclesAndExercises = new System.Windows.Forms.Button();
-            this.buttonAddTrainingProgram = new System.Windows.Forms.Button();
             this.treeViewMusclesAndExercises = new System.Windows.Forms.TreeView();
-            this.buttonBack = new System.Windows.Forms.Button();
             this.axWindowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.buttonAddImage = new System.Windows.Forms.Button();
             this.buttonAddVideo = new System.Windows.Forms.Button();
@@ -73,18 +70,13 @@
             this.panelStatistic = new System.Windows.Forms.Panel();
             this.labelStaticName = new System.Windows.Forms.Label();
             this.comboBoxSelectStatistic = new System.Windows.Forms.ComboBox();
-            this.pictureBoxStatistic = new System.Windows.Forms.PictureBox();
             this.buttonShowStatistic = new System.Windows.Forms.Button();
             this.labelCountdownDays = new System.Windows.Forms.Label();
             this.buttonAddControlPoint = new System.Windows.Forms.Button();
             this.labelcPhc = new System.Windows.Forms.Label();
             this.labelcPwc = new System.Windows.Forms.Label();
-            this.pictureBoxcPhc = new System.Windows.Forms.PictureBox();
             this.labelcPhcLabel = new System.Windows.Forms.Label();
-            this.pictureBoxcPwc = new System.Windows.Forms.PictureBox();
             this.labelcPwcLabel = new System.Windows.Forms.Label();
-            this.buttonAddTpForUser = new System.Windows.Forms.Button();
-            this.pictureBoxFromImages = new System.Windows.Forms.PictureBox();
             this.panelUserBar = new System.Windows.Forms.Panel();
             this.panelTrainingProgram = new System.Windows.Forms.Panel();
             this.labelCurrentnTrainingDays = new System.Windows.Forms.Label();
@@ -113,41 +105,30 @@
             this.listViewTuesday = new System.Windows.Forms.ListView();
             this.listViewThursday = new System.Windows.Forms.ListView();
             this.listViewMonday = new System.Windows.Forms.ListView();
+            this.buttonBack = new System.Windows.Forms.Button();
+            this.buttonAddUser = new System.Windows.Forms.Button();
+            this.pictureBoxcPwc = new System.Windows.Forms.PictureBox();
+            this.pictureBoxcPhc = new System.Windows.Forms.PictureBox();
+            this.pictureBoxStatistic = new System.Windows.Forms.PictureBox();
+            this.buttonSearchMusclesAndExercises = new System.Windows.Forms.Button();
+            this.pictureBoxFromImages = new System.Windows.Forms.PictureBox();
+            this.buttonAddTpForUser = new System.Windows.Forms.Button();
+            this.buttonAddTrainingProgram = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.contextMenuStripFromTree.SuspendLayout();
             this.contextMenuStripDelRename.SuspendLayout();
             this.tableLayoutPanelInfAboutUser.SuspendLayout();
             this.panelAddTpForUser.SuspendLayout();
             this.panelStatistic.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
             this.panelUserBar.SuspendLayout();
             this.panelTrainingProgram.SuspendLayout();
             this.panelQuestCreateTP.SuspendLayout();
             this.panelDaysTP.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
             this.SuspendLayout();
-            // 
-            // buttonSearchMusclesAndExercises
-            // 
-            this.buttonSearchMusclesAndExercises.Location = new System.Drawing.Point(131, 93);
-            this.buttonSearchMusclesAndExercises.Name = "buttonSearchMusclesAndExercises";
-            this.buttonSearchMusclesAndExercises.Size = new System.Drawing.Size(161, 231);
-            this.buttonSearchMusclesAndExercises.TabIndex = 0;
-            this.buttonSearchMusclesAndExercises.Text = "buttonSearchExercises";
-            this.buttonSearchMusclesAndExercises.UseVisualStyleBackColor = true;
-            this.buttonSearchMusclesAndExercises.Click += new System.EventHandler(this.buttonSearchExercises_Click);
-            // 
-            // buttonAddTrainingProgram
-            // 
-            this.buttonAddTrainingProgram.Location = new System.Drawing.Point(311, 93);
-            this.buttonAddTrainingProgram.Name = "buttonAddTrainingProgram";
-            this.buttonAddTrainingProgram.Size = new System.Drawing.Size(156, 231);
-            this.buttonAddTrainingProgram.TabIndex = 1;
-            this.buttonAddTrainingProgram.Text = "buttonAddTrainingProgram";
-            this.buttonAddTrainingProgram.UseVisualStyleBackColor = true;
-            this.buttonAddTrainingProgram.Click += new System.EventHandler(this.buttonAddTrainingProgram_Click);
             // 
             // treeViewMusclesAndExercises
             // 
@@ -160,17 +141,6 @@
             this.treeViewMusclesAndExercises.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeViewMusclesAndExercises_BeforeLabelEdit);
             this.treeViewMusclesAndExercises.AfterLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeViewMusclesAndExercises_AfterLabelEdit);
             this.treeViewMusclesAndExercises.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeViewMusclesAndExercises_NodeMouseClick);
-            // 
-            // buttonBack
-            // 
-            this.buttonBack.Location = new System.Drawing.Point(131, 9);
-            this.buttonBack.Name = "buttonBack";
-            this.buttonBack.Size = new System.Drawing.Size(67, 26);
-            this.buttonBack.TabIndex = 3;
-            this.buttonBack.Text = "buttonBack";
-            this.buttonBack.UseVisualStyleBackColor = true;
-            this.buttonBack.Visible = false;
-            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
             // axWindowsMediaPlayer
             // 
@@ -433,7 +403,7 @@
             // 
             this.labelSecondName.AutoSize = true;
             this.labelSecondName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelSecondName.Location = new System.Drawing.Point(3, 30);
+            this.labelSecondName.Location = new System.Drawing.Point(3, 25);
             this.labelSecondName.Name = "labelSecondName";
             this.labelSecondName.Size = new System.Drawing.Size(85, 20);
             this.labelSecondName.TabIndex = 30;
@@ -443,7 +413,7 @@
             // 
             this.labelGender.AutoSize = true;
             this.labelGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelGender.Location = new System.Drawing.Point(3, 60);
+            this.labelGender.Location = new System.Drawing.Point(3, 50);
             this.labelGender.Name = "labelGender";
             this.labelGender.Size = new System.Drawing.Size(44, 20);
             this.labelGender.TabIndex = 31;
@@ -453,9 +423,9 @@
             // 
             this.labelDateofBirth.AutoSize = true;
             this.labelDateofBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDateofBirth.Location = new System.Drawing.Point(3, 90);
+            this.labelDateofBirth.Location = new System.Drawing.Point(3, 75);
             this.labelDateofBirth.Name = "labelDateofBirth";
-            this.labelDateofBirth.Size = new System.Drawing.Size(89, 30);
+            this.labelDateofBirth.Size = new System.Drawing.Size(89, 25);
             this.labelDateofBirth.TabIndex = 32;
             this.labelDateofBirth.Text = "Дата рождения:";
             // 
@@ -472,13 +442,14 @@
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelNameUser, 1, 0);
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelDateofBirth, 0, 3);
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelGenderUser, 1, 2);
-            this.tableLayoutPanelInfAboutUser.Location = new System.Drawing.Point(19, 2);
+            this.tableLayoutPanelInfAboutUser.Location = new System.Drawing.Point(69, 0);
             this.tableLayoutPanelInfAboutUser.Name = "tableLayoutPanelInfAboutUser";
-            this.tableLayoutPanelInfAboutUser.RowCount = 4;
+            this.tableLayoutPanelInfAboutUser.RowCount = 5;
             this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanelInfAboutUser.Size = new System.Drawing.Size(224, 120);
             this.tableLayoutPanelInfAboutUser.TabIndex = 33;
             // 
@@ -486,7 +457,7 @@
             // 
             this.labelDateofBirthUser.AutoSize = true;
             this.labelDateofBirthUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDateofBirthUser.Location = new System.Drawing.Point(115, 90);
+            this.labelDateofBirthUser.Location = new System.Drawing.Point(115, 75);
             this.labelDateofBirthUser.Name = "labelDateofBirthUser";
             this.labelDateofBirthUser.Size = new System.Drawing.Size(0, 20);
             this.labelDateofBirthUser.TabIndex = 36;
@@ -495,7 +466,7 @@
             // 
             this.labelSecondNameUser.AutoSize = true;
             this.labelSecondNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelSecondNameUser.Location = new System.Drawing.Point(115, 30);
+            this.labelSecondNameUser.Location = new System.Drawing.Point(115, 25);
             this.labelSecondNameUser.Name = "labelSecondNameUser";
             this.labelSecondNameUser.Size = new System.Drawing.Size(0, 20);
             this.labelSecondNameUser.TabIndex = 34;
@@ -513,7 +484,7 @@
             // 
             this.labelGenderUser.AutoSize = true;
             this.labelGenderUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelGenderUser.Location = new System.Drawing.Point(115, 60);
+            this.labelGenderUser.Location = new System.Drawing.Point(115, 50);
             this.labelGenderUser.Name = "labelGenderUser";
             this.labelGenderUser.Size = new System.Drawing.Size(0, 20);
             this.labelGenderUser.TabIndex = 35;
@@ -559,15 +530,6 @@
             this.comboBoxSelectStatistic.TabIndex = 36;
             this.comboBoxSelectStatistic.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelectStatistic_SelectedIndexChanged);
             // 
-            // pictureBoxStatistic
-            // 
-            this.pictureBoxStatistic.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBoxStatistic.Location = new System.Drawing.Point(7, 26);
-            this.pictureBoxStatistic.Name = "pictureBoxStatistic";
-            this.pictureBoxStatistic.Size = new System.Drawing.Size(819, 219);
-            this.pictureBoxStatistic.TabIndex = 34;
-            this.pictureBoxStatistic.TabStop = false;
-            // 
             // buttonShowStatistic
             // 
             this.buttonShowStatistic.Location = new System.Drawing.Point(0, 29);
@@ -610,21 +572,11 @@
             // 
             this.labelcPwc.AutoSize = true;
             this.labelcPwc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelcPwc.Location = new System.Drawing.Point(280, 30);
+            this.labelcPwc.Location = new System.Drawing.Point(299, 32);
             this.labelcPwc.Name = "labelcPwc";
             this.labelcPwc.Size = new System.Drawing.Size(112, 17);
             this.labelcPwc.TabIndex = 46;
             this.labelcPwc.Text = "результат силы";
-            // 
-            // pictureBoxcPhc
-            // 
-            this.pictureBoxcPhc.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxcPhc.Image")));
-            this.pictureBoxcPhc.Location = new System.Drawing.Point(672, 11);
-            this.pictureBoxcPhc.Name = "pictureBoxcPhc";
-            this.pictureBoxcPhc.Size = new System.Drawing.Size(38, 36);
-            this.pictureBoxcPhc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxcPhc.TabIndex = 45;
-            this.pictureBoxcPhc.TabStop = false;
             // 
             // labelcPhcLabel
             // 
@@ -636,47 +588,15 @@
             this.labelcPhcLabel.TabIndex = 39;
             this.labelcPhcLabel.Text = "Физическое состояние";
             // 
-            // pictureBoxcPwc
-            // 
-            this.pictureBoxcPwc.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxcPwc.Image")));
-            this.pictureBoxcPwc.Location = new System.Drawing.Point(433, 13);
-            this.pictureBoxcPwc.Name = "pictureBoxcPwc";
-            this.pictureBoxcPwc.Size = new System.Drawing.Size(41, 36);
-            this.pictureBoxcPwc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxcPwc.TabIndex = 41;
-            this.pictureBoxcPwc.TabStop = false;
-            // 
             // labelcPwcLabel
             // 
             this.labelcPwcLabel.AutoSize = true;
             this.labelcPwcLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelcPwcLabel.Location = new System.Drawing.Point(280, 11);
+            this.labelcPwcLabel.Location = new System.Drawing.Point(299, 11);
             this.labelcPwcLabel.Name = "labelcPwcLabel";
             this.labelcPwcLabel.Size = new System.Drawing.Size(147, 17);
             this.labelcPwcLabel.TabIndex = 38;
             this.labelcPwcLabel.Text = "Силовые показатели";
-            // 
-            // buttonAddTpForUser
-            // 
-            this.buttonAddTpForUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonAddTpForUser.BackgroundImage")));
-            this.buttonAddTpForUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonAddTpForUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonAddTpForUser.Location = new System.Drawing.Point(491, 93);
-            this.buttonAddTpForUser.Name = "buttonAddTpForUser";
-            this.buttonAddTpForUser.Size = new System.Drawing.Size(160, 231);
-            this.buttonAddTpForUser.TabIndex = 6;
-            this.buttonAddTpForUser.UseVisualStyleBackColor = true;
-            this.buttonAddTpForUser.Click += new System.EventHandler(this.buttonAddTpForUser_Click);
-            // 
-            // pictureBoxFromImages
-            // 
-            this.pictureBoxFromImages.Location = new System.Drawing.Point(421, 121);
-            this.pictureBoxFromImages.Name = "pictureBoxFromImages";
-            this.pictureBoxFromImages.Size = new System.Drawing.Size(218, 203);
-            this.pictureBoxFromImages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxFromImages.TabIndex = 4;
-            this.pictureBoxFromImages.TabStop = false;
-            this.pictureBoxFromImages.Visible = false;
             // 
             // panelUserBar
             // 
@@ -996,18 +916,118 @@
             this.listViewMonday.UseCompatibleStateImageBehavior = false;
             this.listViewMonday.View = System.Windows.Forms.View.List;
             // 
+            // buttonBack
+            // 
+            this.buttonBack.BackgroundImage = global::TrainingProgram.Properties.Resources.home;
+            this.buttonBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonBack.Location = new System.Drawing.Point(0, 0);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(67, 64);
+            this.buttonBack.TabIndex = 3;
+            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.Visible = false;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
+            // 
+            // buttonAddUser
+            // 
+            this.buttonAddUser.BackgroundImage = global::TrainingProgram.Properties.Resources.add_users;
+            this.buttonAddUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonAddUser.Location = new System.Drawing.Point(751, 3);
+            this.buttonAddUser.Name = "buttonAddUser";
+            this.buttonAddUser.Size = new System.Drawing.Size(120, 64);
+            this.buttonAddUser.TabIndex = 37;
+            this.buttonAddUser.UseVisualStyleBackColor = true;
+            this.buttonAddUser.Click += new System.EventHandler(this.buttonAddUser_Click);
+            // 
+            // pictureBoxcPwc
+            // 
+            this.pictureBoxcPwc.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxcPwc.Image")));
+            this.pictureBoxcPwc.Location = new System.Drawing.Point(452, 12);
+            this.pictureBoxcPwc.Name = "pictureBoxcPwc";
+            this.pictureBoxcPwc.Size = new System.Drawing.Size(41, 36);
+            this.pictureBoxcPwc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxcPwc.TabIndex = 41;
+            this.pictureBoxcPwc.TabStop = false;
+            // 
+            // pictureBoxcPhc
+            // 
+            this.pictureBoxcPhc.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxcPhc.Image")));
+            this.pictureBoxcPhc.Location = new System.Drawing.Point(672, 11);
+            this.pictureBoxcPhc.Name = "pictureBoxcPhc";
+            this.pictureBoxcPhc.Size = new System.Drawing.Size(38, 36);
+            this.pictureBoxcPhc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxcPhc.TabIndex = 45;
+            this.pictureBoxcPhc.TabStop = false;
+            // 
+            // pictureBoxStatistic
+            // 
+            this.pictureBoxStatistic.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureBoxStatistic.Location = new System.Drawing.Point(7, 26);
+            this.pictureBoxStatistic.Name = "pictureBoxStatistic";
+            this.pictureBoxStatistic.Size = new System.Drawing.Size(819, 219);
+            this.pictureBoxStatistic.TabIndex = 34;
+            this.pictureBoxStatistic.TabStop = false;
+            // 
+            // buttonSearchMusclesAndExercises
+            // 
+            this.buttonSearchMusclesAndExercises.BackgroundImage = global::TrainingProgram.Properties.Resources.programm_training;
+            this.buttonSearchMusclesAndExercises.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonSearchMusclesAndExercises.Location = new System.Drawing.Point(162, 140);
+            this.buttonSearchMusclesAndExercises.Name = "buttonSearchMusclesAndExercises";
+            this.buttonSearchMusclesAndExercises.Size = new System.Drawing.Size(161, 231);
+            this.buttonSearchMusclesAndExercises.TabIndex = 0;
+            this.buttonSearchMusclesAndExercises.UseVisualStyleBackColor = true;
+            this.buttonSearchMusclesAndExercises.Click += new System.EventHandler(this.buttonSearchExercises_Click);
+            // 
+            // pictureBoxFromImages
+            // 
+            this.pictureBoxFromImages.Location = new System.Drawing.Point(421, 121);
+            this.pictureBoxFromImages.Name = "pictureBoxFromImages";
+            this.pictureBoxFromImages.Size = new System.Drawing.Size(218, 203);
+            this.pictureBoxFromImages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxFromImages.TabIndex = 4;
+            this.pictureBoxFromImages.TabStop = false;
+            this.pictureBoxFromImages.Visible = false;
+            // 
+            // buttonAddTpForUser
+            // 
+            this.buttonAddTpForUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonAddTpForUser.BackgroundImage")));
+            this.buttonAddTpForUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonAddTpForUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonAddTpForUser.Location = new System.Drawing.Point(558, 140);
+            this.buttonAddTpForUser.Name = "buttonAddTpForUser";
+            this.buttonAddTpForUser.Size = new System.Drawing.Size(160, 231);
+            this.buttonAddTpForUser.TabIndex = 6;
+            this.buttonAddTpForUser.UseVisualStyleBackColor = true;
+            this.buttonAddTpForUser.Click += new System.EventHandler(this.buttonAddTpForUser_Click);
+            // 
+            // buttonAddTrainingProgram
+            // 
+            this.buttonAddTrainingProgram.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonAddTrainingProgram.BackgroundImage")));
+            this.buttonAddTrainingProgram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonAddTrainingProgram.Location = new System.Drawing.Point(359, 140);
+            this.buttonAddTrainingProgram.Name = "buttonAddTrainingProgram";
+            this.buttonAddTrainingProgram.Size = new System.Drawing.Size(156, 231);
+            this.buttonAddTrainingProgram.TabIndex = 1;
+            this.buttonAddTrainingProgram.UseVisualStyleBackColor = true;
+            this.buttonAddTrainingProgram.Click += new System.EventHandler(this.buttonAddTrainingProgram_Click);
+            // 
             // MainWindow
             // 
             this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(883, 529);
+            this.Controls.Add(this.buttonSearchMusclesAndExercises);
+            this.Controls.Add(this.buttonAddTrainingProgram);
+            this.Controls.Add(this.buttonAddTpForUser);
+            this.Controls.Add(this.buttonBack);
+            this.Controls.Add(this.buttonAddUser);
             this.Controls.Add(this.panelTrainingProgram);
             this.Controls.Add(this.panelUserBar);
             this.Controls.Add(this.panelAddTpForUser);
             this.Controls.Add(this.buttonAddNewUser);
             this.Controls.Add(this.label);
             this.Controls.Add(this.checkBoxDescription);
-            this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonPrev);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.labelDayWeek);
@@ -1016,15 +1036,12 @@
             this.Controls.Add(this.buttonSaveDescription);
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.labelHeadExercises);
-            this.Controls.Add(this.buttonSearchMusclesAndExercises);
             this.Controls.Add(this.treeViewMusclesAndExercises);
             this.Controls.Add(this.axWindowsMediaPlayer);
             this.Controls.Add(this.buttonAddVideo);
             this.Controls.Add(this.buttonAddImage);
             this.Controls.Add(this.richTextBoxDescriptionExercises);
             this.Controls.Add(this.pictureBoxFromImages);
-            this.Controls.Add(this.buttonAddTpForUser);
-            this.Controls.Add(this.buttonAddTrainingProgram);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "MainWindow";
             this.Load += new System.EventHandler(this.MainWindow_Load);
@@ -1037,10 +1054,6 @@
             this.panelAddTpForUser.PerformLayout();
             this.panelStatistic.ResumeLayout(false);
             this.panelStatistic.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).EndInit();
             this.panelUserBar.ResumeLayout(false);
             this.panelUserBar.PerformLayout();
             this.panelTrainingProgram.ResumeLayout(false);
@@ -1049,6 +1062,10 @@
             this.panelQuestCreateTP.PerformLayout();
             this.panelDaysTP.ResumeLayout(false);
             this.panelDaysTP.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1140,6 +1157,7 @@
         private System.Windows.Forms.Label labelCurrentnTrainingDays;
         private System.Windows.Forms.Label labelNameCurrentTrainigDays;
         private System.Windows.Forms.Label labelNameTrainingDays;
+        private System.Windows.Forms.Button buttonAddUser;
     }
 }
 

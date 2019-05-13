@@ -70,18 +70,6 @@ namespace TrainingProgram
             return result;
         }
 
-        public void UpdateDescriptionExercises (string newDescription, int id)
-        {           
-            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
-            {
-                sqlConnection.Open();
-                SqlCommand sqlCommand = new SqlCommand("update Exercises set description = @description where idExercises = " + id, sqlConnection);
-
-                sqlCommand.Parameters.Add("@description", SqlDbType.NVarChar, 2000).Value = newDescription;
-                //sqlCommand.Parameters["@description"].Value = newDescription;
-                sqlCommand.ExecuteNonQuery();
-            }
-        }
 
         public int SelectExists(string sqlSelect)
         {
@@ -112,6 +100,18 @@ namespace TrainingProgram
             }
         }
 
+        public void UpdateDescriptionExercises(string newDescription, int id)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("update Exercises set description = @description where idExercises = " + id, sqlConnection);
+
+                sqlCommand.Parameters.Add("@description", SqlDbType.NVarChar, 2000).Value = newDescription;
+                //sqlCommand.Parameters["@description"].Value = newDescription;
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
     }
 
     class WorkWithUsers : WorkWithDataBase

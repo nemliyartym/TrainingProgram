@@ -39,8 +39,6 @@
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.labeldate = new System.Windows.Forms.Label();
             this.comboBoxGender = new System.Windows.Forms.ComboBox();
-            this.pictureBoxSecond = new System.Windows.Forms.PictureBox();
-            this.pictureBoxFirst = new System.Windows.Forms.PictureBox();
             this.buttonPrev = new System.Windows.Forms.Button();
             this.buttonNext = new System.Windows.Forms.Button();
             this.textBoxPressureUp = new System.Windows.Forms.TextBox();
@@ -53,6 +51,8 @@
             this.textBoxSquts = new System.Windows.Forms.TextBox();
             this.textBoxRun100 = new System.Windows.Forms.TextBox();
             this.textBoxPress = new System.Windows.Forms.TextBox();
+            this.pictureBoxSecond = new System.Windows.Forms.PictureBox();
+            this.pictureBoxFirst = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanelAddInfUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSecond)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFirst)).BeginInit();
@@ -94,7 +94,6 @@
             this.listViewUser.TabIndex = 11;
             this.listViewUser.UseCompatibleStateImageBehavior = false;
             this.listViewUser.View = System.Windows.Forms.View.SmallIcon;
-            this.listViewUser.DoubleClick += new System.EventHandler(this.listViewUser_DoubleClick);
             // 
             // labelListUser
             // 
@@ -174,24 +173,6 @@
             this.comboBoxGender.Size = new System.Drawing.Size(99, 21);
             this.comboBoxGender.TabIndex = 8;
             // 
-            // pictureBoxSecond
-            // 
-            this.pictureBoxSecond.Location = new System.Drawing.Point(220, 64);
-            this.pictureBoxSecond.Name = "pictureBoxSecond";
-            this.pictureBoxSecond.Size = new System.Drawing.Size(140, 140);
-            this.pictureBoxSecond.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxSecond.TabIndex = 15;
-            this.pictureBoxSecond.TabStop = false;
-            // 
-            // pictureBoxFirst
-            // 
-            this.pictureBoxFirst.Location = new System.Drawing.Point(28, 19);
-            this.pictureBoxFirst.Name = "pictureBoxFirst";
-            this.pictureBoxFirst.Size = new System.Drawing.Size(140, 140);
-            this.pictureBoxFirst.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxFirst.TabIndex = 14;
-            this.pictureBoxFirst.TabStop = false;
-            // 
             // buttonPrev
             // 
             this.buttonPrev.Location = new System.Drawing.Point(12, 212);
@@ -209,7 +190,7 @@
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(143, 23);
             this.buttonNext.TabIndex = 17;
-            this.buttonNext.Text = "Добавить пользователя";
+            this.buttonNext.Text = "Дальше";
             this.buttonNext.UseVisualStyleBackColor = true;
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
@@ -293,6 +274,24 @@
             this.textBoxPress.TabIndex = 27;
             this.textBoxPress.Tag = "Press";
             // 
+            // pictureBoxSecond
+            // 
+            this.pictureBoxSecond.Location = new System.Drawing.Point(220, 64);
+            this.pictureBoxSecond.Name = "pictureBoxSecond";
+            this.pictureBoxSecond.Size = new System.Drawing.Size(140, 140);
+            this.pictureBoxSecond.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxSecond.TabIndex = 15;
+            this.pictureBoxSecond.TabStop = false;
+            // 
+            // pictureBoxFirst
+            // 
+            this.pictureBoxFirst.Location = new System.Drawing.Point(28, 19);
+            this.pictureBoxFirst.Name = "pictureBoxFirst";
+            this.pictureBoxFirst.Size = new System.Drawing.Size(140, 140);
+            this.pictureBoxFirst.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxFirst.TabIndex = 14;
+            this.pictureBoxFirst.TabStop = false;
+            // 
             // AddUserWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -315,6 +314,7 @@
             this.Controls.Add(this.tableLayoutPanelAddInfUser);
             this.Controls.Add(this.labelListUser);
             this.Controls.Add(this.listViewUser);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "AddUserWindow";
             this.Text = "AddUserWindow";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AddUserWindow_FormClosing);

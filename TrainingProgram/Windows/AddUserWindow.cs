@@ -61,7 +61,7 @@ namespace TrainingProgram.Windows
             textBoxSquts.Enter += TextBox_MouseEnter;
             textBoxPress.Enter += TextBox_MouseEnter;
 
-            workWithWidget.SetWatemarkTextBox(textBoxPuls, "Введите пульс");
+            //workWithWidget.SetWatemarkTextBox(textBoxPuls, "Введите пульс");
 
             PageAddUser(true);
             addTpForUser.FilllistViewUsers(listViewUser);
@@ -258,9 +258,11 @@ namespace TrainingProgram.Windows
             else if (currentPageAddUserWindow == CurrentPageAddUserWindow.pageSquatsRun100)
             {
                 PagePress(true);
+                buttonNext.Text = "Добавить пользователя";
             }
             else if (currentPageAddUserWindow == CurrentPageAddUserWindow.pagePress)
             {
+
                 workWithUsers.InsertUser(textBoxName.Text,
                                             textBoxSecondName.Text,
                                             comboBoxGender.Text,
@@ -342,19 +344,7 @@ namespace TrainingProgram.Windows
                 buttonNext.Enabled = true;
             else buttonNext.Enabled = false;
         }
-
-      
-        private void listViewUser_DoubleClick(object sender, EventArgs e)
-        {
-            if (listViewUser.SelectedItems.Count > 0)
-            {
-                idSelectedUser = Convert.ToInt32(listViewUser.SelectedItems[0].Tag);
-
-                mainWindow.FillUserBar();
-                isSelected = true;     
-                this.Close();
-            }
-        }
+    
 
         private void AddUserWindow_FormClosing(object sender, FormClosingEventArgs e)
         {

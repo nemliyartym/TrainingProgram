@@ -225,7 +225,7 @@ namespace TrainingProgram
                 curretnNode = e;
                 if (e.Node.Parent != null)
                 {
-                  // contextMenuStripFromTree.Show(treeViewMusclesAndExercises, e.Location);
+                   contextMenuStripFromTree.Show(treeViewMusclesAndExercises, e.Location);
                 }
             }
         }
@@ -446,7 +446,7 @@ namespace TrainingProgram
 
         private void удалитьToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show(curretnNode.Node.Tag.ToString() + " " + curretnNode.Node.Parent.Tag.ToString());
         }
 
         private void treeViewMusclesAndExercises_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
@@ -887,7 +887,7 @@ namespace TrainingProgram
 
         private void buttonAddExercises_Click(object sender, EventArgs e)
         {
-            AddExercisesWindow addExercisesWindow = new AddExercisesWindow();
+            AddExercisesWindow addExercisesWindow = new AddExercisesWindow(this);
             addExercisesWindow.StartPosition = FormStartPosition.CenterParent;
             addExercisesWindow.ShowDialog();
         }

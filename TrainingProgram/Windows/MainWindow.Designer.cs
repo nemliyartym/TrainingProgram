@@ -39,7 +39,6 @@
             this.labelDescription = new System.Windows.Forms.Label();
             this.buttonSaveDescription = new System.Windows.Forms.Button();
             this.contextMenuStripFromTree = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.переименоватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listViewUsers = new System.Windows.Forms.ListView();
             this.Number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -136,6 +135,7 @@
             this.listViewPatternsTP = new System.Windows.Forms.ListView();
             this.labelnameProgram = new System.Windows.Forms.Label();
             this.panelHeadExercises = new System.Windows.Forms.Panel();
+            this.buttonAddExercises = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.panelIcon = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
@@ -148,7 +148,6 @@
             this.buttonAddTpForUser = new System.Windows.Forms.Button();
             this.buttonAddUser = new System.Windows.Forms.Button();
             this.buttonDelUser = new System.Windows.Forms.Button();
-            this.buttonAddExercises = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.contextMenuStripFromTree.SuspendLayout();
             this.contextMenuStripDelRename.SuspendLayout();
@@ -209,7 +208,7 @@
             this.buttonAddImage.Name = "buttonAddImage";
             this.buttonAddImage.Size = new System.Drawing.Size(131, 23);
             this.buttonAddImage.TabIndex = 7;
-            this.buttonAddImage.Text = "Доавить картинку";
+            this.buttonAddImage.Text = "Добавить картинку";
             this.buttonAddImage.UseVisualStyleBackColor = false;
             this.buttonAddImage.Visible = false;
             this.buttonAddImage.Click += new System.EventHandler(this.buttonAddImage_Click);
@@ -282,22 +281,14 @@
             // 
             this.contextMenuStripFromTree.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStripFromTree.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.переименоватьToolStripMenuItem,
             this.удалитьToolStripMenuItem1});
             this.contextMenuStripFromTree.Name = "contextMenuStripFromTree";
-            this.contextMenuStripFromTree.Size = new System.Drawing.Size(127, 48);
-            // 
-            // переименоватьToolStripMenuItem
-            // 
-            this.переименоватьToolStripMenuItem.Name = "переименоватьToolStripMenuItem";
-            this.переименоватьToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.переименоватьToolStripMenuItem.Text = "Добавить";
-            this.переименоватьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
+            this.contextMenuStripFromTree.Size = new System.Drawing.Size(153, 48);
             // 
             // удалитьToolStripMenuItem1
             // 
             this.удалитьToolStripMenuItem1.Name = "удалитьToolStripMenuItem1";
-            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
+            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.удалитьToolStripMenuItem1.Text = "Удалить";
             this.удалитьToolStripMenuItem1.Click += new System.EventHandler(this.удалитьToolStripMenuItem1_Click);
             // 
@@ -501,7 +492,7 @@
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelNameUser, 1, 0);
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelDateofBirth, 0, 3);
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelGenderUser, 1, 2);
-            this.tableLayoutPanelInfAboutUser.Location = new System.Drawing.Point(59, 3);
+            this.tableLayoutPanelInfAboutUser.Location = new System.Drawing.Point(72, 3);
             this.tableLayoutPanelInfAboutUser.Name = "tableLayoutPanelInfAboutUser";
             this.tableLayoutPanelInfAboutUser.RowCount = 4;
             this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -1367,12 +1358,26 @@
             this.panelHeadExercises.TabIndex = 41;
             this.panelHeadExercises.Visible = false;
             // 
+            // buttonAddExercises
+            // 
+            this.buttonAddExercises.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonAddExercises.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddExercises.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddExercises.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.buttonAddExercises.Location = new System.Drawing.Point(7, 12);
+            this.buttonAddExercises.Name = "buttonAddExercises";
+            this.buttonAddExercises.Size = new System.Drawing.Size(145, 43);
+            this.buttonAddExercises.TabIndex = 53;
+            this.buttonAddExercises.Text = "Добавить урпажнения";
+            this.buttonAddExercises.UseVisualStyleBackColor = false;
+            this.buttonAddExercises.Click += new System.EventHandler(this.buttonAddExercises_Click);
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Matura MT Script Capitals", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.label12.Location = new System.Drawing.Point(157, 12);
+            this.label12.Location = new System.Drawing.Point(216, 13);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(367, 39);
             this.label12.TabIndex = 40;
@@ -1415,7 +1420,7 @@
             this.buttonBack.BackgroundImage = global::TrainingProgram.Properties.Resources.home;
             this.buttonBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBack.Location = new System.Drawing.Point(0, 0);
+            this.buttonBack.Location = new System.Drawing.Point(11, 3);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(67, 64);
             this.buttonBack.TabIndex = 3;
@@ -1509,29 +1514,16 @@
             this.buttonDelUser.UseVisualStyleBackColor = false;
             this.buttonDelUser.Click += new System.EventHandler(this.buttonDelUser_Click);
             // 
-            // buttonAddExercises
-            // 
-            this.buttonAddExercises.BackColor = System.Drawing.Color.LightBlue;
-            this.buttonAddExercises.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddExercises.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAddExercises.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.buttonAddExercises.Location = new System.Drawing.Point(7, 12);
-            this.buttonAddExercises.Name = "buttonAddExercises";
-            this.buttonAddExercises.Size = new System.Drawing.Size(145, 43);
-            this.buttonAddExercises.TabIndex = 53;
-            this.buttonAddExercises.Text = "Добавить урпажнения";
-            this.buttonAddExercises.UseVisualStyleBackColor = false;
-            this.buttonAddExercises.Click += new System.EventHandler(this.buttonAddExercises_Click);
-            // 
             // MainWindow
             // 
             this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(883, 529);
+            this.Controls.Add(this.buttonBack);
+            this.Controls.Add(this.panelUserBar);
             this.Controls.Add(this.panelIcon);
             this.Controls.Add(this.panelHeadExercises);
-            this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.pictureBoxIcon);
             this.Controls.Add(this.labelnameProgram);
             this.Controls.Add(this.label);
@@ -1554,7 +1546,6 @@
             this.Controls.Add(this.buttonAddUser);
             this.Controls.Add(this.buttonDelUser);
             this.Controls.Add(this.axWindowsMediaPlayer);
-            this.Controls.Add(this.panelUserBar);
             this.Controls.Add(this.listViewTrainingProgramm);
             this.Controls.Add(this.buttonAddNewUser);
             this.Controls.Add(this.treeViewMusclesAndExercises);
@@ -1608,7 +1599,7 @@
 
         private System.Windows.Forms.Button buttonSearchMusclesAndExercises;
         private System.Windows.Forms.Button buttonAddTrainingProgram;
-        private System.Windows.Forms.TreeView treeViewMusclesAndExercises;
+        public System.Windows.Forms.TreeView treeViewMusclesAndExercises;
         private System.Windows.Forms.Button buttonBack;
         private System.Windows.Forms.PictureBox pictureBoxFromImages;
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer;
@@ -1620,7 +1611,6 @@
         private System.Windows.Forms.Label labelDescription;
         private System.Windows.Forms.Button buttonSaveDescription;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripFromTree;
-        private System.Windows.Forms.ToolStripMenuItem переименоватьToolStripMenuItem;
         private System.Windows.Forms.ColumnHeader FirstName;
         private System.Windows.Forms.ColumnHeader LastName;
         private System.Windows.Forms.ColumnHeader Number;

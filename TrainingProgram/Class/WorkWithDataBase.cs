@@ -216,4 +216,36 @@ namespace TrainingProgram
             }
         }
     }
+
+
+    class WorkWithExercises : WorkWithDataBase
+    {
+        public void InserExercises (string nameExercises, int lvlDifficulty)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("insert into Exercises values(@exercises,@description,@coefficient,@lvlDifficulty)", sqlConnection);
+
+                sqlCommand.Parameters.Add("@exercises", SqlDbType.NVarChar, 2000).Value = nameExercises;
+                sqlCommand.Parameters.Add("@description", SqlDbType.NVarChar, 2000).Value = DBNull.Value;
+                sqlCommand.Parameters.Add("@coefficient", SqlDbType.Int, int.MaxValue).Value = DBNull.Value;
+                sqlCommand.Parameters.Add("@lvlDifficulty", SqlDbType.Int, int.MaxValue).Value = lvlDifficulty;
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
+
+        public void InserExercisesandMuscles(int idMuscles, int idExrcises)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("insert into MusclesAndExercises values(@idExercises,@idMuscles)", sqlConnection);
+
+                sqlCommand.Parameters.Add("@idExercises", SqlDbType.Int, int.MaxValue).Value = idMuscles;
+                sqlCommand.Parameters.Add("@idMuscles", SqlDbType.Int, int.MaxValue).Value = idExrcises;
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
+    }
 }

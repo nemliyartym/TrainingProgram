@@ -446,8 +446,20 @@ namespace TrainingProgram
 
         private void удалитьToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(curretnNode.Node.Tag.ToString() + " " + curretnNode.Node.Parent.Tag.ToString());
-        }
+            ////MessageBox.Show(curretnNode.Node.Tag.ToString() + " " + curretnNode.Node.Parent.Tag.ToString());
+            WorkWithExercises workWithExercises = new WorkWithExercises();
+            TreeNode oldNode = curretnNode.Node;
+            workWithExercises.DelExercisesAndMuscles(Convert.ToInt32(curretnNode.Node.Parent.Tag), Convert.ToInt16(curretnNode.Node.Tag));
+            WorkWithTree workWithTree = new WorkWithTree(treeViewMusclesAndExercises);
+            workWithTree.FillTree();
+
+           foreach(TreeNode node in treeViewMusclesAndExercises.Nodes)
+            {
+                if (node.Text == oldNode.Text)
+                    node.Expand();
+            }
+                      
+        } 
 
         private void treeViewMusclesAndExercises_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
         {

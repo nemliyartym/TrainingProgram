@@ -247,5 +247,15 @@ namespace TrainingProgram
                 sqlCommand.ExecuteNonQuery();
             }
         }
+
+        public void DelExercisesAndMuscles(int idMuscles, int idExrcises)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("delete from MusclesAndExercises where idMuscles =" + idMuscles + " and idExercises =" + idExrcises, sqlConnection);
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
     }
 }

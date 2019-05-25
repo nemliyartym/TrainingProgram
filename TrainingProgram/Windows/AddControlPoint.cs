@@ -32,7 +32,7 @@ namespace TrainingProgram.Windows
 
         private void buttonAddStatisticUser_Click(object sender, EventArgs e)
         {
-            string[,] sqlSelect = workWithDataBase.SelectFromDataBase("select dateOfBirth from Users where idUsers=" + AddUserWindow.idSelectedUser, 1);
+            string[,] sqlSelect = workWithDataBase.SelectFromDataBase("select dateOfBirth from Users where idUsers=" + SelectUserWindow.idSelectedUser, 1);
             int age = Convert.ToInt32(DateTime.Now.Year - Convert.ToDateTime(sqlSelect[0,0]).Year);
 
             double CPwC = calculation.CalculationPowerCondition(int.Parse(textBoxPushUps.Text),
@@ -48,7 +48,7 @@ namespace TrainingProgram.Windows
                                                             int.Parse(textBoxWeight.Text),
                                                             int.Parse(textBoxPuls.Text));
 
-            workWithUsers.InsertStatisticsUser(AddUserWindow.idSelectedUser,
+            workWithUsers.InsertStatisticsUser(SelectUserWindow.idSelectedUser,
                                                            int.Parse(textBoxPuls.Text),
                                                            int.Parse(textBoxPressureUp.Text),
                                                            int.Parse(textBoxPressureDown.Text),

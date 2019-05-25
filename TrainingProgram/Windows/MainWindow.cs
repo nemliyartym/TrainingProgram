@@ -25,6 +25,8 @@ namespace TrainingProgram
         private int id = 0;
         private TreeNode treeNode = new TreeNode();
 
+        private TreeNodeMouseClickEventArgs curretnNode;
+
         private ListView currentSelectedListView;
 
 
@@ -60,7 +62,6 @@ namespace TrainingProgram
 
             WorkWithTree workWithTree = new WorkWithTree(treeViewMusclesAndExercises);
             workWithTree.FillTree();
-
             treeViewMusclesAndExercises.BeforeSelect += TreeViewMusclesAndExercises_BeforeSelect;
 
             //axWindowsMediaPlayer.URL = @"C:\Users\79374\Desktop\imagesFromDB\video\Lesha Svik - Sterva (Premera treka 2019) (MosCatalogue.net).mkv";
@@ -115,16 +116,23 @@ namespace TrainingProgram
             buttonBack.Visible = !isVisible;
             buttonAddUser.Visible = isVisible;
             buttonDelUser.Visible = isVisible;
+            labelnameProgram.Visible = isVisible;
+            pictureBoxIcon.Visible = isVisible;
         }
         private void PageViewingExercises (bool isVisible)
         {
             treeViewMusclesAndExercises.Visible = isVisible;
             buttonBack.Visible = isVisible;
+            panelIcon.Visible = isVisible;
+            panelHeadExercises.Visible = isVisible;
+            WorkWithTree workWithTree = new WorkWithTree(treeViewMusclesAndExercises);
+            workWithTree.FillTree();
+
             currentPageMainWindow = CurrentPageMainWindow.pageViewingExercises;
         }
         private void PageViewingExercisesOther (bool isVisible)
         {
-            buttonAddVideo.Visible = isVisible;
+            //buttonAddVideo.Visible = isVisible;
             buttonSaveDescription.Visible = isVisible;
             labelDescription.Visible = isVisible;
             checkBoxDescription.Visible = isVisible;
@@ -214,9 +222,10 @@ namespace TrainingProgram
             if (e.Button == MouseButtons.Right)
             {
                 treeViewMusclesAndExercises.SelectedNode = e.Node;
+                curretnNode = e;
                 if (e.Node.Parent != null)
                 {
-                    contextMenuStripFromTree.Show(treeViewMusclesAndExercises, e.Location);
+                  // contextMenuStripFromTree.Show(treeViewMusclesAndExercises, e.Location);
                 }
             }
         }
@@ -233,7 +242,7 @@ namespace TrainingProgram
                 buttonSaveDescription.Enabled = false;
                 labelHeadExercises.Text = e.Node.Text;
                 buttonAddImage.Visible = true;
-                buttonAddVideo.Visible = true;
+                //buttonAddVideo.Visible = true;
                 labelHeadExercises.Visible = true;
                 pictureBoxFromImages.Visible = true;
                 richTextBoxDescriptionExercises.Visible = true;
@@ -262,7 +271,10 @@ namespace TrainingProgram
                 {
                     pictureBoxFromImages.Image = Image.FromStream(new MemoryStream(imageData));
                 }
-                else pictureBoxFromImages.Image = null;
+                else
+                {
+                    pictureBoxFromImages.Image = Properties.Resources.nowPicture;
+                }
 
 
 
@@ -293,7 +305,7 @@ namespace TrainingProgram
             else
             {
                 buttonAddImage.Visible = false;
-                buttonAddVideo.Visible = false;
+                //buttonAddVideo.Visible = false;
                 pictureBoxFromImages.Visible = false;
                 axWindowsMediaPlayer.Visible = false;
                 labelHeadExercises.Visible = false;
@@ -427,9 +439,14 @@ namespace TrainingProgram
             else buttonSaveDescription.Enabled = false;
         }
 
-        private void переименоватьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void добавитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            treeNode.BeginEdit();
+            MessageBox.Show(curretnNode.Node.Tag.ToString());
+        }
+
+        private void удалитьToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void treeViewMusclesAndExercises_AfterLabelEdit(object sender, NodeLabelEditEventArgs e)
@@ -584,7 +601,7 @@ namespace TrainingProgram
             labelNameUser.Text = sqlResultUser[0,1];
             labelSecondNameUser.Text = sqlResultUser[0, 2];
             labelGenderUser.Text = sqlResultUser[0, 3];
-            labelDateofBirthUser.Text = sqlResultUser[0, 4];
+            labelDateofBirthUser.Text = Convert.ToDateTime(sqlResultUser[0, 4]).ToShortDateString();
 
             AddTrainingProgram.pwCondition = condition.GetConditionMan(Convert.ToDouble(sqlSelectDate[countRows - 1, 13]), sqlResultUser[0, 3]);
             AddTrainingProgram.phCondition = condition.GetConditionMan(Convert.ToDouble(sqlSelectDate[countRows - 1, 12]), sqlResultUser[0, 3]);
@@ -592,7 +609,16 @@ namespace TrainingProgram
 
             labelcPhc.Text = AddTrainingProgram.phCondition + " " + sqlSelectDate[countRows - 1, 12];
             labelcPwc.Text = AddTrainingProgram.pwCondition + " " + sqlSelectDate[countRows - 1, 13];
+            labelPuls.Text = sqlSelectDate[countRows - 1, 1] + " удраво/минуту";
+            labelPressure.Text = sqlSelectDate[countRows - 1, 2] + "/" + sqlSelectDate[countRows - 1, 3] + " мм рт.ст.";
+            labelGrowth.Text = sqlSelectDate[countRows - 1, 4] + " см";
+            labelWeight.Text = sqlSelectDate[countRows - 1, 5] + " кг";
 
+            labelPullUps.Text = sqlSelectDate[countRows - 1, 7];
+            labelPushUps.Text = sqlSelectDate[countRows - 1, 8];
+            labelRun100m.Text = sqlSelectDate[countRows - 1, 9];
+            labelSquts.Text = sqlSelectDate[countRows - 1, 10];
+            labelPres.Text = sqlSelectDate[countRows - 1, 11];
 
 
             if (countRows >= 2)
@@ -686,6 +712,7 @@ namespace TrainingProgram
 
         private void comboBoxSelectStatistic_SelectedIndexChanged(object sender, EventArgs e)
         {
+            labelNameStatistic.Text = "Статистика (" + comboBoxSelectStatistic.SelectedItem.ToString() + ")";
             addTpForUser.PicterBoxLoad(pictureBoxStatistic, nameColumnFromCoboBox[comboBoxSelectStatistic.SelectedIndex]);
         }
 
@@ -745,7 +772,7 @@ namespace TrainingProgram
             listViewSunday.BackColor = Color.White;
 
             currentSelectedListView = (ListView)sender;
-            currentSelectedListView.BackColor = Color.FromArgb(210,210,210);
+            currentSelectedListView.BackColor = Color.LightBlue;
    
             
         }
@@ -856,6 +883,13 @@ namespace TrainingProgram
             DelUserWindow delUserWindow = new DelUserWindow(this);
             delUserWindow.StartPosition = FormStartPosition.CenterParent;
             delUserWindow.ShowDialog();
+        }
+
+        private void buttonAddExercises_Click(object sender, EventArgs e)
+        {
+            AddExercisesWindow addExercisesWindow = new AddExercisesWindow();
+            addExercisesWindow.StartPosition = FormStartPosition.CenterParent;
+            addExercisesWindow.ShowDialog();
         }
     }
 }

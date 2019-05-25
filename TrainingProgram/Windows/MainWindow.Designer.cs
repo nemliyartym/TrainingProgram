@@ -33,7 +33,6 @@
             this.treeViewMusclesAndExercises = new System.Windows.Forms.TreeView();
             this.axWindowsMediaPlayer = new AxWMPLib.AxWindowsMediaPlayer();
             this.buttonAddImage = new System.Windows.Forms.Button();
-            this.buttonAddVideo = new System.Windows.Forms.Button();
             this.labelHeadExercises = new System.Windows.Forms.Label();
             this.richTextBoxDescriptionExercises = new System.Windows.Forms.RichTextBox();
             this.checkBoxDescription = new System.Windows.Forms.CheckBox();
@@ -41,6 +40,7 @@
             this.buttonSaveDescription = new System.Windows.Forms.Button();
             this.contextMenuStripFromTree = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.переименоватьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.удалитьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listViewUsers = new System.Windows.Forms.ListView();
             this.Number = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.FirstName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -67,11 +67,23 @@
             this.labelNameUser = new System.Windows.Forms.Label();
             this.labelGenderUser = new System.Windows.Forms.Label();
             this.panelAddTpForUser = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelPres = new System.Windows.Forms.Label();
+            this.labelPreslabel = new System.Windows.Forms.Label();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelSquts = new System.Windows.Forms.Label();
+            this.labelSqutsLabel = new System.Windows.Forms.Label();
+            this.labelRun100m = new System.Windows.Forms.Label();
+            this.labelRun100mLabel = new System.Windows.Forms.Label();
+            this.labelPullUps = new System.Windows.Forms.Label();
+            this.labelPushUpsLabel = new System.Windows.Forms.Label();
+            this.labelPushUps = new System.Windows.Forms.Label();
+            this.labelPullUpsLabel = new System.Windows.Forms.Label();
             this.panelStatistic = new System.Windows.Forms.Panel();
+            this.labelNameStatistic = new System.Windows.Forms.Label();
             this.labelStaticName = new System.Windows.Forms.Label();
             this.comboBoxSelectStatistic = new System.Windows.Forms.ComboBox();
             this.pictureBoxStatistic = new System.Windows.Forms.PictureBox();
-            this.buttonShowStatistic = new System.Windows.Forms.Button();
             this.labelCountdownDays = new System.Windows.Forms.Label();
             this.buttonAddControlPoint = new System.Windows.Forms.Button();
             this.labelcPhc = new System.Windows.Forms.Label();
@@ -79,21 +91,27 @@
             this.labelcPhcLabel = new System.Windows.Forms.Label();
             this.labelcPwcLabel = new System.Windows.Forms.Label();
             this.panelUserBar = new System.Windows.Forms.Panel();
-            this.buttonDelUser = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.labelPressure = new System.Windows.Forms.Label();
+            this.labelPressureLabel = new System.Windows.Forms.Label();
+            this.labelPuls = new System.Windows.Forms.Label();
+            this.labelPulslabel = new System.Windows.Forms.Label();
+            this.labelWeight = new System.Windows.Forms.Label();
+            this.labelWeightLabel = new System.Windows.Forms.Label();
+            this.labelGrowhtLabel = new System.Windows.Forms.Label();
+            this.labelGrowth = new System.Windows.Forms.Label();
             this.pictureBoxcPwc = new System.Windows.Forms.PictureBox();
             this.pictureBoxcPhc = new System.Windows.Forms.PictureBox();
             this.panelTrainingProgram = new System.Windows.Forms.Panel();
-            this.labelCurrentnTrainingDays = new System.Windows.Forms.Label();
-            this.labelNameCurrentTrainigDays = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.labelNameTrainingDays = new System.Windows.Forms.Label();
+            this.labelNameCurrentTrainigDays = new System.Windows.Forms.Label();
+            this.labelCurrentnTrainingDays = new System.Windows.Forms.Label();
             this.labelCountTrainingDays = new System.Windows.Forms.Label();
-            this.panelQuestCreateTP = new System.Windows.Forms.Panel();
-            this.comboBoxLvlTp = new System.Windows.Forms.ComboBox();
-            this.comboBoxDurationWeek = new System.Windows.Forms.ComboBox();
-            this.textBoxNameTp = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.buttonCreateTp = new System.Windows.Forms.Button();
-            this.listViewPatternsTP = new System.Windows.Forms.ListView();
             this.panelDaysTP = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -109,34 +127,62 @@
             this.listViewTuesday = new System.Windows.Forms.ListView();
             this.listViewThursday = new System.Windows.Forms.ListView();
             this.listViewMonday = new System.Windows.Forms.ListView();
+            this.panelQuestCreateTP = new System.Windows.Forms.Panel();
+            this.comboBoxLvlTp = new System.Windows.Forms.ComboBox();
+            this.comboBoxDurationWeek = new System.Windows.Forms.ComboBox();
+            this.textBoxNameTp = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.buttonCreateTp = new System.Windows.Forms.Button();
+            this.listViewPatternsTP = new System.Windows.Forms.ListView();
+            this.labelnameProgram = new System.Windows.Forms.Label();
+            this.panelHeadExercises = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.panelIcon = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonBack = new System.Windows.Forms.Button();
-            this.buttonAddUser = new System.Windows.Forms.Button();
-            this.buttonSearchMusclesAndExercises = new System.Windows.Forms.Button();
+            this.pictureBoxIcon = new System.Windows.Forms.PictureBox();
             this.pictureBoxFromImages = new System.Windows.Forms.PictureBox();
-            this.buttonAddTpForUser = new System.Windows.Forms.Button();
+            this.buttonSearchMusclesAndExercises = new System.Windows.Forms.Button();
             this.buttonAddTrainingProgram = new System.Windows.Forms.Button();
+            this.buttonAddTpForUser = new System.Windows.Forms.Button();
+            this.buttonAddUser = new System.Windows.Forms.Button();
+            this.buttonDelUser = new System.Windows.Forms.Button();
+            this.buttonAddExercises = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.contextMenuStripFromTree.SuspendLayout();
             this.contextMenuStripDelRename.SuspendLayout();
             this.tableLayoutPanelInfAboutUser.SuspendLayout();
             this.panelAddTpForUser.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
             this.panelStatistic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).BeginInit();
             this.panelUserBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).BeginInit();
             this.panelTrainingProgram.SuspendLayout();
-            this.panelQuestCreateTP.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.panelDaysTP.SuspendLayout();
+            this.panelQuestCreateTP.SuspendLayout();
+            this.panelHeadExercises.SuspendLayout();
+            this.panelIcon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
             this.SuspendLayout();
             // 
             // treeViewMusclesAndExercises
             // 
+            this.treeViewMusclesAndExercises.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.treeViewMusclesAndExercises.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.treeViewMusclesAndExercises.LabelEdit = true;
-            this.treeViewMusclesAndExercises.Location = new System.Drawing.Point(12, 62);
+            this.treeViewMusclesAndExercises.Location = new System.Drawing.Point(12, 71);
             this.treeViewMusclesAndExercises.Name = "treeViewMusclesAndExercises";
-            this.treeViewMusclesAndExercises.Size = new System.Drawing.Size(403, 453);
+            this.treeViewMusclesAndExercises.Size = new System.Drawing.Size(403, 444);
             this.treeViewMusclesAndExercises.TabIndex = 2;
             this.treeViewMusclesAndExercises.Visible = false;
             this.treeViewMusclesAndExercises.BeforeLabelEdit += new System.Windows.Forms.NodeLabelEditEventHandler(this.treeViewMusclesAndExercises_BeforeLabelEdit);
@@ -155,38 +201,32 @@
             // 
             // buttonAddImage
             // 
-            this.buttonAddImage.Location = new System.Drawing.Point(421, 91);
+            this.buttonAddImage.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonAddImage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddImage.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.buttonAddImage.Location = new System.Drawing.Point(427, 95);
             this.buttonAddImage.Name = "buttonAddImage";
             this.buttonAddImage.Size = new System.Drawing.Size(131, 23);
             this.buttonAddImage.TabIndex = 7;
-            this.buttonAddImage.Text = "buttonAddImage";
-            this.buttonAddImage.UseVisualStyleBackColor = true;
+            this.buttonAddImage.Text = "Доавить картинку";
+            this.buttonAddImage.UseVisualStyleBackColor = false;
             this.buttonAddImage.Visible = false;
             this.buttonAddImage.Click += new System.EventHandler(this.buttonAddImage_Click);
-            // 
-            // buttonAddVideo
-            // 
-            this.buttonAddVideo.Location = new System.Drawing.Point(653, 93);
-            this.buttonAddVideo.Name = "buttonAddVideo";
-            this.buttonAddVideo.Size = new System.Drawing.Size(122, 24);
-            this.buttonAddVideo.TabIndex = 8;
-            this.buttonAddVideo.Text = "buttonAddVideo";
-            this.buttonAddVideo.UseVisualStyleBackColor = true;
-            this.buttonAddVideo.Visible = false;
-            this.buttonAddVideo.Click += new System.EventHandler(this.buttonAddVideo_Click);
             // 
             // labelHeadExercises
             // 
             this.labelHeadExercises.AutoSize = true;
-            this.labelHeadExercises.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelHeadExercises.Location = new System.Drawing.Point(431, 53);
+            this.labelHeadExercises.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelHeadExercises.Location = new System.Drawing.Point(431, 70);
             this.labelHeadExercises.Name = "labelHeadExercises";
-            this.labelHeadExercises.Size = new System.Drawing.Size(0, 24);
+            this.labelHeadExercises.Size = new System.Drawing.Size(0, 16);
             this.labelHeadExercises.TabIndex = 9;
             // 
             // richTextBoxDescriptionExercises
             // 
             this.richTextBoxDescriptionExercises.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.richTextBoxDescriptionExercises.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.richTextBoxDescriptionExercises.Location = new System.Drawing.Point(435, 355);
             this.richTextBoxDescriptionExercises.MaxLength = 2000;
             this.richTextBoxDescriptionExercises.Name = "richTextBoxDescriptionExercises";
@@ -201,11 +241,12 @@
             // checkBoxDescription
             // 
             this.checkBoxDescription.AutoSize = true;
-            this.checkBoxDescription.Location = new System.Drawing.Point(435, 498);
+            this.checkBoxDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxDescription.Location = new System.Drawing.Point(437, 501);
             this.checkBoxDescription.Name = "checkBoxDescription";
-            this.checkBoxDescription.Size = new System.Drawing.Size(173, 17);
+            this.checkBoxDescription.Size = new System.Drawing.Size(211, 20);
             this.checkBoxDescription.TabIndex = 11;
-            this.checkBoxDescription.Text = "Хотите изменить описание? ";
+            this.checkBoxDescription.Text = "Включить редактирование?";
             this.checkBoxDescription.UseVisualStyleBackColor = true;
             this.checkBoxDescription.Visible = false;
             this.checkBoxDescription.CheckedChanged += new System.EventHandler(this.checkBoxDescription_CheckedChanged);
@@ -213,22 +254,27 @@
             // labelDescription
             // 
             this.labelDescription.AutoSize = true;
-            this.labelDescription.Location = new System.Drawing.Point(432, 339);
+            this.labelDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelDescription.Location = new System.Drawing.Point(437, 336);
             this.labelDescription.Name = "labelDescription";
-            this.labelDescription.Size = new System.Drawing.Size(57, 13);
+            this.labelDescription.Size = new System.Drawing.Size(73, 16);
             this.labelDescription.TabIndex = 12;
             this.labelDescription.Text = "Описание";
             this.labelDescription.Visible = false;
             // 
             // buttonSaveDescription
             // 
+            this.buttonSaveDescription.BackColor = System.Drawing.Color.LightBlue;
             this.buttonSaveDescription.Enabled = false;
-            this.buttonSaveDescription.Location = new System.Drawing.Point(751, 329);
+            this.buttonSaveDescription.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSaveDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonSaveDescription.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.buttonSaveDescription.Location = new System.Drawing.Point(743, 329);
             this.buttonSaveDescription.Name = "buttonSaveDescription";
-            this.buttonSaveDescription.Size = new System.Drawing.Size(75, 23);
+            this.buttonSaveDescription.Size = new System.Drawing.Size(83, 23);
             this.buttonSaveDescription.TabIndex = 13;
-            this.buttonSaveDescription.Text = "buttonSaveDescription";
-            this.buttonSaveDescription.UseVisualStyleBackColor = true;
+            this.buttonSaveDescription.Text = "Сохранить";
+            this.buttonSaveDescription.UseVisualStyleBackColor = false;
             this.buttonSaveDescription.Visible = false;
             this.buttonSaveDescription.Click += new System.EventHandler(this.buttonSaveDescription_Click);
             // 
@@ -236,16 +282,24 @@
             // 
             this.contextMenuStripFromTree.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.contextMenuStripFromTree.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.переименоватьToolStripMenuItem});
+            this.переименоватьToolStripMenuItem,
+            this.удалитьToolStripMenuItem1});
             this.contextMenuStripFromTree.Name = "contextMenuStripFromTree";
-            this.contextMenuStripFromTree.Size = new System.Drawing.Size(162, 26);
+            this.contextMenuStripFromTree.Size = new System.Drawing.Size(127, 48);
             // 
             // переименоватьToolStripMenuItem
             // 
             this.переименоватьToolStripMenuItem.Name = "переименоватьToolStripMenuItem";
-            this.переименоватьToolStripMenuItem.Size = new System.Drawing.Size(161, 22);
-            this.переименоватьToolStripMenuItem.Text = "Переименовать";
-            this.переименоватьToolStripMenuItem.Click += new System.EventHandler(this.переименоватьToolStripMenuItem_Click);
+            this.переименоватьToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.переименоватьToolStripMenuItem.Text = "Добавить";
+            this.переименоватьToolStripMenuItem.Click += new System.EventHandler(this.добавитьToolStripMenuItem_Click);
+            // 
+            // удалитьToolStripMenuItem1
+            // 
+            this.удалитьToolStripMenuItem1.Name = "удалитьToolStripMenuItem1";
+            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(126, 22);
+            this.удалитьToolStripMenuItem1.Text = "Удалить";
+            this.удалитьToolStripMenuItem1.Click += new System.EventHandler(this.удалитьToolStripMenuItem1_Click);
             // 
             // listViewUsers
             // 
@@ -331,10 +385,11 @@
             // 
             // listViewExercises
             // 
+            this.listViewExercises.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listViewExercises.GridLines = true;
-            this.listViewExercises.Location = new System.Drawing.Point(662, 147);
+            this.listViewExercises.Location = new System.Drawing.Point(6, 56);
             this.listViewExercises.Name = "listViewExercises";
-            this.listViewExercises.Size = new System.Drawing.Size(161, 123);
+            this.listViewExercises.Size = new System.Drawing.Size(155, 126);
             this.listViewExercises.TabIndex = 24;
             this.listViewExercises.UseCompatibleStateImageBehavior = false;
             this.listViewExercises.View = System.Windows.Forms.View.List;
@@ -342,10 +397,12 @@
             // 
             // comboBoxMuscles
             // 
+            this.comboBoxMuscles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxMuscles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBoxMuscles.FormattingEnabled = true;
-            this.comboBoxMuscles.Location = new System.Drawing.Point(662, 106);
+            this.comboBoxMuscles.Location = new System.Drawing.Point(6, 24);
             this.comboBoxMuscles.Name = "comboBoxMuscles";
-            this.comboBoxMuscles.Size = new System.Drawing.Size(161, 21);
+            this.comboBoxMuscles.Size = new System.Drawing.Size(155, 23);
             this.comboBoxMuscles.TabIndex = 25;
             this.comboBoxMuscles.SelectedIndexChanged += new System.EventHandler(this.comboBoxMuscles_SelectedIndexChanged);
             // 
@@ -394,7 +451,7 @@
             // 
             this.labelName.AutoSize = true;
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelName.Location = new System.Drawing.Point(3, 0);
+            this.labelName.Location = new System.Drawing.Point(6, 3);
             this.labelName.Name = "labelName";
             this.labelName.Size = new System.Drawing.Size(44, 20);
             this.labelName.TabIndex = 29;
@@ -404,7 +461,7 @@
             // 
             this.labelSecondName.AutoSize = true;
             this.labelSecondName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelSecondName.Location = new System.Drawing.Point(3, 25);
+            this.labelSecondName.Location = new System.Drawing.Point(6, 26);
             this.labelSecondName.Name = "labelSecondName";
             this.labelSecondName.Size = new System.Drawing.Size(85, 20);
             this.labelSecondName.TabIndex = 30;
@@ -414,7 +471,7 @@
             // 
             this.labelGender.AutoSize = true;
             this.labelGender.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelGender.Location = new System.Drawing.Point(3, 50);
+            this.labelGender.Location = new System.Drawing.Point(6, 49);
             this.labelGender.Name = "labelGender";
             this.labelGender.Size = new System.Drawing.Size(44, 20);
             this.labelGender.TabIndex = 31;
@@ -424,14 +481,15 @@
             // 
             this.labelDateofBirth.AutoSize = true;
             this.labelDateofBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDateofBirth.Location = new System.Drawing.Point(3, 75);
+            this.labelDateofBirth.Location = new System.Drawing.Point(6, 72);
             this.labelDateofBirth.Name = "labelDateofBirth";
-            this.labelDateofBirth.Size = new System.Drawing.Size(89, 25);
+            this.labelDateofBirth.Size = new System.Drawing.Size(89, 40);
             this.labelDateofBirth.TabIndex = 32;
-            this.labelDateofBirth.Text = "Дата рождения:";
+            this.labelDateofBirth.Text = "Дата \r\nрождения:";
             // 
             // tableLayoutPanelInfAboutUser
             // 
+            this.tableLayoutPanelInfAboutUser.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
             this.tableLayoutPanelInfAboutUser.ColumnCount = 2;
             this.tableLayoutPanelInfAboutUser.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanelInfAboutUser.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -443,22 +501,21 @@
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelNameUser, 1, 0);
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelDateofBirth, 0, 3);
             this.tableLayoutPanelInfAboutUser.Controls.Add(this.labelGenderUser, 1, 2);
-            this.tableLayoutPanelInfAboutUser.Location = new System.Drawing.Point(69, 0);
+            this.tableLayoutPanelInfAboutUser.Location = new System.Drawing.Point(59, 3);
             this.tableLayoutPanelInfAboutUser.Name = "tableLayoutPanelInfAboutUser";
-            this.tableLayoutPanelInfAboutUser.RowCount = 5;
-            this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelInfAboutUser.Size = new System.Drawing.Size(224, 120);
+            this.tableLayoutPanelInfAboutUser.RowCount = 4;
+            this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelInfAboutUser.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanelInfAboutUser.Size = new System.Drawing.Size(224, 117);
             this.tableLayoutPanelInfAboutUser.TabIndex = 33;
             // 
             // labelDateofBirthUser
             // 
             this.labelDateofBirthUser.AutoSize = true;
             this.labelDateofBirthUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelDateofBirthUser.Location = new System.Drawing.Point(115, 75);
+            this.labelDateofBirthUser.Location = new System.Drawing.Point(116, 72);
             this.labelDateofBirthUser.Name = "labelDateofBirthUser";
             this.labelDateofBirthUser.Size = new System.Drawing.Size(0, 20);
             this.labelDateofBirthUser.TabIndex = 36;
@@ -467,7 +524,7 @@
             // 
             this.labelSecondNameUser.AutoSize = true;
             this.labelSecondNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelSecondNameUser.Location = new System.Drawing.Point(115, 25);
+            this.labelSecondNameUser.Location = new System.Drawing.Point(116, 26);
             this.labelSecondNameUser.Name = "labelSecondNameUser";
             this.labelSecondNameUser.Size = new System.Drawing.Size(0, 20);
             this.labelSecondNameUser.TabIndex = 34;
@@ -476,7 +533,7 @@
             // 
             this.labelNameUser.AutoSize = true;
             this.labelNameUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelNameUser.Location = new System.Drawing.Point(115, 0);
+            this.labelNameUser.Location = new System.Drawing.Point(116, 3);
             this.labelNameUser.Name = "labelNameUser";
             this.labelNameUser.Size = new System.Drawing.Size(0, 20);
             this.labelNameUser.TabIndex = 33;
@@ -485,15 +542,16 @@
             // 
             this.labelGenderUser.AutoSize = true;
             this.labelGenderUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelGenderUser.Location = new System.Drawing.Point(115, 50);
+            this.labelGenderUser.Location = new System.Drawing.Point(116, 49);
             this.labelGenderUser.Name = "labelGenderUser";
             this.labelGenderUser.Size = new System.Drawing.Size(0, 20);
             this.labelGenderUser.TabIndex = 35;
             // 
             // panelAddTpForUser
             // 
+            this.panelAddTpForUser.Controls.Add(this.tableLayoutPanel5);
+            this.panelAddTpForUser.Controls.Add(this.tableLayoutPanel4);
             this.panelAddTpForUser.Controls.Add(this.panelStatistic);
-            this.panelAddTpForUser.Controls.Add(this.buttonShowStatistic);
             this.panelAddTpForUser.Controls.Add(this.labelCountdownDays);
             this.panelAddTpForUser.Controls.Add(this.buttonAddControlPoint);
             this.panelAddTpForUser.Location = new System.Drawing.Point(23, 168);
@@ -502,30 +560,182 @@
             this.panelAddTpForUser.TabIndex = 34;
             this.panelAddTpForUser.Visible = false;
             // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel5.Controls.Add(this.labelPres, 0, 0);
+            this.tableLayoutPanel5.Controls.Add(this.labelPreslabel, 0, 0);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(358, 29);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 1;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(96, 24);
+            this.tableLayoutPanel5.TabIndex = 52;
+            // 
+            // labelPres
+            // 
+            this.labelPres.AutoSize = true;
+            this.labelPres.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPres.Location = new System.Drawing.Point(59, 3);
+            this.labelPres.Name = "labelPres";
+            this.labelPres.Size = new System.Drawing.Size(29, 16);
+            this.labelPres.TabIndex = 6;
+            this.labelPres.Text = "000";
+            // 
+            // labelPreslabel
+            // 
+            this.labelPreslabel.AutoSize = true;
+            this.labelPreslabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPreslabel.Location = new System.Drawing.Point(6, 3);
+            this.labelPreslabel.Name = "labelPreslabel";
+            this.labelPreslabel.Size = new System.Drawing.Size(44, 16);
+            this.labelPreslabel.TabIndex = 5;
+            this.labelPreslabel.Text = "Прес:";
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
+            this.tableLayoutPanel4.ColumnCount = 4;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.Controls.Add(this.labelSquts, 3, 1);
+            this.tableLayoutPanel4.Controls.Add(this.labelSqutsLabel, 2, 1);
+            this.tableLayoutPanel4.Controls.Add(this.labelRun100m, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.labelRun100mLabel, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.labelPullUps, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.labelPushUpsLabel, 0, 1);
+            this.tableLayoutPanel4.Controls.Add(this.labelPushUps, 1, 1);
+            this.tableLayoutPanel4.Controls.Add(this.labelPullUpsLabel, 0, 0);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(70, 13);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(290, 57);
+            this.tableLayoutPanel4.TabIndex = 51;
+            // 
+            // labelSquts
+            // 
+            this.labelSquts.AutoSize = true;
+            this.labelSquts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSquts.Location = new System.Drawing.Point(249, 30);
+            this.labelSquts.Name = "labelSquts";
+            this.labelSquts.Size = new System.Drawing.Size(29, 16);
+            this.labelSquts.TabIndex = 7;
+            this.labelSquts.Text = "000";
+            // 
+            // labelSqutsLabel
+            // 
+            this.labelSqutsLabel.AutoSize = true;
+            this.labelSqutsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelSqutsLabel.Location = new System.Drawing.Point(149, 30);
+            this.labelSqutsLabel.Name = "labelSqutsLabel";
+            this.labelSqutsLabel.Size = new System.Drawing.Size(91, 16);
+            this.labelSqutsLabel.TabIndex = 6;
+            this.labelSqutsLabel.Text = "Приседания:";
+            // 
+            // labelRun100m
+            // 
+            this.labelRun100m.AutoSize = true;
+            this.labelRun100m.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelRun100m.Location = new System.Drawing.Point(249, 3);
+            this.labelRun100m.Name = "labelRun100m";
+            this.labelRun100m.Size = new System.Drawing.Size(39, 16);
+            this.labelRun100m.TabIndex = 5;
+            this.labelRun100m.Text = "000 c";
+            // 
+            // labelRun100mLabel
+            // 
+            this.labelRun100mLabel.AutoSize = true;
+            this.labelRun100mLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelRun100mLabel.Location = new System.Drawing.Point(149, 3);
+            this.labelRun100mLabel.Name = "labelRun100mLabel";
+            this.labelRun100mLabel.Size = new System.Drawing.Size(75, 16);
+            this.labelRun100mLabel.TabIndex = 4;
+            this.labelRun100mLabel.Text = "Бег (100м):";
+            // 
+            // labelPullUps
+            // 
+            this.labelPullUps.AutoSize = true;
+            this.labelPullUps.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPullUps.Location = new System.Drawing.Point(111, 3);
+            this.labelPullUps.Name = "labelPullUps";
+            this.labelPullUps.Size = new System.Drawing.Size(29, 16);
+            this.labelPullUps.TabIndex = 1;
+            this.labelPullUps.Text = "000";
+            // 
+            // labelPushUpsLabel
+            // 
+            this.labelPushUpsLabel.AutoSize = true;
+            this.labelPushUpsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPushUpsLabel.Location = new System.Drawing.Point(6, 30);
+            this.labelPushUpsLabel.Name = "labelPushUpsLabel";
+            this.labelPushUpsLabel.Size = new System.Drawing.Size(85, 16);
+            this.labelPushUpsLabel.TabIndex = 2;
+            this.labelPushUpsLabel.Text = "Отжимания:";
+            // 
+            // labelPushUps
+            // 
+            this.labelPushUps.AutoSize = true;
+            this.labelPushUps.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPushUps.Location = new System.Drawing.Point(111, 30);
+            this.labelPushUps.Name = "labelPushUps";
+            this.labelPushUps.Size = new System.Drawing.Size(29, 16);
+            this.labelPushUps.TabIndex = 3;
+            this.labelPushUps.Text = "000";
+            // 
+            // labelPullUpsLabel
+            // 
+            this.labelPullUpsLabel.AutoSize = true;
+            this.labelPullUpsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPullUpsLabel.Location = new System.Drawing.Point(6, 3);
+            this.labelPullUpsLabel.Name = "labelPullUpsLabel";
+            this.labelPullUpsLabel.Size = new System.Drawing.Size(96, 16);
+            this.labelPullUpsLabel.TabIndex = 0;
+            this.labelPullUpsLabel.Text = "Потягивания:";
+            // 
             // panelStatistic
             // 
+            this.panelStatistic.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelStatistic.Controls.Add(this.labelNameStatistic);
             this.panelStatistic.Controls.Add(this.labelStaticName);
             this.panelStatistic.Controls.Add(this.comboBoxSelectStatistic);
             this.panelStatistic.Controls.Add(this.pictureBoxStatistic);
-            this.panelStatistic.Location = new System.Drawing.Point(3, 76);
+            this.panelStatistic.Location = new System.Drawing.Point(3, 81);
             this.panelStatistic.Name = "panelStatistic";
-            this.panelStatistic.Size = new System.Drawing.Size(833, 248);
+            this.panelStatistic.Size = new System.Drawing.Size(833, 263);
             this.panelStatistic.TabIndex = 50;
+            // 
+            // labelNameStatistic
+            // 
+            this.labelNameStatistic.AutoSize = true;
+            this.labelNameStatistic.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelNameStatistic.Location = new System.Drawing.Point(352, 4);
+            this.labelNameStatistic.Name = "labelNameStatistic";
+            this.labelNameStatistic.Size = new System.Drawing.Size(109, 20);
+            this.labelNameStatistic.TabIndex = 37;
+            this.labelNameStatistic.Text = "Статистика";
             // 
             // labelStaticName
             // 
             this.labelStaticName.AutoSize = true;
-            this.labelStaticName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelStaticName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelStaticName.Location = new System.Drawing.Point(12, 3);
             this.labelStaticName.Name = "labelStaticName";
-            this.labelStaticName.Size = new System.Drawing.Size(109, 20);
+            this.labelStaticName.Size = new System.Drawing.Size(145, 15);
             this.labelStaticName.TabIndex = 35;
-            this.labelStaticName.Text = "Статистика";
+            this.labelStaticName.Text = "Выбор  характеристики";
             // 
             // comboBoxSelectStatistic
             // 
+            this.comboBoxSelectStatistic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxSelectStatistic.FormattingEnabled = true;
-            this.comboBoxSelectStatistic.Location = new System.Drawing.Point(127, 3);
+            this.comboBoxSelectStatistic.Location = new System.Drawing.Point(163, 2);
             this.comboBoxSelectStatistic.Name = "comboBoxSelectStatistic";
             this.comboBoxSelectStatistic.Size = new System.Drawing.Size(150, 21);
             this.comboBoxSelectStatistic.TabIndex = 36;
@@ -534,38 +744,34 @@
             // pictureBoxStatistic
             // 
             this.pictureBoxStatistic.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBoxStatistic.Location = new System.Drawing.Point(7, 26);
+            this.pictureBoxStatistic.Location = new System.Drawing.Point(3, 29);
             this.pictureBoxStatistic.Name = "pictureBoxStatistic";
             this.pictureBoxStatistic.Size = new System.Drawing.Size(819, 219);
             this.pictureBoxStatistic.TabIndex = 34;
             this.pictureBoxStatistic.TabStop = false;
             // 
-            // buttonShowStatistic
-            // 
-            this.buttonShowStatistic.Location = new System.Drawing.Point(0, 29);
-            this.buttonShowStatistic.Name = "buttonShowStatistic";
-            this.buttonShowStatistic.Size = new System.Drawing.Size(144, 23);
-            this.buttonShowStatistic.TabIndex = 49;
-            this.buttonShowStatistic.UseVisualStyleBackColor = true;
-            this.buttonShowStatistic.Click += new System.EventHandler(this.buttonShowStatistic_Click);
-            // 
             // labelCountdownDays
             // 
             this.labelCountdownDays.AutoSize = true;
-            this.labelCountdownDays.Location = new System.Drawing.Point(656, 29);
+            this.labelCountdownDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelCountdownDays.Location = new System.Drawing.Point(597, 8);
             this.labelCountdownDays.Name = "labelCountdownDays";
-            this.labelCountdownDays.Size = new System.Drawing.Size(171, 13);
+            this.labelCountdownDays.Size = new System.Drawing.Size(192, 15);
             this.labelCountdownDays.TabIndex = 48;
             this.labelCountdownDays.Text = "Дней до добавления новой КТ:  ";
             // 
             // buttonAddControlPoint
             // 
-            this.buttonAddControlPoint.Location = new System.Drawing.Point(640, 52);
+            this.buttonAddControlPoint.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonAddControlPoint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddControlPoint.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddControlPoint.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.buttonAddControlPoint.Location = new System.Drawing.Point(600, 27);
             this.buttonAddControlPoint.Name = "buttonAddControlPoint";
-            this.buttonAddControlPoint.Size = new System.Drawing.Size(196, 23);
+            this.buttonAddControlPoint.Size = new System.Drawing.Size(229, 43);
             this.buttonAddControlPoint.TabIndex = 37;
             this.buttonAddControlPoint.Text = "Добавить контрольную точку";
-            this.buttonAddControlPoint.UseVisualStyleBackColor = true;
+            this.buttonAddControlPoint.UseVisualStyleBackColor = false;
             this.buttonAddControlPoint.Click += new System.EventHandler(this.buttonAddControlPoint_Click);
             // 
             // labelcPhc
@@ -610,6 +816,9 @@
             // 
             // panelUserBar
             // 
+            this.panelUserBar.Controls.Add(this.label10);
+            this.panelUserBar.Controls.Add(this.pictureBox1);
+            this.panelUserBar.Controls.Add(this.tableLayoutPanel3);
             this.panelUserBar.Controls.Add(this.labelcPwc);
             this.panelUserBar.Controls.Add(this.labelcPwcLabel);
             this.panelUserBar.Controls.Add(this.pictureBoxcPwc);
@@ -623,15 +832,130 @@
             this.panelUserBar.TabIndex = 35;
             this.panelUserBar.Visible = false;
             // 
-            // buttonDelUser
+            // label10
             // 
-            this.buttonDelUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonDelUser.Location = new System.Drawing.Point(751, 80);
-            this.buttonDelUser.Name = "buttonDelUser";
-            this.buttonDelUser.Size = new System.Drawing.Size(120, 64);
-            this.buttonDelUser.TabIndex = 38;
-            this.buttonDelUser.UseVisualStyleBackColor = true;
-            this.buttonDelUser.Click += new System.EventHandler(this.buttonDelUser_Click);
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Matura MT Script Capitals", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label10.Location = new System.Drawing.Point(731, 98);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(107, 16);
+            this.label10.TabIndex = 50;
+            this.label10.Text = "Фитнес - Тренер";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TrainingProgram.Properties.Resources.gantelAndGiry;
+            this.pictureBox1.Location = new System.Drawing.Point(731, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(103, 92);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 49;
+            this.pictureBox1.TabStop = false;
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
+            this.tableLayoutPanel3.ColumnCount = 4;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.Controls.Add(this.labelPressure, 3, 1);
+            this.tableLayoutPanel3.Controls.Add(this.labelPressureLabel, 2, 1);
+            this.tableLayoutPanel3.Controls.Add(this.labelPuls, 3, 0);
+            this.tableLayoutPanel3.Controls.Add(this.labelPulslabel, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.labelWeight, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.labelWeightLabel, 0, 0);
+            this.tableLayoutPanel3.Controls.Add(this.labelGrowhtLabel, 0, 1);
+            this.tableLayoutPanel3.Controls.Add(this.labelGrowth, 1, 1);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(347, 58);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 2;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(332, 57);
+            this.tableLayoutPanel3.TabIndex = 48;
+            // 
+            // labelPressure
+            // 
+            this.labelPressure.AutoSize = true;
+            this.labelPressure.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPressure.Location = new System.Drawing.Point(199, 30);
+            this.labelPressure.Name = "labelPressure";
+            this.labelPressure.Size = new System.Drawing.Size(106, 16);
+            this.labelPressure.TabIndex = 7;
+            this.labelPressure.Text = "000/00 мм рт.ст.";
+            // 
+            // labelPressureLabel
+            // 
+            this.labelPressureLabel.AutoSize = true;
+            this.labelPressureLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPressureLabel.Location = new System.Drawing.Point(114, 30);
+            this.labelPressureLabel.Name = "labelPressureLabel";
+            this.labelPressureLabel.Size = new System.Drawing.Size(76, 16);
+            this.labelPressureLabel.TabIndex = 6;
+            this.labelPressureLabel.Text = "Давление:";
+            // 
+            // labelPuls
+            // 
+            this.labelPuls.AutoSize = true;
+            this.labelPuls.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPuls.Location = new System.Drawing.Point(199, 3);
+            this.labelPuls.Name = "labelPuls";
+            this.labelPuls.Size = new System.Drawing.Size(132, 16);
+            this.labelPuls.TabIndex = 5;
+            this.labelPuls.Text = "000 удраво/минуту";
+            // 
+            // labelPulslabel
+            // 
+            this.labelPulslabel.AutoSize = true;
+            this.labelPulslabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelPulslabel.Location = new System.Drawing.Point(114, 3);
+            this.labelPulslabel.Name = "labelPulslabel";
+            this.labelPulslabel.Size = new System.Drawing.Size(51, 16);
+            this.labelPulslabel.TabIndex = 4;
+            this.labelPulslabel.Text = "Пульс:";
+            // 
+            // labelWeight
+            // 
+            this.labelWeight.AutoSize = true;
+            this.labelWeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelWeight.Location = new System.Drawing.Point(57, 3);
+            this.labelWeight.Name = "labelWeight";
+            this.labelWeight.Size = new System.Drawing.Size(45, 16);
+            this.labelWeight.TabIndex = 1;
+            this.labelWeight.Text = "000 кг";
+            // 
+            // labelWeightLabel
+            // 
+            this.labelWeightLabel.AutoSize = true;
+            this.labelWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelWeightLabel.Location = new System.Drawing.Point(6, 3);
+            this.labelWeightLabel.Name = "labelWeightLabel";
+            this.labelWeightLabel.Size = new System.Drawing.Size(35, 16);
+            this.labelWeightLabel.TabIndex = 0;
+            this.labelWeightLabel.Text = "Вес:";
+            // 
+            // labelGrowhtLabel
+            // 
+            this.labelGrowhtLabel.AutoSize = true;
+            this.labelGrowhtLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelGrowhtLabel.Location = new System.Drawing.Point(6, 30);
+            this.labelGrowhtLabel.Name = "labelGrowhtLabel";
+            this.labelGrowhtLabel.Size = new System.Drawing.Size(42, 16);
+            this.labelGrowhtLabel.TabIndex = 2;
+            this.labelGrowhtLabel.Text = "Рост:";
+            // 
+            // labelGrowth
+            // 
+            this.labelGrowth.AutoSize = true;
+            this.labelGrowth.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelGrowth.Location = new System.Drawing.Point(57, 30);
+            this.labelGrowth.Name = "labelGrowth";
+            this.labelGrowth.Size = new System.Drawing.Size(48, 16);
+            this.labelGrowth.TabIndex = 3;
+            this.labelGrowth.Text = "000 см";
             // 
             // pictureBoxcPwc
             // 
@@ -655,55 +979,277 @@
             // 
             // panelTrainingProgram
             // 
-            this.panelTrainingProgram.Controls.Add(this.labelCurrentnTrainingDays);
-            this.panelTrainingProgram.Controls.Add(this.labelNameCurrentTrainigDays);
-            this.panelTrainingProgram.Controls.Add(this.labelNameTrainingDays);
-            this.panelTrainingProgram.Controls.Add(this.labelCountTrainingDays);
-            this.panelTrainingProgram.Controls.Add(this.panelQuestCreateTP);
-            this.panelTrainingProgram.Controls.Add(this.listViewExercises);
-            this.panelTrainingProgram.Controls.Add(this.comboBoxMuscles);
+            this.panelTrainingProgram.Controls.Add(this.tableLayoutPanel2);
+            this.panelTrainingProgram.Controls.Add(this.tableLayoutPanel1);
             this.panelTrainingProgram.Controls.Add(this.panelDaysTP);
+            this.panelTrainingProgram.Controls.Add(this.panelQuestCreateTP);
             this.panelTrainingProgram.Location = new System.Drawing.Point(12, 168);
             this.panelTrainingProgram.Name = "panelTrainingProgram";
             this.panelTrainingProgram.Size = new System.Drawing.Size(859, 347);
             this.panelTrainingProgram.TabIndex = 36;
             this.panelTrainingProgram.Visible = false;
             // 
-            // labelCurrentnTrainingDays
+            // tableLayoutPanel2
             // 
-            this.labelCurrentnTrainingDays.AutoSize = true;
-            this.labelCurrentnTrainingDays.Location = new System.Drawing.Point(792, 79);
-            this.labelCurrentnTrainingDays.Name = "labelCurrentnTrainingDays";
-            this.labelCurrentnTrainingDays.Size = new System.Drawing.Size(22, 13);
-            this.labelCurrentnTrainingDays.TabIndex = 73;
-            this.labelCurrentnTrainingDays.Text = "0-0";
+            this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
+            this.tableLayoutPanel2.ColumnCount = 1;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.Controls.Add(this.listViewExercises, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label9, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.comboBoxMuscles, 0, 1);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(662, 102);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 3;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(167, 182);
+            this.tableLayoutPanel2.TabIndex = 75;
             // 
-            // labelNameCurrentTrainigDays
+            // label9
             // 
-            this.labelNameCurrentTrainigDays.AutoSize = true;
-            this.labelNameCurrentTrainigDays.Location = new System.Drawing.Point(659, 74);
-            this.labelNameCurrentTrainigDays.Name = "labelNameCurrentTrainigDays";
-            this.labelNameCurrentTrainigDays.Size = new System.Drawing.Size(116, 26);
-            this.labelNameCurrentTrainigDays.TabIndex = 72;
-            this.labelNameCurrentTrainigDays.Text = "Текущее кол-во\r\nтренировок в неделю\r\n";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(6, 3);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(124, 15);
+            this.label9.TabIndex = 76;
+            this.label9.Text = "Список упражнений:";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel1.Controls.Add(this.labelNameTrainingDays, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.labelNameCurrentTrainigDays, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelCurrentnTrainingDays, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.labelCountTrainingDays, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(653, 8);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(187, 67);
+            this.tableLayoutPanel1.TabIndex = 74;
             // 
             // labelNameTrainingDays
             // 
             this.labelNameTrainingDays.AutoSize = true;
-            this.labelNameTrainingDays.Location = new System.Drawing.Point(659, 42);
+            this.labelNameTrainingDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelNameTrainingDays.Location = new System.Drawing.Point(6, 3);
             this.labelNameTrainingDays.Name = "labelNameTrainingDays";
-            this.labelNameTrainingDays.Size = new System.Drawing.Size(125, 26);
+            this.labelNameTrainingDays.Size = new System.Drawing.Size(141, 30);
             this.labelNameTrainingDays.TabIndex = 71;
             this.labelNameTrainingDays.Text = "Рекомендуемое кол-во\r\nтренировок в неделю\r\n";
+            // 
+            // labelNameCurrentTrainigDays
+            // 
+            this.labelNameCurrentTrainigDays.AutoSize = true;
+            this.labelNameCurrentTrainigDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelNameCurrentTrainigDays.Location = new System.Drawing.Point(6, 36);
+            this.labelNameCurrentTrainigDays.Name = "labelNameCurrentTrainigDays";
+            this.labelNameCurrentTrainigDays.Size = new System.Drawing.Size(133, 30);
+            this.labelNameCurrentTrainigDays.TabIndex = 72;
+            this.labelNameCurrentTrainigDays.Text = "Текущее кол-во\r\nтренировок в неделю\r\n";
+            // 
+            // labelCurrentnTrainingDays
+            // 
+            this.labelCurrentnTrainingDays.AutoSize = true;
+            this.labelCurrentnTrainingDays.Cursor = System.Windows.Forms.Cursors.Default;
+            this.labelCurrentnTrainingDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelCurrentnTrainingDays.Location = new System.Drawing.Point(156, 36);
+            this.labelCurrentnTrainingDays.Name = "labelCurrentnTrainingDays";
+            this.labelCurrentnTrainingDays.Size = new System.Drawing.Size(25, 15);
+            this.labelCurrentnTrainingDays.TabIndex = 73;
+            this.labelCurrentnTrainingDays.Text = "0-0";
             // 
             // labelCountTrainingDays
             // 
             this.labelCountTrainingDays.AutoSize = true;
-            this.labelCountTrainingDays.Location = new System.Drawing.Point(792, 52);
+            this.labelCountTrainingDays.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelCountTrainingDays.Location = new System.Drawing.Point(156, 3);
             this.labelCountTrainingDays.Name = "labelCountTrainingDays";
-            this.labelCountTrainingDays.Size = new System.Drawing.Size(22, 13);
+            this.labelCountTrainingDays.Size = new System.Drawing.Size(25, 15);
             this.labelCountTrainingDays.TabIndex = 70;
             this.labelCountTrainingDays.Text = "0-0";
+            // 
+            // panelDaysTP
+            // 
+            this.panelDaysTP.Controls.Add(this.label7);
+            this.panelDaysTP.Controls.Add(this.label6);
+            this.panelDaysTP.Controls.Add(this.label5);
+            this.panelDaysTP.Controls.Add(this.label4);
+            this.panelDaysTP.Controls.Add(this.label3);
+            this.panelDaysTP.Controls.Add(this.label2);
+            this.panelDaysTP.Controls.Add(this.label1);
+            this.panelDaysTP.Controls.Add(this.listViewSunday);
+            this.panelDaysTP.Controls.Add(this.listViewSaturday);
+            this.panelDaysTP.Controls.Add(this.listViewWednesday);
+            this.panelDaysTP.Controls.Add(this.listViewFriday);
+            this.panelDaysTP.Controls.Add(this.listViewTuesday);
+            this.panelDaysTP.Controls.Add(this.listViewThursday);
+            this.panelDaysTP.Controls.Add(this.listViewMonday);
+            this.panelDaysTP.Location = new System.Drawing.Point(30, 18);
+            this.panelDaysTP.Name = "panelDaysTP";
+            this.panelDaysTP.Size = new System.Drawing.Size(582, 306);
+            this.panelDaysTP.TabIndex = 55;
+            this.panelDaysTP.Visible = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(463, 69);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(93, 16);
+            this.label7.TabIndex = 68;
+            this.label7.Text = "Воскресенье";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(341, 155);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(64, 16);
+            this.label6.TabIndex = 67;
+            this.label6.Text = "Суббота";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label5.Location = new System.Drawing.Point(190, 155);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 16);
+            this.label5.TabIndex = 66;
+            this.label5.Text = "Пятница";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(43, 155);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(62, 16);
+            this.label4.TabIndex = 65;
+            this.label4.Text = "Четверг";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(341, 11);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 16);
+            this.label3.TabIndex = 64;
+            this.label3.Text = "Среда";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(190, 11);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(63, 16);
+            this.label2.TabIndex = 63;
+            this.label2.Text = "Вторник";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(24, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(96, 16);
+            this.label1.TabIndex = 62;
+            this.label1.Text = "Понедельник";
+            // 
+            // listViewSunday
+            // 
+            this.listViewSunday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listViewSunday.GridLines = true;
+            this.listViewSunday.Location = new System.Drawing.Point(440, 88);
+            this.listViewSunday.Name = "listViewSunday";
+            this.listViewSunday.Size = new System.Drawing.Size(139, 123);
+            this.listViewSunday.TabIndex = 61;
+            this.listViewSunday.Tag = "Воскресенье";
+            this.listViewSunday.UseCompatibleStateImageBehavior = false;
+            this.listViewSunday.View = System.Windows.Forms.View.List;
+            // 
+            // listViewSaturday
+            // 
+            this.listViewSaturday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listViewSaturday.GridLines = true;
+            this.listViewSaturday.Location = new System.Drawing.Point(295, 173);
+            this.listViewSaturday.Name = "listViewSaturday";
+            this.listViewSaturday.Size = new System.Drawing.Size(139, 123);
+            this.listViewSaturday.TabIndex = 60;
+            this.listViewSaturday.Tag = "Суббота";
+            this.listViewSaturday.UseCompatibleStateImageBehavior = false;
+            this.listViewSaturday.View = System.Windows.Forms.View.List;
+            // 
+            // listViewWednesday
+            // 
+            this.listViewWednesday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listViewWednesday.GridLines = true;
+            this.listViewWednesday.Location = new System.Drawing.Point(295, 29);
+            this.listViewWednesday.Name = "listViewWednesday";
+            this.listViewWednesday.Size = new System.Drawing.Size(139, 123);
+            this.listViewWednesday.TabIndex = 59;
+            this.listViewWednesday.Tag = "Среда";
+            this.listViewWednesday.UseCompatibleStateImageBehavior = false;
+            this.listViewWednesday.View = System.Windows.Forms.View.List;
+            // 
+            // listViewFriday
+            // 
+            this.listViewFriday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listViewFriday.GridLines = true;
+            this.listViewFriday.Location = new System.Drawing.Point(150, 173);
+            this.listViewFriday.Name = "listViewFriday";
+            this.listViewFriday.Size = new System.Drawing.Size(139, 123);
+            this.listViewFriday.TabIndex = 58;
+            this.listViewFriday.Tag = "Пятница";
+            this.listViewFriday.UseCompatibleStateImageBehavior = false;
+            this.listViewFriday.View = System.Windows.Forms.View.List;
+            // 
+            // listViewTuesday
+            // 
+            this.listViewTuesday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listViewTuesday.GridLines = true;
+            this.listViewTuesday.Location = new System.Drawing.Point(150, 29);
+            this.listViewTuesday.Name = "listViewTuesday";
+            this.listViewTuesday.Size = new System.Drawing.Size(139, 123);
+            this.listViewTuesday.TabIndex = 57;
+            this.listViewTuesday.Tag = "Вторник";
+            this.listViewTuesday.UseCompatibleStateImageBehavior = false;
+            this.listViewTuesday.View = System.Windows.Forms.View.List;
+            // 
+            // listViewThursday
+            // 
+            this.listViewThursday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listViewThursday.GridLines = true;
+            this.listViewThursday.Location = new System.Drawing.Point(5, 173);
+            this.listViewThursday.Name = "listViewThursday";
+            this.listViewThursday.Size = new System.Drawing.Size(139, 123);
+            this.listViewThursday.TabIndex = 56;
+            this.listViewThursday.Tag = "Четверг";
+            this.listViewThursday.UseCompatibleStateImageBehavior = false;
+            this.listViewThursday.View = System.Windows.Forms.View.List;
+            // 
+            // listViewMonday
+            // 
+            this.listViewMonday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listViewMonday.GridLines = true;
+            this.listViewMonday.Location = new System.Drawing.Point(5, 29);
+            this.listViewMonday.Name = "listViewMonday";
+            this.listViewMonday.Size = new System.Drawing.Size(139, 123);
+            this.listViewMonday.TabIndex = 55;
+            this.listViewMonday.Tag = "Понедельник";
+            this.listViewMonday.UseCompatibleStateImageBehavior = false;
+            this.listViewMonday.View = System.Windows.Forms.View.List;
             // 
             // panelQuestCreateTP
             // 
@@ -722,6 +1268,7 @@
             // comboBoxLvlTp
             // 
             this.comboBoxLvlTp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLvlTp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxLvlTp.FormattingEnabled = true;
             this.comboBoxLvlTp.Items.AddRange(new object[] {
             "Низкий",
@@ -729,7 +1276,7 @@
             "Средний",
             "Выше среднего",
             "Высокий"});
-            this.comboBoxLvlTp.Location = new System.Drawing.Point(87, 128);
+            this.comboBoxLvlTp.Location = new System.Drawing.Point(84, 133);
             this.comboBoxLvlTp.Name = "comboBoxLvlTp";
             this.comboBoxLvlTp.Size = new System.Drawing.Size(82, 21);
             this.comboBoxLvlTp.TabIndex = 30;
@@ -737,6 +1284,7 @@
             // comboBoxDurationWeek
             // 
             this.comboBoxDurationWeek.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDurationWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxDurationWeek.FormattingEnabled = true;
             this.comboBoxDurationWeek.Items.AddRange(new object[] {
             "4",
@@ -744,7 +1292,7 @@
             "8",
             "10",
             "12"});
-            this.comboBoxDurationWeek.Location = new System.Drawing.Point(21, 129);
+            this.comboBoxDurationWeek.Location = new System.Drawing.Point(21, 132);
             this.comboBoxDurationWeek.Name = "comboBoxDurationWeek";
             this.comboBoxDurationWeek.Size = new System.Drawing.Size(57, 21);
             this.comboBoxDurationWeek.TabIndex = 29;
@@ -774,13 +1322,17 @@
             // 
             // buttonCreateTp
             // 
+            this.buttonCreateTp.BackColor = System.Drawing.Color.LightBlue;
             this.buttonCreateTp.Enabled = false;
+            this.buttonCreateTp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreateTp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonCreateTp.ForeColor = System.Drawing.Color.DarkSlateGray;
             this.buttonCreateTp.Location = new System.Drawing.Point(30, 168);
             this.buttonCreateTp.Name = "buttonCreateTp";
-            this.buttonCreateTp.Size = new System.Drawing.Size(125, 45);
+            this.buttonCreateTp.Size = new System.Drawing.Size(125, 57);
             this.buttonCreateTp.TabIndex = 0;
             this.buttonCreateTp.Text = "Создать программу тренировок";
-            this.buttonCreateTp.UseVisualStyleBackColor = true;
+            this.buttonCreateTp.UseVisualStyleBackColor = false;
             this.buttonCreateTp.Click += new System.EventHandler(this.buttonCreateTp_Click);
             // 
             // listViewPatternsTP
@@ -794,205 +1346,96 @@
             this.listViewPatternsTP.View = System.Windows.Forms.View.List;
             this.listViewPatternsTP.DoubleClick += new System.EventHandler(this.listViewPatternsTP_DoubleClick);
             // 
-            // panelDaysTP
+            // labelnameProgram
             // 
-            this.panelDaysTP.Controls.Add(this.label7);
-            this.panelDaysTP.Controls.Add(this.label6);
-            this.panelDaysTP.Controls.Add(this.label5);
-            this.panelDaysTP.Controls.Add(this.label4);
-            this.panelDaysTP.Controls.Add(this.label3);
-            this.panelDaysTP.Controls.Add(this.label2);
-            this.panelDaysTP.Controls.Add(this.label1);
-            this.panelDaysTP.Controls.Add(this.listViewSunday);
-            this.panelDaysTP.Controls.Add(this.listViewSaturday);
-            this.panelDaysTP.Controls.Add(this.listViewWednesday);
-            this.panelDaysTP.Controls.Add(this.listViewFriday);
-            this.panelDaysTP.Controls.Add(this.listViewTuesday);
-            this.panelDaysTP.Controls.Add(this.listViewThursday);
-            this.panelDaysTP.Controls.Add(this.listViewMonday);
-            this.panelDaysTP.Location = new System.Drawing.Point(30, 18);
-            this.panelDaysTP.Name = "panelDaysTP";
-            this.panelDaysTP.Size = new System.Drawing.Size(582, 306);
-            this.panelDaysTP.TabIndex = 55;
-            this.panelDaysTP.Visible = false;
+            this.labelnameProgram.AutoSize = true;
+            this.labelnameProgram.Font = new System.Drawing.Font("Matura MT Script Capitals", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelnameProgram.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.labelnameProgram.Location = new System.Drawing.Point(356, 55);
+            this.labelnameProgram.Name = "labelnameProgram";
+            this.labelnameProgram.Size = new System.Drawing.Size(293, 47);
+            this.labelnameProgram.TabIndex = 39;
+            this.labelnameProgram.Text = "Фитнес - Тренер";
             // 
-            // label7
+            // panelHeadExercises
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(479, 73);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(74, 13);
-            this.label7.TabIndex = 68;
-            this.label7.Text = "Воскресенье";
+            this.panelHeadExercises.Controls.Add(this.buttonAddExercises);
+            this.panelHeadExercises.Controls.Add(this.label12);
+            this.panelHeadExercises.Location = new System.Drawing.Point(81, 3);
+            this.panelHeadExercises.Name = "panelHeadExercises";
+            this.panelHeadExercises.Size = new System.Drawing.Size(656, 64);
+            this.panelHeadExercises.TabIndex = 41;
+            this.panelHeadExercises.Visible = false;
             // 
-            // label6
+            // label12
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(353, 157);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 13);
-            this.label6.TabIndex = 67;
-            this.label6.Text = "Суббота";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Matura MT Script Capitals", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label12.Location = new System.Drawing.Point(157, 12);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(367, 39);
+            this.label12.TabIndex = 40;
+            this.label12.Text = "База данных урпажнений";
             // 
-            // label5
+            // panelIcon
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(204, 155);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(50, 13);
-            this.label5.TabIndex = 66;
-            this.label5.Text = "Пятница";
+            this.panelIcon.Controls.Add(this.label11);
+            this.panelIcon.Controls.Add(this.pictureBox2);
+            this.panelIcon.Location = new System.Drawing.Point(735, 42);
+            this.panelIcon.Name = "panelIcon";
+            this.panelIcon.Size = new System.Drawing.Size(125, 110);
+            this.panelIcon.TabIndex = 51;
+            this.panelIcon.Visible = false;
             // 
-            // label4
+            // label11
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(36, 157);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
-            this.label4.TabIndex = 65;
-            this.label4.Text = "Четверг";
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Matura MT Script Capitals", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.label11.Location = new System.Drawing.Point(9, 95);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(107, 16);
+            this.label11.TabIndex = 52;
+            this.label11.Text = "Фитнес - Тренер";
             // 
-            // label3
+            // pictureBox2
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(343, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
-            this.label3.TabIndex = 64;
-            this.label3.Text = "Среда";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(204, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 63;
-            this.label2.Text = "Вторник";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 13);
-            this.label1.TabIndex = 62;
-            this.label1.Text = "Понедельник";
-            // 
-            // listViewSunday
-            // 
-            this.listViewSunday.GridLines = true;
-            this.listViewSunday.Location = new System.Drawing.Point(440, 88);
-            this.listViewSunday.Name = "listViewSunday";
-            this.listViewSunday.Size = new System.Drawing.Size(139, 123);
-            this.listViewSunday.TabIndex = 61;
-            this.listViewSunday.Tag = "Воскресенье";
-            this.listViewSunday.UseCompatibleStateImageBehavior = false;
-            this.listViewSunday.View = System.Windows.Forms.View.List;
-            // 
-            // listViewSaturday
-            // 
-            this.listViewSaturday.GridLines = true;
-            this.listViewSaturday.Location = new System.Drawing.Point(295, 173);
-            this.listViewSaturday.Name = "listViewSaturday";
-            this.listViewSaturday.Size = new System.Drawing.Size(139, 123);
-            this.listViewSaturday.TabIndex = 60;
-            this.listViewSaturday.Tag = "Суббота";
-            this.listViewSaturday.UseCompatibleStateImageBehavior = false;
-            this.listViewSaturday.View = System.Windows.Forms.View.List;
-            // 
-            // listViewWednesday
-            // 
-            this.listViewWednesday.GridLines = true;
-            this.listViewWednesday.Location = new System.Drawing.Point(295, 29);
-            this.listViewWednesday.Name = "listViewWednesday";
-            this.listViewWednesday.Size = new System.Drawing.Size(139, 123);
-            this.listViewWednesday.TabIndex = 59;
-            this.listViewWednesday.Tag = "Среда";
-            this.listViewWednesday.UseCompatibleStateImageBehavior = false;
-            this.listViewWednesday.View = System.Windows.Forms.View.List;
-            // 
-            // listViewFriday
-            // 
-            this.listViewFriday.GridLines = true;
-            this.listViewFriday.Location = new System.Drawing.Point(150, 173);
-            this.listViewFriday.Name = "listViewFriday";
-            this.listViewFriday.Size = new System.Drawing.Size(139, 123);
-            this.listViewFriday.TabIndex = 58;
-            this.listViewFriday.Tag = "Пятница";
-            this.listViewFriday.UseCompatibleStateImageBehavior = false;
-            this.listViewFriday.View = System.Windows.Forms.View.List;
-            // 
-            // listViewTuesday
-            // 
-            this.listViewTuesday.GridLines = true;
-            this.listViewTuesday.Location = new System.Drawing.Point(150, 29);
-            this.listViewTuesday.Name = "listViewTuesday";
-            this.listViewTuesday.Size = new System.Drawing.Size(139, 123);
-            this.listViewTuesday.TabIndex = 57;
-            this.listViewTuesday.Tag = "Вторник";
-            this.listViewTuesday.UseCompatibleStateImageBehavior = false;
-            this.listViewTuesday.View = System.Windows.Forms.View.List;
-            // 
-            // listViewThursday
-            // 
-            this.listViewThursday.GridLines = true;
-            this.listViewThursday.Location = new System.Drawing.Point(5, 173);
-            this.listViewThursday.Name = "listViewThursday";
-            this.listViewThursday.Size = new System.Drawing.Size(139, 123);
-            this.listViewThursday.TabIndex = 56;
-            this.listViewThursday.Tag = "Четверг";
-            this.listViewThursday.UseCompatibleStateImageBehavior = false;
-            this.listViewThursday.View = System.Windows.Forms.View.List;
-            // 
-            // listViewMonday
-            // 
-            this.listViewMonday.GridLines = true;
-            this.listViewMonday.Location = new System.Drawing.Point(5, 29);
-            this.listViewMonday.Name = "listViewMonday";
-            this.listViewMonday.Size = new System.Drawing.Size(139, 123);
-            this.listViewMonday.TabIndex = 55;
-            this.listViewMonday.Tag = "Понедельник";
-            this.listViewMonday.UseCompatibleStateImageBehavior = false;
-            this.listViewMonday.View = System.Windows.Forms.View.List;
+            this.pictureBox2.Image = global::TrainingProgram.Properties.Resources.gantelAndGiry;
+            this.pictureBox2.Location = new System.Drawing.Point(9, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(103, 92);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 51;
+            this.pictureBox2.TabStop = false;
             // 
             // buttonBack
             // 
+            this.buttonBack.BackColor = System.Drawing.Color.LightBlue;
             this.buttonBack.BackgroundImage = global::TrainingProgram.Properties.Resources.home;
             this.buttonBack.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonBack.Location = new System.Drawing.Point(0, 0);
             this.buttonBack.Name = "buttonBack";
             this.buttonBack.Size = new System.Drawing.Size(67, 64);
             this.buttonBack.TabIndex = 3;
-            this.buttonBack.UseVisualStyleBackColor = true;
+            this.buttonBack.UseVisualStyleBackColor = false;
             this.buttonBack.Visible = false;
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
-            // buttonAddUser
+            // pictureBoxIcon
             // 
-            this.buttonAddUser.BackgroundImage = global::TrainingProgram.Properties.Resources.add_users;
-            this.buttonAddUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonAddUser.Location = new System.Drawing.Point(751, 3);
-            this.buttonAddUser.Name = "buttonAddUser";
-            this.buttonAddUser.Size = new System.Drawing.Size(120, 64);
-            this.buttonAddUser.TabIndex = 37;
-            this.buttonAddUser.UseVisualStyleBackColor = true;
-            this.buttonAddUser.Click += new System.EventHandler(this.buttonAddUser_Click);
-            // 
-            // buttonSearchMusclesAndExercises
-            // 
-            this.buttonSearchMusclesAndExercises.BackgroundImage = global::TrainingProgram.Properties.Resources.programm_training;
-            this.buttonSearchMusclesAndExercises.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonSearchMusclesAndExercises.Location = new System.Drawing.Point(162, 140);
-            this.buttonSearchMusclesAndExercises.Name = "buttonSearchMusclesAndExercises";
-            this.buttonSearchMusclesAndExercises.Size = new System.Drawing.Size(161, 231);
-            this.buttonSearchMusclesAndExercises.TabIndex = 0;
-            this.buttonSearchMusclesAndExercises.UseVisualStyleBackColor = true;
-            this.buttonSearchMusclesAndExercises.Click += new System.EventHandler(this.buttonSearchExercises_Click);
+            this.pictureBoxIcon.Image = global::TrainingProgram.Properties.Resources.gantelAndGiry;
+            this.pictureBoxIcon.Location = new System.Drawing.Point(218, 30);
+            this.pictureBoxIcon.Name = "pictureBoxIcon";
+            this.pictureBoxIcon.Size = new System.Drawing.Size(106, 96);
+            this.pictureBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxIcon.TabIndex = 40;
+            this.pictureBoxIcon.TabStop = false;
             // 
             // pictureBoxFromImages
             // 
-            this.pictureBoxFromImages.Location = new System.Drawing.Point(421, 121);
+            this.pictureBoxFromImages.Location = new System.Drawing.Point(521, 121);
             this.pictureBoxFromImages.Name = "pictureBoxFromImages";
             this.pictureBoxFromImages.Size = new System.Drawing.Size(218, 203);
             this.pictureBoxFromImages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -1000,60 +1443,121 @@
             this.pictureBoxFromImages.TabStop = false;
             this.pictureBoxFromImages.Visible = false;
             // 
-            // buttonAddTpForUser
+            // buttonSearchMusclesAndExercises
             // 
-            this.buttonAddTpForUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonAddTpForUser.BackgroundImage")));
-            this.buttonAddTpForUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonAddTpForUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonAddTpForUser.Location = new System.Drawing.Point(558, 140);
-            this.buttonAddTpForUser.Name = "buttonAddTpForUser";
-            this.buttonAddTpForUser.Size = new System.Drawing.Size(160, 231);
-            this.buttonAddTpForUser.TabIndex = 6;
-            this.buttonAddTpForUser.UseVisualStyleBackColor = true;
-            this.buttonAddTpForUser.Click += new System.EventHandler(this.buttonAddTpForUser_Click);
+            this.buttonSearchMusclesAndExercises.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonSearchMusclesAndExercises.BackgroundImage = global::TrainingProgram.Properties.Resources.programm_training;
+            this.buttonSearchMusclesAndExercises.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonSearchMusclesAndExercises.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSearchMusclesAndExercises.Location = new System.Drawing.Point(162, 170);
+            this.buttonSearchMusclesAndExercises.Name = "buttonSearchMusclesAndExercises";
+            this.buttonSearchMusclesAndExercises.Size = new System.Drawing.Size(161, 231);
+            this.buttonSearchMusclesAndExercises.TabIndex = 0;
+            this.buttonSearchMusclesAndExercises.UseVisualStyleBackColor = false;
+            this.buttonSearchMusclesAndExercises.Click += new System.EventHandler(this.buttonSearchExercises_Click);
             // 
             // buttonAddTrainingProgram
             // 
+            this.buttonAddTrainingProgram.BackColor = System.Drawing.Color.LightBlue;
             this.buttonAddTrainingProgram.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonAddTrainingProgram.BackgroundImage")));
             this.buttonAddTrainingProgram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonAddTrainingProgram.Location = new System.Drawing.Point(359, 140);
+            this.buttonAddTrainingProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddTrainingProgram.Location = new System.Drawing.Point(359, 170);
             this.buttonAddTrainingProgram.Name = "buttonAddTrainingProgram";
             this.buttonAddTrainingProgram.Size = new System.Drawing.Size(156, 231);
             this.buttonAddTrainingProgram.TabIndex = 1;
-            this.buttonAddTrainingProgram.UseVisualStyleBackColor = true;
+            this.buttonAddTrainingProgram.UseVisualStyleBackColor = false;
             this.buttonAddTrainingProgram.Click += new System.EventHandler(this.buttonAddTrainingProgram_Click);
+            // 
+            // buttonAddTpForUser
+            // 
+            this.buttonAddTpForUser.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonAddTpForUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonAddTpForUser.BackgroundImage")));
+            this.buttonAddTpForUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonAddTpForUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddTpForUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonAddTpForUser.Location = new System.Drawing.Point(558, 170);
+            this.buttonAddTpForUser.Name = "buttonAddTpForUser";
+            this.buttonAddTpForUser.Size = new System.Drawing.Size(160, 231);
+            this.buttonAddTpForUser.TabIndex = 6;
+            this.buttonAddTpForUser.UseVisualStyleBackColor = false;
+            this.buttonAddTpForUser.Click += new System.EventHandler(this.buttonAddTpForUser_Click);
+            // 
+            // buttonAddUser
+            // 
+            this.buttonAddUser.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonAddUser.BackgroundImage = global::TrainingProgram.Properties.Resources.add_users;
+            this.buttonAddUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddUser.Location = new System.Drawing.Point(751, 3);
+            this.buttonAddUser.Name = "buttonAddUser";
+            this.buttonAddUser.Size = new System.Drawing.Size(120, 64);
+            this.buttonAddUser.TabIndex = 37;
+            this.buttonAddUser.UseVisualStyleBackColor = false;
+            this.buttonAddUser.Click += new System.EventHandler(this.buttonAddUser_Click);
+            // 
+            // buttonDelUser
+            // 
+            this.buttonDelUser.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonDelUser.BackgroundImage = global::TrainingProgram.Properties.Resources.del_users;
+            this.buttonDelUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonDelUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelUser.Location = new System.Drawing.Point(751, 80);
+            this.buttonDelUser.Name = "buttonDelUser";
+            this.buttonDelUser.Size = new System.Drawing.Size(120, 64);
+            this.buttonDelUser.TabIndex = 38;
+            this.buttonDelUser.UseVisualStyleBackColor = false;
+            this.buttonDelUser.Click += new System.EventHandler(this.buttonDelUser_Click);
+            // 
+            // buttonAddExercises
+            // 
+            this.buttonAddExercises.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonAddExercises.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddExercises.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddExercises.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.buttonAddExercises.Location = new System.Drawing.Point(7, 12);
+            this.buttonAddExercises.Name = "buttonAddExercises";
+            this.buttonAddExercises.Size = new System.Drawing.Size(145, 43);
+            this.buttonAddExercises.TabIndex = 53;
+            this.buttonAddExercises.Text = "Добавить урпажнения";
+            this.buttonAddExercises.UseVisualStyleBackColor = false;
+            this.buttonAddExercises.Click += new System.EventHandler(this.buttonAddExercises_Click);
             // 
             // MainWindow
             // 
             this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
+            this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(883, 529);
-            this.Controls.Add(this.buttonDelUser);
-            this.Controls.Add(this.buttonSearchMusclesAndExercises);
-            this.Controls.Add(this.buttonAddTrainingProgram);
-            this.Controls.Add(this.buttonAddTpForUser);
+            this.Controls.Add(this.panelIcon);
+            this.Controls.Add(this.panelHeadExercises);
             this.Controls.Add(this.buttonBack);
-            this.Controls.Add(this.buttonAddUser);
-            this.Controls.Add(this.panelTrainingProgram);
-            this.Controls.Add(this.panelUserBar);
-            this.Controls.Add(this.panelAddTpForUser);
-            this.Controls.Add(this.buttonAddNewUser);
+            this.Controls.Add(this.pictureBoxIcon);
+            this.Controls.Add(this.labelnameProgram);
             this.Controls.Add(this.label);
             this.Controls.Add(this.checkBoxDescription);
             this.Controls.Add(this.buttonPrev);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.labelDayWeek);
-            this.Controls.Add(this.listViewTrainingProgramm);
             this.Controls.Add(this.listViewUsers);
             this.Controls.Add(this.buttonSaveDescription);
             this.Controls.Add(this.labelDescription);
             this.Controls.Add(this.labelHeadExercises);
-            this.Controls.Add(this.treeViewMusclesAndExercises);
-            this.Controls.Add(this.axWindowsMediaPlayer);
-            this.Controls.Add(this.buttonAddVideo);
             this.Controls.Add(this.buttonAddImage);
             this.Controls.Add(this.richTextBoxDescriptionExercises);
             this.Controls.Add(this.pictureBoxFromImages);
+            this.Controls.Add(this.buttonSearchMusclesAndExercises);
+            this.Controls.Add(this.buttonAddTrainingProgram);
+            this.Controls.Add(this.buttonAddTpForUser);
+            this.Controls.Add(this.panelAddTpForUser);
+            this.Controls.Add(this.panelTrainingProgram);
+            this.Controls.Add(this.buttonAddUser);
+            this.Controls.Add(this.buttonDelUser);
+            this.Controls.Add(this.axWindowsMediaPlayer);
+            this.Controls.Add(this.panelUserBar);
+            this.Controls.Add(this.listViewTrainingProgramm);
+            this.Controls.Add(this.buttonAddNewUser);
+            this.Controls.Add(this.treeViewMusclesAndExercises);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "MainWindow";
             this.Load += new System.EventHandler(this.MainWindow_Load);
@@ -1064,19 +1568,35 @@
             this.tableLayoutPanelInfAboutUser.PerformLayout();
             this.panelAddTpForUser.ResumeLayout(false);
             this.panelAddTpForUser.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.panelStatistic.ResumeLayout(false);
             this.panelStatistic.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).EndInit();
             this.panelUserBar.ResumeLayout(false);
             this.panelUserBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).EndInit();
             this.panelTrainingProgram.ResumeLayout(false);
-            this.panelTrainingProgram.PerformLayout();
-            this.panelQuestCreateTP.ResumeLayout(false);
-            this.panelQuestCreateTP.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.panelDaysTP.ResumeLayout(false);
             this.panelDaysTP.PerformLayout();
+            this.panelQuestCreateTP.ResumeLayout(false);
+            this.panelQuestCreateTP.PerformLayout();
+            this.panelHeadExercises.ResumeLayout(false);
+            this.panelHeadExercises.PerformLayout();
+            this.panelIcon.ResumeLayout(false);
+            this.panelIcon.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxIcon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1094,7 +1614,6 @@
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer;
         private System.Windows.Forms.Button buttonAddTpForUser;
         private System.Windows.Forms.Button buttonAddImage;
-        private System.Windows.Forms.Button buttonAddVideo;
         private System.Windows.Forms.Label labelHeadExercises;
         private System.Windows.Forms.RichTextBox richTextBoxDescriptionExercises;
         private System.Windows.Forms.CheckBox checkBoxDescription;
@@ -1138,7 +1657,6 @@
         private System.Windows.Forms.Label labelcPhc;
         private System.Windows.Forms.Label labelcPwc;
         private System.Windows.Forms.Label labelCountdownDays;
-        private System.Windows.Forms.Button buttonShowStatistic;
         private System.Windows.Forms.Panel panelStatistic;
         private System.Windows.Forms.Label labelStaticName;
         private System.Windows.Forms.Panel panelUserBar;
@@ -1171,6 +1689,42 @@
         private System.Windows.Forms.Label labelNameTrainingDays;
         private System.Windows.Forms.Button buttonAddUser;
         private System.Windows.Forms.Button buttonDelUser;
+        private System.Windows.Forms.Label labelnameProgram;
+        private System.Windows.Forms.PictureBox pictureBoxIcon;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.Label labelPressure;
+        private System.Windows.Forms.Label labelPressureLabel;
+        private System.Windows.Forms.Label labelPuls;
+        private System.Windows.Forms.Label labelPulslabel;
+        private System.Windows.Forms.Label labelWeight;
+        private System.Windows.Forms.Label labelWeightLabel;
+        private System.Windows.Forms.Label labelGrowhtLabel;
+        private System.Windows.Forms.Label labelGrowth;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label labelNameStatistic;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label labelSquts;
+        private System.Windows.Forms.Label labelSqutsLabel;
+        private System.Windows.Forms.Label labelRun100m;
+        private System.Windows.Forms.Label labelRun100mLabel;
+        private System.Windows.Forms.Label labelPullUps;
+        private System.Windows.Forms.Label labelPushUpsLabel;
+        private System.Windows.Forms.Label labelPushUps;
+        private System.Windows.Forms.Label labelPullUpsLabel;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label labelPres;
+        private System.Windows.Forms.Label labelPreslabel;
+        private System.Windows.Forms.Panel panelIcon;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panelHeadExercises;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem1;
+        private System.Windows.Forms.Button buttonAddExercises;
     }
 }
 

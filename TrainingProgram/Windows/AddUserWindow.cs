@@ -33,7 +33,7 @@ namespace TrainingProgram.Windows
         /// <summary>
         /// ид выбранного пользователя в окне AddUserWindow
         /// </summary>
-        public static int idSelectedUser;
+        //public static int idSelectedUser;
         private bool isSelected = false;
 
 
@@ -273,8 +273,8 @@ namespace TrainingProgram.Windows
 
 
                 string[,] sqtResult = workWithDataBase.SelectFromDataBase("select * from Users where firstName = '" + textBoxName.Text + "' and lastName = '" + textBoxSecondName.Text + "' and gender = '" + comboBoxGender.Text + "' and dateOfBirth='" + dateTimePicker.Value.Date + "'", 1);
-                idSelectedUser = Convert.ToInt32(sqtResult[0, 0]);
-                
+                //idSelectedUser = Convert.ToInt32(sqtResult[0, 0]);
+                SelectUserWindow.idSelectedUser = Convert.ToInt32(sqtResult[0, 0]);
 
                 double CPwC = calculation.CalculationPowerCondition(int.Parse(textBoxPushUps.Text),
                                                           int.Parse(textBoxPullUps.Text),
@@ -291,7 +291,7 @@ namespace TrainingProgram.Windows
                                                                 int.Parse(textBoxWeight.Text),
                                                                 int.Parse(textBoxPuls.Text));
 
-                workWithUsers.InsertStatisticsUser(idSelectedUser,
+                workWithUsers.InsertStatisticsUser(SelectUserWindow.idSelectedUser,
                                                            int.Parse(textBoxPuls.Text),
                                                            int.Parse(textBoxPressureUp.Text),
                                                            int.Parse(textBoxPressureDown.Text),
@@ -361,6 +361,7 @@ namespace TrainingProgram.Windows
                 mainWindow.PageAddTpForUsers(false);
             }
         }
+
 
     }
 }

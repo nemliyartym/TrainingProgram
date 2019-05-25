@@ -50,8 +50,8 @@ namespace TrainingProgram.Class
 
         public void FillListViewStatisticUser(ListView listViewUser)
         {
-            int countRows = workWithDataBase.SelectCountFromDataBase("Select count (idUsers) from StatisticsUsers where idUsers =" + AddUserWindow.idSelectedUser);
-            string[,] sqlSelect = workWithDataBase.SelectFromDataBase("select idUsers,dateTime from StatisticsUsers where idUsers = " + AddUserWindow.idSelectedUser + " order by dateTime", countRows);
+            int countRows = workWithDataBase.SelectCountFromDataBase("Select count (idUsers) from StatisticsUsers where idUsers =" + SelectUserWindow.idSelectedUser);
+            string[,] sqlSelect = workWithDataBase.SelectFromDataBase("select idUsers,dateTime from StatisticsUsers where idUsers = " + SelectUserWindow.idSelectedUser + " order by dateTime", countRows);
 
             listViewUser.Items.Clear();
             for (int i = 0; i < countRows; i++)

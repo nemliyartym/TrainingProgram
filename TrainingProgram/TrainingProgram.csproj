@@ -84,6 +84,12 @@
     <Compile Include="Windows\AddControlPoint.Designer.cs">
       <DependentUpon>AddControlPoint.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\AddExercisesWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\AddExercisesWindow.Designer.cs">
+      <DependentUpon>AddExercisesWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\AddUserWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </Compile>
     <EmbeddedResource Include="Windows\AddControlPoint.resx">
       <DependentUpon>AddControlPoint.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\AddExercisesWindow.resx">
+      <DependentUpon>AddExercisesWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\AddTEST1.resx">
       <DependentUpon>AddTEST1.cs</DependentUpon>
@@ -234,9 +243,6 @@
     <None Include="Resources\statistic.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\muscleMan.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\push.png" />
   </ItemGroup>
   <ItemGroup>
@@ -250,6 +256,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\backGroundFromButton.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\del users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\muscleMan.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gantelAndGiry.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\statistic2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nowPicture.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -39,6 +39,7 @@ namespace TrainingProgram
                 //treeView.ImageList = imageList;
                 imageList.ImageSize = new Size(30, 30);
 
+                treeView.Nodes.Clear();
                 while (sqlDataReader.Read())
                 {
                     idList.Add(Int32.Parse(sqlDataReader[0].ToString()));
@@ -51,6 +52,8 @@ namespace TrainingProgram
                 sqlDataReader.Close();
                 sqlConnection.Close();
                 idList.ForEach(selected);
+
+
             }
         }
 

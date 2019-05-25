@@ -70,6 +70,7 @@
             this.panelStatistic = new System.Windows.Forms.Panel();
             this.labelStaticName = new System.Windows.Forms.Label();
             this.comboBoxSelectStatistic = new System.Windows.Forms.ComboBox();
+            this.pictureBoxStatistic = new System.Windows.Forms.PictureBox();
             this.buttonShowStatistic = new System.Windows.Forms.Button();
             this.labelCountdownDays = new System.Windows.Forms.Label();
             this.buttonAddControlPoint = new System.Windows.Forms.Button();
@@ -78,6 +79,9 @@
             this.labelcPhcLabel = new System.Windows.Forms.Label();
             this.labelcPwcLabel = new System.Windows.Forms.Label();
             this.panelUserBar = new System.Windows.Forms.Panel();
+            this.buttonDelUser = new System.Windows.Forms.Button();
+            this.pictureBoxcPwc = new System.Windows.Forms.PictureBox();
+            this.pictureBoxcPhc = new System.Windows.Forms.PictureBox();
             this.panelTrainingProgram = new System.Windows.Forms.Panel();
             this.labelCurrentnTrainingDays = new System.Windows.Forms.Label();
             this.labelNameCurrentTrainigDays = new System.Windows.Forms.Label();
@@ -107,9 +111,6 @@
             this.listViewMonday = new System.Windows.Forms.ListView();
             this.buttonBack = new System.Windows.Forms.Button();
             this.buttonAddUser = new System.Windows.Forms.Button();
-            this.pictureBoxcPwc = new System.Windows.Forms.PictureBox();
-            this.pictureBoxcPhc = new System.Windows.Forms.PictureBox();
-            this.pictureBoxStatistic = new System.Windows.Forms.PictureBox();
             this.buttonSearchMusclesAndExercises = new System.Windows.Forms.Button();
             this.pictureBoxFromImages = new System.Windows.Forms.PictureBox();
             this.buttonAddTpForUser = new System.Windows.Forms.Button();
@@ -120,13 +121,13 @@
             this.tableLayoutPanelInfAboutUser.SuspendLayout();
             this.panelAddTpForUser.SuspendLayout();
             this.panelStatistic.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).BeginInit();
             this.panelUserBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).BeginInit();
             this.panelTrainingProgram.SuspendLayout();
             this.panelQuestCreateTP.SuspendLayout();
             this.panelDaysTP.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).BeginInit();
             this.SuspendLayout();
             // 
@@ -530,6 +531,15 @@
             this.comboBoxSelectStatistic.TabIndex = 36;
             this.comboBoxSelectStatistic.SelectedIndexChanged += new System.EventHandler(this.comboBoxSelectStatistic_SelectedIndexChanged);
             // 
+            // pictureBoxStatistic
+            // 
+            this.pictureBoxStatistic.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.pictureBoxStatistic.Location = new System.Drawing.Point(7, 26);
+            this.pictureBoxStatistic.Name = "pictureBoxStatistic";
+            this.pictureBoxStatistic.Size = new System.Drawing.Size(819, 219);
+            this.pictureBoxStatistic.TabIndex = 34;
+            this.pictureBoxStatistic.TabStop = false;
+            // 
             // buttonShowStatistic
             // 
             this.buttonShowStatistic.Location = new System.Drawing.Point(0, 29);
@@ -612,6 +622,36 @@
             this.panelUserBar.Size = new System.Drawing.Size(859, 123);
             this.panelUserBar.TabIndex = 35;
             this.panelUserBar.Visible = false;
+            // 
+            // buttonDelUser
+            // 
+            this.buttonDelUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonDelUser.Location = new System.Drawing.Point(751, 80);
+            this.buttonDelUser.Name = "buttonDelUser";
+            this.buttonDelUser.Size = new System.Drawing.Size(120, 64);
+            this.buttonDelUser.TabIndex = 38;
+            this.buttonDelUser.UseVisualStyleBackColor = true;
+            this.buttonDelUser.Click += new System.EventHandler(this.buttonDelUser_Click);
+            // 
+            // pictureBoxcPwc
+            // 
+            this.pictureBoxcPwc.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxcPwc.Image")));
+            this.pictureBoxcPwc.Location = new System.Drawing.Point(452, 12);
+            this.pictureBoxcPwc.Name = "pictureBoxcPwc";
+            this.pictureBoxcPwc.Size = new System.Drawing.Size(41, 36);
+            this.pictureBoxcPwc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxcPwc.TabIndex = 41;
+            this.pictureBoxcPwc.TabStop = false;
+            // 
+            // pictureBoxcPhc
+            // 
+            this.pictureBoxcPhc.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxcPhc.Image")));
+            this.pictureBoxcPhc.Location = new System.Drawing.Point(672, 11);
+            this.pictureBoxcPhc.Name = "pictureBoxcPhc";
+            this.pictureBoxcPhc.Size = new System.Drawing.Size(38, 36);
+            this.pictureBoxcPhc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBoxcPhc.TabIndex = 45;
+            this.pictureBoxcPhc.TabStop = false;
             // 
             // panelTrainingProgram
             // 
@@ -939,35 +979,6 @@
             this.buttonAddUser.UseVisualStyleBackColor = true;
             this.buttonAddUser.Click += new System.EventHandler(this.buttonAddUser_Click);
             // 
-            // pictureBoxcPwc
-            // 
-            this.pictureBoxcPwc.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxcPwc.Image")));
-            this.pictureBoxcPwc.Location = new System.Drawing.Point(452, 12);
-            this.pictureBoxcPwc.Name = "pictureBoxcPwc";
-            this.pictureBoxcPwc.Size = new System.Drawing.Size(41, 36);
-            this.pictureBoxcPwc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxcPwc.TabIndex = 41;
-            this.pictureBoxcPwc.TabStop = false;
-            // 
-            // pictureBoxcPhc
-            // 
-            this.pictureBoxcPhc.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxcPhc.Image")));
-            this.pictureBoxcPhc.Location = new System.Drawing.Point(672, 11);
-            this.pictureBoxcPhc.Name = "pictureBoxcPhc";
-            this.pictureBoxcPhc.Size = new System.Drawing.Size(38, 36);
-            this.pictureBoxcPhc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBoxcPhc.TabIndex = 45;
-            this.pictureBoxcPhc.TabStop = false;
-            // 
-            // pictureBoxStatistic
-            // 
-            this.pictureBoxStatistic.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pictureBoxStatistic.Location = new System.Drawing.Point(7, 26);
-            this.pictureBoxStatistic.Name = "pictureBoxStatistic";
-            this.pictureBoxStatistic.Size = new System.Drawing.Size(819, 219);
-            this.pictureBoxStatistic.TabIndex = 34;
-            this.pictureBoxStatistic.TabStop = false;
-            // 
             // buttonSearchMusclesAndExercises
             // 
             this.buttonSearchMusclesAndExercises.BackgroundImage = global::TrainingProgram.Properties.Resources.programm_training;
@@ -1017,6 +1028,7 @@
             this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.ClientSize = new System.Drawing.Size(883, 529);
+            this.Controls.Add(this.buttonDelUser);
             this.Controls.Add(this.buttonSearchMusclesAndExercises);
             this.Controls.Add(this.buttonAddTrainingProgram);
             this.Controls.Add(this.buttonAddTpForUser);
@@ -1054,17 +1066,17 @@
             this.panelAddTpForUser.PerformLayout();
             this.panelStatistic.ResumeLayout(false);
             this.panelStatistic.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).EndInit();
             this.panelUserBar.ResumeLayout(false);
             this.panelUserBar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).EndInit();
             this.panelTrainingProgram.ResumeLayout(false);
             this.panelTrainingProgram.PerformLayout();
             this.panelQuestCreateTP.ResumeLayout(false);
             this.panelQuestCreateTP.PerformLayout();
             this.panelDaysTP.ResumeLayout(false);
             this.panelDaysTP.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPwc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxcPhc)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxStatistic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFromImages)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1158,6 +1170,7 @@
         private System.Windows.Forms.Label labelNameCurrentTrainigDays;
         private System.Windows.Forms.Label labelNameTrainingDays;
         private System.Windows.Forms.Button buttonAddUser;
+        private System.Windows.Forms.Button buttonDelUser;
     }
 }
 

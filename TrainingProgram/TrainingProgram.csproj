@@ -96,6 +96,12 @@
     <Compile Include="Windows\AddTEST1.Designer.cs">
       <DependentUpon>AddTEST1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Windows\DelUserWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Windows\DelUserWindow.Designer.cs">
+      <DependentUpon>DelUserWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\AddUserWindow.resx">
       <DependentUpon>AddUserWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\DelUserWindow.resx">
+      <DependentUpon>DelUserWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
@@ -238,6 +247,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backGroundFromButton.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

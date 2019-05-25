@@ -114,6 +114,7 @@ namespace TrainingProgram
             buttonAddTpForUser.Visible = isVisible;
             buttonBack.Visible = !isVisible;
             buttonAddUser.Visible = isVisible;
+            buttonDelUser.Visible = isVisible;
         }
         private void PageViewingExercises (bool isVisible)
         {
@@ -822,9 +823,17 @@ namespace TrainingProgram
                             return;
                     }
 
-
-
                     string[,] sqlSelect = workWithDataBase.SelectFromDataBase("select * from TrainingProgram where idUser = " + SelectUserWindow.idSelectedUser, 1);
+                    if (workWithDataBase.SelectExists("select * from ExercisesForTP where idExercises = "+ listViewExercises.SelectedItems[0].Tag + "and idTrainingProgram ="+ Convert.ToInt32(sqlSelect[0, 0]) + "and idDaysWeek =" + idCurrentDays) == 1)
+                    {
+                        DialogResult result = MessageBox.Show("Данное упражнение уже добавленно \n Все равно добавить его?", "Предупреждение", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
+
+                        if (result == DialogResult.No || result == DialogResult.Cancel)
+                            return; 
+                    }
+
+
+                   
                     workWithTrainigProgram.InsertExercisesForTrainigProgram(Convert.ToInt32(sqlSelect[0, 0]), Convert.ToInt32(listViewExercises.SelectedItems[0].Tag), idCurrentDays);
                     addTrainingProgram.FillListViewDaysTp(currentSelectedListView, AddTrainingProgram.daysWeek[idCurrentDays - 1], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
 
@@ -840,6 +849,13 @@ namespace TrainingProgram
             AddUserWindow addUserWindow = new AddUserWindow(this);
             addUserWindow.StartPosition = FormStartPosition.CenterParent;
             addUserWindow.ShowDialog();
+        }
+
+        private void buttonDelUser_Click(object sender, EventArgs e)
+        {
+            DelUserWindow delUserWindow = new DelUserWindow(this);
+            delUserWindow.StartPosition = FormStartPosition.CenterParent;
+            delUserWindow.ShowDialog();
         }
     }
 }

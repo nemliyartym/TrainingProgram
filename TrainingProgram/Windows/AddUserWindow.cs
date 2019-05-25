@@ -79,6 +79,7 @@ namespace TrainingProgram.Windows
         {
             labelListUser.Visible = isVisible;
             listViewUser.Visible = isVisible;
+            labelAddUser.Visible = isVisible;
             tableLayoutPanelAddInfUser.Visible = isVisible;
 
             pictureBoxFirst.Visible = !isVisible;
@@ -213,8 +214,10 @@ namespace TrainingProgram.Windows
             pictureBoxFirst.Image = Properties.Resources.pres;
             pictureBoxSecond.Image = null;
 
+            labelInfo.Visible = isVisible;
+            tableLayoutPanelAddInfUser.Visible = isVisible;
             pictureBoxFirst.Visible = isVisible;
-            pictureBoxSecond.Visible = isVisible;
+            pictureBoxSecond.Visible = !isVisible;
 
             buttonNext.Visible = isVisible;
             buttonPrev.Visible = isVisible;
@@ -268,8 +271,10 @@ namespace TrainingProgram.Windows
                                             comboBoxGender.Text,
                                             dateTimePicker.Value.Date);
 
+
                 string[,] sqtResult = workWithDataBase.SelectFromDataBase("select * from Users where firstName = '" + textBoxName.Text + "' and lastName = '" + textBoxSecondName.Text + "' and gender = '" + comboBoxGender.Text + "' and dateOfBirth='" + dateTimePicker.Value.Date + "'", 1);
                 idSelectedUser = Convert.ToInt32(sqtResult[0, 0]);
+                
 
                 double CPwC = calculation.CalculationPowerCondition(int.Parse(textBoxPushUps.Text),
                                                           int.Parse(textBoxPullUps.Text),
@@ -334,6 +339,8 @@ namespace TrainingProgram.Windows
             {
                 PageSquatsRun100(true);
                 buttonNext.Text = "Дальше";
+                labelInfo.Visible = false;
+                tableLayoutPanelAddInfUser.Visible = false;
             }
         }
         #endregion
@@ -354,5 +361,6 @@ namespace TrainingProgram.Windows
                 mainWindow.PageAddTpForUsers(false);
             }
         }
+
     }
 }

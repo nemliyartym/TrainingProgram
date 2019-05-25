@@ -70,7 +70,6 @@ namespace TrainingProgram
             return result;
         }
 
-
         public int SelectExists(string sqlSelect)
         {
             int result;
@@ -161,6 +160,16 @@ namespace TrainingProgram
                 sqlCommand.Parameters.Add("@cPhc", SqlDbType.Float).Value = cPhc;
                 sqlCommand.Parameters.Add("@cPwc", SqlDbType.Float).Value = cPwc;
                 sqlCommand.Parameters.Add("@dateTime", SqlDbType.DateTime).Value = DateTime.Now;
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
+
+        public void DelUser(int idUser)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("delete from Users where idUsers =" + idUser, sqlConnection);
                 sqlCommand.ExecuteNonQuery();
             }
         }

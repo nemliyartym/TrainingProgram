@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrainingProgram.Class
 {
-    class Calculation
+    class Calculation  
     {
 
         public double CalculationPhysicalCondition (int pressureUp,  int pressureDown, int age, int growth, int weight, int puls)

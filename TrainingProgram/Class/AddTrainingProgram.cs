@@ -22,7 +22,7 @@ namespace TrainingProgram
         }
     }
 
-    class AddTrainingProgram
+    class AddTrainingProgram 
     {
         WorkWithImages workWithImages = new WorkWithImages();
         WorkWithDataBase workWithDataBase = new WorkWithDataBase();

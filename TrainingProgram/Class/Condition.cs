@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TrainingProgram.Class
 {
-    class Condition
+    class Condition 
     {
 
         private double[] LowMan = new double[] { Double.MinValue, 3.765 };

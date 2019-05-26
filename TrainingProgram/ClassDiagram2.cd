@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TrainingProgram.Class.Calculation" Collapsed="true">
+    <Position X="1.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAABAAAAA=</HashCode>
+      <FileName>Class\Calculation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingProgram.Class.Condition" Collapsed="true">
+    <Position X="3" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABggAIQBAEAAACAgSAAAAAAAAAAEABAAEAAAAA=</HashCode>
+      <FileName>Class\Condition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingProgram.WorkWithDataBase" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAAAAAAEAAIQAAAAAAQI=</HashCode>
+      <FileName>Class\WorkWithDataBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingProgram.WorkWithUsers" Collapsed="true">
+    <Position X="3" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAABAAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Class\WorkWithDataBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingProgram.WorkWithTrainigProgram" Collapsed="true">
+    <Position X="1.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAAAgAAAiAAAAAAAAAAAAAAAgAAAAE=</HashCode>
+      <FileName>Class\WorkWithDataBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingProgram.WorkWithExercises" Collapsed="true">
+    <Position X="4.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAIAA=</HashCode>
+      <FileName>Class\WorkWithDataBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingProgram.WorkWithTree" Collapsed="true">
+    <Position X="4.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAEAAgAAgAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>Class\WorkWithTree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingProgram.Windows.AddControlPoint" Collapsed="true">
+    <Position X="1.25" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EABAYAAQACBAABAgAACoxABCBAAAACCBAAQAAIAwADA=</HashCode>
+      <FileName>Windows\AddControlPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingProgram.Windows.AddExercisesWindow" Collapsed="true">
+    <Position X="1.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EIACAAAAACAAABIAMACAAQAKBAIBQIABAAAAAgBAAEg=</HashCode>
+      <FileName>Windows\AddExercisesWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingProgram.Windows.AddUserWindow" Collapsed="true">
+    <Position X="4.75" Y="5.75" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="TrainingProgram.Windows.AddUserWindow.CurrentPageAddUserWindow" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Windows\AddUserWindow.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>RAhAYAgQQyBQgSBmAADoQEECBAAAACGLAAUgAYAQUSA=</HashCode>
+      <FileName>Windows\AddUserWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingProgram.Windows.DelUserWindow" Collapsed="true">
+    <Position X="3" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAACAAAAAgAACMAAACBAAAAAAAAAQABABAACA=</HashCode>
+      <FileName>Windows\DelUserWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingProgram.MainWindow" Collapsed="true">
+    <Position X="4.75" Y="5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="TrainingProgram.MainWindow.CurrentPageMainWindow" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Windows\MainWindow.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>cayCI/pfY7u5/VMsHEH8ueObtGWzAckD52WnDgpYimk=</HashCode>
+      <FileName>Windows\MainWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrainingProgram.Windows.SelectUserWindow" Collapsed="true">
+    <Position X="3" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQACAAAAAAACCIgAACFAAACACAAAQAAABAAAA=</HashCode>
+      <FileName>Windows\SelectUserWindow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
+using TrainingProgram.Windows;
 
 namespace TrainingProgram
 {
@@ -215,8 +216,46 @@ namespace TrainingProgram
                 sqlCommand.ExecuteNonQuery();
             }
         }
-    }
 
+        public void DeleteTrainingProgramm(int idDelete)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("delete from TrainingProgram where idUser =" + idDelete, sqlConnection);
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
+
+
+        public void InsertPatternsTP(string nameTP, int durationTP, int lvlTP)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("insert into PatternsTP values(@nameTP,@durationTP,@lvlTP)", sqlConnection);
+
+                sqlCommand.Parameters.Add("@nameTP", SqlDbType.VarChar, 50).Value = nameTP;
+                sqlCommand.Parameters.Add("@durationTP", SqlDbType.Int, Int32.MaxValue).Value = durationTP;
+                sqlCommand.Parameters.Add("@lvlTP", SqlDbType.Int, Int32.MaxValue).Value = lvlTP;
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
+
+        public void InsertExercisesForPatternTP(int idPatternTp, int idExercises, int idDaysWeek)
+        {
+            using (SqlConnection sqlConnection = new SqlConnection(connectionString))
+            {
+                sqlConnection.Open();
+                SqlCommand sqlCommand = new SqlCommand("insert into ExercisesForPatternsTP values(@idTrainingProgram,@idExercises,@idDays)", sqlConnection);
+
+                sqlCommand.Parameters.Add("@idTrainingProgram", SqlDbType.Int, Int32.MaxValue).Value = idPatternTp;
+                sqlCommand.Parameters.Add("@idExercises", SqlDbType.Int, Int32.MaxValue).Value = idExercises;
+                sqlCommand.Parameters.Add("@idDays", SqlDbType.Int, Int32.MaxValue).Value = idDaysWeek;
+                sqlCommand.ExecuteNonQuery();
+            }
+        }
+    }
 
     class WorkWithExercises : WorkWithDataBase
     {
@@ -258,4 +297,5 @@ namespace TrainingProgram
             }
         }
     }
+
 }

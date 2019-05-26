@@ -118,7 +118,7 @@ namespace TrainingProgram.Class
                     }
 
 
-                    graphics.DrawString(Convert.ToDateTime(sqlSelectData[i, 0]).ToShortDateString(), new Font("Arial", 10), Brushes.Black, Ox - 35, 185);           
+                    graphics.DrawString(Convert.ToDateTime(sqlSelectData[i, 0]).ToShortDateString(), new Font("Arial", 11), Brushes.Black, Ox - 35, 185);           
                     pen = new Pen(Color.Black, 3);
                     arrayPoint[i].X = Ox;                
                 }
@@ -198,7 +198,7 @@ namespace TrainingProgram.Class
                             if (Convert.ToDouble(modulo[1]) == 0)
                                 result = modulo[0];
                         }
-                        graphics.DrawString(result, new Font("Arial", 10), Brushes.Black, arrayPoint[i].X + 5, arrayPoint[i].Y);
+                        graphics.DrawString(result, new Font("Arial", 11), Brushes.Black, arrayPoint[i].X + 5, arrayPoint[i].Y -2 );
 
                     }
                 }

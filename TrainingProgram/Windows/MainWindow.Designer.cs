@@ -148,6 +148,9 @@
             this.buttonAddTpForUser = new System.Windows.Forms.Button();
             this.buttonAddUser = new System.Windows.Forms.Button();
             this.buttonDelUser = new System.Windows.Forms.Button();
+            this.buttonDelTrainingProgram = new System.Windows.Forms.Button();
+            this.buttonAddPaterns = new System.Windows.Forms.Button();
+            this.labelCur = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.contextMenuStripFromTree.SuspendLayout();
             this.contextMenuStripDelRename.SuspendLayout();
@@ -283,12 +286,12 @@
             this.contextMenuStripFromTree.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.удалитьToolStripMenuItem1});
             this.contextMenuStripFromTree.Name = "contextMenuStripFromTree";
-            this.contextMenuStripFromTree.Size = new System.Drawing.Size(153, 48);
+            this.contextMenuStripFromTree.Size = new System.Drawing.Size(119, 26);
             // 
             // удалитьToolStripMenuItem1
             // 
             this.удалитьToolStripMenuItem1.Name = "удалитьToolStripMenuItem1";
-            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.удалитьToolStripMenuItem1.Size = new System.Drawing.Size(118, 22);
             this.удалитьToolStripMenuItem1.Text = "Удалить";
             this.удалитьToolStripMenuItem1.Click += new System.EventHandler(this.удалитьToolStripMenuItem1_Click);
             // 
@@ -769,7 +772,7 @@
             // 
             this.labelcPhc.AutoSize = true;
             this.labelcPhc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelcPhc.Location = new System.Drawing.Point(503, 30);
+            this.labelcPhc.Location = new System.Drawing.Point(506, 28);
             this.labelcPhc.Name = "labelcPhc";
             this.labelcPhc.Size = new System.Drawing.Size(122, 17);
             this.labelcPhc.TabIndex = 47;
@@ -779,7 +782,7 @@
             // 
             this.labelcPwc.AutoSize = true;
             this.labelcPwc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelcPwc.Location = new System.Drawing.Point(299, 32);
+            this.labelcPwc.Location = new System.Drawing.Point(302, 30);
             this.labelcPwc.Name = "labelcPwc";
             this.labelcPwc.Size = new System.Drawing.Size(112, 17);
             this.labelcPwc.TabIndex = 46;
@@ -789,7 +792,7 @@
             // 
             this.labelcPhcLabel.AutoSize = true;
             this.labelcPhcLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelcPhcLabel.Location = new System.Drawing.Point(503, 11);
+            this.labelcPhcLabel.Location = new System.Drawing.Point(506, 9);
             this.labelcPhcLabel.Name = "labelcPhcLabel";
             this.labelcPhcLabel.Size = new System.Drawing.Size(163, 17);
             this.labelcPhcLabel.TabIndex = 39;
@@ -799,7 +802,7 @@
             // 
             this.labelcPwcLabel.AutoSize = true;
             this.labelcPwcLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelcPwcLabel.Location = new System.Drawing.Point(299, 11);
+            this.labelcPwcLabel.Location = new System.Drawing.Point(302, 9);
             this.labelcPwcLabel.Name = "labelcPwcLabel";
             this.labelcPwcLabel.Size = new System.Drawing.Size(147, 17);
             this.labelcPwcLabel.TabIndex = 38;
@@ -860,7 +863,7 @@
             this.tableLayoutPanel3.Controls.Add(this.labelWeightLabel, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.labelGrowhtLabel, 0, 1);
             this.tableLayoutPanel3.Controls.Add(this.labelGrowth, 1, 1);
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(347, 58);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(294, 63);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -951,7 +954,7 @@
             // pictureBoxcPwc
             // 
             this.pictureBoxcPwc.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxcPwc.Image")));
-            this.pictureBoxcPwc.Location = new System.Drawing.Point(452, 12);
+            this.pictureBoxcPwc.Location = new System.Drawing.Point(455, 10);
             this.pictureBoxcPwc.Name = "pictureBoxcPwc";
             this.pictureBoxcPwc.Size = new System.Drawing.Size(41, 36);
             this.pictureBoxcPwc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -961,7 +964,7 @@
             // pictureBoxcPhc
             // 
             this.pictureBoxcPhc.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxcPhc.Image")));
-            this.pictureBoxcPhc.Location = new System.Drawing.Point(672, 11);
+            this.pictureBoxcPhc.Location = new System.Drawing.Point(675, 9);
             this.pictureBoxcPhc.Name = "pictureBoxcPhc";
             this.pictureBoxcPhc.Size = new System.Drawing.Size(38, 36);
             this.pictureBoxcPhc.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -970,10 +973,11 @@
             // 
             // panelTrainingProgram
             // 
+            this.panelTrainingProgram.Controls.Add(this.buttonDelTrainingProgram);
             this.panelTrainingProgram.Controls.Add(this.tableLayoutPanel2);
             this.panelTrainingProgram.Controls.Add(this.tableLayoutPanel1);
-            this.panelTrainingProgram.Controls.Add(this.panelDaysTP);
             this.panelTrainingProgram.Controls.Add(this.panelQuestCreateTP);
+            this.panelTrainingProgram.Controls.Add(this.panelDaysTP);
             this.panelTrainingProgram.Location = new System.Drawing.Point(12, 168);
             this.panelTrainingProgram.Name = "panelTrainingProgram";
             this.panelTrainingProgram.Size = new System.Drawing.Size(859, 347);
@@ -1068,6 +1072,8 @@
             // 
             // panelDaysTP
             // 
+            this.panelDaysTP.Controls.Add(this.labelCur);
+            this.panelDaysTP.Controls.Add(this.buttonAddPaterns);
             this.panelDaysTP.Controls.Add(this.label7);
             this.panelDaysTP.Controls.Add(this.label6);
             this.panelDaysTP.Controls.Add(this.label5);
@@ -1082,9 +1088,9 @@
             this.panelDaysTP.Controls.Add(this.listViewTuesday);
             this.panelDaysTP.Controls.Add(this.listViewThursday);
             this.panelDaysTP.Controls.Add(this.listViewMonday);
-            this.panelDaysTP.Location = new System.Drawing.Point(30, 18);
+            this.panelDaysTP.Location = new System.Drawing.Point(31, 3);
             this.panelDaysTP.Name = "panelDaysTP";
-            this.panelDaysTP.Size = new System.Drawing.Size(582, 306);
+            this.panelDaysTP.Size = new System.Drawing.Size(582, 341);
             this.panelDaysTP.TabIndex = 55;
             this.panelDaysTP.Visible = false;
             // 
@@ -1092,7 +1098,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(463, 69);
+            this.label7.Location = new System.Drawing.Point(461, 95);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(93, 16);
             this.label7.TabIndex = 68;
@@ -1102,7 +1108,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(341, 155);
+            this.label6.Location = new System.Drawing.Point(339, 181);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(64, 16);
             this.label6.TabIndex = 67;
@@ -1112,7 +1118,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(190, 155);
+            this.label5.Location = new System.Drawing.Point(188, 181);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(64, 16);
             this.label5.TabIndex = 66;
@@ -1122,7 +1128,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(43, 155);
+            this.label4.Location = new System.Drawing.Point(41, 181);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 16);
             this.label4.TabIndex = 65;
@@ -1132,7 +1138,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(341, 11);
+            this.label3.Location = new System.Drawing.Point(339, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 16);
             this.label3.TabIndex = 64;
@@ -1142,7 +1148,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(190, 11);
+            this.label2.Location = new System.Drawing.Point(188, 37);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 16);
             this.label2.TabIndex = 63;
@@ -1152,7 +1158,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(24, 11);
+            this.label1.Location = new System.Drawing.Point(22, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(96, 16);
             this.label1.TabIndex = 62;
@@ -1162,7 +1168,7 @@
             // 
             this.listViewSunday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listViewSunday.GridLines = true;
-            this.listViewSunday.Location = new System.Drawing.Point(440, 88);
+            this.listViewSunday.Location = new System.Drawing.Point(438, 114);
             this.listViewSunday.Name = "listViewSunday";
             this.listViewSunday.Size = new System.Drawing.Size(139, 123);
             this.listViewSunday.TabIndex = 61;
@@ -1174,7 +1180,7 @@
             // 
             this.listViewSaturday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listViewSaturday.GridLines = true;
-            this.listViewSaturday.Location = new System.Drawing.Point(295, 173);
+            this.listViewSaturday.Location = new System.Drawing.Point(293, 199);
             this.listViewSaturday.Name = "listViewSaturday";
             this.listViewSaturday.Size = new System.Drawing.Size(139, 123);
             this.listViewSaturday.TabIndex = 60;
@@ -1186,7 +1192,7 @@
             // 
             this.listViewWednesday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listViewWednesday.GridLines = true;
-            this.listViewWednesday.Location = new System.Drawing.Point(295, 29);
+            this.listViewWednesday.Location = new System.Drawing.Point(293, 55);
             this.listViewWednesday.Name = "listViewWednesday";
             this.listViewWednesday.Size = new System.Drawing.Size(139, 123);
             this.listViewWednesday.TabIndex = 59;
@@ -1198,7 +1204,7 @@
             // 
             this.listViewFriday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listViewFriday.GridLines = true;
-            this.listViewFriday.Location = new System.Drawing.Point(150, 173);
+            this.listViewFriday.Location = new System.Drawing.Point(148, 199);
             this.listViewFriday.Name = "listViewFriday";
             this.listViewFriday.Size = new System.Drawing.Size(139, 123);
             this.listViewFriday.TabIndex = 58;
@@ -1210,7 +1216,7 @@
             // 
             this.listViewTuesday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listViewTuesday.GridLines = true;
-            this.listViewTuesday.Location = new System.Drawing.Point(150, 29);
+            this.listViewTuesday.Location = new System.Drawing.Point(148, 55);
             this.listViewTuesday.Name = "listViewTuesday";
             this.listViewTuesday.Size = new System.Drawing.Size(139, 123);
             this.listViewTuesday.TabIndex = 57;
@@ -1222,7 +1228,7 @@
             // 
             this.listViewThursday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listViewThursday.GridLines = true;
-            this.listViewThursday.Location = new System.Drawing.Point(5, 173);
+            this.listViewThursday.Location = new System.Drawing.Point(3, 199);
             this.listViewThursday.Name = "listViewThursday";
             this.listViewThursday.Size = new System.Drawing.Size(139, 123);
             this.listViewThursday.TabIndex = 56;
@@ -1234,7 +1240,7 @@
             // 
             this.listViewMonday.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.listViewMonday.GridLines = true;
-            this.listViewMonday.Location = new System.Drawing.Point(5, 29);
+            this.listViewMonday.Location = new System.Drawing.Point(3, 55);
             this.listViewMonday.Name = "listViewMonday";
             this.listViewMonday.Size = new System.Drawing.Size(139, 123);
             this.listViewMonday.TabIndex = 55;
@@ -1514,12 +1520,53 @@
             this.buttonDelUser.UseVisualStyleBackColor = false;
             this.buttonDelUser.Click += new System.EventHandler(this.buttonDelUser_Click);
             // 
+            // buttonDelTrainingProgram
+            // 
+            this.buttonDelTrainingProgram.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonDelTrainingProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelTrainingProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDelTrainingProgram.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.buttonDelTrainingProgram.Location = new System.Drawing.Point(668, 297);
+            this.buttonDelTrainingProgram.Name = "buttonDelTrainingProgram";
+            this.buttonDelTrainingProgram.Size = new System.Drawing.Size(155, 27);
+            this.buttonDelTrainingProgram.TabIndex = 76;
+            this.buttonDelTrainingProgram.Text = "Удалить программу";
+            this.buttonDelTrainingProgram.UseVisualStyleBackColor = false;
+            this.buttonDelTrainingProgram.Click += new System.EventHandler(this.buttonDelTrainingProgram_Click);
+            // 
+            // buttonAddPaterns
+            // 
+            this.buttonAddPaterns.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonAddPaterns.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddPaterns.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddPaterns.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.buttonAddPaterns.Location = new System.Drawing.Point(438, 250);
+            this.buttonAddPaterns.Name = "buttonAddPaterns";
+            this.buttonAddPaterns.Size = new System.Drawing.Size(139, 62);
+            this.buttonAddPaterns.TabIndex = 77;
+            this.buttonAddPaterns.Text = "Сохранить программу\r\nв шаблоны";
+            this.buttonAddPaterns.UseVisualStyleBackColor = false;
+            this.buttonAddPaterns.Click += new System.EventHandler(this.buttonAddPaterns_Click);
+            // 
+            // labelCur
+            // 
+            this.labelCur.AutoSize = true;
+            this.labelCur.Font = new System.Drawing.Font("Lucida Fax", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCur.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.labelCur.Location = new System.Drawing.Point(221, 10);
+            this.labelCur.Name = "labelCur";
+            this.labelCur.Size = new System.Drawing.Size(72, 15);
+            this.labelCur.TabIndex = 78;
+            this.labelCur.Text = "Название";
+            // 
             // MainWindow
             // 
             this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(883, 529);
+            this.Controls.Add(this.panelTrainingProgram);
+            this.Controls.Add(this.panelAddTpForUser);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.panelUserBar);
             this.Controls.Add(this.panelIcon);
@@ -1541,8 +1588,6 @@
             this.Controls.Add(this.buttonSearchMusclesAndExercises);
             this.Controls.Add(this.buttonAddTrainingProgram);
             this.Controls.Add(this.buttonAddTpForUser);
-            this.Controls.Add(this.panelAddTpForUser);
-            this.Controls.Add(this.panelTrainingProgram);
             this.Controls.Add(this.buttonAddUser);
             this.Controls.Add(this.buttonDelUser);
             this.Controls.Add(this.axWindowsMediaPlayer);
@@ -1715,6 +1760,9 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ToolStripMenuItem удалитьToolStripMenuItem1;
         private System.Windows.Forms.Button buttonAddExercises;
+        private System.Windows.Forms.Button buttonDelTrainingProgram;
+        private System.Windows.Forms.Button buttonAddPaterns;
+        private System.Windows.Forms.Label labelCur;
     }
 }
 

@@ -684,12 +684,16 @@ namespace TrainingProgram
                 if (workWithDataBase.SelectCountFromDataBase("select * from TrainingProgram where idUser =" + SelectUserWindow.idSelectedUser) == 0)
                 {
                     panelQuestCreateTP.Visible = true;
+                    buttonDelTrainingProgram.Visible = false;
+                    panelDaysTP.Visible = false;
                     addTrainingProgram.FillListViewPatternsTP(listViewPatternsTP, AddTrainingProgram.pwCondition);
 
                 }
                 else
                 {
+                    panelQuestCreateTP.Visible = false;
                     panelDaysTP.Visible = true;
+                    buttonDelTrainingProgram.Visible = true;
 
                     addTrainingProgram.FillListViewDaysTp(listViewMonday, AddTrainingProgram.daysWeek[0], AddTrainingProgram.pwCondition,SelectUserWindow.idSelectedUser);
                     addTrainingProgram.FillListViewDaysTp(listViewTuesday, AddTrainingProgram.daysWeek[1], AddTrainingProgram.pwCondition,SelectUserWindow.idSelectedUser);
@@ -830,6 +834,7 @@ namespace TrainingProgram
                     }
                     break;
                 }
+                buttonDelTrainingProgram.Visible = true;
             }
 
 
@@ -842,10 +847,9 @@ namespace TrainingProgram
             addTrainingProgram.FillListViewDaysTp(listViewSunday, AddTrainingProgram.daysWeek[6], AddTrainingProgram.pwCondition, SelectUserWindow.idSelectedUser);
 
 
-
-
             panelQuestCreateTP.Visible = false;
             panelDaysTP.Visible = true;
+
         }
 
         private void listViewExercises_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -902,6 +906,38 @@ namespace TrainingProgram
             AddExercisesWindow addExercisesWindow = new AddExercisesWindow(this);
             addExercisesWindow.StartPosition = FormStartPosition.CenterParent;
             addExercisesWindow.ShowDialog();
+        }
+
+        private void buttonDelTrainingProgram_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Внимание!\nУдалить программу тренирвок?", "Удаление", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+            if (result == DialogResult.Yes)
+            {
+                workWithTrainigProgram.DeleteTrainingProgramm(SelectUserWindow.idSelectedUser);
+                FillUserBar();
+
+            }
+            else if (result == DialogResult.No || result == DialogResult.Cancel)
+                return;
+        }
+
+        private void buttonAddPaterns_Click(object sender, EventArgs e)
+        {
+
+            string[,] sqlSelect = workWithTrainigProgram.SelectFromDataBase("select * from TrainingProgram where idUser =" + SelectUserWindow.idSelectedUser, 1);
+            workWithTrainigProgram.InsertPatternsTP(sqlSelect[0, 2], Convert.ToInt32(sqlSelect[0, 3]), Convert.ToInt32(sqlSelect[0, 4]));
+
+            int count = workWithTrainigProgram.SelectCountFromDataBase("select count(idExercisesFromTP) from ExercisesForTP where idTrainingProgram = " + Convert.ToInt32(sqlSelect[0,0]));
+            string[,] sqlSelectRes = workWithTrainigProgram.SelectFromDataBase("select * from ExercisesForTP where idTrainingProgram = " + Convert.ToInt32(sqlSelect[0, 0]), count);
+
+            sqlSelect = workWithTrainigProgram.SelectFromDataBase("select * from PatternsTP where nameTP = '" + sqlSelect[0, 2] + "' and durationTP = " + Convert.ToInt32(sqlSelect[0, 3]) + " and lvlTP =" + Convert.ToInt32(sqlSelect[0, 4]),1);
+
+
+            for(int i=0; i<count; i++)
+            {
+                workWithTrainigProgram.InsertExercisesForPatternTP(Convert.ToInt32(sqlSelect[0, 0]), Convert.ToInt32(sqlSelectRes[i, 2]), Convert.ToInt32(sqlSelectRes[i, 3]));
+            }
+
         }
     }
 }

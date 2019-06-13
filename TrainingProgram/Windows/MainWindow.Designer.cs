@@ -104,6 +104,7 @@
             this.pictureBoxcPwc = new System.Windows.Forms.PictureBox();
             this.pictureBoxcPhc = new System.Windows.Forms.PictureBox();
             this.panelTrainingProgram = new System.Windows.Forms.Panel();
+            this.buttonDelTrainingProgram = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label9 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -111,7 +112,16 @@
             this.labelNameCurrentTrainigDays = new System.Windows.Forms.Label();
             this.labelCurrentnTrainingDays = new System.Windows.Forms.Label();
             this.labelCountTrainingDays = new System.Windows.Forms.Label();
+            this.panelQuestCreateTP = new System.Windows.Forms.Panel();
+            this.comboBoxLvlTp = new System.Windows.Forms.ComboBox();
+            this.comboBoxDurationWeek = new System.Windows.Forms.ComboBox();
+            this.textBoxNameTp = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.buttonCreateTp = new System.Windows.Forms.Button();
+            this.listViewPatternsTP = new System.Windows.Forms.ListView();
             this.panelDaysTP = new System.Windows.Forms.Panel();
+            this.labelCur = new System.Windows.Forms.Label();
+            this.buttonAddPaterns = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -126,13 +136,6 @@
             this.listViewTuesday = new System.Windows.Forms.ListView();
             this.listViewThursday = new System.Windows.Forms.ListView();
             this.listViewMonday = new System.Windows.Forms.ListView();
-            this.panelQuestCreateTP = new System.Windows.Forms.Panel();
-            this.comboBoxLvlTp = new System.Windows.Forms.ComboBox();
-            this.comboBoxDurationWeek = new System.Windows.Forms.ComboBox();
-            this.textBoxNameTp = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.buttonCreateTp = new System.Windows.Forms.Button();
-            this.listViewPatternsTP = new System.Windows.Forms.ListView();
             this.labelnameProgram = new System.Windows.Forms.Label();
             this.panelHeadExercises = new System.Windows.Forms.Panel();
             this.buttonAddExercises = new System.Windows.Forms.Button();
@@ -148,9 +151,6 @@
             this.buttonAddTpForUser = new System.Windows.Forms.Button();
             this.buttonAddUser = new System.Windows.Forms.Button();
             this.buttonDelUser = new System.Windows.Forms.Button();
-            this.buttonDelTrainingProgram = new System.Windows.Forms.Button();
-            this.buttonAddPaterns = new System.Windows.Forms.Button();
-            this.labelCur = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer)).BeginInit();
             this.contextMenuStripFromTree.SuspendLayout();
             this.contextMenuStripDelRename.SuspendLayout();
@@ -168,8 +168,8 @@
             this.panelTrainingProgram.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.panelDaysTP.SuspendLayout();
             this.panelQuestCreateTP.SuspendLayout();
+            this.panelDaysTP.SuspendLayout();
             this.panelHeadExercises.SuspendLayout();
             this.panelIcon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -984,6 +984,20 @@
             this.panelTrainingProgram.TabIndex = 36;
             this.panelTrainingProgram.Visible = false;
             // 
+            // buttonDelTrainingProgram
+            // 
+            this.buttonDelTrainingProgram.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonDelTrainingProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelTrainingProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDelTrainingProgram.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.buttonDelTrainingProgram.Location = new System.Drawing.Point(668, 297);
+            this.buttonDelTrainingProgram.Name = "buttonDelTrainingProgram";
+            this.buttonDelTrainingProgram.Size = new System.Drawing.Size(155, 27);
+            this.buttonDelTrainingProgram.TabIndex = 76;
+            this.buttonDelTrainingProgram.Text = "Удалить программу";
+            this.buttonDelTrainingProgram.UseVisualStyleBackColor = false;
+            this.buttonDelTrainingProgram.Click += new System.EventHandler(this.buttonDelTrainingProgram_Click);
+            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.OutsetPartial;
@@ -1070,6 +1084,101 @@
             this.labelCountTrainingDays.TabIndex = 70;
             this.labelCountTrainingDays.Text = "0-0";
             // 
+            // panelQuestCreateTP
+            // 
+            this.panelQuestCreateTP.Controls.Add(this.comboBoxLvlTp);
+            this.panelQuestCreateTP.Controls.Add(this.comboBoxDurationWeek);
+            this.panelQuestCreateTP.Controls.Add(this.textBoxNameTp);
+            this.panelQuestCreateTP.Controls.Add(this.label8);
+            this.panelQuestCreateTP.Controls.Add(this.buttonCreateTp);
+            this.panelQuestCreateTP.Controls.Add(this.listViewPatternsTP);
+            this.panelQuestCreateTP.Location = new System.Drawing.Point(150, 35);
+            this.panelQuestCreateTP.Name = "panelQuestCreateTP";
+            this.panelQuestCreateTP.Size = new System.Drawing.Size(378, 269);
+            this.panelQuestCreateTP.TabIndex = 69;
+            this.panelQuestCreateTP.Visible = false;
+            // 
+            // comboBoxLvlTp
+            // 
+            this.comboBoxLvlTp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLvlTp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxLvlTp.FormattingEnabled = true;
+            this.comboBoxLvlTp.Items.AddRange(new object[] {
+            "Низкий",
+            "Ниже среднего",
+            "Средний",
+            "Выше среднего",
+            "Высокий"});
+            this.comboBoxLvlTp.Location = new System.Drawing.Point(84, 133);
+            this.comboBoxLvlTp.Name = "comboBoxLvlTp";
+            this.comboBoxLvlTp.Size = new System.Drawing.Size(82, 21);
+            this.comboBoxLvlTp.TabIndex = 30;
+            // 
+            // comboBoxDurationWeek
+            // 
+            this.comboBoxDurationWeek.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxDurationWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxDurationWeek.FormattingEnabled = true;
+            this.comboBoxDurationWeek.Items.AddRange(new object[] {
+            "4",
+            "6",
+            "8",
+            "10",
+            "12"});
+            this.comboBoxDurationWeek.Location = new System.Drawing.Point(21, 132);
+            this.comboBoxDurationWeek.Name = "comboBoxDurationWeek";
+            this.comboBoxDurationWeek.Size = new System.Drawing.Size(57, 21);
+            this.comboBoxDurationWeek.TabIndex = 29;
+            // 
+            // textBoxNameTp
+            // 
+            this.textBoxNameTp.Location = new System.Drawing.Point(21, 100);
+            this.textBoxNameTp.Name = "textBoxNameTp";
+            this.textBoxNameTp.Size = new System.Drawing.Size(148, 20);
+            this.textBoxNameTp.TabIndex = 28;
+            this.textBoxNameTp.Tag = "Введите имя программы...";
+            this.textBoxNameTp.TextChanged += new System.EventHandler(this.textBoxNameTp_TextChanged);
+            this.textBoxNameTp.Enter += new System.EventHandler(this.textBoxNameTp_Enter);
+            this.textBoxNameTp.Leave += new System.EventHandler(this.textBoxNameTp_Leave);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(60, 6);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(245, 80);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Необходимо создать \r\nпрограмму тренировок.\r\nМожно создать новую программу \r\nтрени" +
+    "ровок или выбрать из готовых\r\nшаблонов\r\n";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // buttonCreateTp
+            // 
+            this.buttonCreateTp.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonCreateTp.Enabled = false;
+            this.buttonCreateTp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreateTp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonCreateTp.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.buttonCreateTp.Location = new System.Drawing.Point(30, 168);
+            this.buttonCreateTp.Name = "buttonCreateTp";
+            this.buttonCreateTp.Size = new System.Drawing.Size(125, 57);
+            this.buttonCreateTp.TabIndex = 0;
+            this.buttonCreateTp.Text = "Создать программу тренировок";
+            this.buttonCreateTp.UseVisualStyleBackColor = false;
+            this.buttonCreateTp.Click += new System.EventHandler(this.buttonCreateTp_Click);
+            // 
+            // listViewPatternsTP
+            // 
+            this.listViewPatternsTP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.listViewPatternsTP.Location = new System.Drawing.Point(187, 88);
+            this.listViewPatternsTP.Name = "listViewPatternsTP";
+            this.listViewPatternsTP.Size = new System.Drawing.Size(156, 137);
+            this.listViewPatternsTP.TabIndex = 26;
+            this.listViewPatternsTP.UseCompatibleStateImageBehavior = false;
+            this.listViewPatternsTP.View = System.Windows.Forms.View.List;
+            this.listViewPatternsTP.DoubleClick += new System.EventHandler(this.listViewPatternsTP_DoubleClick);
+            // 
             // panelDaysTP
             // 
             this.panelDaysTP.Controls.Add(this.labelCur);
@@ -1093,6 +1202,31 @@
             this.panelDaysTP.Size = new System.Drawing.Size(582, 341);
             this.panelDaysTP.TabIndex = 55;
             this.panelDaysTP.Visible = false;
+            // 
+            // labelCur
+            // 
+            this.labelCur.AutoSize = true;
+            this.labelCur.Font = new System.Drawing.Font("Lucida Fax", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCur.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.labelCur.Location = new System.Drawing.Point(221, 10);
+            this.labelCur.Name = "labelCur";
+            this.labelCur.Size = new System.Drawing.Size(72, 15);
+            this.labelCur.TabIndex = 78;
+            this.labelCur.Text = "Название";
+            // 
+            // buttonAddPaterns
+            // 
+            this.buttonAddPaterns.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonAddPaterns.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddPaterns.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonAddPaterns.ForeColor = System.Drawing.Color.DarkSlateGray;
+            this.buttonAddPaterns.Location = new System.Drawing.Point(438, 250);
+            this.buttonAddPaterns.Name = "buttonAddPaterns";
+            this.buttonAddPaterns.Size = new System.Drawing.Size(139, 62);
+            this.buttonAddPaterns.TabIndex = 77;
+            this.buttonAddPaterns.Text = "Сохранить программу\r\nв шаблоны";
+            this.buttonAddPaterns.UseVisualStyleBackColor = false;
+            this.buttonAddPaterns.Click += new System.EventHandler(this.buttonAddPaterns_Click);
             // 
             // label7
             // 
@@ -1248,101 +1382,6 @@
             this.listViewMonday.UseCompatibleStateImageBehavior = false;
             this.listViewMonday.View = System.Windows.Forms.View.List;
             // 
-            // panelQuestCreateTP
-            // 
-            this.panelQuestCreateTP.Controls.Add(this.comboBoxLvlTp);
-            this.panelQuestCreateTP.Controls.Add(this.comboBoxDurationWeek);
-            this.panelQuestCreateTP.Controls.Add(this.textBoxNameTp);
-            this.panelQuestCreateTP.Controls.Add(this.label8);
-            this.panelQuestCreateTP.Controls.Add(this.buttonCreateTp);
-            this.panelQuestCreateTP.Controls.Add(this.listViewPatternsTP);
-            this.panelQuestCreateTP.Location = new System.Drawing.Point(150, 35);
-            this.panelQuestCreateTP.Name = "panelQuestCreateTP";
-            this.panelQuestCreateTP.Size = new System.Drawing.Size(378, 269);
-            this.panelQuestCreateTP.TabIndex = 69;
-            this.panelQuestCreateTP.Visible = false;
-            // 
-            // comboBoxLvlTp
-            // 
-            this.comboBoxLvlTp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxLvlTp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxLvlTp.FormattingEnabled = true;
-            this.comboBoxLvlTp.Items.AddRange(new object[] {
-            "Низкий",
-            "Ниже среднего",
-            "Средний",
-            "Выше среднего",
-            "Высокий"});
-            this.comboBoxLvlTp.Location = new System.Drawing.Point(84, 133);
-            this.comboBoxLvlTp.Name = "comboBoxLvlTp";
-            this.comboBoxLvlTp.Size = new System.Drawing.Size(82, 21);
-            this.comboBoxLvlTp.TabIndex = 30;
-            // 
-            // comboBoxDurationWeek
-            // 
-            this.comboBoxDurationWeek.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxDurationWeek.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxDurationWeek.FormattingEnabled = true;
-            this.comboBoxDurationWeek.Items.AddRange(new object[] {
-            "4",
-            "6",
-            "8",
-            "10",
-            "12"});
-            this.comboBoxDurationWeek.Location = new System.Drawing.Point(21, 132);
-            this.comboBoxDurationWeek.Name = "comboBoxDurationWeek";
-            this.comboBoxDurationWeek.Size = new System.Drawing.Size(57, 21);
-            this.comboBoxDurationWeek.TabIndex = 29;
-            // 
-            // textBoxNameTp
-            // 
-            this.textBoxNameTp.Location = new System.Drawing.Point(21, 100);
-            this.textBoxNameTp.Name = "textBoxNameTp";
-            this.textBoxNameTp.Size = new System.Drawing.Size(148, 20);
-            this.textBoxNameTp.TabIndex = 28;
-            this.textBoxNameTp.Tag = "Введите имя программы...";
-            this.textBoxNameTp.TextChanged += new System.EventHandler(this.textBoxNameTp_TextChanged);
-            this.textBoxNameTp.Enter += new System.EventHandler(this.textBoxNameTp_Enter);
-            this.textBoxNameTp.Leave += new System.EventHandler(this.textBoxNameTp_Leave);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(60, 6);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(245, 80);
-            this.label8.TabIndex = 27;
-            this.label8.Text = "Необходимо создать \r\nпрограмму тренировок.\r\nМожно создать новую программу \r\nтрени" +
-    "ровок или выбрать из готовых\r\nшаблонов\r\n";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // buttonCreateTp
-            // 
-            this.buttonCreateTp.BackColor = System.Drawing.Color.LightBlue;
-            this.buttonCreateTp.Enabled = false;
-            this.buttonCreateTp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCreateTp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCreateTp.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.buttonCreateTp.Location = new System.Drawing.Point(30, 168);
-            this.buttonCreateTp.Name = "buttonCreateTp";
-            this.buttonCreateTp.Size = new System.Drawing.Size(125, 57);
-            this.buttonCreateTp.TabIndex = 0;
-            this.buttonCreateTp.Text = "Создать программу тренировок";
-            this.buttonCreateTp.UseVisualStyleBackColor = false;
-            this.buttonCreateTp.Click += new System.EventHandler(this.buttonCreateTp_Click);
-            // 
-            // listViewPatternsTP
-            // 
-            this.listViewPatternsTP.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.listViewPatternsTP.Location = new System.Drawing.Point(187, 88);
-            this.listViewPatternsTP.Name = "listViewPatternsTP";
-            this.listViewPatternsTP.Size = new System.Drawing.Size(156, 137);
-            this.listViewPatternsTP.TabIndex = 26;
-            this.listViewPatternsTP.UseCompatibleStateImageBehavior = false;
-            this.listViewPatternsTP.View = System.Windows.Forms.View.List;
-            this.listViewPatternsTP.DoubleClick += new System.EventHandler(this.listViewPatternsTP_DoubleClick);
-            // 
             // labelnameProgram
             // 
             this.labelnameProgram.AutoSize = true;
@@ -1460,10 +1499,13 @@
             this.buttonSearchMusclesAndExercises.BackgroundImage = global::TrainingProgram.Properties.Resources.programm_training;
             this.buttonSearchMusclesAndExercises.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonSearchMusclesAndExercises.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSearchMusclesAndExercises.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonSearchMusclesAndExercises.Location = new System.Drawing.Point(162, 170);
             this.buttonSearchMusclesAndExercises.Name = "buttonSearchMusclesAndExercises";
             this.buttonSearchMusclesAndExercises.Size = new System.Drawing.Size(161, 231);
             this.buttonSearchMusclesAndExercises.TabIndex = 0;
+            this.buttonSearchMusclesAndExercises.Text = "База Урпажнений";
+            this.buttonSearchMusclesAndExercises.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonSearchMusclesAndExercises.UseVisualStyleBackColor = false;
             this.buttonSearchMusclesAndExercises.Click += new System.EventHandler(this.buttonSearchExercises_Click);
             // 
@@ -1473,10 +1515,13 @@
             this.buttonAddTrainingProgram.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonAddTrainingProgram.BackgroundImage")));
             this.buttonAddTrainingProgram.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonAddTrainingProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddTrainingProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAddTrainingProgram.Location = new System.Drawing.Point(359, 170);
             this.buttonAddTrainingProgram.Name = "buttonAddTrainingProgram";
             this.buttonAddTrainingProgram.Size = new System.Drawing.Size(156, 231);
             this.buttonAddTrainingProgram.TabIndex = 1;
+            this.buttonAddTrainingProgram.Text = "Конструктор \r\nтренировок";
+            this.buttonAddTrainingProgram.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonAddTrainingProgram.UseVisualStyleBackColor = false;
             this.buttonAddTrainingProgram.Click += new System.EventHandler(this.buttonAddTrainingProgram_Click);
             // 
@@ -1486,11 +1531,14 @@
             this.buttonAddTpForUser.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("buttonAddTpForUser.BackgroundImage")));
             this.buttonAddTpForUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonAddTpForUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddTpForUser.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.buttonAddTpForUser.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonAddTpForUser.Location = new System.Drawing.Point(558, 170);
             this.buttonAddTpForUser.Name = "buttonAddTpForUser";
             this.buttonAddTpForUser.Size = new System.Drawing.Size(160, 231);
             this.buttonAddTpForUser.TabIndex = 6;
+            this.buttonAddTpForUser.Text = "Статистика";
+            this.buttonAddTpForUser.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.buttonAddTpForUser.UseVisualStyleBackColor = false;
             this.buttonAddTpForUser.Click += new System.EventHandler(this.buttonAddTpForUser_Click);
             // 
@@ -1520,55 +1568,20 @@
             this.buttonDelUser.UseVisualStyleBackColor = false;
             this.buttonDelUser.Click += new System.EventHandler(this.buttonDelUser_Click);
             // 
-            // buttonDelTrainingProgram
-            // 
-            this.buttonDelTrainingProgram.BackColor = System.Drawing.Color.LightBlue;
-            this.buttonDelTrainingProgram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDelTrainingProgram.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonDelTrainingProgram.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.buttonDelTrainingProgram.Location = new System.Drawing.Point(668, 297);
-            this.buttonDelTrainingProgram.Name = "buttonDelTrainingProgram";
-            this.buttonDelTrainingProgram.Size = new System.Drawing.Size(155, 27);
-            this.buttonDelTrainingProgram.TabIndex = 76;
-            this.buttonDelTrainingProgram.Text = "Удалить программу";
-            this.buttonDelTrainingProgram.UseVisualStyleBackColor = false;
-            this.buttonDelTrainingProgram.Click += new System.EventHandler(this.buttonDelTrainingProgram_Click);
-            // 
-            // buttonAddPaterns
-            // 
-            this.buttonAddPaterns.BackColor = System.Drawing.Color.LightBlue;
-            this.buttonAddPaterns.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAddPaterns.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonAddPaterns.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.buttonAddPaterns.Location = new System.Drawing.Point(438, 250);
-            this.buttonAddPaterns.Name = "buttonAddPaterns";
-            this.buttonAddPaterns.Size = new System.Drawing.Size(139, 62);
-            this.buttonAddPaterns.TabIndex = 77;
-            this.buttonAddPaterns.Text = "Сохранить программу\r\nв шаблоны";
-            this.buttonAddPaterns.UseVisualStyleBackColor = false;
-            this.buttonAddPaterns.Click += new System.EventHandler(this.buttonAddPaterns_Click);
-            // 
-            // labelCur
-            // 
-            this.labelCur.AutoSize = true;
-            this.labelCur.Font = new System.Drawing.Font("Lucida Fax", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCur.ForeColor = System.Drawing.Color.DarkSlateGray;
-            this.labelCur.Location = new System.Drawing.Point(221, 10);
-            this.labelCur.Name = "labelCur";
-            this.labelCur.Size = new System.Drawing.Size(72, 15);
-            this.labelCur.TabIndex = 78;
-            this.labelCur.Text = "Название";
-            // 
             // MainWindow
             // 
             this.AutoScroll = true;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.Window;
             this.ClientSize = new System.Drawing.Size(883, 529);
+            this.Controls.Add(this.buttonAddTrainingProgram);
+            this.Controls.Add(this.buttonAddTpForUser);
+            this.Controls.Add(this.buttonSearchMusclesAndExercises);
+            this.Controls.Add(this.buttonDelUser);
+            this.Controls.Add(this.buttonAddUser);
             this.Controls.Add(this.panelTrainingProgram);
             this.Controls.Add(this.panelAddTpForUser);
             this.Controls.Add(this.buttonBack);
-            this.Controls.Add(this.panelUserBar);
             this.Controls.Add(this.panelIcon);
             this.Controls.Add(this.panelHeadExercises);
             this.Controls.Add(this.pictureBoxIcon);
@@ -1585,15 +1598,11 @@
             this.Controls.Add(this.buttonAddImage);
             this.Controls.Add(this.richTextBoxDescriptionExercises);
             this.Controls.Add(this.pictureBoxFromImages);
-            this.Controls.Add(this.buttonSearchMusclesAndExercises);
-            this.Controls.Add(this.buttonAddTrainingProgram);
-            this.Controls.Add(this.buttonAddTpForUser);
-            this.Controls.Add(this.buttonAddUser);
-            this.Controls.Add(this.buttonDelUser);
             this.Controls.Add(this.axWindowsMediaPlayer);
             this.Controls.Add(this.listViewTrainingProgramm);
             this.Controls.Add(this.buttonAddNewUser);
             this.Controls.Add(this.treeViewMusclesAndExercises);
+            this.Controls.Add(this.panelUserBar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
             this.Name = "MainWindow";
             this.Load += new System.EventHandler(this.MainWindow_Load);
@@ -1623,10 +1632,10 @@
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            this.panelDaysTP.ResumeLayout(false);
-            this.panelDaysTP.PerformLayout();
             this.panelQuestCreateTP.ResumeLayout(false);
             this.panelQuestCreateTP.PerformLayout();
+            this.panelDaysTP.ResumeLayout(false);
+            this.panelDaysTP.PerformLayout();
             this.panelHeadExercises.ResumeLayout(false);
             this.panelHeadExercises.PerformLayout();
             this.panelIcon.ResumeLayout(false);

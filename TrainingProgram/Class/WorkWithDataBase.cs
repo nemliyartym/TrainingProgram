@@ -121,7 +121,7 @@ namespace TrainingProgram
             if (SelectExists("select idUsers from Users where exists (select * from Users where  firstName = '" + firstName + "' and lastName = '" + lastName + "' and dateOfBirth = '" + dateOfBirth + "')") == 1)
             {
                 MessageBox.Show("Пользователь уже есть в БД!");
-                Console.WriteLine("Пользователь уже есть в БД");
+                //Console.WriteLine("Пользователь уже есть в БД");
                 return;
             }
             using (SqlConnection sqlConnection = new SqlConnection(connectionString))
@@ -135,7 +135,7 @@ namespace TrainingProgram
                 sqlCommand.Parameters.Add("@dateOfBirth", SqlDbType.Date, 50).Value = dateOfBirth;
                 sqlCommand.ExecuteNonQuery();
 
-                Console.WriteLine("insert into Users values("+ firstName + ","+ lastName + ","+gender+","+dateOfBirth+")");
+                //Console.WriteLine("insert into Users values("+ firstName + ","+ lastName + ","+gender+","+dateOfBirth+")");
             }         
         }
 

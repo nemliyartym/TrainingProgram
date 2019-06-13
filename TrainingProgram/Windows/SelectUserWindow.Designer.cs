@@ -80,7 +80,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "SelectUserWindow";
-            this.Text = "Выбор пользователя";
+            this.Text = "Выбор спортсмена";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SelectUserWindow_FormClosing);
             this.Load += new System.EventHandler(this.SelectUserWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

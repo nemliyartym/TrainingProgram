@@ -55,7 +55,7 @@ namespace TrainingProgram
         public MainWindow()
         {
             InitializeComponent();
-            Win32.AllocConsole();
+            //Win32.AllocConsole();
 
             //addTrainingProgram.FillLisViewUsers(listViewUsers);
 

@@ -206,7 +206,7 @@
             this.Controls.Add(this.buttonAddExercises);
             this.Controls.Add(this.listViewExercises);
             this.Name = "AddExercisesWindow";
-            this.Text = "AddExercisesWindow";
+            this.Text = "Добавление упражнения";
             this.Load += new System.EventHandler(this.AddExercisesWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

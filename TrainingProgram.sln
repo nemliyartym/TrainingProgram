@@ -1,22 +1,22 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TrainingProgram", "TrainingProgram\TrainingProgram.csproj", "{2FF45F93-145F-4A9E-89B2-37CD889FF9F0}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2FF45F93-145F-4A9E-89B2-37CD889FF9F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2FF45F93-145F-4A9E-89B2-37CD889FF9F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2FF45F93-145F-4A9E-89B2-37CD889FF9F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2FF45F93-145F-4A9E-89B2-37CD889FF9F0}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-EndGlobal
+//binary serach
+func search(nums []int, target int) int {
+    var (
+        l = 0
+        r = len(nums)
+        m = r/2
+    )
+
+    for r >= l {
+        if nums[m] == target {
+            return m
+        } else if nums[m] > target {
+            r = m - 1
+        } else {
+            l = m + 1
+        } 
+        m = (l + r) / 2
+        
+    }
+
+    return -1
+}
